@@ -2,5 +2,5 @@
 </script>
 
 <div>
-    <h1>Categories</h1>
+    <h1>Sale</h1>
 </div>

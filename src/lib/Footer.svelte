@@ -1,11 +1,10 @@
 <footer class="footer fixed bottom-0 bg-base-200 p-10 text-base-content">
 	<nav>
 		<h6 class="footer-title">Shopping</h6>
-		<a href="/" class="link-hover link">Shop</a>
-		<a href="/" class="link-hover link">Categories</a>
-		<a href="/" class="link-hover link">New</a>
-		<a href="/" class="link-hover link">Best Sellers</a>
-		<a href="/" class="link-hover link">Sale</a>
+		<a href="/categories" class="link-hover link">Categories</a>
+		<a href="/categories/new" class="link-hover link">New</a>
+		<a href="/categories/best_sellers" class="link-hover link">Best Sellers</a>
+		<a href="/categories/sale" class="link-hover link">Sale</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Our Company</h6>

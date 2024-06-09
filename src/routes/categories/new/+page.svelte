@@ -2,5 +2,5 @@
 </script>
 
 <div>
-    <h1>Categories</h1>
+    <h1>New</h1>
 </div>

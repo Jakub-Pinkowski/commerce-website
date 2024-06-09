@@ -2,10 +2,10 @@
 	<div class="navbar bg-base-100">
 		<div class="navbar-start">
 			<a href="/" class="btn btn-ghost">Home</a>
-			<a href="/shop" class="btn btn-ghost">Shop</a>
 			<a href="/categories" class="btn btn-ghost">Categories</a>
-			<a href="/new" class="btn btn-ghost">New</a>
-            <a href="/" class="btn btn-ghost">Sale</a>
+			<a href="/categories/new" class="btn btn-ghost">New</a>
+            <a href="/categories/best_sellers" class="btn btn-ghost">Best Sellers</a>
+            <a href="/categories/sale" class="btn btn-ghost">Sale</a>
 		</div>
 		<div class="navbar-center">
 			<a href="/" class="btn btn-ghost text-xl">Logo</a>
