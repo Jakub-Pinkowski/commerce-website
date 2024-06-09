@@ -5,19 +5,19 @@
 		<a href="/" class="link-hover link">Categories</a>
 		<a href="/" class="link-hover link">New</a>
 		<a href="/" class="link-hover link">Best Sellers</a>
-        <a href="/" class="link-hover link">Sale</a>
+		<a href="/" class="link-hover link">Sale</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Our Company</h6>
-		<a href="/" class="link-hover link">About Us</a>
-		<a href="/" class="link-hover link">Contact</a>
+		<a href="/our_company/about" class="link-hover link">About Us</a>
+		<a href="/our_company/contact" class="link-hover link">Contact</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Legal</h6>
-		<a href="/" class="link-hover link">Return Policy</a>
-		<a href="/" class="link-hover link">Terms and Conditions</a>
-		<a href="/" class="link-hover link">Privacy Policy</a>
-		<a href="/" class="link-hover link">Cookie Policy</a>
+		<a href="/legal/return_policy" class="link-hover link">Return Policy</a>
+		<a href="/legal/terms_and_conditions" class="link-hover link">Terms and Conditions</a>
+		<a href="/legal/privacy_policy" class="link-hover link">Privacy Policy</a>
+		<a href="/legal/cookie_policy" class="link-hover link">Cookie Policy</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Social</h6>
