@@ -1,24 +1,22 @@
 <footer class="footer fixed bottom-0 bg-base-200 p-10 text-base-content">
-    <nav>
-		<h6 class="footer-title">Discover</h6>
-		<a href="/" class="link-hover link">About us</a>
-		<a href="/" class="link-hover link">Contact</a>
-		<a href="/" class="link-hover link">Jobs</a>
-		<a href="/" class="link-hover link">Press kit</a>
+	<nav>
+		<h6 class="footer-title">Shopping</h6>
+		<a href="/" class="link-hover link">Shop</a>
+		<a href="/" class="link-hover link">Categories</a>
+		<a href="/" class="link-hover link">New</a>
+		<a href="/" class="link-hover link">Best Sellers</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Our Company</h6>
 		<a href="/" class="link-hover link">About Us</a>
-		<a href="/" class="link-hover link">Contect</a>
-		<a href="/" class="link-hover link">Marketing</a>
-		<a href="/" class="link-hover link">Advertisement</a>
+		<a href="/" class="link-hover link">Contact</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Legal</h6>
 		<a href="/" class="link-hover link">Return Policy</a>
 		<a href="/" class="link-hover link">Terms and Conditions</a>
 		<a href="/" class="link-hover link">Privacy Policy</a>
-        <a href="/" class="link-hover link">Cookie Policy</a>
+		<a href="/" class="link-hover link">Cookie Policy</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Social</h6>
@@ -72,7 +70,7 @@
 		<fieldset class="form-control w-80">
 			<!-- svelte-ignore a11y_label_has_associated_control -->
 			<label class="label">
-				<span class="label-text">Enter your email address</span>
+				<span class="label-text">Sign up for a newsletter to get 10% off your first purchase</span>
 			</label>
 			<div class="join">
 				<input type="text" placeholder="username@site.com" class="input join-item input-bordered" />
