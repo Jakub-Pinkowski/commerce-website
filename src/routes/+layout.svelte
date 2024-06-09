@@ -1,11 +1,10 @@
 <script>
-	import './styles.css';
+    import Header from '../lib/Header.svelte';
+	import "../app.css";
 </script>
 
 <div class="app">
-	<header>
-		<h1>Commerce website</h1>
-	</header>
+    <Header />
 
 	<main>
 		<slot />
@@ -16,7 +15,7 @@
 	</footer>
 </div>
 
-<style>
+<style lang="scss">
 	.app {
 		display: flex;
 		flex-direction: column;
