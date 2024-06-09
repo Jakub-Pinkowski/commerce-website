@@ -3,10 +3,16 @@
 
 <header>
 	<div class="navbar bg-base-100">
-		<div class="flex-1">
-			<a href="/" class="btn btn-ghost text-xl">Home</a>
+		<div class="navbar-start">
+			<a href="/" class="btn btn-ghost">Home</a>
+			<a href="/shop" class="btn btn-ghost">Shop</a>
+			<a href="/categories" class="btn btn-ghost">Categories</a>
+			<a href="/new" class="btn btn-ghost">New</a>
 		</div>
-		<div class="flex-none">
+		<div class="navbar-center">
+			<a href="/" class="btn btn-ghost text-xl">Logo</a>
+		</div>
+		<div class="navbar-end">
 			<button class="btn btn-circle btn-ghost">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +62,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div tabindex="0" role="button" class="avatar btn btn-circle btn-ghost">
 				<div class="w-10 rounded-full">
 					<a href="/profile">
