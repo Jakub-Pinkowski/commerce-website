@@ -5,6 +5,7 @@
 			<a href="/shop" class="btn btn-ghost">Shop</a>
 			<a href="/categories" class="btn btn-ghost">Categories</a>
 			<a href="/new" class="btn btn-ghost">New</a>
+            <a href="/" class="btn btn-ghost">Sale</a>
 		</div>
 		<div class="navbar-center">
 			<a href="/" class="btn btn-ghost text-xl">Logo</a>

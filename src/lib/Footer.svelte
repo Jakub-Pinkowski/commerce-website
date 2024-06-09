@@ -5,6 +5,7 @@
 		<a href="/" class="link-hover link">Categories</a>
 		<a href="/" class="link-hover link">New</a>
 		<a href="/" class="link-hover link">Best Sellers</a>
+        <a href="/" class="link-hover link">Sale</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Our Company</h6>
