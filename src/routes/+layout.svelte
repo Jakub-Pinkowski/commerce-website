@@ -1,5 +1,6 @@
 <script>
     import Header from '../lib/Header.svelte';
+    import Footer from '../lib/Footer.svelte';
 	import "../app.css";
 </script>
 
@@ -10,9 +11,7 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+    <Footer />
 </div>
 
 <style lang="scss">
@@ -22,6 +21,4 @@
 		min-height: 100vh;
 	}
 
-	footer {
-	}
 </style>
