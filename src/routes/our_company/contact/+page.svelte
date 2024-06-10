@@ -60,7 +60,7 @@
 	};
 </script>
 
-<div>
+<div class="text-center">
 	<h1>Contact Us</h1>
 	<section>
 		<form on:submit={handleSubmit} class="mb-8 flex flex-col">
@@ -71,7 +71,7 @@
 					name="name"
 					type="text"
 					class="grow"
-					placeholder="Name"
+					placeholder="Name*"
 				/>
 			</label>
 			<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
@@ -81,7 +81,7 @@
 					name="email"
 					type="email"
 					class="grow"
-					placeholder="Email"
+					placeholder="Email*"
 				/>
 			</label>
 			<textarea
@@ -89,7 +89,7 @@
 				id="message"
 				name="message"
 				class="textarea textarea-bordered my-4 w-full max-w-xl gap-2 text-base"
-				placeholder="Message"
+				placeholder="Message*"
 				cols="30"
 				rows="5"
 			>
