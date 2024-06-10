@@ -1,19 +1,19 @@
 <script>
-    import Header from '../lib/Header.svelte';
-    import Footer from '../lib/Footer.svelte';
-    import MiniCart from '../lib/MiniCart.svelte';
-	import "../app.css";
+	import Header from '../lib/Header.svelte';
+	import Footer from '../lib/Footer.svelte';
+	import MiniCart from '../lib/MiniCart.svelte';
+	import '../app.css';
 </script>
 
 <div class="app">
-    <Header />
-    <MiniCart />
+	<Header />
+	<MiniCart />
 
-	<main>
+	<main class="p-4 md:p-8">
 		<slot />
 	</main>
 
-    <Footer />
+	<Footer />
 </div>
 
 <style lang="scss">
@@ -22,5 +22,4 @@
 		flex-direction: column;
 		min-height: 100vh;
 	}
-
 </style>
