@@ -61,10 +61,10 @@
 </script>
 
 <div>
-	<h1>Contact</h1>
+	<h1>Contact Us</h1>
 	<section>
-		<form on:submit={handleSubmit}>
-			<label class="input input-bordered flex items-center gap-2">
+		<form on:submit={handleSubmit} class="mb-8 flex flex-col">
+			<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
 				<input
 					bind:value={name}
 					id="name"
@@ -74,7 +74,7 @@
 					placeholder="Name"
 				/>
 			</label>
-			<label class="input input-bordered flex items-center gap-2">
+			<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
 				<input
 					bind:value={email}
 					id="email"
@@ -88,12 +88,13 @@
 				bind:value={message}
 				id="message"
 				name="message"
-				class="textarea textarea-bordered"
+				class="textarea textarea-bordered my-4 w-full max-w-xl gap-2 text-base"
 				placeholder="Message"
 				cols="30"
 				rows="5"
-			></textarea>
-			<button class="btn btn-primary" type="submit">Submit</button>
+			>
+			</textarea>
+			<button class="btn btn-primary w-24" type="submit">Submit</button>
 		</form>
 	</section>
 </div>
