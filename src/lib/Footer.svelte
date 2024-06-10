@@ -78,4 +78,8 @@
 			</div>
 		</fieldset>
 	</form>
+	<aside class="items-center">
+		<p>Copyright © 2024</p>
+        <p>All right reserved Jakub Pinkowski</p>
+	</aside>
 </footer>
