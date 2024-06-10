@@ -5,34 +5,34 @@
 	let name: string;
 	let email: string;
 	let message: string;
+	let nameError: string;
+	let emailError: string;
+	let messageError: string;
 	let toastSuccess: boolean = false;
-	let toastError: boolean = false;
 	let toastMessage: string;
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
 
-		if (!name || !email || !message) {
-			toastError = true;
-			toastMessage = 'Please fill in all fields';
+		nameError = '';
+		emailError = '';
+		messageError = '';
 
-			setTimeout(() => {
-				toastSuccess = false;
-				toastError = false;
-			}, 2000);
-
-			return;
+		if (!name) {
+			nameError = 'Please enter your name';
 		}
 
-		if (!isValidEmail(email)) {
-			toastError = true;
-			toastMessage = 'Please enter a valid email';
+		if (!email) {
+			emailError = 'Please enter your email';
+		} else if (!isValidEmail(email)) {
+			emailError = 'Please enter a valid email';
+		}
 
-			setTimeout(() => {
-				toastSuccess = false;
-				toastError = false;
-			}, 2000);
+		if (!message) {
+			messageError = 'Please enter your message';
+		}
 
+		if (nameError || emailError || messageError) {
 			return;
 		}
 
@@ -42,7 +42,6 @@
 
 		setTimeout(() => {
 			toastSuccess = false;
-			toastError = false;
 		}, 2000);
 
 		resetForm();
@@ -66,6 +65,7 @@
 		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
 			<input bind:value={name} id="name" name="name" type="text" class="grow" placeholder="Name*" />
 		</label>
+		{#if nameError}<span class="text-xs text-red-500">{nameError}</span>{/if}
 		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
 			<input
 				bind:value={email}
@@ -76,6 +76,7 @@
 				placeholder="Email*"
 			/>
 		</label>
+		{#if emailError}<span class="text-xs text-red-500">{emailError}</span>{/if}
 		<textarea
 			bind:value={message}
 			id="message"
@@ -86,6 +87,7 @@
 			rows="5"
 		>
 		</textarea>
+		{#if messageError}<span class="text-xs text-red-500">{messageError}</span>{/if}
 		<button class="btn btn-primary mt-8 w-full max-w-xl" type="submit">Submit</button>
 	</form>
 </div>
@@ -93,14 +95,6 @@
 {#if toastSuccess}
 	<div class="toast toast-center toast-top" transition:fade>
 		<div class="alert alert-success">
-			<span>{toastMessage}</span>
-		</div>
-	</div>
-{/if}
-
-{#if toastError}
-	<div class="toast toast-center toast-top" transition:fade>
-		<div class="alert alert-error">
 			<span>{toastMessage}</span>
 		</div>
 	</div>
