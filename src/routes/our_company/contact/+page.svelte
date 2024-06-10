@@ -61,42 +61,33 @@
 </script>
 
 <div class="text-center">
-	<h1>Contact Us</h1>
-	<section>
-		<form on:submit={handleSubmit} class="mb-8 flex flex-col">
-			<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
-				<input
-					bind:value={name}
-					id="name"
-					name="name"
-					type="text"
-					class="grow"
-					placeholder="Name*"
-				/>
-			</label>
-			<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
-				<input
-					bind:value={email}
-					id="email"
-					name="email"
-					type="email"
-					class="grow"
-					placeholder="Email*"
-				/>
-			</label>
-			<textarea
-				bind:value={message}
-				id="message"
-				name="message"
-				class="textarea textarea-bordered my-4 w-full max-w-xl gap-2 text-base"
-				placeholder="Message*"
-				cols="30"
-				rows="5"
-			>
-			</textarea>
-			<button class="btn btn-primary w-24" type="submit">Submit</button>
-		</form>
-	</section>
+	<h1 class="mb-8 text-5xl font-extrabold dark:text-white">Contact Us</h1>
+	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
+		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
+			<input bind:value={name} id="name" name="name" type="text" class="grow" placeholder="Name*" />
+		</label>
+		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
+			<input
+				bind:value={email}
+				id="email"
+				name="email"
+				type="email"
+				class="grow"
+				placeholder="Email*"
+			/>
+		</label>
+		<textarea
+			bind:value={message}
+			id="message"
+			name="message"
+			class="textarea textarea-bordered my-4 w-full max-w-xl gap-2 text-base"
+			placeholder="Message*"
+			cols="30"
+			rows="5"
+		>
+		</textarea>
+		<button class="btn btn-primary mt-8 w-full max-w-xl" type="submit">Submit</button>
+	</form>
 </div>
 
 {#if toastSuccess}
