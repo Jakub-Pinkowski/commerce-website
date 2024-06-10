@@ -9,9 +9,43 @@
 	let toastError: boolean = false;
 	let toastMessage: string;
 
-	const handleSubmit = (event: Event) => {
+	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
-		console.log({ name, email, message });
+
+		if (!name || !email || !message) {
+			toastError = true;
+			toastMessage = 'Please fill in all fields';
+
+			setTimeout(() => {
+				toastSuccess = false;
+				toastError = false;
+			}, 2000);
+
+			return;
+		}
+
+		if (!isValidEmail(email)) {
+			toastError = true;
+			toastMessage = 'Please enter a valid email';
+
+			setTimeout(() => {
+				toastSuccess = false;
+				toastError = false;
+			}, 2000);
+
+			return;
+		}
+
+		// TODO: Add real API endpoint
+		toastSuccess = true;
+		toastMessage = 'Message sent successfully';
+
+		setTimeout(() => {
+			toastSuccess = false;
+			toastError = false;
+		}, 2000);
+
+		resetForm();
 	};
 
 	const resetForm = () => {
