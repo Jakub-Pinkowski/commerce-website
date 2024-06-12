@@ -34,11 +34,17 @@
 					class="fixed left-0 top-0 z-20 h-full w-64 bg-white pt-20 transition-transform duration-200 ease-in-out"
 					transition:fly={{ x: -100, duration: 500, easing: quadOut }}
 				>
-					<a href="/" class="block p-4">Home</a>
-					<a href="/categories" class="block p-4">Categories</a>
-					<a href="/categories/new" class="block p-4">New</a>
-					<a href="/categories/best_sellers" class="block p-4">Best Sellers</a>
-					<a href="/categories/sale" class="block p-4">Sale</a>
+					<ul class="menu bg-base-200">
+						<li><a href="/" class="block p-4" on:click={closeMenu}>Home</a></li>
+						<li><a href="/categories" class="block p-4" on:click={closeMenu}>Categories</a></li>
+						<li><a href="/categories/new" class="block p-4" on:click={closeMenu}>New</a></li>
+						<li>
+							<a href="/categories/best_sellers" class="block p-4" on:click={closeMenu}
+								>Best Sellers</a
+							>
+						</li>
+						<li><a href="/categories/sale" class="block p-4" on:click={closeMenu}>Sale</a></li>
+					</ul>
 				</div>
 			{/if}
 		</div>
