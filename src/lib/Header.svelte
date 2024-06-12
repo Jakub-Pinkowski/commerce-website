@@ -34,17 +34,39 @@
 					class="fixed left-0 top-0 z-20 h-full w-64 bg-white pt-20 transition-transform duration-200 ease-in-out"
 					transition:fly={{ x: -100, duration: 500, easing: quadOut }}
 				>
-					<ul class="menu bg-base-200">
-						<li><a href="/" class="block p-4" on:click={closeMenu}>Home</a></li>
-						<li><a href="/categories" class="block p-4" on:click={closeMenu}>Categories</a></li>
-						<li><a href="/categories/new" class="block p-4" on:click={closeMenu}>New</a></li>
-						<li>
-							<a href="/categories/best_sellers" class="block p-4" on:click={closeMenu}
-								>Best Sellers</a
-							>
-						</li>
-						<li><a href="/categories/sale" class="block p-4" on:click={closeMenu}>Sale</a></li>
-					</ul>
+					<div class="menu flex h-full flex-col bg-base-200">
+						<a href="/" class="block p-4 text-xl" on:click={closeMenu}>Home</a>
+						<ul>
+							<li>
+								<a href="/categories" class="block p-4 text-lg" on:click={closeMenu}>Categories</a>
+							</li>
+							<li>
+								<a href="/categories/new" class="block p-4 text-lg" on:click={closeMenu}>New</a>
+							</li>
+							<li>
+								<a href="/categories/best_sellers" class="block p-4 text-lg" on:click={closeMenu}
+									>Best Sellers</a
+								>
+							</li>
+							<li>
+								<a href="/categories/sale" class="block p-4 text-lg" on:click={closeMenu}>Sale</a>
+							</li>
+						</ul>
+						<div
+							tabindex="0"
+							role="button"
+							class="avatar btn btn-circle btn-ghost mb-4 ml-4 mt-auto"
+						>
+							<div class="w-10 rounded-full">
+								<a href="/profile">
+									<img
+										alt="Tailwind CSS Navbar component"
+										src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+									/>
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			{/if}
 		</div>
@@ -59,7 +81,7 @@
 			<a href="/" class="btn btn-ghost text-xl">Logo</a>
 		</div>
 		<div class="navbar-end">
-			<div title="Change Language" class="dropdown dropdown-end">
+			<div title="Change Language" class="dropdown dropdown-end hidden lg:block">
 				<div tabindex="0" role="button" class="btn btn-ghost" aria-label="Language">
 					<span
 						class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
@@ -152,7 +174,7 @@
 					</div>
 				</div>
 			</div>
-			<div tabindex="0" role="button" class="avatar btn btn-circle btn-ghost">
+			<div tabindex="0" role="button" class="avatar btn btn-circle btn-ghost hidden lg:block">
 				<div class="w-10 rounded-full">
 					<a href="/profile">
 						<img
