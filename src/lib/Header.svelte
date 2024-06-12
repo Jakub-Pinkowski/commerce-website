@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Hamburger } from 'svelte-hamburgers';
-	import { onMount, onDestroy } from 'svelte';
 	let language: string = 'EN';
 	let open: boolean = false;
 
