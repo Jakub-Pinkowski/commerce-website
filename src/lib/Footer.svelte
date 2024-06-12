@@ -1,4 +1,4 @@
-<footer class="footer fixed bottom-0 bg-base-200 p-10 text-base-content">
+<footer class="footer bottom-0 bg-base-200 p-10 text-base-content w-full mt-auto">
 	<nav>
 		<h6 class="footer-title">Shopping</h6>
 		<a href="/categories" class="link-hover link">Categories</a>
