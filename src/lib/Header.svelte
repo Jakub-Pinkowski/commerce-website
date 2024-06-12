@@ -1,5 +1,8 @@
 <script lang="ts">
-	let language = 'EN';
+	import { Hamburger } from 'svelte-hamburgers';
+	import { onMount, onDestroy } from 'svelte';
+	let language: string = 'EN';
+	let open: boolean = false;
 
 	function switchLanguage(lang: string) {
 		language = lang;
@@ -8,7 +11,11 @@
 
 <header>
 	<div class="navbar bg-base-100">
-		<div class="navbar-start">
+		<div class="navbar-start lg:hidden">
+			<Hamburger bind:open />
+			{#if open}{/if}
+		</div>
+		<div class="navbar-start hidden lg:block">
 			<a href="/" class="btn btn-ghost">Home</a>
 			<a href="/categories" class="btn btn-ghost">Categories</a>
 			<a href="/categories/new" class="btn btn-ghost">New</a>
