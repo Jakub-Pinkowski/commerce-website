@@ -1,18 +1,46 @@
 <script lang="ts">
 	import { Hamburger } from 'svelte-hamburgers';
+	import { fly } from 'svelte/transition';
+	import { quadOut } from 'svelte/easing';
 	let language: string = 'EN';
 	let open: boolean = false;
 
 	function switchLanguage(lang: string) {
 		language = lang;
 	}
+
+	function closeMenu() {
+		open = false;
+	}
 </script>
 
 <header>
 	<div class="navbar bg-base-100">
 		<div class="navbar-start lg:hidden">
-			<Hamburger bind:open />
-			{#if open}{/if}
+			<div class="z-30">
+				<Hamburger bind:open />
+			</div>
+			{#if open}
+				<div
+					class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
+					on:click={closeMenu}
+					on:keydown={(event) => {
+						if (event.key === 'Enter' || event.key === ' ') closeMenu();
+					}}
+					role="button"
+					tabindex="0"
+				></div>
+				<div
+					class="fixed left-0 top-0 z-20 h-full w-64 bg-white pt-20 transition-transform duration-200 ease-in-out"
+					transition:fly={{ x: -100, duration: 500, easing: quadOut }}
+				>
+					<a href="/" class="block p-4">Home</a>
+					<a href="/categories" class="block p-4">Categories</a>
+					<a href="/categories/new" class="block p-4">New</a>
+					<a href="/categories/best_sellers" class="block p-4">Best Sellers</a>
+					<a href="/categories/sale" class="block p-4">Sale</a>
+				</div>
+			{/if}
 		</div>
 		<div class="navbar-start hidden lg:block">
 			<a href="/" class="btn btn-ghost">Home</a>
