@@ -10,9 +10,15 @@
 	let messageError: string;
 	let toastSuccess: boolean = false;
 	let toastMessage: string;
+	let formSubmitted: boolean = false;
+
+	const isFormValid = (): boolean => {
+		return Boolean(name && isValidEmail(email) && message);
+	};
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
+		formSubmitted = true;
 
 		nameError = '';
 		emailError = '';
@@ -88,7 +94,11 @@
 		>
 		</textarea>
 		{#if messageError}<span class="text-xs text-red-500">{messageError}</span>{/if}
-		<button class="btn btn-primary mt-8 w-full max-w-xl" type="submit">Submit</button>
+		<button
+			class="btn btn-primary mt-8 w-full max-w-xl"
+			type="submit"
+			disabled={formSubmitted && !isFormValid()}>Submit</button
+		>
 	</form>
 </div>
 
