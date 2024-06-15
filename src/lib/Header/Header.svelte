@@ -18,6 +18,17 @@
 	const closeCart = () => {
 		openCart = false;
 	};
+
+	const handleKeyDown = (event: KeyboardEvent) => {
+		if (event.key === 'Enter' || event.key === ' ') {
+			open = !open;
+		}
+	};
+
+	const toggleCartAndMenu = () => {
+        closeMenu();
+		openCart = !openCart;
+	};
 </script>
 
 <header>
@@ -32,9 +43,7 @@
 				<div
 					class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
 					on:click={closeMenu}
-					on:keydown={(event) => {
-						if (event.key === 'Enter' || event.key === ' ') closeMenu();
-					}}
+					on:keydown={handleKeyDown}
 					role="button"
 					tabindex="0"
 				></div>
@@ -66,7 +75,7 @@
 							<UserIcon {closeMenu} />
 							<LanguageIcon {closeMenu} />
 							<WishlistIcon {closeMenu} />
-							<!-- <CartIcon {closeMenu} /> -->
+                            <CartIcon {toggleCartAndMenu} />
 						</div>
 					</div>
 				</div>
@@ -87,16 +96,14 @@
 			<SearchIcon {closeMenu} className="hidden lg:flex" />
 			<UserIcon {closeMenu} className="hidden lg:flex" />
 			<WishlistIcon {closeMenu} />
-			<CartIcon {closeMenu} />
+			<CartIcon {toggleCartAndMenu} />
 		</div>
 	</div>
 	{#if openCart}
 		<div
 			class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
-			on:click={closeMenu}
-			on:keydown={(event) => {
-				if (event.key === 'Enter' || event.key === ' ') closeMenu();
-			}}
+			on:click={toggleCartAndMenu}
+			on:keydown={handleKeyDown}
 			role="button"
 			tabindex="0"
 		></div>

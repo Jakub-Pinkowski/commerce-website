@@ -1,13 +1,12 @@
 <!-- TODO: Make this a real cart -->
 <script lang="ts">
 	export let className: string = '';
-	export let closeMenu: () => void;
+	export let toggleCartAndMenu: () => void;
 </script>
 
 <button
-	class={`btn btn-circle btn-ghost mx-1 ${className}`}
-	tabindex="0"
-	on:click={closeMenu}
+	class={`btn btn-circle btn-ghost mx-1 flex items-center ${className}`}
+	on:click={toggleCartAndMenu}
 >
 	<div class="indicator">
 		<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24">
@@ -17,6 +16,7 @@
 			<circle cx="7" cy="22" r="2" />
 			<circle cx="17" cy="22" r="2" />
 		</svg>
+
 		<span
 			class="badge indicator-item badge-sm border-none bg-transparent p-0 text-base text-red-600"
 		>
