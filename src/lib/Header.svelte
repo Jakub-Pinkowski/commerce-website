@@ -2,6 +2,7 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	import LanguageIcon from './icons/language.svg';
 	import HeartIcon from './icons/heart.svg';
 	import SearchIcon from './icons/search.svg';
 	import CartIcon from './icons/cart.svg';
@@ -21,27 +22,17 @@
 <header>
 	<div class="navbar bg-base-100">
 		<div class="navbar-start lg:hidden">
-			<div class="z-30">
-				<Hamburger bind:open></Hamburger>
+			<div class="btn btn-circle btn-ghost z-30">
+				<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px"
+				></Hamburger>
 			</div>
 			<!-- TODO: Make this look good -->
 			<!-- NOTE: Fontawesome icons don't automatically change with the theme -->
-			<button class="btn btn-circle btn-ghost">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-					/>
-				</svg>
-			</button>
+			<div class="btn btn-circle btn-ghost flex items-center lg:hidden">
+				<a href="/search">
+					<img src={SearchIcon} alt="Search" />
+				</a>
+			</div>
 			{#if open}
 				<div
 					class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
@@ -154,14 +145,6 @@
 					>
 						{language}
 					</span>
-					<svg
-						width="12px"
-						height="12px"
-						class="hidden h-2 w-2 fill-current opacity-60 sm:inline-block"
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 2048 2048"
-						><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg
-					>
 				</div>
 				<div
 					tabindex="-1"
