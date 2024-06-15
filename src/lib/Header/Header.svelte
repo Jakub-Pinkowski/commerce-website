@@ -33,10 +33,10 @@
 					tabindex="0"
 				></div>
 				<div
-					class="fixed left-0 top-0 z-20 h-full w-64 bg-white pt-20 transition-transform duration-200 ease-in-out"
+					class="fixed left-0 top-0 z-20 h-full w-64 bg-white transition-transform duration-200 ease-in-out"
 					transition:fly={{ x: -100, duration: 500, easing: quadOut }}
 				>
-					<div class="menu flex h-full flex-col bg-base-200">
+					<div class="menu flex h-full flex-col bg-base-200 pt-20">
 						<a href="/" class="block p-4 text-xl" on:click={closeMenu}>Home</a>
 						<ul>
 							<li>
