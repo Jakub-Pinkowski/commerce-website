@@ -26,7 +26,7 @@
 	};
 
 	const toggleCartAndMenu = () => {
-        closeMenu();
+		closeMenu();
 		openCart = !openCart;
 	};
 </script>
@@ -75,7 +75,7 @@
 							<UserIcon {closeMenu} />
 							<LanguageIcon {closeMenu} />
 							<WishlistIcon {closeMenu} />
-                            <CartIcon {toggleCartAndMenu} />
+							<CartIcon {toggleCartAndMenu} />
 						</div>
 					</div>
 				</div>
@@ -108,8 +108,8 @@
 			tabindex="0"
 		></div>
 		<div
-			class="fixed right-0 top-0 z-20 h-full w-64 bg-white transition-transform duration-200 ease-in-out"
-			transition:fly={{ x: -100, duration: 500, easing: quadOut }}
+			class="fixed right-0 top-0 z-20 h-full w-96 bg-white transition-transform duration-200 ease-in-out"
+			transition:fly={{ x: 100, duration: 500, easing: quadOut }}
 		></div>
 	{/if}
 </header>
