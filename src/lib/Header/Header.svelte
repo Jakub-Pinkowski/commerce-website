@@ -58,10 +58,10 @@
 							</li>
 						</ul>
 						<div class="mb-4 ml-4 mt-auto flex">
-							<UserIcon />
-							<LanguageIcon />
-							<WishlistIcon />
-							<CartIcon />
+							<UserIcon {closeMenu} />
+							<LanguageIcon {closeMenu} />
+							<WishlistIcon {closeMenu} />
+							<CartIcon {closeMenu} />
 						</div>
 					</div>
 				</div>
@@ -78,11 +78,11 @@
 			<a href="/" class="btn btn-ghost text-xl">Logo</a>
 		</div>
 		<div class="navbar-end">
-			<LanguageIcon className="hidden lg:flex" />
+			<LanguageIcon {closeMenu} className="hidden lg:flex" />
 			<SearchIcon {closeMenu} className="hidden lg:flex" />
-			<UserIcon className="hidden lg:flex" />
-			<WishlistIcon />
-			<CartIcon />
+			<UserIcon {closeMenu} className="hidden lg:flex" />
+			<WishlistIcon {closeMenu} />
+			<CartIcon {closeMenu} />
 		</div>
 	</div>
 </header>

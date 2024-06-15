@@ -1,9 +1,18 @@
 <!-- TODO: Make this a real cart -->
 <script lang="ts">
 	export let className: string = '';
+	export let closeMenu: () => void;
 </script>
 
-<div class={`dropdown dropdown-end mx-1 ${className}`} tabindex="0" role="button">
+<div
+	class={`dropdown dropdown-end mx-1 ${className}`}
+	tabindex="0"
+	role="button"
+	on:click={closeMenu}
+	on:keydown={(event) => {
+		if (event.key === 'Enter' || event.key === ' ') closeMenu();
+	}}
+>
 	<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
 		<div class="indicator">
 			<svg

@@ -1,6 +1,7 @@
 <!-- TODO: Make the languages work -->
 <script lang="ts">
 	export let className: string = '';
+	export let closeMenu: () => void;
 	let language: string = 'EN';
 	function switchLanguage(lang: string) {
 		language = lang;
@@ -12,6 +13,7 @@
 	class={`dropdown dropdown-end mx-1 ${className}`}
 	tabindex="0"
 	role="button"
+	on:click={closeMenu}
 >
 	<div tabindex="0" role="button" class="btn btn-circle btn-ghost" aria-label="Language">
 		<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24"
