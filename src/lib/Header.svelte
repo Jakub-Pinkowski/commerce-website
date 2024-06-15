@@ -22,11 +22,11 @@
 <header>
 	<div class="navbar bg-base-100 px-4">
 		<div class="navbar-start lg:hidden">
-			<div class="btn btn-circle btn-ghost z-30">
+			<div class="btn btn-circle btn-ghost z-30 mx-1">
 				<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px"
 				></Hamburger>
 			</div>
-			<div class="btn btn-circle btn-ghost flex items-center lg:hidden">
+			<div class="btn btn-circle btn-ghost mx-1 flex items-center lg:hidden">
 				<a href="/search">
 					<img src={SearchIcon} alt="Search" />
 				</a>
@@ -128,7 +128,7 @@
 			<a href="/" class="btn btn-ghost text-xl">Logo</a>
 		</div>
 		<div class="navbar-end">
-			<div title="Change Language" class="dropdown dropdown-end hidden lg:block">
+			<div title="Change Language" class="dropdown dropdown-end mx-1 hidden lg:block">
 				<div tabindex="0" role="button" class="btn btn-circle btn-ghost" aria-label="Language">
 					<img src={GlobeIcon} alt="Language" />
 				</div>
@@ -160,23 +160,23 @@
 					</ul>
 				</div>
 			</div>
-			<div class="btn btn-circle btn-ghost hidden items-center lg:flex">
+			<div class="btn btn-circle btn-ghost mx-1 hidden items-center lg:flex">
 				<a href="/search">
 					<img src={SearchIcon} alt="Search" />
 				</a>
 			</div>
 
-			<div class="btn btn-circle btn-ghost hidden items-center lg:flex">
+			<div class="btn btn-circle btn-ghost mx-1 hidden items-center lg:flex">
 				<a href="/profile">
 					<img src={UserIcon} alt="User" />
 				</a>
 			</div>
-			<div class="btn btn-circle btn-ghost flex items-center">
+			<div class="btn btn-circle btn-ghost mx-1 flex items-center">
 				<a href="/profile/wishlist">
 					<img src={HeartIcon} alt="Heart" />
 				</a>
 			</div>
-			<div class="dropdown dropdown-end">
+			<div class="dropdown dropdown-end mx-1">
 				<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
 					<div class="indicator">
 						<img src={CartIcon} alt="Cart" />
