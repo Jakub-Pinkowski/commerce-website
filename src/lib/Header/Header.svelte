@@ -5,7 +5,7 @@
 	import LanguageIcon from './icons/LanguageIcon.svelte';
 	import WishlistIcon from './icons/WishlistIcon.svelte';
 	import SearchIcon from './icons/SearchIcon.svelte';
-	import CartIcon from '../icons/cart.svg';
+	import CartIcon from './icons/CartIcon.svelte';
 	import UserIcon from './icons/UserIcon.svelte';
 	let open: boolean = false;
 
@@ -56,30 +56,10 @@
 						</ul>
 						<div class="mb-4 ml-4 mt-auto flex">
 							<UserIcon />
-							<!-- TODO: Make the languages work -->
+
 							<LanguageIcon />
 							<WishlistIcon />
-							<div class="dropdown dropdown-end mx-1">
-								<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
-									<div class="indicator">
-										<img src={CartIcon} alt="Cart" />
-										<span class="badge indicator-item badge-sm">8</span>
-									</div>
-								</div>
-								<!-- TODO: Make this a real cart -->
-								<div
-									tabindex="-1"
-									class="card dropdown-content card-compact z-[1] mt-3 w-52 bg-base-100 shadow"
-								>
-									<div class="card-body">
-										<span class="text-lg font-bold">8 Items</span>
-										<span class="text-info">Subtotal: $999</span>
-										<div class="card-actions">
-											<button class="btn btn-primary btn-block">View cart</button>
-										</div>
-									</div>
-								</div>
-							</div>
+							<CartIcon />
 						</div>
 					</div>
 				</div>
@@ -100,27 +80,7 @@
 			<SearchIcon className="hidden lg:flex" />
 			<UserIcon className="hidden lg:flex" />
 			<WishlistIcon />
-			<div class="dropdown dropdown-end mx-1">
-				<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
-					<div class="indicator">
-						<img src={CartIcon} alt="Cart" />
-						<span class="badge indicator-item badge-sm">8</span>
-					</div>
-				</div>
-				<!-- TODO: Make this a real cart -->
-				<div
-					tabindex="-1"
-					class="card dropdown-content card-compact z-[1] mt-3 w-52 bg-base-100 shadow"
-				>
-					<div class="card-body">
-						<span class="text-lg font-bold">8 Items</span>
-						<span class="text-info">Subtotal: $999</span>
-						<div class="card-actions">
-							<button class="btn btn-primary btn-block">View cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
+			<CartIcon />
 		</div>
 	</div>
 </header>

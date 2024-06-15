@@ -1,3 +1,4 @@
+<!-- TODO: Make the languages work -->
 <script lang="ts">
 	export let className: string = '';
 	let language: string = 'EN';
