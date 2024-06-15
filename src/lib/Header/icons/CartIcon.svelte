@@ -2,6 +2,10 @@
 <script lang="ts">
 	export let className: string = '';
 	export let closeMenu: () => void;
+
+    const handleKeydown = (event: KeyboardEvent) => {
+        if (event.key === 'Enter' || event.key === ' ') closeMenu();
+    };
 </script>
 
 <div
@@ -9,9 +13,7 @@
 	tabindex="0"
 	role="button"
 	on:click={closeMenu}
-	on:keydown={(event) => {
-		if (event.key === 'Enter' || event.key === ' ') closeMenu();
-	}}
+    on:keydown={handleKeydown}
 >
 	<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
 		<div class="indicator">
