@@ -2,11 +2,11 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-	import GlobeIcon from './icons/globe.svg';
-	import HeartIcon from './icons/heart.svg';
-	import SearchIcon from './icons/search.svg';
-	import CartIcon from './icons/cart.svg';
-	import UserIcon from './icons/user.svg';
+	import GlobeIcon from '../icons/globe.svg';
+	import WishlistIcon from './icons/WishlistIcon.svelte';
+	import SearchIcon from '../icons/search.svg';
+	import CartIcon from '../icons/cart.svg';
+	import UserIcon from './icons/UserIcon.svelte';
 	let language: string = 'EN';
 	let open: boolean = false;
 
@@ -64,11 +64,7 @@
 							</li>
 						</ul>
 						<div class="mb-4 ml-4 mt-auto flex">
-							<div class="btn btn-circle btn-ghost mx-1 flex items-center lg:hidden">
-								<a href="/profile">
-									<img src={UserIcon} alt="User" />
-								</a>
-							</div>
+							<UserIcon />
 							<!-- TODO: Make the languages work -->
 							<div title="Change Language" class="dropdown dropdown-end">
 								<div
@@ -107,11 +103,7 @@
 									</ul>
 								</div>
 							</div>
-							<div class="btn btn-circle btn-ghost mx-1 flex items-center">
-								<a href="/profile/wishlist">
-									<img src={HeartIcon} alt="Heart" />
-								</a>
-							</div>
+							<WishlistIcon />
 							<div class="dropdown dropdown-end mx-1">
 								<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
 									<div class="indicator">
@@ -187,16 +179,9 @@
 				</a>
 			</div>
 
-			<div class="btn btn-circle btn-ghost mx-1 hidden items-center lg:flex">
-				<a href="/profile">
-					<img src={UserIcon} alt="User" />
-				</a>
-			</div>
-			<div class="btn btn-circle btn-ghost mx-1 flex items-center">
-				<a href="/profile/wishlist">
-					<img src={HeartIcon} alt="Heart" />
-				</a>
-			</div>
+			<!-- TODO: Add hidden and lg:flex class here -->
+            <UserIcon className="hidden lg:flex" />
+			<WishlistIcon />
 			<div class="dropdown dropdown-end mx-1">
 				<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
 					<div class="indicator">

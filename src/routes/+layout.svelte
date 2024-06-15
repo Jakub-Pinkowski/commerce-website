@@ -1,5 +1,5 @@
 <script>
-	import Header from '../lib/Header.svelte';
+	import Header from '../lib/Header/Header.svelte';
 	import Footer from '../lib/Footer.svelte';
 	import MiniCart from '../lib/MiniCart.svelte';
 	import '../app.css';
