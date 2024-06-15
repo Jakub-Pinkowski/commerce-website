@@ -112,7 +112,10 @@
 			class="fixed right-0 top-0 z-20 h-full w-96 bg-white transition-transform duration-200 ease-in-out"
 			transition:fly={{ x: 100, duration: 500, easing: quadOut }}
 		>
-			<CloseIcon {toggleCartAndMenu} />
+			<div class="flex w-full items-center justify-between p-6">
+				<span class=" text-3xl">Cart</span>
+				<CloseIcon {toggleCartAndMenu} />
+			</div>
 		</div>
 	{/if}
 </header>

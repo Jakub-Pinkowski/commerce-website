@@ -3,10 +3,7 @@
 	export let toggleCartAndMenu: () => void;
 </script>
 
-<button
-	class={`btn btn-circle btn-ghost absolute right-2.5 mx-1 flex items-center top-2.5${className}`}
-	on:click={toggleCartAndMenu}
->
+<button class={`btn btn-circle btn-ghost mx-1${className}`} on:click={toggleCartAndMenu}>
 	<div class="indicator">
 		<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24">
 			<path

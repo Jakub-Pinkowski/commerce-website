@@ -18,7 +18,7 @@
 		</svg>
 
 		<span
-			class="badge indicator-item badge-sm border-none bg-transparent p-0 text-base text-red-600"
+			class="badge indicator-item badge-sm right-[-5px] border-none bg-transparent p-0 text-base text-red-600"
 		>
 			8
 		</span>
