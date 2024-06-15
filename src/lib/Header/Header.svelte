@@ -7,6 +7,7 @@
 	import SearchIcon from './icons/SearchIcon.svelte';
 	import CartIcon from './icons/CartIcon.svelte';
 	import UserIcon from './icons/UserIcon.svelte';
+	import CloseIcon from './icons/CloseIcon.svelte';
 
 	let open: boolean = false;
 	let openCart: boolean = false;
@@ -110,6 +111,8 @@
 		<div
 			class="fixed right-0 top-0 z-20 h-full w-96 bg-white transition-transform duration-200 ease-in-out"
 			transition:fly={{ x: 100, duration: 500, easing: quadOut }}
-		></div>
+		>
+			<CloseIcon {toggleCartAndMenu} />
+		</div>
 	{/if}
 </header>
