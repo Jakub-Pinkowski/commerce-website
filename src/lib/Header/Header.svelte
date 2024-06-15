@@ -9,9 +9,14 @@
 	import UserIcon from './icons/UserIcon.svelte';
 
 	let open: boolean = false;
+	let openCart: boolean = false;
 
 	const closeMenu = () => {
 		open = false;
+	};
+
+	const closeCart = () => {
+		openCart = false;
 	};
 </script>
 
@@ -61,7 +66,7 @@
 							<UserIcon {closeMenu} />
 							<LanguageIcon {closeMenu} />
 							<WishlistIcon {closeMenu} />
-							<CartIcon {closeMenu} />
+							<!-- <CartIcon {closeMenu} /> -->
 						</div>
 					</div>
 				</div>
@@ -85,4 +90,19 @@
 			<CartIcon {closeMenu} />
 		</div>
 	</div>
+	{#if openCart}
+		<div
+			class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
+			on:click={closeMenu}
+			on:keydown={(event) => {
+				if (event.key === 'Enter' || event.key === ' ') closeMenu();
+			}}
+			role="button"
+			tabindex="0"
+		></div>
+		<div
+			class="fixed right-0 top-0 z-20 h-full w-64 bg-white transition-transform duration-200 ease-in-out"
+			transition:fly={{ x: -100, duration: 500, easing: quadOut }}
+		></div>
+	{/if}
 </header>
