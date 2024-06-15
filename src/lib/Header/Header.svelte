@@ -3,6 +3,7 @@
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import MobileMenu from './MobileMenu.svelte';
+	import DesktopMenu from './DesktopMenu.svelte';
 	import LanguageIcon from './icons/LanguageIcon.svelte';
 	import WishlistIcon from './icons/WishlistIcon.svelte';
 	import SearchIcon from './icons/SearchIcon.svelte';
@@ -15,10 +16,6 @@
 
 	const closeMenu = () => {
 		open = false;
-	};
-
-	const closeCart = () => {
-		openCart = false;
 	};
 
 	const handleKeyDown = (event: KeyboardEvent) => {
@@ -68,11 +65,7 @@
 			<a href="/" class="btn btn-ghost text-xl">Logo</a>
 		</div>
 		<div class="navbar-end">
-			<LanguageIcon {closeMenu} className="hidden lg:flex" />
-			<SearchIcon {closeMenu} className="hidden lg:flex" />
-			<UserIcon {closeMenu} className="hidden lg:flex" />
-			<WishlistIcon {closeMenu} />
-			<CartIcon {toggleCartAndMenu} />
+			<DesktopMenu {closeMenu} {toggleCartAndMenu} />
 		</div>
 	</div>
 	{#if openCart}
