@@ -3,9 +3,14 @@
 	export let className: string = '';
 	export let closeMenu: () => void;
 	let language: string = 'EN';
-	function switchLanguage(lang: string) {
-		language = lang;
-	}
+
+    const switchLanguage = (lang: string) => {
+        language = lang;
+    };
+
+    const handleKeydown = (event: KeyboardEvent) => {
+        if (event.key === 'Enter' || event.key === ' ') closeMenu();
+    };
 </script>
 
 <div
@@ -14,6 +19,7 @@
 	tabindex="0"
 	role="button"
 	on:click={closeMenu}
+    on:keydown={handleKeydown}
 >
 	<div tabindex="0" role="button" class="btn btn-circle btn-ghost" aria-label="Language">
 		<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24"
