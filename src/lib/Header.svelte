@@ -18,9 +18,11 @@
 	<div class="navbar bg-base-100">
 		<div class="navbar-start lg:hidden">
 			<div class="z-30">
-				<Hamburger bind:open />
+				<Hamburger bind:open>
+                </Hamburger>
 			</div>
-            <!-- TODO: Make this look good -->
+			<!-- TODO: Make this look good -->
+			<!-- NOTE: Fontawesome icons don't automatically change with the theme -->
 			<button class="btn btn-circle btn-ghost">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
