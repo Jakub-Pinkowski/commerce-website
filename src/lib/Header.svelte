@@ -2,6 +2,7 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	import GlobeIcon from './icons/globe.svg';
 	import HeartIcon from './icons/heart.svg';
 	import SearchIcon from './icons/search.svg';
 	import CartIcon from './icons/cart.svg';
@@ -75,21 +76,13 @@
 							</div>
 							<!-- TODO: Make the languages work -->
 							<div title="Change Language" class="dropdown dropdown-end">
-								<div tabindex="0" role="button" class="btn btn-ghost" aria-label="Language">
-									<span
-										class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
-									>
-										{language}
-									</span>
-									<svg
-										width="12px"
-										height="12px"
-										class="hidden h-2 w-2 fill-current opacity-60 sm:inline-block"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 2048 2048"
-										><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"
-										></path></svg
-									>
+								<div
+									tabindex="0"
+									role="button"
+									class="btn btn-circle btn-ghost"
+									aria-label="Language"
+								>
+									<img src={GlobeIcon} alt="Language" />
 								</div>
 								<div
 									tabindex="-1"
@@ -136,12 +129,8 @@
 		</div>
 		<div class="navbar-end">
 			<div title="Change Language" class="dropdown dropdown-end hidden lg:block">
-				<div tabindex="0" role="button" class="btn btn-ghost" aria-label="Language">
-					<span
-						class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
-					>
-						{language}
-					</span>
+				<div tabindex="0" role="button" class="btn btn-circle btn-ghost" aria-label="Language">
+					<img src={GlobeIcon} alt="Language" />
 				</div>
 				<div
 					tabindex="-1"
@@ -176,6 +165,12 @@
 					<img src={SearchIcon} alt="Search" />
 				</a>
 			</div>
+
+			<div class="btn btn-circle btn-ghost hidden items-center lg:flex">
+				<a href="/profile">
+					<img src={UserIcon} alt="User" />
+				</a>
+			</div>
 			<div class="btn btn-circle btn-ghost flex items-center">
 				<a href="/profile/wishlist">
 					<img src={HeartIcon} alt="Heart" />
@@ -201,11 +196,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="btn btn-circle btn-ghost hidden items-center lg:flex">
-				<a href="/profile">
-					<img src={UserIcon} alt="User" />
-				</a>
 			</div>
 		</div>
 	</div>
