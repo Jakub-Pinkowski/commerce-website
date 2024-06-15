@@ -17,7 +17,10 @@
 				/><circle cx="7" cy="22" r="2" /><circle cx="17" cy="22" r="2" /></svg
 			>
 
-			<span class="badge indicator-item badge-sm">8</span>
+			<span
+				class="badge indicator-item badge-sm border-none bg-transparent p-0 text-base text-red-600"
+				>8</span
+			>
 		</div>
 	</div>
 
