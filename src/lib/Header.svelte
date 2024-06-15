@@ -2,6 +2,10 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	import HeartIcon from './icons/heart.svg';
+	import SearchIcon from './icons/search.svg';
+	import CartIcon from './icons/cart.svg';
+	import UserIcon from './icons/user.svg';
 	let language: string = 'EN';
 	let open: boolean = false;
 
@@ -18,8 +22,7 @@
 	<div class="navbar bg-base-100">
 		<div class="navbar-start lg:hidden">
 			<div class="z-30">
-				<Hamburger bind:open>
-                </Hamburger>
+				<Hamburger bind:open></Hamburger>
 			</div>
 			<!-- TODO: Make this look good -->
 			<!-- NOTE: Fontawesome icons don't automatically change with the theme -->
@@ -188,60 +191,24 @@
 					</ul>
 				</div>
 			</div>
-			<button class="btn btn-circle btn-ghost hidden lg:block">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-					/>
-				</svg>
-			</button>
-			<!-- TODO: Make this look good with other icons -->
-			<div class="flex items-center">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon"
-					aria-hidden="true"
-					focusable="false"
-					viewBox="0 0 512 512"
-					width="24"
-					height="24"
-				>
-					<!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-					<path
-						fill="black"
-						d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"
-					/>
-				</svg>
+			<div class="btn btn-circle btn-ghost hidden items-center lg:flex">
+				<a href="/search">
+					<img src={SearchIcon} alt="Search" />
+				</a>
+			</div>
+			<div class="btn btn-circle btn-ghost flex items-center">
+				<a href="/profile/wishlist">
+					<img src={HeartIcon} alt="Heart" />
+				</a>
 			</div>
 			<div class="dropdown dropdown-end">
 				<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
 					<div class="indicator">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="h-5 w-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-							/>
-						</svg>
+						<img src={CartIcon} alt="Cart" />
 						<span class="badge indicator-item badge-sm">8</span>
 					</div>
 				</div>
+				<!-- TODO: Make this a real cart -->
 				<div
 					tabindex="-1"
 					class="card dropdown-content card-compact z-[1] mt-3 w-52 bg-base-100 shadow"
@@ -255,15 +222,10 @@
 					</div>
 				</div>
 			</div>
-			<div tabindex="0" role="button" class="avatar btn btn-circle btn-ghost hidden lg:block">
-				<div class="w-10 rounded-full">
-					<a href="/profile">
-						<img
-							alt="Tailwind CSS Navbar component"
-							src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-						/>
-					</a>
-				</div>
+			<div class="btn btn-circle btn-ghost hidden items-center lg:flex">
+				<a href="/profile">
+					<img src={UserIcon} alt="User" />
+				</a>
 			</div>
 		</div>
 	</div>
