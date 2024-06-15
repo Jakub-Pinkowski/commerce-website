@@ -107,6 +107,32 @@
 									</ul>
 								</div>
 							</div>
+							<div class="btn btn-circle btn-ghost mx-1 flex items-center">
+								<a href="/profile/wishlist">
+									<img src={HeartIcon} alt="Heart" />
+								</a>
+							</div>
+							<div class="dropdown dropdown-end mx-1">
+								<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
+									<div class="indicator">
+										<img src={CartIcon} alt="Cart" />
+										<span class="badge indicator-item badge-sm">8</span>
+									</div>
+								</div>
+								<!-- TODO: Make this a real cart -->
+								<div
+									tabindex="-1"
+									class="card dropdown-content card-compact z-[1] mt-3 w-52 bg-base-100 shadow"
+								>
+									<div class="card-body">
+										<span class="text-lg font-bold">8 Items</span>
+										<span class="text-info">Subtotal: $999</span>
+										<div class="card-actions">
+											<button class="btn btn-primary btn-block">View cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
