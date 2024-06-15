@@ -2,7 +2,6 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-	import LanguageIcon from './icons/language.svg';
 	import HeartIcon from './icons/heart.svg';
 	import SearchIcon from './icons/search.svg';
 	import CartIcon from './icons/cart.svg';
@@ -20,14 +19,12 @@
 </script>
 
 <header>
-	<div class="navbar bg-base-100">
+	<div class="navbar bg-base-100 px-4">
 		<div class="navbar-start lg:hidden">
 			<div class="btn btn-circle btn-ghost z-30">
 				<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px"
 				></Hamburger>
 			</div>
-			<!-- TODO: Make this look good -->
-			<!-- NOTE: Fontawesome icons don't automatically change with the theme -->
 			<div class="btn btn-circle btn-ghost flex items-center lg:hidden">
 				<a href="/search">
 					<img src={SearchIcon} alt="Search" />
