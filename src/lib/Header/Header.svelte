@@ -2,13 +2,11 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+
 	import MobileMenu from './MobileMenu.svelte';
 	import DesktopMenu from './DesktopMenu.svelte';
-	import LanguageIcon from './icons/LanguageIcon.svelte';
-	import WishlistIcon from './icons/WishlistIcon.svelte';
+	import MiniCart from './MiniCart.svelte';
 	import SearchIcon from './icons/SearchIcon.svelte';
-	import CartIcon from './icons/CartIcon.svelte';
-	import UserIcon from './icons/UserIcon.svelte';
 	import CloseIcon from './icons/CloseIcon.svelte';
 
 	let open: boolean = false;
@@ -80,10 +78,7 @@
 			class="fixed right-0 top-0 z-20 h-full w-96 bg-white transition-transform duration-200 ease-in-out"
 			transition:fly={{ x: 100, duration: 500, easing: quadOut }}
 		>
-			<div class="flex w-full items-center justify-between p-6">
-				<span class=" text-3xl">Cart</span>
-				<CloseIcon {toggleCartAndMenu} />
-			</div>
+			<MiniCart {toggleCartAndMenu} />
 		</div>
 	{/if}
 </header>
