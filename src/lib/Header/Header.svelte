@@ -7,11 +7,12 @@
 	import SearchIcon from './icons/SearchIcon.svelte';
 	import CartIcon from './icons/CartIcon.svelte';
 	import UserIcon from './icons/UserIcon.svelte';
+
 	let open: boolean = false;
 
-	function closeMenu() {
+	const closeMenu = () => {
 		open = false;
-	}
+	};
 </script>
 
 <header>
