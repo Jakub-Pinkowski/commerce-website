@@ -64,15 +64,10 @@
 							</li>
 						</ul>
 						<div class="mb-4 ml-4 mt-auto flex">
-							<div tabindex="0" role="button" class="avatar btn btn-circle btn-ghost">
-								<div class="w-10 rounded-full">
-									<a href="/profile">
-										<img
-											alt="Tailwind CSS Navbar component"
-											src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-										/>
-									</a>
-								</div>
+							<div class="btn btn-circle btn-ghost mx-1 flex items-center lg:hidden">
+								<a href="/profile">
+									<img src={UserIcon} alt="User" />
+								</a>
 							</div>
 							<!-- TODO: Make the languages work -->
 							<div title="Change Language" class="dropdown dropdown-end">
