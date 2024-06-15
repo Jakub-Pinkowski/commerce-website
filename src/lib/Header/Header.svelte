@@ -4,7 +4,7 @@
 	import { quadOut } from 'svelte/easing';
 	import GlobeIcon from '../icons/globe.svg';
 	import WishlistIcon from './icons/WishlistIcon.svelte';
-	import SearchIcon from '../icons/search.svg';
+	import SearchIcon from './icons/SearchIcon.svelte';
 	import CartIcon from '../icons/cart.svg';
 	import UserIcon from './icons/UserIcon.svelte';
 	let language: string = 'EN';
@@ -26,11 +26,7 @@
 				<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px"
 				></Hamburger>
 			</div>
-			<div class="btn btn-circle btn-ghost mx-1 flex items-center lg:hidden">
-				<a href="/search">
-					<img src={SearchIcon} alt="Search" />
-				</a>
-			</div>
+			<SearchIcon className="flex lg:hidden" />
 			{#if open}
 				<div
 					class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
@@ -173,14 +169,10 @@
 					</ul>
 				</div>
 			</div>
-			<div class="btn btn-circle btn-ghost mx-1 hidden items-center lg:flex">
-				<a href="/search">
-					<img src={SearchIcon} alt="Search" />
-				</a>
-			</div>
+			<SearchIcon className="hidden lg:flex" />
 
 			<!-- TODO: Add hidden and lg:flex class here -->
-            <UserIcon className="hidden lg:flex" />
+			<UserIcon className="hidden lg:flex" />
 			<WishlistIcon />
 			<div class="dropdown dropdown-end mx-1">
 				<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
