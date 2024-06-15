@@ -22,7 +22,7 @@
 				<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px"
 				></Hamburger>
 			</div>
-			<SearchIcon className="flex lg:hidden" />
+			<SearchIcon {closeMenu} className="flex lg:hidden" />
 			{#if open}
 				<div
 					class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
@@ -59,7 +59,6 @@
 						</ul>
 						<div class="mb-4 ml-4 mt-auto flex">
 							<UserIcon />
-
 							<LanguageIcon />
 							<WishlistIcon />
 							<CartIcon />
@@ -80,7 +79,7 @@
 		</div>
 		<div class="navbar-end">
 			<LanguageIcon className="hidden lg:flex" />
-			<SearchIcon className="hidden lg:flex" />
+			<SearchIcon {closeMenu} className="hidden lg:flex" />
 			<UserIcon className="hidden lg:flex" />
 			<WishlistIcon />
 			<CartIcon />
