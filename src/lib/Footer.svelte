@@ -1,4 +1,4 @@
-<footer class="footer bottom-0 bg-base-200 p-10 text-base-content w-full mt-auto">
+<footer class="footer bottom-0 mt-auto w-full bg-base-200 p-10 text-base-content">
 	<nav>
 		<h6 class="footer-title">Shopping</h6>
 		<a href="/categories" class="link-hover link">Categories</a>
@@ -80,6 +80,9 @@
 	</form>
 	<aside class="items-center">
 		<p>© 2024 Jakub Pinkowski</p>
-        <p>All right reserved</p>
+		<p>All right reserved</p>
+		<div>
+			UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+		</div>
 	</aside>
 </footer>
