@@ -2,17 +2,12 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-	import GlobeIcon from '../icons/globe.svg';
+	import LanguageIcon from './icons/LanguageIcon.svelte';
 	import WishlistIcon from './icons/WishlistIcon.svelte';
 	import SearchIcon from './icons/SearchIcon.svelte';
 	import CartIcon from '../icons/cart.svg';
 	import UserIcon from './icons/UserIcon.svelte';
-	let language: string = 'EN';
 	let open: boolean = false;
-
-	function switchLanguage(lang: string) {
-		language = lang;
-	}
 
 	function closeMenu() {
 		open = false;
@@ -62,43 +57,7 @@
 						<div class="mb-4 ml-4 mt-auto flex">
 							<UserIcon />
 							<!-- TODO: Make the languages work -->
-							<div title="Change Language" class="dropdown dropdown-end">
-								<div
-									tabindex="0"
-									role="button"
-									class="btn btn-circle btn-ghost"
-									aria-label="Language"
-								>
-									<img src={GlobeIcon} alt="Language" />
-								</div>
-								<div
-									tabindex="-1"
-									class="dropdown-content top-px mt-16 max-h-[calc(100vh-10rem)] w-56 overflow-y-auto rounded-box border border-white/5 bg-base-200 text-base-content shadow-2xl outline outline-1 outline-black/5"
-								>
-									<ul class="menu menu-sm gap-1">
-										<li>
-											<button on:click={() => switchLanguage('EN')}>
-												<span
-													class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
-												>
-													EN
-												</span>
-												<span class="font-[sans-serif]">English</span>
-											</button>
-										</li>
-										<li>
-											<button on:click={() => switchLanguage('DE')}>
-												<span
-													class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
-												>
-													DE
-												</span>
-												<span class="font-[sans-serif]">Deutsch</span>
-											</button>
-										</li>
-									</ul>
-								</div>
-							</div>
+							<LanguageIcon />
 							<WishlistIcon />
 							<div class="dropdown dropdown-end mx-1">
 								<div tabindex="0" role="button" class="btn btn-circle btn-ghost">
@@ -137,41 +96,8 @@
 			<a href="/" class="btn btn-ghost text-xl">Logo</a>
 		</div>
 		<div class="navbar-end">
-			<div title="Change Language" class="dropdown dropdown-end mx-1 hidden lg:block">
-				<div tabindex="0" role="button" class="btn btn-circle btn-ghost" aria-label="Language">
-					<img src={GlobeIcon} alt="Language" />
-				</div>
-				<div
-					tabindex="-1"
-					class="dropdown-content top-px mt-16 max-h-[calc(100vh-10rem)] w-56 overflow-y-auto rounded-box border border-white/5 bg-base-200 text-base-content shadow-2xl outline outline-1 outline-black/5"
-				>
-					<ul class="menu menu-sm gap-1">
-						<li>
-							<button on:click={() => switchLanguage('EN')}>
-								<span
-									class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
-								>
-									EN
-								</span>
-								<span class="font-[sans-serif]">English</span>
-							</button>
-						</li>
-						<li>
-							<button on:click={() => switchLanguage('DE')}>
-								<span
-									class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
-								>
-									DE
-								</span>
-								<span class="font-[sans-serif]">Deutsch</span>
-							</button>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<LanguageIcon className="hidden lg:flex" />
 			<SearchIcon className="hidden lg:flex" />
-
-			<!-- TODO: Add hidden and lg:flex class here -->
 			<UserIcon className="hidden lg:flex" />
 			<WishlistIcon />
 			<div class="dropdown dropdown-end mx-1">
