@@ -15,7 +15,7 @@
 		<CartProductCard />
 	</div>
 	<div class="mt-auto flex w-full flex-col items-center p-6">
-		<div class="flex w-full justify-between px-1">
+		<div class="flex w-full justify-between">
 			<span class="text-lg">Total</span>
 			<span class="text-lg text-gray-500">$199</span>
 		</div>
