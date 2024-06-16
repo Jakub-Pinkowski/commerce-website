@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Google from '$lib/login_buttons/Google.svelte';
+
 	let email: string;
 	let password: string;
 	let emailError: string;
@@ -44,15 +46,15 @@
 	};
 </script>
 
-<div class="text-center">
-	<h1 class="mb-8 text-5xl font-extrabold dark:text-white">Login</h1>
-	<div class="mb-8 flex flex-col items-center">
-		<button class="btn btn-outline mb-4 w-full max-w-xl">Sign in with Google</button>
+<div class="mx-auto max-w-xl text-center">
+	<h1 class="mb-8 text-5xl font-extrabold">Login</h1>
+	<div class="mb-8 flex flex-col items-center gap-4">
+		<Google />
 		<button class="btn btn-outline mb-4 w-full max-w-xl">Sign in with Apple</button>
 		<button class="btn btn-outline mb-4 w-full max-w-xl">Sign in with Facebook</button>
 	</div>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
-		<span>Login using Email</span>
+		<span>Sign in with Email</span>
 		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
 			<input
 				bind:value={email}

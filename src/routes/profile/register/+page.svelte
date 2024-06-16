@@ -55,10 +55,10 @@
 	};
 </script>
 
-<div class="text-center">
-	<h1 class="mb-8 text-5xl font-extrabold dark:text-white">Register</h1>
+<div class="mx-auto max-w-xl text-center">
+	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
-		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
+		<label class="input input-bordered my-4 flex w-full items-center gap-2">
 			<input
 				bind:value={email}
 				id="email"
@@ -69,7 +69,7 @@
 			/>
 		</label>
 		{#if emailError}<span class="text-xs text-red-500">{emailError}</span>{/if}
-		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
+		<label class="input input-bordered my-4 flex w-full items-center gap-2">
 			<input
 				bind:value={password}
 				id="password"
@@ -80,7 +80,7 @@
 			/>
 		</label>
 		{#if passwordError}<span class="text-xs text-red-500">{passwordError}</span>{/if}
-		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
+		<label class="input input-bordered my-4 flex w-full items-center gap-2">
 			<input
 				bind:value={repeatPassword}
 				id="repeatPassword"
@@ -92,7 +92,7 @@
 		</label>
 		{#if repeatPasswordError}<span class="text-xs text-red-500">{repeatPasswordError}</span>{/if}
 		<button
-			class="btn btn-primary mt-8 w-full max-w-xl"
+			class="btn btn-primary mt-8 w-full"
 			type="submit"
 			disabled={formSubmitted && !isFormValid()}>Register</button
 		>

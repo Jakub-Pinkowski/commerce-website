@@ -65,14 +65,14 @@
 	};
 </script>
 
-<div class="text-center">
+<div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold dark:text-white">Contact Us</h1>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
-		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
+		<label class="input input-bordered my-4 flex w-full items-center gap-2">
 			<input bind:value={name} id="name" name="name" type="text" class="grow" placeholder="Name*" />
 		</label>
 		{#if nameError}<span class="text-xs text-red-500">{nameError}</span>{/if}
-		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
+		<label class="input input-bordered my-4 flex w-full items-center gap-2">
 			<input
 				bind:value={email}
 				id="email"
@@ -87,7 +87,7 @@
 			bind:value={message}
 			id="message"
 			name="message"
-			class="textarea textarea-bordered my-4 w-full max-w-xl gap-2 text-base"
+			class="textarea textarea-bordered my-4 w-full gap-2 text-base"
 			placeholder="Message*"
 			cols="30"
 			rows="5"
@@ -95,7 +95,7 @@
 		</textarea>
 		{#if messageError}<span class="text-xs text-red-500">{messageError}</span>{/if}
 		<button
-			class="btn btn-primary mt-8 w-full max-w-xl"
+			class="btn btn-primary mt-8 w-full"
 			type="submit"
 			disabled={formSubmitted && !isFormValid()}>Submit</button
 		>
