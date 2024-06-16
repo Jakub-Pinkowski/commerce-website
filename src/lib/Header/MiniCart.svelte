@@ -13,6 +13,7 @@
 	<div class="relative flex w-full flex-col overflow-auto p-6">
 		<CartProductCard />
 		<CartProductCard />
+		<CartProductCard />
 	</div>
 	<div class="mt-auto flex w-full flex-col items-center p-6">
 		<div class="flex w-full justify-between">

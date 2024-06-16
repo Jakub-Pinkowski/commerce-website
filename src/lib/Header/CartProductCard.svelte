@@ -4,7 +4,7 @@
 	import PlusIcon from './icons/PlusIcon.svelte';
 </script>
 
-<div class="relative flex py-6">
+<div class="relative flex py-6 border-b border-gray-300">
 	<div class="absolute right-0 top-7">
 		<RemoveIcon />
 	</div>
