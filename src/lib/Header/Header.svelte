@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
@@ -7,7 +9,12 @@
 	import DesktopMenu from './DesktopMenu.svelte';
 	import MiniCart from './MiniCart.svelte';
 	import SearchIcon from './icons/SearchIcon.svelte';
-	import CloseIcon from './icons/CloseIcon.svelte';
+
+	let isMobile: boolean = false;
+
+	onMount(() => {
+		isMobile = window.innerWidth < 768;
+	});
 
 	let open: boolean = false;
 	let openCart: boolean = false;
@@ -75,7 +82,9 @@
 		></div>
 		<div
 			class="fixed right-0 top-0 z-40 h-full w-full bg-white transition-transform duration-200 ease-in-out lg:w-[30rem]"
-			transition:fly={{ x: 100, duration: 500, easing: quadOut }}
+			transition:fly={isMobile
+				? { y: 150, duration: 500, easing: quadOut }
+				: { x: 150, duration: 500, easing: quadOut }}
 		>
 			<MiniCart {toggleCartAndMenu} />
 		</div>
