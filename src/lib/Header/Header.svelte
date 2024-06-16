@@ -32,8 +32,7 @@
 	<div class="navbar bg-base-100 px-4">
 		<div class="navbar-start lg:hidden">
 			<div class="btn btn-circle btn-ghost z-30 mx-1">
-				<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px"
-				></Hamburger>
+				<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px" />
 			</div>
 			<SearchIcon {closeMenu} className="flex lg:hidden" />
 			{#if open}
@@ -75,7 +74,7 @@
 			tabindex="0"
 		></div>
 		<div
-			class="fixed right-0 top-0 z-40 h-full w-96 bg-white transition-transform duration-200 ease-in-out"
+			class="fixed right-0 top-0 z-40 h-full w-[30rem] bg-white transition-transform duration-200 ease-in-out"
 			transition:fly={{ x: 100, duration: 500, easing: quadOut }}
 		>
 			<MiniCart {toggleCartAndMenu} />
