@@ -5,7 +5,7 @@
 </script>
 
 <div class="relative flex py-6">
-	<div class="absolute right-4 top-7">
+	<div class="absolute right-0 top-7">
 		<RemoveIcon />
 	</div>
 	<div>
@@ -13,17 +13,17 @@
 	</div>
 	<div class="flex w-full flex-col">
 		<div class="flex flex-col px-4">
-			<span class="pr-8 text-xl">Random product name goes here</span>
-			<span class="py-2 text-lg">XS</span>
+			<span class="pr-8 text-lg lg:text-xl">Random product name goes here</span>
+			<span class="py-2 lg:text-lg">XS</span>
 		</div>
-		<div class="flex w-full justify-between p-4">
+		<div class="flex w-full justify-between pl-2">
 			<div class="flex items-center">
 				<MinusIcon />
 				<span class="px-4 text-lg">1</span>
 				<PlusIcon />
 			</div>
 			<div class="flex items-center">
-				<span class="p-2 text-lg text-gray-500">$99</span>
+				<span class="p-0 text-lg text-gray-500">$99</span>
 			</div>
 		</div>
 	</div>
