@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CloseIcon from './icons/CloseIcon.svelte';
-    import CartProductCard from './CartProductCard.svelte';
+	import CartProductCard from './CartProductCard.svelte';
 
 	export let toggleCartAndMenu: () => void;
 </script>
@@ -10,9 +10,9 @@
 		<span class=" text-3xl">Cart</span>
 		<CloseIcon {toggleCartAndMenu} />
 	</div>
-	<div class="relative flex flex-col overflow-auto p-6">
-        <CartProductCard />
-        <CartProductCard />
+	<div class="relative flex w-full flex-col overflow-auto p-6">
+		<CartProductCard />
+		<CartProductCard />
 	</div>
 	<div class="mt-auto flex w-full flex-col items-center p-6">
 		<button class="btn btn-neutral mt-8 w-full max-w-xl"> See the Cart </button>
