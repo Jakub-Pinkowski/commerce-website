@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
@@ -10,14 +10,9 @@
 	import MiniCart from './MiniCart.svelte';
 	import SearchIcon from './icons/SearchIcon.svelte';
 
-	let isMobile: boolean = false;
-
-	onMount(() => {
-		isMobile = window.innerWidth < 768;
-	});
-
 	let open: boolean = false;
 	let openCart: boolean = false;
+	let isMobile: boolean = false;
 
 	const closeMenu = () => {
 		open = false;
@@ -33,6 +28,29 @@
 		closeMenu();
 		openCart = !openCart;
 	};
+
+	const toggleBodyScroll = (isOpen: boolean) => {
+		if (typeof window !== 'undefined') {
+			if (typeof document !== 'undefined') {
+				const body = document.body;
+				if (isOpen) {
+					body.classList.add('overflow-hidden');
+				} else {
+					body.classList.remove('overflow-hidden');
+				}
+			}
+		}
+	};
+
+	onMount(() => {
+		isMobile = window.innerWidth < 768;
+		toggleBodyScroll(openCart);
+		onDestroy(() => {
+			document.body.classList.remove('overflow-hidden');
+		});
+	});
+
+	$: openCart, toggleBodyScroll(openCart);
 </script>
 
 <header>

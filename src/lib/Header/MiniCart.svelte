@@ -7,7 +7,7 @@
 
 <div class="flex h-full flex-col">
 	<div class="flex w-full items-center justify-between pl-6 pr-2 pt-6 lg:p-6">
-		<span class=" text-3xl">Cart</span>
+		<span class=" text-3xl font-bold">Cart</span>
 		<CloseIcon {toggleCartAndMenu} />
 	</div>
 	<div class="relative flex w-full flex-col overflow-auto p-6">
