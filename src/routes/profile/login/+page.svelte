@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Google from '$lib/login_buttons/Google.svelte';
+    import Apple from '$lib/login_buttons/Apple.svelte';
 
 	let email: string;
 	let password: string;
@@ -50,7 +51,7 @@
 	<h1 class="mb-8 text-5xl font-extrabold">Login</h1>
 	<div class="mb-8 flex flex-col items-center gap-4">
 		<Google />
-		<button class="btn btn-outline mb-4 w-full max-w-xl">Sign in with Apple</button>
+		<Apple />
 		<button class="btn btn-outline mb-4 w-full max-w-xl">Sign in with Facebook</button>
 	</div>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
