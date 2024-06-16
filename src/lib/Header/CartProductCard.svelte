@@ -22,7 +22,7 @@
 				<span class="px-4 text-lg">1</span>
 				<PlusIcon />
 			</div>
-			<div>
+			<div class="flex items-center">
 				<span class="p-2 text-lg text-gray-500">$99</span>
 			</div>
 		</div>
