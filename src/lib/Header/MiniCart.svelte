@@ -15,6 +15,10 @@
 		<CartProductCard />
 	</div>
 	<div class="mt-auto flex w-full flex-col items-center p-6">
+		<div class="flex w-full justify-between px-1">
+			<span class="text-lg">Total</span>
+			<span class="text-lg text-gray-500">$199</span>
+		</div>
 		<button class="btn btn-neutral mt-8 w-full max-w-xl"> See the Cart </button>
 		<button class="btn btn-primary mt-8 w-full max-w-xl"> Order </button>
 	</div>
