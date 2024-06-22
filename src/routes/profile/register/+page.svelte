@@ -97,9 +97,9 @@
 			disabled={formSubmitted && !isFormValid()}>Register</button
 		>
 		<div class="mt-7 text-lg">
-			<span
-				>Already have an account? <a href="/profile/login" class="text-blue-500">Login</a> instead</span
-			>
+			<span>
+                Already have an account? <a href="/profile/login" class="text-blue-500">Login</a> instead
+            </span>
 		</div>
 	</form>
 </div>
