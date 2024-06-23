@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-
-	import { Hamburger } from 'svelte-hamburgers';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	import { Hamburger } from 'svelte-hamburgers';
 
 	import MobileMenu from './MobileMenu.svelte';
 	import DesktopMenu from './DesktopMenu.svelte';
@@ -12,7 +10,6 @@
 
 	let open: boolean = false;
 	let openCart: boolean = false;
-	let isMobile: boolean = false;
 
 	const closeMenu = () => {
 		open = false;
@@ -28,29 +25,6 @@
 		closeMenu();
 		openCart = !openCart;
 	};
-
-	const toggleBodyScroll = (isOpen: boolean) => {
-		if (typeof window !== 'undefined') {
-			if (typeof document !== 'undefined') {
-				const body = document.body;
-				if (isOpen) {
-					body.classList.add('overflow-hidden');
-				} else {
-					body.classList.remove('overflow-hidden');
-				}
-			}
-		}
-	};
-
-	onMount(() => {
-		isMobile = window.innerWidth < 768;
-		toggleBodyScroll(openCart);
-		onDestroy(() => {
-			document.body.classList.remove('overflow-hidden');
-		});
-	});
-
-	$: openCart, toggleBodyScroll(openCart);
 </script>
 
 <header>
@@ -90,21 +64,5 @@
 			<DesktopMenu {closeMenu} {toggleCartAndMenu} />
 		</div>
 	</div>
-	{#if openCart}
-		<div
-			class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
-			on:click={toggleCartAndMenu}
-			on:keydown={handleKeyDown}
-			role="button"
-			tabindex="0"
-		></div>
-		<div
-			class="fixed right-0 top-0 z-40 h-full w-full bg-white transition-transform duration-200 ease-in-out lg:w-[30rem]"
-			transition:fly={isMobile
-				? { y: 150, duration: 500, easing: quadOut }
-				: { x: 150, duration: 500, easing: quadOut }}
-		>
-			<MiniCart {toggleCartAndMenu} />
-		</div>
-	{/if}
+	<MiniCart {toggleCartAndMenu} {openCart} />
 </header>
