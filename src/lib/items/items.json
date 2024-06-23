@@ -1,42 +1,62 @@
 [
-    {
-        "name": "UltraBoost Running Shoes",
-        "brand": "Adidas",
-        "price": 180,
-        "listPrice": 200,
-        "url": "https://www.adidas.com/us/ultraboost",
-        "imageUrl": "https://picsum.photos/200/300?random=1"
-    },
-    {
-        "name": "iPhone 13 Pro",
-        "brand": "Apple",
-        "price": 999,
-        "listPrice": 999, 
-        "url": "https://www.apple.com/iphone-13-pro/",
-        "imageUrl": "https://picsum.photos/200/300?random=2"
-    },
-    {
-        "name": "QLED Smart 4K UHD TV",
-        "brand": "Samsung",
-        "price": 1200,
-        "listPrice": 1300,
-        "url": "https://www.samsung.com/us/televisions-home-theater/tvs/qled-4k-tvs/",
-        "imageUrl": "https://picsum.photos/200/300?random=3"
-    },
-    {
-        "name": "Gaming Laptop Zephyrus G14",
-        "brand": "ASUS",
-        "price": 1450,
-        "listPrice": 1450, 
-        "url": "https://www.asus.com/Laptops/ROG-Zephyrus-G14/",
-        "imageUrl": "https://picsum.photos/200/300?random=4"
-    },
-    {
-        "name": "Professional Blender 7500",
-        "brand": "Vitamix",
-        "price": 529.95,
-        "listPrice": 600,
-        "url": "https://www.vitamix.com/us/en_us/shop/7500",
-        "imageUrl": "https://picsum.photos/200/300?random=5"
-    }
+	{
+		"name": "UltraBoost Running Shoes",
+		"brand": "Adidas",
+		"price": 180,
+		"listPrice": 200,
+		"url": "https://www.adidas.com/us/ultraboost",
+		"imageUrl": "https://picsum.photos/200/300?random=1",
+		"alternateImages": [
+			"https://picsum.photos/200/300?random=10",
+			"https://picsum.photos/200/300?random=11"
+		]
+	},
+	{
+		"name": "iPhone 13 Pro",
+		"brand": "Apple",
+		"price": 999,
+		"listPrice": 999,
+		"url": "https://www.apple.com/iphone-13-pro/",
+		"imageUrl": "https://picsum.photos/200/300?random=2",
+		"alternateImages": [
+			"https://picsum.photos/200/300?random=12",
+			"https://picsum.photos/200/300?random=13"
+		]
+	},
+	{
+		"name": "QLED Smart 4K UHD TV",
+		"brand": "Samsung",
+		"price": 1200,
+		"listPrice": 1300,
+		"url": "https://www.samsung.com/us/televisions-home-theater/tvs/qled-4k-tvs/",
+		"imageUrl": "https://picsum.photos/200/300?random=3",
+		"alternateImages": [
+			"https://picsum.photos/200/300?random=14",
+			"https://picsum.photos/200/300?random=15"
+		]
+	},
+	{
+		"name": "Gaming Laptop Zephyrus G14",
+		"brand": "ASUS",
+		"price": 1450,
+		"listPrice": 1450,
+		"url": "https://www.asus.com/Laptops/ROG-Zephyrus-G14/",
+		"imageUrl": "https://picsum.photos/200/300?random=4",
+		"alternateImages": [
+			"https://picsum.photos/200/300?random=16",
+			"https://picsum.photos/200/300?random=17"
+		]
+	},
+	{
+		"name": "Professional Blender 7500",
+		"brand": "Vitamix",
+		"price": 529.95,
+		"listPrice": 600,
+		"url": "https://www.vitamix.com/us/en_us/shop/7500",
+		"imageUrl": "https://picsum.photos/200/300?random=5",
+		"alternateImages": [
+			"https://picsum.photos/200/300?random=18",
+			"https://picsum.photos/200/300?random=19"
+		]
+	}
 ]
