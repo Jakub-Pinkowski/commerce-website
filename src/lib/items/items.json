@@ -1,0 +1,37 @@
+[
+	{
+		"name": "UltraBoost Running Shoes",
+		"brand": "Adidas",
+		"price": 180,
+		"url": "https://www.adidas.com/us/ultraboost",
+		"imageUrl": "https://picsum.photos/200/300?random=1"
+	},
+	{
+		"name": "iPhone 13 Pro",
+		"brand": "Apple",
+		"price": 999,
+		"url": "https://www.apple.com/iphone-13-pro/",
+		"imageUrl": "https://picsum.photos/200/300?random=2"
+	},
+	{
+		"name": "QLED Smart 4K UHD TV",
+		"brand": "Samsung",
+		"price": 1200,
+		"url": "https://www.samsung.com/us/televisions-home-theater/tvs/qled-4k-tvs/",
+		"imageUrl": "https://picsum.photos/200/300?random=3"
+	},
+	{
+		"name": "Gaming Laptop Zephyrus G14",
+		"brand": "ASUS",
+		"price": 1450,
+		"url": "https://www.asus.com/Laptops/ROG-Zephyrus-G14/",
+		"imageUrl": "https://picsum.photos/200/300?random=4"
+	},
+	{
+		"name": "Professional Blender 7500",
+		"brand": "Vitamix",
+		"price": 529.95,
+		"url": "https://www.vitamix.com/us/en_us/shop/7500",
+		"imageUrl": "https://picsum.photos/200/300?random=5"
+	}
+]

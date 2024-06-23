@@ -1,10 +1,11 @@
 <script lang="ts">
+    import about_us from '$lib/assets/images/about_us.jpg';
 </script>
 
 <div>
 	<div
 		class="hero h-96 rounded-lg"
-		style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);"
+        style="background-image: url({about_us}); background-size: cover; background-position: center;"
 	>
 		<div class="hero-overlay rounded-lg bg-opacity-60"></div>
 		<div class="hero-content text-center text-neutral-content">
