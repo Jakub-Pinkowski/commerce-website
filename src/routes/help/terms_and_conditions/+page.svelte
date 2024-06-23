@@ -4,7 +4,7 @@
 <div class="breadcrumbs mb-6 text-sm">
 	<ul>
 		<li><a href="/">Home</a></li>
-		<li><a href="/legal">Legal</a></li>
+		<li><a href="/help">Help</a></li>
 		<li>Terms and Conditions</li>
 	</ul>
 </div>

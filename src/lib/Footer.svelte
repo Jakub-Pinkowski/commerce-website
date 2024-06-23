@@ -12,11 +12,12 @@
 		<a href="/company_x/contact" class="link-hover link">Contact</a>
 	</nav>
 	<nav>
-		<a href="/legal" class="link-hover link"><h6 class="footer-title">Legal</h6></a>
-		<a href="/legal/terms_and_conditions" class="link-hover link">Terms and Conditions</a>
-		<a href="/legal/privacy_policy" class="link-hover link">Privacy Policy</a>
-		<a href="/legal/cookie_policy" class="link-hover link">Cookie Policy</a>
-		<a href="/legal/return_policy" class="link-hover link">Return Policy</a>
+		<a href="/help" class="link-hover link"><h6 class="footer-title">help</h6></a>
+		<a href="/help/terms_and_conditions" class="link-hover link">Terms and Conditions</a>
+		<a href="/help/privacy_policy" class="link-hover link">Privacy Policy</a>
+		<a href="/help/cookie_policy" class="link-hover link">Cookie Policy</a>
+		<a href="/help/return_policy" class="link-hover link">Return Policy</a>
+        <a href="/help/faq" class="link-hover link">FAQ</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Social</h6>
