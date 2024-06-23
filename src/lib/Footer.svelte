@@ -7,9 +7,9 @@
 		<a href="/categories/sale" class="link-hover link">Sale</a>
 	</nav>
 	<nav>
-		<h6 class="footer-title">Our Company</h6>
-		<a href="/our_company/about" class="link-hover link">About Us</a>
-		<a href="/our_company/contact" class="link-hover link">Contact</a>
+		<h6 class="footer-title">Company X</h6>
+		<a href="/company_x/about" class="link-hover link">About Us</a>
+		<a href="/company_x/contact" class="link-hover link">Contact</a>
 	</nav>
 	<nav>
 		<a href="/legal" class="link-hover link"><h6 class="footer-title">Legal</h6></a>
