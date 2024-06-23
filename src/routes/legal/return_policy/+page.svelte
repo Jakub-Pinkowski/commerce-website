@@ -1,6 +1,14 @@
 <script lang="ts">
 </script>
 
+<div class="breadcrumbs mb-6 text-sm">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/legal">Legal</a></li>
+        <li>Return Policy</li>
+	</ul>
+</div>
+
 <div class="text-justify">
 	<h1 class="mb-4 text-3xl font-bold text-gray-900">Return Policy</h1>
 	<p class="mt-2 text-gray-700">
