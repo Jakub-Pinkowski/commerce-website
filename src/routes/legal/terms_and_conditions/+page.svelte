@@ -11,7 +11,6 @@
 
 <div class="text-justify">
 	<h1 class="mb-4 text-3xl font-bold text-gray-900">Terms and Conditions</h1>
-	<span class="text-sm text-red-600">It's a mere placeholder</span>
 	<p class="mt-2 text-gray-700">
 		Please read these terms and conditions carefully before using Our Service. This document is a
 		legally binding agreement between you and [Your Company], governing your access to and use of
