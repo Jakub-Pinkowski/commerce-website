@@ -38,14 +38,14 @@
 	</p>
 	<div class="join join-vertical w-full">
 		<div class="collapse join-item collapse-arrow border border-base-300">
-			<input type="radio" name="my-accordion-4" />
+			<input type="checkbox" name="accordion-1" />
 			<div class="collapse-title text-xl font-medium">What payment methods are accepted?</div>
 			<div class="collapse-content">
 				<p>We accept Visa, MasterCard, American Express, and PayPal.</p>
 			</div>
 		</div>
 		<div class="collapse join-item collapse-arrow border border-base-300">
-			<input type="radio" name="my-accordion-4" />
+			<input type="checkbox" name="accordion-2" />
 			<div class="collapse-title text-xl font-medium">How can I track my order?</div>
 			<div class="collapse-content">
 				<p>
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 		<div class="collapse join-item collapse-arrow border border-base-300">
-			<input type="radio" name="my-accordion-4" />
+			<input type="checkbox" name="accordion-3" />
 			<div class="collapse-title text-xl font-medium">What is the return policy?</div>
 			<div class="collapse-content">
 				<p>
