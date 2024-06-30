@@ -13,11 +13,11 @@
 	</nav>
 	<nav>
 		<a href="/support" class="link-hover link"><h6 class="footer-title">Support</h6></a>
-		<a class="link-hover link" href="/support/faq">FAQ</a>
-		<a class="link-hover link" href="/support/shipping">Shipping</a>
-		<a class="link-hover link" href="/support/order_tracking">Order tracking</a>
-		<a class="link-hover link" href="/support/return_policy">Return Policy</a>
-		<a class="link-hover link" href="/support/warranty">Warranty</a>
+		<a href="/support/faq" class="link-hover link">FAQ</a>
+		<a href="/support/shipping" class="link-hover link">Shipping</a>
+		<a href="/support/order_tracking" class="link-hover link">Order tracking</a>
+		<a href="/support/return_policy" class="link-hover link">Return Policy</a>
+		<a href="/support/warranty" class="link-hover link">Warranty</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Social</h6>
