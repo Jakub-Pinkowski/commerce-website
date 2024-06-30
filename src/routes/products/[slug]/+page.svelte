@@ -7,6 +7,7 @@
 	export let data: PageData;
 	export let product = data?.product;
 	let mainSwiper: Swiper;
+	let thumbSwiper: Swiper;
 	let quantity: number = 1;
 
 	function incrementQuantity() {
@@ -22,12 +23,17 @@
 	onMount(() => {
 		mainSwiper = new Swiper('.swiper.main-image', {
 			slidesPerView: 1,
-			spaceBetween: 10,
 			loop: true,
 			navigation: {
 				nextEl: '.button-next',
 				prevEl: '.button-prev'
 			}
+		});
+
+		thumbSwiper = new Swiper('.swiper.thumb-image', {
+			direction: 'vertical',
+			slidesPerView: 7,
+			spaceBetween: 10
 		});
 	});
 </script>
@@ -36,7 +42,14 @@
 	<section class="flex flex-col md:flex-row">
 		<div class="w-full flex-none md:max-w-[55%]">
 			<!-- TODO: Slider with thumbnails goes here -->
-			<div></div>
+			<div class="swiper thumb-image">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<p>Random text 1</p>
+						<p>Random text 2</p>
+					</div>
+				</div>
+			</div>
 			<div class="swiper main-image">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
