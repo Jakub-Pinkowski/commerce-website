@@ -22,9 +22,9 @@
 	</p>
 	<ul class="mb-4 list-disc pl-8">
 		<li><a class="link" href="/support/faq">Frequently Asked Questions (FAQ)</a></li>
-		<li><a class="link" href="/support/return_policy">Return Policy</a></li>
 		<li><a class="link" href="/support/shipping">Shipping Information</a></li>
 		<li><a class="link" href="/support/order_tracking">Order Tracking</a></li>
+		<li><a class="link" href="/support/return_policy">Return Policy</a></li>
 		<li><a class="link" href="/support/warranty">Product Warranty</a></li>
 	</ul>
 	<h2 class="mb-2 text-xl font-semibold">Need More Help?</h2>

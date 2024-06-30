@@ -14,9 +14,9 @@
 	<nav>
 		<a href="/support" class="link-hover link"><h6 class="footer-title">Support</h6></a>
 		<a class="link-hover link" href="/support/faq">FAQ</a>
-		<a class="link-hover link" href="/support/return_policy">Return Policy</a>
 		<a class="link-hover link" href="/support/shipping">Shipping</a>
 		<a class="link-hover link" href="/support/order_tracking">Order tracking</a>
+		<a class="link-hover link" href="/support/return_policy">Return Policy</a>
 		<a class="link-hover link" href="/support/warranty">Warranty</a>
 	</nav>
 	<nav>
