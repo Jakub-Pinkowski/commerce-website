@@ -25,8 +25,8 @@
 			slidesPerView: 1,
 			loop: true,
 			navigation: {
-				nextEl: '.button-next',
-				prevEl: '.button-prev'
+				nextEl: '.swiper.main-image .button-next',
+				prevEl: '.swiper.main-image .button-prev'
 			}
 		});
 
@@ -40,17 +40,21 @@
 
 {#if product}
 	<section class="flex flex-col md:flex-row">
-		<div class="w-full flex-none md:max-w-[55%]">
+		<div class="flex w-full md:max-w-[55%]">
 			<!-- TODO: Slider with thumbnails goes here -->
-			<div class="swiper thumb-image">
+			<div class="swiper thumb-image p-2 md:max-w-[15%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<p>Random text 1</p>
-						<p>Random text 2</p>
+						<img src={product.imageUrl} alt={product.name} class="h-full object-cover" />
 					</div>
+					{#each product.alternateImages as alternateImage}
+						<div class="swiper-slide">
+							<img src={alternateImage} alt={product.name} class="h-full object-cover" />
+						</div>
+					{/each}
 				</div>
 			</div>
-			<div class="swiper main-image">
+			<div class="swiper main-image p-2 md:max-w-[85%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<img src={product.imageUrl} alt={product.name} class="object-cover" />
