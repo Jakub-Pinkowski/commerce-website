@@ -94,7 +94,7 @@
 		<h3 class="mb-4 mt-8 text-2xl font-semibold">Didn't find what you were looking for?</h3>
 		<p>
 			If you didn't find the answers to your questions in our FAQ, please don't hesitate to reach
-			out to us directly via our <a href="/company_x/contact" class="link">Contact Us</a> page.
+			out to us directly via our <a href="/company/contact" class="link">Contact Us</a> page.
 		</p>
 	</div>
 </div>
