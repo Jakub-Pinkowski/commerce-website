@@ -4,7 +4,7 @@
 <div class="breadcrumbs mb-6 text-sm">
 	<ul>
 		<li><a href="/">Home</a></li>
-		<li><a href="/help">Help</a></li>
+		<li><a href="/support">Support</a></li>
         <li>Return Policy</li>
 	</ul>
 </div>
