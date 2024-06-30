@@ -1,4 +1,4 @@
-<footer class="footer bottom-0 mt-auto w-full bg-base-200 p-10 text-base-content">
+<footer class="footer bottom-0 mt-auto w-full bg-dark p-10 text-white">
 	<nav>
 		<h6 class="footer-title">Shopping</h6>
 		<a href="/categories" class="link-hover link">Categories</a>
@@ -70,8 +70,8 @@
 		<h6 class="footer-title">Newsletter</h6>
 		<fieldset class="form-control w-80">
 			<!-- svelte-ignore a11y_label_has_associated_control -->
-			<label class="label">
-				<span class="label-text">Sign up for a newsletter to get 10% off your first purchase</span>
+			<label class="label pl-0">
+				<span >Sign up for a newsletter to get 10% off your first purchase</span>
 			</label>
 			<div class="join">
 				<input type="text" placeholder="username@site.com" class="input join-item input-bordered" />
