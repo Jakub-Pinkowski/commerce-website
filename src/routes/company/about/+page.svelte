@@ -2,6 +2,14 @@
     import about_us from '$lib/assets/images/about_us.jpg';
 </script>
 
+<div class="breadcrumbs mb-6 text-sm">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/company">Company</a></li>
+        <li>About Us</li>
+	</ul>
+</div>
+
 <div>
 	<div
 		class="hero h-96 rounded-lg"

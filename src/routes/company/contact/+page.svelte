@@ -65,6 +65,14 @@
 	};
 </script>
 
+<div class="breadcrumbs mb-6 text-sm">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/company">Company</a></li>
+        <li>Contact</li>
+	</ul>
+</div>
+
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-bold dark:text-white">Contact Us</h1>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
