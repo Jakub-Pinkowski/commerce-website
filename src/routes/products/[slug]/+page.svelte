@@ -24,6 +24,7 @@
 		</div>
 		<div class="w-full flex-none p-8 md:max-w-[45%]">
 			<h1 class="text-3xl font-bold">{product.name}</h1>
+			<span class="mt-4 inline-block text-lg">{product.brand}</span>
 			<p class="mt-4 text-xl">{product.description}</p>
 			{#if product.price < product.listPrice}
 				<div class="mt-8">
