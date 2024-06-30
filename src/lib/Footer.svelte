@@ -1,4 +1,4 @@
-<footer class="bg-dark footer bottom-0 mt-auto w-full p-10 text-white">
+<footer class="bg-dark footer bottom-0 mt-auto w-full p-10 pb-2 text-white">
 	<nav>
 		<h6 class="footer-title">Shopping</h6>
 		<a href="/categories" class="link-hover link">Categories</a>
@@ -86,15 +86,16 @@
 		</fieldset>
 	</form>
 </footer>
-
 <footer class="bg-dark footer px-10 py-4 text-white">
-	<div class="w-full border-t border-base-200 pt-4">
-		<aside class="flex gap-4">
-			<a href="/legal/terms_and_conditions" class="link">Terms and Conditions</a> |
-			<a href="/legal/privacy_policy" class="link">Privacy Policy & Cookies</a> |
-			<p>UIcons by <a href="https://www.flaticon.com/uicons" class="link">Flaticon</a></p>
-			|
-			<p>© 2024 Jakub Pinkowski, All right reserved</p>
-		</aside>
+	<div
+		class="flex w-full flex-col items-center gap-3 border-t border-base-200 pt-4 md:flex-row md:justify-start md:gap-4"
+	>
+		<a href="/legal/terms_and_conditions" class="link">Terms and Conditions</a>
+		<span class="hidden md:inline">|</span>
+		<a href="/legal/privacy_policy" class="link">Privacy Policy & Cookies</a>
+		<span class="hidden md:inline">|</span>
+		<p>UIcons by <a href="https://www.flaticon.com/uicons" class="link">Flaticon</a></p>
+		<span class="hidden md:inline">|</span>
+		<p>© 2024 Jakub Pinkowski, All right reserved</p>
 	</div>
 </footer>
