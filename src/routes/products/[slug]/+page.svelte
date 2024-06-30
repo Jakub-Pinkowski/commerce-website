@@ -23,6 +23,7 @@
 		swiper = new Swiper('.swiper', {
 			slidesPerView: 1,
 			spaceBetween: 10,
+            loop: true,
 			navigation: {
 				nextEl: '.button-next',
 				prevEl: '.button-prev'
