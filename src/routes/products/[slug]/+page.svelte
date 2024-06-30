@@ -3,7 +3,7 @@
 
 	export let data: PageData;
 	export let product = data?.product;
-	let quantity = 1;
+	let quantity: number = 1;
 
 	function incrementQuantity() {
 		quantity += 1;
