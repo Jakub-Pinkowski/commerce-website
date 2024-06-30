@@ -1,4 +1,4 @@
-<footer class="footer bottom-0 mt-auto w-full bg-dark p-10 text-white">
+<footer class="bg-dark footer bottom-0 mt-auto w-full p-10 text-white">
 	<nav>
 		<h6 class="footer-title">Shopping</h6>
 		<a href="/categories" class="link-hover link">Categories</a>
@@ -12,12 +12,12 @@
 		<a href="/company_x/contact" class="link-hover link">Contact</a>
 	</nav>
 	<nav>
-		<a href="/help" class="link-hover link"><h6 class="footer-title">help</h6></a>
-		<a href="/help/terms_and_conditions" class="link-hover link">Terms and Conditions</a>
-		<a href="/help/privacy_policy" class="link-hover link">Privacy Policy</a>
-		<a href="/help/cookie_policy" class="link-hover link">Cookie Policy</a>
-		<a href="/help/return_policy" class="link-hover link">Return Policy</a>
-        <a href="/help/faq" class="link-hover link">FAQ</a>
+		<a href="/support" class="link-hover link"><h6 class="footer-title">Support</h6></a>
+		<a class="link-hover link" href="/support/faq">FAQ</a>
+		<a class="link-hover link" href="/support/return_policy">Return Policy</a>
+		<a class="link-hover link" href="/support/shipping">Shipping</a>
+		<a class="link-hover link" href="/support/order_tracking">Order tracking</a>
+		<a class="link-hover link" href="/support/warranty">Warranty</a>
 	</nav>
 	<nav>
 		<h6 class="footer-title">Social</h6>
@@ -71,7 +71,7 @@
 		<fieldset class="form-control w-80">
 			<!-- svelte-ignore a11y_label_has_associated_control -->
 			<label class="label pl-0">
-				<span >Sign up for a newsletter to get 10% off your first purchase</span>
+				<span>Sign up for a newsletter to get 10% off your first purchase</span>
 			</label>
 			<div class="join">
 				<input type="text" placeholder="username@site.com" class="input join-item input-bordered" />
@@ -86,4 +86,16 @@
 			UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
 		</div>
 	</aside>
+</footer>
+
+<footer class="bg-dark footer px-10 py-4 text-white">
+	<div class="w-full border-t border-base-200 pt-4">
+		<aside class="flex gap-4">
+			<a href="/legal/terms_and_conditions" class="link">Terms and Conditions</a> |
+			<a href="/legal/privacy_policy" class="link">Privacy Policy & Cookies</a> |
+			<p>UIcons by <a href="https://www.flaticon.com/uicons" class="link">Flaticon</a></p>
+			|
+			<p>© 2024 Jakub Pinkowski, All right reserved</p>
+		</aside>
+	</div>
 </footer>

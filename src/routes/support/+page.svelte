@@ -20,11 +20,11 @@
 		returning customer, we're here to assist you every step of the way.
 	</p>
 	<ul class="mb-4 list-disc pl-8">
-		<li><a class="link" href="/help/terms_and_conditions">Terms and Conditions </a></li>
-		<li><a class="link" href="/help/privacy_policy">Privacy Policy</a></li>
-		<li><a class="link" href="/help/cookie_policy">Cookie Policy</a></li>
-		<li><a class="link" href="/help/return_policy">Return Policy</a></li>
-		<li><a class="link" href="/help/faq">FAQ</a></li>
+        <li><a class="link" href="/support/faq">FAQ</a></li>
+		<li><a class="link" href="/support/return_policy">Return Policy</a></li>
+        <li><a class="link" href="/support/shipping">Shipping</a></li>
+        <li><a class="link" href="/support/order_tracking">Order tracking</a></li>
+        <li><a class="link" href="/support/warranty">Warranty</a></li>
 	</ul>
 	<h2 class="mb-2 text-xl font-semibold">Need Further Assistance?</h2>
 	<p class="mb-4">
@@ -36,7 +36,10 @@
 	<!-- TODO: Implement real FAQ -->
 	<h2 class="mb-2 text-xl font-semibold">Frequently Asked Questions</h2>
 	<p class="mb-4">
-		For quick answers to common questions, visit our FAQ section <a href="/help/faq" class="link">
+		For quick answers to common questions, visit our FAQ section <a
+			href="/support/faq"
+			class="link"
+		>
 			here</a
 		>.
 	</p>
