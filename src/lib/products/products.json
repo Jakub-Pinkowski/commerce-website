@@ -1,9 +1,11 @@
 [
 	{
+		"id": 1,
 		"name": "Men's NS40 Layer",
 		"handle": "mens-ns40-layer",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
+		"description": "The NS40 Layer is a versatile, lightweight, and packable jacket that is perfect for any adventure. It is made from a durable, water-resistant fabric that will keep you dry and comfortable in any weather. The jacket features a full-length zipper, a hood with an adjustable drawstring, and two zippered hand pockets. The NS40 Layer is available in a range of colors and sizes, so you can find the perfect fit for your next adventure.",
 		"price": 129,
 		"listPrice": 129,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -17,10 +19,12 @@
 		]
 	},
 	{
+		"id": 2,
 		"name": "Women's NS40 Reversible Vest",
 		"handle": "womens-ns40-reversible-vest",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
+		"description": "The NS40 Reversible Vest is a versatile and stylish addition to your wardrobe. It is made from a durable, water-resistant fabric that will keep you dry and comfortable in any weather. The vest features a full-length zipper, a hood with an adjustable drawstring, and two zippered hand pockets. The NS40 Reversible Vest is available in a range of colors and sizes, so you can find the perfect fit for your next adventure.",
 		"price": 99,
 		"listPrice": 99,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -32,10 +36,12 @@
 		]
 	},
 	{
+		"id": 3,
 		"name": "Women's NS40 Light Jacket",
-        "handle": "womens-ns40-light-jacket",
+		"handle": "womens-ns40-light-jacket",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
+		"description": "The NS40 Light Jacket is a versatile and stylish addition to your wardrobe. It is made from a durable, water-resistant fabric that will keep you dry and comfortable in any weather. The jacket features a full-length zipper, a hood with an adjustable drawstring, and two zippered hand pockets. The NS40 Light Jacket is available in a range of colors and sizes, so you can find the perfect fit for your next adventure.",
 		"price": 182,
 		"listPrice": 228,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -48,10 +54,12 @@
 		]
 	},
 	{
+		"id": 4,
 		"name": "ProTravel Rain Shell",
-        "handle": "protravel-rain-shell",
+		"handle": "protravel-rain-shell",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
+		"description": "The ProTravel Rain Shell is a versatile and stylish addition to your wardrobe. It is made from a durable, water-resistant fabric that will keep you dry and comfortable in any weather. The jacket features a full-length zipper, a hood with an adjustable drawstring, and two zippered hand pockets. The ProTravel Rain Shell is available in a range of colors and sizes, so you can find the perfect fit for your next adventure.",
 		"price": 169,
 		"listPrice": 169,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -61,10 +69,12 @@
 		]
 	},
 	{
+		"id": 5,
 		"name": "Women's ProTravel Chino Pant",
-        "handle": "womens-protravel-chino-pant",
+		"handle": "womens-protravel-chino-pant",
 		"brand": "Tropicfeel",
 		"category": "Pants",
+		"description": "The Women's ProTravel Chino Pant combines comfort and style, perfect for any journey",
 		"price": 109,
 		"listPrice": 109,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -83,10 +93,12 @@
 		]
 	},
 	{
+		"id": 6,
 		"name": "Women's ProTravel Zip-off Pant",
-        "handle": "womens-protravel-zip-off-pant",
+		"handle": "womens-protravel-zip-off-pant",
 		"brand": "Tropicfeel",
 		"category": "Pants",
+		"description": "Versatile and functional, the Women's ProTravel Zip-off Pant adapts to your needs on the go.",
 		"price": 129,
 		"listPrice": 129,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -110,10 +122,12 @@
 		]
 	},
 	{
+		"id": 7,
 		"name": "Men's Jogger Pant",
-        "handle": "mens-jogger-pant",
+		"handle": "mens-jogger-pant",
 		"brand": "Tropicfeel",
 		"category": "Pants",
+		"description": "The Women's NS40 Shirt Jacket is a perfect blend of comfort and style for any casual outing.",
 		"price": 76,
 		"listPrice": 109,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -123,10 +137,12 @@
 		]
 	},
 	{
+		"id": 8,
 		"name": "Men's ProTravel™ Zip-off Pant",
-        "handle": "mens-protravel-zip-off-pant",
+		"handle": "mens-protravel-zip-off-pant",
 		"brand": "Tropicfeel",
 		"category": "Pants",
+		"description": "Step into adventure with the Men’s Shell Sneaker, designed for comfort and durability.",
 		"price": 129,
 		"listPrice": 129,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -149,10 +165,12 @@
 		]
 	},
 	{
+		"id": 9,
 		"name": "Jungle",
-        "handle": "jungle",
+		"handle": "jungle",
 		"brand": "Tropicfeel",
 		"category": "Shoes",
+		"description": "The Jungle is a versatile, lightweight, and packable shoe that is perfect for any adventure.",
 		"price": 76,
 		"listPrice": 109,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -165,10 +183,12 @@
 		]
 	},
 	{
+		"id": 10,
 		"name": "Knyon",
-        "handle": "knyon",
+		"handle": "knyon",
 		"brand": "Tropicfeel",
 		"category": "Shoes",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"price": 119,
 		"listPrice": 119,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -178,10 +198,12 @@
 		]
 	},
 	{
+		"id": 11,
 		"name": "AT Lite",
-        "handle": "at-lite",
+		"handle": "at-lite",
 		"brand": "Tropicfeel",
 		"category": "Shoes",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"price": 129,
 		"listPrice": 129,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -195,10 +217,12 @@
 		]
 	},
 	{
+		"id": 12,
 		"name": "All-Terrain",
-        "handle": "all-terrain",
+		"handle": "all-terrain",
 		"brand": "Tropicfeel",
 		"category": "Shoes",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"price": 82,
 		"listPrice": 109,
 		"url": "https://www.adidas.com/us/ultraboost",
