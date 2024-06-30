@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	export let product = data.props?.product;
+	export let product = data?.product;
 </script>
 
 {#if product}
