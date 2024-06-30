@@ -33,8 +33,11 @@
 		thumbSwiper = new Swiper('.swiper.thumb-image', {
 			direction: 'vertical',
 			slidesPerView: 7,
-			spaceBetween: 10
+			spaceBetween: 10,
 		});
+
+        mainSwiper.controller.control = thumbSwiper;
+        thumbSwiper.controller.control = mainSwiper;
 	});
 </script>
 
@@ -139,3 +142,10 @@
 {:else}
 	<h1 class="text-xl font-bold">No product found</h1>
 {/if}
+
+<style>
+    /* NOTE: For testing only */
+    :global(.swiper-slide-active) {
+        border: 2px solid red !important;
+    }
+</style>
