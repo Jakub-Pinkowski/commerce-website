@@ -145,10 +145,9 @@
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Footwear-ATS-WF-Jungle-SS21-Night-Blue-1-ecom.jpg?v=1660913167",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-04.jpg?v=1699261073",
-			"",
-			"",
-			"",
-			""
+			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-02.jpg?v=1699261073",
+			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-05.jpg?v=1660913167",
+			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-03.jpg?v=1660913167"
 		]
 	},
 	{
@@ -158,13 +157,9 @@
 		"price": 119,
 		"listPrice": 119,
 		"url": "https://www.adidas.com/us/ultraboost",
-		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Footwear-ATS-WF-Jungle-SS21-Night-Blue-1-ecom.jpg?v=1660913167",
+		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-ecommerce-canyon-sage-green-1.jpg?v=1630334799",
 		"alternateImages": [
-			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-04.jpg?v=1699261073",
-			"",
-			"",
-			"",
-			""
+			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-ecommerce-canyon-sage-green-4.jpg?v=1705495265"
 		]
 	},
 	{
@@ -174,13 +169,13 @@
 		"price": 129,
 		"listPrice": 129,
 		"url": "https://www.adidas.com/us/ultraboost",
-		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Footwear-ATS-WF-Jungle-SS21-Night-Blue-1-ecom.jpg?v=1660913167",
+		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-1.jpg?v=1709223271",
 		"alternateImages": [
-			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-04.jpg?v=1699261073",
-			"",
-			"",
-			"",
-			""
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-2.jpg?v=1709223271",
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-3.jpg?v=1709223271",
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-4.jpg?v=1709223271",
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-5.jpg?v=1709223271",
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-6.jpg?v=1709223271"
 		]
 	},
 	{
@@ -190,13 +185,13 @@
 		"price": 82,
 		"listPrice": 109,
 		"url": "https://www.adidas.com/us/ultraboost",
-		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Footwear-ATS-WF-Jungle-SS21-Night-Blue-1-ecom.jpg?v=1660913167",
+		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-1.jpg?v=1709223335",
 		"alternateImages": [
-			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-04.jpg?v=1699261073",
-			"",
-			"",
-			"",
-			""
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-2.jpg?v=1713253403",
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-3.jpg?v=1709223335",
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-4.jpg?v=1709223335",
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-5.jpg?v=1709223335",
+			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-6.jpg?v=1709223335"
 		]
 	}
 ]
