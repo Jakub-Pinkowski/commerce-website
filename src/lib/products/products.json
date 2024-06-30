@@ -45,7 +45,7 @@
 		]
 	},
 	{
-		"name": "ProTravel™ Rain Shell",
+		"name": "ProTravel Rain Shell",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
 		"price": 169,
@@ -56,5 +56,84 @@
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-ProTravel-Rain-Shell-Cobalt-Blue-2.jpg?v=1696503417"
 		]
 	},
-	{}
+	{
+		"name": "Women's ProTravel Chino Pant",
+		"brand": "Tropicfeel",
+		"category": "Pants",
+		"price": 109,
+		"listPrice": 109,
+		"url": "https://www.adidas.com/us/ultraboost",
+		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-1.jpg?v=1709223499",
+		"alternateImages": [
+			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-2.jpg?v=1709223499",
+			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-3.jpg?v=1709223499",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-3.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-4.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-6.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-7.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-8.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-5.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-1.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-2.jpg?v=1718099894"
+		]
+	},
+	{
+		"name": "Women's ProTravel Zip-off Pant",
+		"brand": "Tropicfeel",
+		"category": "Pants",
+		"price": 129,
+		"listPrice": 129,
+		"url": "https://www.adidas.com/us/ultraboost",
+		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-1.jpg?v=1709223499",
+		"alternateImages": [
+			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-2.jpg?v=1709223499",
+			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-3.jpg?v=1709223499",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-3.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-4.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-6.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-7.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-8.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-5.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-1.jpg?v=1718099894",
+			"https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-chino-fossil-W-2.jpg?v=1718099894"
+		]
+	},
+	{
+		"name": "Men's Jogger Pant",
+		"brand": "Tropicfeel",
+		"category": "Pants",
+		"price": 76,
+		"listPrice": 109,
+		"url": "https://www.adidas.com/us/ultraboost",
+		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Apparel-ProTravel-Pants-Jogger-M-Walnut-Sand-1.jpg?v=1706716656",
+		"alternateImages": [
+			"https://shop.tropicfeel.com/cdn/shop/products/DSC_4525copia.jpg?v=1699353520"
+		]
+	},
+    {
+		"name": "Men's ProTravel™ Zip-off Pant",
+		"brand": "Tropicfeel",
+		"category": "Pants",
+		"price": 129,
+		"listPrice": 129,
+		"url": "https://www.adidas.com/us/ultraboost",
+		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-1.jpg?v=1709223519",
+		"alternateImages": [
+			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-2.jpg?v=1709223519",
+            "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-3.jpg?v=1709223519",
+            "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-4.jpg?v=1709223519",
+            "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-5.jpg?v=1709223519",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-1_b68097fe-1195-45de-8911-93291c9984eb.jpg?v=1719315782",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-2_a195c3f5-dffb-46a2-8f1e-a27c4e2bb78a.jpg?v=1719315783",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-5_22691857-a2ca-44b1-96fe-e6c812ae4a71.jpg?v=1719315784",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-6_7dca6958-7d21-4aaf-8ece-cb24bced67c7.jpg?v=1719315783",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-3_5cf93085-58c4-4740-9d8c-6494b9d3a163.jpg?v=1719315783",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-4_cd516b9a-e7bb-4284-a5c4-fefce1260fa5.jpg?v=1719315783",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-7_c0251179-60ec-42aa-b6ab-f16d22ceb2c8.jpg?v=1719315784",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-10_c1e7ec2b-99e8-4f8b-9f36-86358cef3421.jpg?v=1719315785",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-8_2c63736c-bc93-46b2-8c57-ce4fdb9bd4da.jpg?v=1719315784",
+            "https://shop.tropicfeel.com/cdn/shop/files/4-5-SS24-Apparel-ProTravel-Pants-studio-models-zipoff-khaki-M-9_92226e79-49e5-48e5-b219-48798a0fbcdf.jpg?v=1719315784"
+
+		]
+	}
 ]
