@@ -8,13 +8,13 @@
 	</ul>
 </div>
 
-<div class="container mx-auto px-4">
-	<h1 class="mb-4 mt-8 text-3xl font-bold">Legal Information</h1>
+<div class="text-justify">
+	<h1 class="mb-4 text-3xl font-bold text-gray-900">Legal information</h1>
 	<p class="mb-4">
 		Find detailed information about the legal aspects of using our service, including terms and
 		conditions, privacy policy, and more.
 	</p>
-	<div class="mt-8">
+	<div class="mt-4">
 		<h2 class="mb-2 text-xl font-semibold">Quick Links</h2>
 		<ul class="list-disc pl-8">
 			<li class="mb-2">
