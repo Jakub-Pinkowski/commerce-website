@@ -1,6 +1,7 @@
 [
 	{
 		"name": "Men's NS40 Layer",
+		"handle": "mens-ns40-layer",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
 		"price": 129,
@@ -17,6 +18,7 @@
 	},
 	{
 		"name": "Women's NS40 Reversible Vest",
+		"handle": "womens-ns40-reversible-vest",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
 		"price": 99,
@@ -31,6 +33,7 @@
 	},
 	{
 		"name": "Women's NS40 Light Jacket",
+        "handle": "womens-ns40-light-jacket",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
 		"price": 182,
@@ -46,6 +49,7 @@
 	},
 	{
 		"name": "ProTravel Rain Shell",
+        "handle": "protravel-rain-shell",
 		"brand": "Tropicfeel",
 		"category": "Jackets",
 		"price": 169,
@@ -58,6 +62,7 @@
 	},
 	{
 		"name": "Women's ProTravel Chino Pant",
+        "handle": "womens-protravel-chino-pant",
 		"brand": "Tropicfeel",
 		"category": "Pants",
 		"price": 109,
@@ -79,6 +84,7 @@
 	},
 	{
 		"name": "Women's ProTravel Zip-off Pant",
+        "handle": "womens-protravel-zip-off-pant",
 		"brand": "Tropicfeel",
 		"category": "Pants",
 		"price": 129,
@@ -105,6 +111,7 @@
 	},
 	{
 		"name": "Men's Jogger Pant",
+        "handle": "mens-jogger-pant",
 		"brand": "Tropicfeel",
 		"category": "Pants",
 		"price": 76,
@@ -117,6 +124,7 @@
 	},
 	{
 		"name": "Men's ProTravel™ Zip-off Pant",
+        "handle": "mens-protravel-zip-off-pant",
 		"brand": "Tropicfeel",
 		"category": "Pants",
 		"price": 129,
@@ -142,6 +150,7 @@
 	},
 	{
 		"name": "Jungle",
+        "handle": "jungle",
 		"brand": "Tropicfeel",
 		"category": "Shoes",
 		"price": 76,
@@ -157,6 +166,7 @@
 	},
 	{
 		"name": "Knyon",
+        "handle": "knyon",
 		"brand": "Tropicfeel",
 		"category": "Shoes",
 		"price": 119,
@@ -169,6 +179,7 @@
 	},
 	{
 		"name": "AT Lite",
+        "handle": "at-lite",
 		"brand": "Tropicfeel",
 		"category": "Shoes",
 		"price": 129,
@@ -185,6 +196,7 @@
 	},
 	{
 		"name": "All-Terrain",
+        "handle": "all-terrain",
 		"brand": "Tropicfeel",
 		"category": "Shoes",
 		"price": 82,
