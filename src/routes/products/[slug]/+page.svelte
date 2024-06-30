@@ -21,11 +21,11 @@
 
 	onMount(() => {
 		swiper = new Swiper('.swiper', {
-			slidesPerView: 4,
+			slidesPerView: 1,
 			spaceBetween: 10,
 			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev'
+				nextEl: '.button-next',
+				prevEl: '.button-prev'
 			}
 		});
 	});
@@ -49,8 +49,36 @@
 				</div>
 				<div class="swiper-pagination"></div>
 
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
+				<div
+					class="button-prev absolute left-8 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						id="arrow-circle-down"
+						viewBox="0 0 24 24"
+						width="48"
+						height="48"
+					>
+						<path
+							d="M24,12A12,12,0,1,0,12,24,12.013,12.013,0,0,0,24,12ZM2,12A10,10,0,1,1,12,22,10.011,10.011,0,0,1,2,12Zm10.243,4.243-1.414,1.414L6.586,13.414a2,2,0,0,1,0-2.828l4.243-4.243,1.414,1.414L9,11h9v2H9Z"
+						/>
+					</svg>
+				</div>
+				<div
+					class="button-next absolute right-8 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						id="arrow-circle-down"
+						viewBox="0 0 24 24"
+						width="48"
+						height="48"
+					>
+						<path
+							d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12ZM11.757,7.757l1.414-1.414,4.243,4.243a2,2,0,0,1,0,2.828l-4.243,4.243-1.414-1.414L15,13H6V11h9Z"
+						/>
+					</svg>
+				</div>
 			</div>
 		</div>
 		<div class="w-full flex-none p-8 md:max-w-[45%]">
