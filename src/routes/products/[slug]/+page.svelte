@@ -1,8 +1,12 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import Swiper from 'swiper/bundle';
+	import { onMount } from 'svelte';
+	import 'swiper/css/bundle';
 
 	export let data: PageData;
 	export let product = data?.product;
+	let swiper: Swiper;
 	let quantity: number = 1;
 
 	function incrementQuantity() {
@@ -14,13 +18,40 @@
 			quantity -= 1;
 		}
 	}
+
+	onMount(() => {
+		swiper = new Swiper('.swiper', {
+			slidesPerView: 4,
+			spaceBetween: 10,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev'
+			}
+		});
+	});
 </script>
 
 {#if product}
 	<section class="flex flex-col md:flex-row">
-		<!-- TODO: 2 sliders go here, one for thumbnails, one for main image -->
 		<div class="w-full flex-none md:max-w-[55%]">
-			<img src={product.imageUrl} alt={product.name} class="w-full" />
+			<!-- TODO: Slider with thumbnails goes here -->
+			<div></div>
+			<div class="swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src={product.imageUrl} alt={product.name} />
+					</div>
+					{#each product.alternateImages as alternateImage}
+						<div class="swiper-slide">
+							<img src={alternateImage} alt={product.name} />
+						</div>
+					{/each}
+				</div>
+				<div class="swiper-pagination"></div>
+
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
 		</div>
 		<div class="w-full flex-none p-8 md:max-w-[45%]">
 			<h1 class="text-3xl font-bold">{product.name}</h1>
