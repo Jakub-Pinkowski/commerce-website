@@ -27,21 +27,23 @@
 			<p class="mt-4 text-xl">{product.description}</p>
 			{#if product.price < product.listPrice}
 				<div class="mt-8">
-					<span class=" text-2xl text-gray-500 line-through">${product.listPrice}</span>
-					<span class="text-2xl text-red-600">${product.price}</span>
+					<span class="mr-2 inline-block text-2xl text-gray-500 line-through">
+						${product.listPrice}
+					</span>
+					<span class="inline-block text-2xl text-red-600">${product.price}</span>
 				</div>
 			{:else}
 				<div class="mt-8">
-					<span class="text-2xl text-gray-500">${product.price}</span>
+					<span class="inline-block text-2xl text-gray-500">${product.price}</span>
 				</div>
 			{/if}
 			<div class="join mt-8">
 				<button class="btn join-item text-2xl" on:click={decrementQuantity}>-</button>
-				<span class="btn join-item text-xl">{quantity}</span>
+				<span class="btn join-item cursor-default text-xl">{quantity}</span>
 				<button class="btn join-item text-2xl" on:click={incrementQuantity}>+</button>
 			</div>
-			<button class="btn btn-primary btn-block mt-8 text-lg"> Add to cart </button>
-			<button class="btn btn-neutral btn-block mt-8 text-lg"> Add to wishlist </button>
+			<button class="btn btn-primary btn-block mt-8 text-lg text-white"> Add to cart </button>
+			<button class="btn btn-neutral btn-block mt-8 text-lg text-white"> Add to wishlist </button>
 		</div>
 	</section>
 {:else}
