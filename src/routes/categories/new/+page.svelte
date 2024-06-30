@@ -21,18 +21,15 @@
 <div>
 	<h1>New</h1>
 	<div class="mt-8">
-		<!-- Slider main container -->
 		<div class="swiper">
-			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
-				<!-- Slides -->
 				{#each items as item}
 					<div class="swiper-slide">
 						<div class="bg-white p-4">
 							<img
 								src={item.imageUrl}
 								alt={item.name}
-								class="h-48 w-full rounded-lg object-cover"
+								class=" w-full rounded-lg object-cover"
 							/>
 							<div class="mt-4">
 								<span>{item.brand} </span>
@@ -48,10 +45,8 @@
 					</div>
 				{/each}
 			</div>
-			<!-- If we need pagination -->
 			<div class="swiper-pagination"></div>
 
-			<!-- If we need navigation buttons -->
 			<div class="swiper-button-prev"></div>
 			<div class="swiper-button-next"></div>
 		</div>
