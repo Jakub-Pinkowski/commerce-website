@@ -3,6 +3,17 @@
 
 	export let data: PageData;
 	export let product = data?.product;
+	let quantity = 1;
+
+	function incrementQuantity() {
+		quantity += 1;
+	}
+
+	function decrementQuantity() {
+		if (quantity > 1) {
+			quantity -= 1;
+		}
+	}
 </script>
 
 {#if product}
@@ -25,9 +36,9 @@
 				</div>
 			{/if}
 			<div class="join mt-8">
-				<button class="btn join-item">-</button>
-				<button class="btn join-item">1</button>
-				<button class="btn join-item">+</button>
+				<button class="btn join-item text-2xl" on:click={decrementQuantity}>-</button>
+				<span class="btn join-item text-xl">{quantity}</span>
+				<button class="btn join-item text-2xl" on:click={incrementQuantity}>+</button>
 			</div>
 			<button class="btn btn-primary btn-block mt-8 text-lg"> Add to cart </button>
 			<button class="btn btn-neutral btn-block mt-8 text-lg"> Add to wishlist </button>
