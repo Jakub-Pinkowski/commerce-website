@@ -13,13 +13,22 @@
 		</div>
 		<div class="w-full flex-none p-8 md:max-w-[45%]">
 			<h1 class="text-3xl font-bold">{product.name}</h1>
-			<p class="my-8 text-xl">{product.description}</p>
+			<p class="mt-4 text-xl">{product.description}</p>
 			{#if product.price < product.listPrice}
-				<span class="mt-4 text-2xl text-gray-500 line-through">${product.listPrice}</span>
-				<span class="text-2xl text-red-600">${product.price}</span>
+				<div class="mt-8">
+					<span class=" text-2xl text-gray-500 line-through">${product.listPrice}</span>
+					<span class="text-2xl text-red-600">${product.price}</span>
+				</div>
 			{:else}
-				<span class="mt-4 text-2xl text-gray-500">${product.price}</span>
+				<div class="mt-8">
+					<span class="text-2xl text-gray-500">${product.price}</span>
+				</div>
 			{/if}
+			<div class="join mt-8">
+				<button class="btn join-item">-</button>
+				<button class="btn join-item">1</button>
+				<button class="btn join-item">+</button>
+			</div>
 			<button class="btn btn-primary btn-block mt-8 text-lg"> Add to cart </button>
 			<button class="btn btn-neutral btn-block mt-8 text-lg"> Add to wishlist </button>
 		</div>
