@@ -1,6 +1,6 @@
 <footer class="bg-dark footer bottom-0 mt-auto w-full p-10 pb-2 text-white">
 	<nav>
-		<h6 class="footer-title">Shopping</h6>
+		<a href="/categories" class="link-hover link"><h6 class="footer-title">Shopping</h6></a>
 		<a href="/categories" class="link-hover link">Categories</a>
 		<a href="/categories/new" class="link-hover link">New</a>
 		<a href="/categories/best_sellers" class="link-hover link">Best Sellers</a>
