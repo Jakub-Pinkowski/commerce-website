@@ -68,24 +68,23 @@
 	</nav>
 	<form>
 		<h6 class="footer-title">Newsletter</h6>
-		<fieldset class="form-control w-80">
+		<fieldset class="form-control">
 			<!-- svelte-ignore a11y_label_has_associated_control -->
-			<label class="label pl-0">
+			<label class="label pl-0 text-lg">
 				<span>Sign up for a newsletter to get 10% off your first purchase</span>
 			</label>
-			<div class="join">
+			<div class="join mt-4">
 				<input type="text" placeholder="username@site.com" class="input join-item input-bordered" />
 				<button class="btn btn-primary join-item">Subscribe</button>
 			</div>
+			<span class="mt-3 text-xs">
+				By signing up you are agreeing to the terms and conditions. Read our <a
+					href="/legal/privacy_policy"
+					class="link">Privacy Policy</a
+				>.
+			</span>
 		</fieldset>
 	</form>
-	<aside class="items-center">
-		<p>© 2024 Jakub Pinkowski</p>
-		<p>All right reserved</p>
-		<div>
-			UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
-		</div>
-	</aside>
 </footer>
 
 <footer class="bg-dark footer px-10 py-4 text-white">
