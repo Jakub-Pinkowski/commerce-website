@@ -2,6 +2,7 @@
 	{
 		"name": "Men's NS40 Layer",
 		"brand": "Tropicfeel",
+		"category": "Jackets",
 		"price": 129,
 		"listPrice": 129,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -17,6 +18,7 @@
 	{
 		"name": "Women's NS40 Reversible Vest",
 		"brand": "Tropicfeel",
+		"category": "Jackets",
 		"price": 99,
 		"listPrice": 99,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -30,6 +32,7 @@
 	{
 		"name": "Women's NS40 Light Jacket",
 		"brand": "Tropicfeel",
+		"category": "Jackets",
 		"price": 182,
 		"listPrice": 228,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -44,6 +47,7 @@
 	{
 		"name": "ProTravel™ Rain Shell",
 		"brand": "Tropicfeel",
+		"category": "Jackets",
 		"price": 169,
 		"listPrice": 169,
 		"url": "https://www.adidas.com/us/ultraboost",
@@ -52,7 +56,5 @@
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-ProTravel-Rain-Shell-Cobalt-Blue-2.jpg?v=1696503417"
 		]
 	},
-    {
-        
-    }
+	{}
 ]
