@@ -6,7 +6,7 @@
 
 	export let data: PageData;
 	export let product = data?.product;
-	let swiper: Swiper;
+	let mainSwiper: Swiper;
 	let quantity: number = 1;
 
 	function incrementQuantity() {
@@ -20,10 +20,10 @@
 	}
 
 	onMount(() => {
-		swiper = new Swiper('.swiper', {
+		mainSwiper = new Swiper('.swiper.main-image', {
 			slidesPerView: 1,
 			spaceBetween: 10,
-            loop: true,
+			loop: true,
 			navigation: {
 				nextEl: '.button-next',
 				prevEl: '.button-prev'
@@ -37,14 +37,14 @@
 		<div class="w-full flex-none md:max-w-[55%]">
 			<!-- TODO: Slider with thumbnails goes here -->
 			<div></div>
-			<div class="swiper">
+			<div class="swiper main-image">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<img src={product.imageUrl} alt={product.name} />
+						<img src={product.imageUrl} alt={product.name} class="object-cover" />
 					</div>
 					{#each product.alternateImages as alternateImage}
 						<div class="swiper-slide">
-							<img src={alternateImage} alt={product.name} />
+							<img src={alternateImage} alt={product.name} class="object-cover" />
 						</div>
 					{/each}
 				</div>
