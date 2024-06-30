@@ -52,32 +52,34 @@
 				<div
 					class="button-prev absolute left-8 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						id="arrow-circle-down"
-						viewBox="0 0 24 24"
-						width="48"
-						height="48"
-					>
-						<path
-							d="M24,12A12,12,0,1,0,12,24,12.013,12.013,0,0,0,24,12ZM2,12A10,10,0,1,1,12,22,10.011,10.011,0,0,1,2,12Zm10.243,4.243-1.414,1.414L6.586,13.414a2,2,0,0,1,0-2.828l4.243-4.243,1.414,1.414L9,11h9v2H9Z"
-						/>
-					</svg>
+					<button class="btn btn-circle bg-white shadow-xl">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							id="Outline"
+							viewBox="0 0 24 24"
+							width="36"
+							height="36"
+							><path
+								d="M19,11H9l3.29-3.29a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0l-4.29,4.3A2,2,0,0,0,6,12H6a2,2,0,0,0,.59,1.4l4.29,4.3a1,1,0,1,0,1.41-1.42L9,13H19a1,1,0,0,0,0-2Z"
+							/></svg
+						>
+					</button>
 				</div>
 				<div
 					class="button-next absolute right-8 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						id="arrow-circle-down"
-						viewBox="0 0 24 24"
-						width="48"
-						height="48"
-					>
-						<path
-							d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12ZM11.757,7.757l1.414-1.414,4.243,4.243a2,2,0,0,1,0,2.828l-4.243,4.243-1.414-1.414L15,13H6V11h9Z"
-						/>
-					</svg>
+					<button class="btn btn-circle bg-white shadow-xl">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							id="Outline"
+							viewBox="0 0 24 24"
+							width="36"
+							height="36"
+							><path
+								d="M18,12h0a2,2,0,0,0-.59-1.4l-4.29-4.3a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L15,11H5a1,1,0,0,0,0,2H15l-3.29,3.29a1,1,0,0,0,1.41,1.42l4.29-4.3A2,2,0,0,0,18,12Z"
+							/></svg
+						>
+					</button>
 				</div>
 			</div>
 		</div>
