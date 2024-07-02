@@ -9,6 +9,8 @@
 	let mainSwiper: Swiper;
 	let thumbSwiper: Swiper;
 	let quantity: number = 1;
+	let isModalOpen = false;
+	let selectedImage = '';
 
 	function incrementQuantity() {
 		quantity += 1;
@@ -20,7 +22,14 @@
 		}
 	}
 
-	// TODO: Make swiper work nicely together
+	function openModal(imageSrc: string) {
+		selectedImage = imageSrc;
+		isModalOpen = true;
+	}
+
+	function closeModal() {
+		isModalOpen = false;
+	}
 
 	onMount(() => {
 		thumbSwiper = new Swiper('.swiper.thumb-image', {
@@ -75,11 +84,28 @@
 			<div class="swiper main-image p-2 md:max-w-[85%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<img src={product.imageUrl} alt={product.name} class="object-cover" loading="lazy" />
+						<button
+							type="button"
+							class="background-transparent cursor-zoom-in border-none p-0"
+							on:click={() => openModal(product.imageUrl)}
+						>
+							<img src={product.imageUrl} alt={product.name} class="object-cover" loading="lazy" />
+						</button>
 					</div>
 					{#each product.alternateImages as alternateImage}
 						<div class="swiper-slide">
-							<img src={alternateImage} alt={product.name} class="object-cover" loading="lazy" />
+							<button
+								type="button"
+								class="background-transparent cursor-zoom-in border-none p-0"
+								on:click={() => openModal(alternateImage)}
+							>
+								<img
+									src={alternateImage}
+									alt={product.name}
+									class="object-cover"
+									loading="lazy"
+								/>
+							</button>
 						</div>
 					{/each}
 				</div>
@@ -154,6 +180,21 @@
 			</div>
 		</div>
 	</section>
+	{#if isModalOpen}
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+		<div
+			class="fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black bg-opacity-50"
+			on:click={closeModal}
+			tabindex="-1"
+			on:keydown={(event) => {
+				if (event.key === 'Escape') closeModal();
+			}}
+			role="dialog"
+			aria-modal="true"
+		>
+			<img src={selectedImage} alt="Selected product" class="max-h-full max-w-full" />
+		</div>
+	{/if}
 {:else}
 	<h1 class="text-xl font-bold">No product found</h1>
 {/if}
@@ -164,6 +205,6 @@
 		opacity: 0.5;
 	}
 	:global(.swiper.thumb-image .swiper-slide-thumb-active) {
-        opacity: 1;
+		opacity: 1;
 	}
 </style>
