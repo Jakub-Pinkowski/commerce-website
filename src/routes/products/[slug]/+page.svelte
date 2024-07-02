@@ -13,6 +13,8 @@
 	let quantity: number = 1;
 	let isModalOpen = false;
 	let selectedImage = '';
+    let isOpenAccordion1 = false;
+    let isOpenAccordion2 = false;
 
 	function incrementQuantity() {
 		quantity += 1;
@@ -59,7 +61,7 @@
 
 {#if product}
 	<section class="flex flex-col md:flex-row">
-		<div class="flex w-full md:max-w-[55%] h-fit">
+		<div class="flex h-fit w-full md:max-w-[55%]">
 			<div class="swiper thumb-image p-2 md:max-w-[15%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
@@ -192,8 +194,9 @@
 
 			<div class="join join-vertical mt-12 w-full text-justify">
 				<div class="collapse join-item collapse-arrow border border-base-300">
-					<input type="checkbox" name="accordion-1" />
-					<div class="collapse-title text-xl font-medium">Materials and care</div>
+                    <input type="checkbox" bind:checked={isOpenAccordion1} name="accordion-1" />
+                    <div class="collapse-title text-xl font-medium" class:text-secondary={isOpenAccordion1}>Materials and care</div>
+
 					<!-- TODO: Add real materials info -->
 					<div class="collapse-content">
 						<h4 class="mt-4 text-lg font-semibold text-gray-800">Materials</h4>
@@ -210,8 +213,8 @@
 					</div>
 				</div>
 				<div class="collapse join-item collapse-arrow border border-base-300">
-					<input type="checkbox" name="accordion-2" />
-					<div class="collapse-title text-xl font-medium">Shipping and returns</div>
+                    <input type="checkbox" bind:checked={isOpenAccordion2} name="accordion-1" />
+                    <div class="collapse-title text-xl font-medium" class:text-secondary={isOpenAccordion2}>Shipping and returns</div>
 					<div class="collapse-content">
 						<!-- TODO: Add real shipping info -->
 						<h4 class="mt-4 text-lg font-semibold text-gray-800">Shipping</h4>
