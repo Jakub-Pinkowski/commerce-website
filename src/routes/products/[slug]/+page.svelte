@@ -23,29 +23,26 @@
 	// TODO: Make swiper work nicely together
 
 	onMount(() => {
-        thumbSwiper = new Swiper('.swiper.thumb-image', {
+		thumbSwiper = new Swiper('.swiper.thumb-image', {
 			direction: 'vertical',
 			slidesPerView: 7,
 			spaceBetween: 10,
-            slideToClickedSlide: true,
-            watchSlidesProgress: true,
+			slideToClickedSlide: true,
+			watchSlidesProgress: true
 		});
 
 		mainSwiper = new Swiper('.swiper.main-image', {
 			slidesPerView: 1,
 			loop: true,
-            thumbs: {
-                swiper: thumbSwiper,
-            },
+			thumbs: {
+				swiper: thumbSwiper
+			},
 			navigation: {
 				nextEl: '.swiper.main-image .button-next',
 				prevEl: '.swiper.main-image .button-prev',
 				disabledClass: 'swiper-button-disabled'
 			}
 		});
-
-
-
 	});
 </script>
 
@@ -162,14 +159,11 @@
 {/if}
 
 <style>
-	/* NOTE: For testing only */
-	:global(.swiper.main-image .swiper-slide-active) {
-		border: 2px solid red !important;
-	}
-
 	/* Swiper */
-	:global(.swiper.thumb-image .swiper-slide-thumb-active) {
-        border: 2px solid green !important;
+	:global(.swiper.thumb-image .swiper-slide) {
+		opacity: 0.5;
 	}
-
+	:global(.swiper.thumb-image .swiper-slide-thumb-active) {
+        opacity: 1;
+	}
 </style>
