@@ -59,7 +59,7 @@
 
 {#if product}
 	<section class="flex flex-col md:flex-row">
-		<div class="flex w-full md:max-w-[55%]">
+		<div class="flex w-full md:max-w-[55%] h-fit">
 			<div class="swiper thumb-image p-2 md:max-w-[15%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
@@ -180,9 +180,9 @@
 					id="Layer_1"
 					data-name="Layer 1"
 					viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    class="inline-block mr-2"
+					width="24"
+					height="24"
+					class="mr-2 inline-block"
 				>
 					<path
 						d="m24,10c0-2.757-2.243-5-5-5h-2v-1c0-1.654-1.346-3-3-3h-2v2h2c.552,0,1,.449,1,1v13H2v-4H0v6h2.037c-.024.165-.037.331-.037.5,0,1.93,1.57,3.5,3.5,3.5s3.5-1.57,3.5-3.5c0-.169-.013-.335-.037-.5h6.074c-.024.165-.037.331-.037.5,0,1.93,1.57,3.5,3.5,3.5s3.5-1.57,3.5-3.5c0-.169-.013-.335-.037-.5h2.037v-9ZM7,19.5c0,.827-.673,1.5-1.5,1.5s-1.5-.673-1.5-1.5c0-.189.037-.356.091-.5h2.819c.054.144.091.311.091.5Zm12-12.5c1.654,0,3,1.346,3,3v1h-5v-4h2Zm1,12.5c0,.827-.673,1.5-1.5,1.5s-1.5-.673-1.5-1.5c0-.189.037-.356.091-.5h2.819c.054.144.091.311.091.5Zm-3-2.5v-4h5v4h-5ZM10,3H0V1h10v2Zm-2,4H0v-2h8v2Zm-2,4H0v-2h6v2Z"
@@ -193,14 +193,25 @@
 			<div class="join join-vertical mt-12 w-full text-justify">
 				<div class="collapse join-item collapse-arrow border border-base-300">
 					<input type="checkbox" name="accordion-1" />
-					<div class="collapse-title text-xl font-medium">Shipping and returns</div>
+					<div class="collapse-title text-xl font-medium">Materials and care</div>
+					<!-- TODO: Add real materials info -->
 					<div class="collapse-content">
-						<!-- TODO: Add real info from product's data -->
-						<h4 class="mt-4 text-lg font-semibold text-gray-800">Shipping</h4>
-						<p>Regular shipping usually takes from 3 to 6 business days.</p>
-						<h4 class="mt-4 text-lg font-semibold text-gray-800">Returns & Exchanges</h4>
-						<p>You will have 30 days from the delivery date to request an exchange or a refund.</p>
+						<h4 class="mt-4 text-lg font-semibold text-gray-800">Materials</h4>
+						<p>
+							This product is made from 100% organic cotton, sourced from sustainable farms. The
+							dyes used are eco-friendly and water-based, ensuring minimal environmental impact.
+						</p>
+						<h4 class="mt-4 text-lg font-semibold text-gray-800">Care Instructions</h4>
+						<p>
+							To maintain the quality of your product, we recommend washing in cold water with like
+							colors. Hang dry to preserve the fit and color. Iron on low heat if necessary. Avoid
+							using bleach or harsh chemicals.
+						</p>
 					</div>
+				</div>
+				<div class="collapse join-item collapse-arrow border border-base-300">
+					<input type="checkbox" name="accordion-2" />
+					<div class="collapse-title text-xl font-medium">Shipping and returns</div>
 					<div class="collapse-content">
 						<!-- TODO: Add real shipping info -->
 						<h4 class="mt-4 text-lg font-semibold text-gray-800">Shipping</h4>
