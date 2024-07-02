@@ -244,30 +244,11 @@
 					</div>
 				</div>
 			</div>
-			<!-- TODO: Some carousel can go here -->
 			<div class="mt-8">
 				<h4 class="mt-4 text-lg text-gray-800">You may also like</h4>
 				<div class="swiper info-carousel mt-4">
 					<div class="swiper-wrapper">
 						<!-- NOTE: Those are kinda my other items now -->
-						<div class="swiper-slide">
-							<a href={product.url}>
-								<img
-									src={product.imageUrl}
-									alt={product.name}
-									class="h-full object-cover"
-									loading="lazy"
-								/>
-							</a>
-
-							<div class="pt-2">
-								<a href={product.url}>
-									<h3 class="text-lg font-semibold">Product name</h3>
-								</a>
-								<p class="text-base">Product brand</p>
-								<p class="text-base">$99</p>
-							</div>
-						</div>
 						{#each product.alternateImages as alternateImage}
 							<div class="swiper-slide">
 								<a href={product.url}>
@@ -280,10 +261,10 @@
 								</a>
 								<div class="pt-2">
 									<a href={product.url}>
-										<h3 class="text-lg font-semibold">Product name</h3>
+										<h3 class="text-lg">Product name</h3>
 									</a>
-									<p class="text-base">Product brand</p>
-									<p class="text-base">$99</p>
+									<span class="block text-sm">Product brand</span>
+									<span class="pt-2 block text-lg text-gray-500">$99</span>
 								</div>
 							</div>
 						{/each}
