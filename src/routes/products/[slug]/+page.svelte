@@ -20,10 +20,12 @@
 		}
 	}
 
+	// TODO: Make swiper work nicely together
+
 	onMount(() => {
 		mainSwiper = new Swiper('.swiper.main-image', {
-			slidesPerView: 1,
 			loop: true,
+			slidesPerView: 1,
 			navigation: {
 				nextEl: '.swiper.main-image .button-next',
 				prevEl: '.swiper.main-image .button-prev'
@@ -36,8 +38,8 @@
 			spaceBetween: 10,
 		});
 
-        mainSwiper.controller.control = thumbSwiper;
-        thumbSwiper.controller.control = mainSwiper;
+		mainSwiper.controller.control = thumbSwiper;
+		thumbSwiper.controller.control = mainSwiper;
 	});
 </script>
 
@@ -144,8 +146,8 @@
 {/if}
 
 <style>
-    /* NOTE: For testing only */
-    :global(.swiper-slide-active) {
-        border: 2px solid red !important;
-    }
+	/* NOTE: For testing only */
+	:global(.swiper-slide-active) {
+		border: 2px solid red !important;
+	}
 </style>
