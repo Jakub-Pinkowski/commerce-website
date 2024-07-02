@@ -10,6 +10,7 @@
 	export let product = data?.product;
 	let mainSwiper: Swiper;
 	let thumbSwiper: Swiper;
+	let smallInfoSwiper: Swiper;
 	let quantity: number = 1;
 	let isModalOpen = false;
 	let selectedImage = '';
@@ -54,6 +55,14 @@
 				nextEl: '.swiper.main-image .button-next',
 				prevEl: '.swiper.main-image .button-prev',
 				disabledClass: 'swiper-button-disabled'
+			}
+		});
+
+		smallInfoSwiper = new Swiper('.swiper.info-carousel', {
+			slidesPerView: 2.4,
+			spaceBetween: 15,
+			scrollbar: {
+				el: '.swiper-scrollbar'
 			}
 		});
 	});
@@ -236,7 +245,54 @@
 				</div>
 			</div>
 			<!-- TODO: Some carousel can go here -->
-			<div class="mt-8">Carousel goes here</div>
+			<div class="mt-8">
+				<h4 class="mt-4 text-lg text-gray-800">You may also like</h4>
+				<div class="swiper info-carousel mt-4">
+					<div class="swiper-wrapper">
+						<!-- NOTE: Those are kinda my other items now -->
+						<div class="swiper-slide">
+							<a href={product.url}>
+								<img
+									src={product.imageUrl}
+									alt={product.name}
+									class="h-full object-cover"
+									loading="lazy"
+								/>
+							</a>
+
+							<div class="pt-2">
+								<a href={product.url}>
+									<h3 class="text-lg font-semibold">Product name</h3>
+								</a>
+								<p class="text-base">Product brand</p>
+								<p class="text-base">$99</p>
+							</div>
+						</div>
+						{#each product.alternateImages as alternateImage}
+							<div class="swiper-slide">
+								<a href={product.url}>
+									<img
+										src={alternateImage}
+										alt={product.name}
+										class="h-full object-cover"
+										loading="lazy"
+									/>
+								</a>
+								<div class="pt-2">
+									<a href={product.url}>
+										<h3 class="text-lg font-semibold">Product name</h3>
+									</a>
+									<p class="text-base">Product brand</p>
+									<p class="text-base">$99</p>
+								</div>
+							</div>
+						{/each}
+					</div>
+					<div class="mt-4">
+						<div class="swiper-scrollbar"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	{#if isModalOpen}
