@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { fade } from 'svelte/transition';
+	import { quadOut } from 'svelte/easing';
 	import Swiper from 'swiper/bundle';
 	import { onMount } from 'svelte';
 	import 'swiper/css/bundle';
@@ -58,7 +60,6 @@
 {#if product}
 	<section class="flex flex-col md:flex-row">
 		<div class="flex w-full md:max-w-[55%]">
-			<!-- TODO: Slider with thumbnails goes here -->
 			<div class="swiper thumb-image p-2 md:max-w-[15%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
@@ -99,12 +100,7 @@
 								class="background-transparent cursor-zoom-in border-none p-0"
 								on:click={() => openModal(alternateImage)}
 							>
-								<img
-									src={alternateImage}
-									alt={product.name}
-									class="object-cover"
-									loading="lazy"
-								/>
+								<img src={alternateImage} alt={product.name} class="object-cover" loading="lazy" />
 							</button>
 						</div>
 					{/each}
@@ -191,6 +187,7 @@
 			}}
 			role="dialog"
 			aria-modal="true"
+			transition:fade={{ duration: 400, easing: quadOut }}
 		>
 			<img src={selectedImage} alt="Selected product" class="max-h-full max-w-full" />
 		</div>
@@ -202,7 +199,7 @@
 <style>
 	/* Swiper */
 	:global(.swiper.thumb-image .swiper-slide) {
-		opacity: 0.5;
+		opacity: 0.4;
 	}
 	:global(.swiper.thumb-image .swiper-slide-thumb-active) {
 		opacity: 1;
