@@ -23,23 +23,29 @@
 	// TODO: Make swiper work nicely together
 
 	onMount(() => {
-		mainSwiper = new Swiper('.swiper.main-image', {
-			loop: true,
-			slidesPerView: 1,
-			navigation: {
-				nextEl: '.swiper.main-image .button-next',
-				prevEl: '.swiper.main-image .button-prev'
-			}
-		});
-
-		thumbSwiper = new Swiper('.swiper.thumb-image', {
+        thumbSwiper = new Swiper('.swiper.thumb-image', {
 			direction: 'vertical',
 			slidesPerView: 7,
 			spaceBetween: 10,
+            slideToClickedSlide: true,
+            watchSlidesProgress: true,
 		});
 
-		mainSwiper.controller.control = thumbSwiper;
-		thumbSwiper.controller.control = mainSwiper;
+		mainSwiper = new Swiper('.swiper.main-image', {
+			slidesPerView: 1,
+			loop: true,
+            thumbs: {
+                swiper: thumbSwiper,
+            },
+			navigation: {
+				nextEl: '.swiper.main-image .button-next',
+				prevEl: '.swiper.main-image .button-prev',
+				disabledClass: 'swiper-button-disabled'
+			}
+		});
+
+
+
 	});
 </script>
 
@@ -50,11 +56,21 @@
 			<div class="swiper thumb-image p-2 md:max-w-[15%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<img src={product.imageUrl} alt={product.name} class="h-full object-cover" />
+						<img
+							src={product.imageUrl}
+							alt={product.name}
+							class="h-full object-cover"
+							loading="lazy"
+						/>
 					</div>
 					{#each product.alternateImages as alternateImage}
 						<div class="swiper-slide">
-							<img src={alternateImage} alt={product.name} class="h-full object-cover" />
+							<img
+								src={alternateImage}
+								alt={product.name}
+								class="h-full object-cover"
+								loading="lazy"
+							/>
 						</div>
 					{/each}
 				</div>
@@ -62,11 +78,11 @@
 			<div class="swiper main-image p-2 md:max-w-[85%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<img src={product.imageUrl} alt={product.name} class="object-cover" />
+						<img src={product.imageUrl} alt={product.name} class="object-cover" loading="lazy" />
 					</div>
 					{#each product.alternateImages as alternateImage}
 						<div class="swiper-slide">
-							<img src={alternateImage} alt={product.name} class="object-cover" />
+							<img src={alternateImage} alt={product.name} class="object-cover" loading="lazy" />
 						</div>
 					{/each}
 				</div>
@@ -147,7 +163,13 @@
 
 <style>
 	/* NOTE: For testing only */
-	:global(.swiper-slide-active) {
+	:global(.swiper.main-image .swiper-slide-active) {
 		border: 2px solid red !important;
 	}
+
+	/* Swiper */
+	:global(.swiper.thumb-image .swiper-slide-thumb-active) {
+        border: 2px solid green !important;
+	}
+
 </style>
