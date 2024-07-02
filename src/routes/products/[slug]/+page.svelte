@@ -13,8 +13,8 @@
 	let quantity: number = 1;
 	let isModalOpen = false;
 	let selectedImage = '';
-    let isOpenAccordion1 = false;
-    let isOpenAccordion2 = false;
+	let isOpenAccordion1 = false;
+	let isOpenAccordion2 = false;
 
 	function incrementQuantity() {
 		quantity += 1;
@@ -152,7 +152,7 @@
 					<span class="mr-2 inline-block text-2xl text-gray-500 line-through">
 						${product.listPrice}
 					</span>
-					<span class="inline-block text-2xl text-red-600">${product.price}</span>
+					<span class="inline-block text-2xl text-main-red">${product.price}</span>
 				</div>
 			{:else}
 				<div class="mt-8">
@@ -194,8 +194,10 @@
 
 			<div class="join join-vertical mt-12 w-full text-justify">
 				<div class="collapse join-item collapse-arrow border border-base-300">
-                    <input type="checkbox" bind:checked={isOpenAccordion1} name="accordion-1" />
-                    <div class="collapse-title text-xl font-medium" class:text-secondary={isOpenAccordion1}>Materials and care</div>
+					<input type="checkbox" bind:checked={isOpenAccordion1} name="accordion-1" />
+					<div class="collapse-title text-xl font-medium" class:text-secondary={isOpenAccordion1}>
+						Materials and care
+					</div>
 
 					<!-- TODO: Add real materials info -->
 					<div class="collapse-content">
@@ -213,8 +215,10 @@
 					</div>
 				</div>
 				<div class="collapse join-item collapse-arrow border border-base-300">
-                    <input type="checkbox" bind:checked={isOpenAccordion2} name="accordion-1" />
-                    <div class="collapse-title text-xl font-medium" class:text-secondary={isOpenAccordion2}>Shipping and returns</div>
+					<input type="checkbox" bind:checked={isOpenAccordion2} name="accordion-1" />
+					<div class="collapse-title text-xl font-medium" class:text-secondary={isOpenAccordion2}>
+						Shipping and returns
+					</div>
 					<div class="collapse-content">
 						<!-- TODO: Add real shipping info -->
 						<h4 class="mt-4 text-lg font-semibold text-gray-800">Shipping</h4>
