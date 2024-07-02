@@ -11,8 +11,6 @@
 
 <div>
 	<h1 class="mb-4 text-3xl font-bold text-gray-900">Frequently Asked Questions</h1>
-
-	<!-- TODO: Implement real FAQ -->
 	<p class="mb-4">Find answers to common questions.</p>
 	<div class="join join-vertical w-full text-justify">
 		<div class="collapse join-item collapse-arrow border border-base-300">
