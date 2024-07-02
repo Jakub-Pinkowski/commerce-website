@@ -192,8 +192,8 @@
 				</svg>Free shipping for all orders above $99
 			</span>
 
-            <!-- TODO: Add some real description to all products -->
-			<p class="mt-4 text-lg">
+			<!-- TODO: Add some real description to all products -->
+			<p class="mt-4 text-justify text-lg">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 				laboris nisi ut aliquip ex ea commodo consequat.
@@ -235,6 +235,8 @@
 					</div>
 				</div>
 			</div>
+			<!-- TODO: Some carousel can go here -->
+			<div class="mt-8">Carousel goes here</div>
 		</div>
 	</section>
 	{#if isModalOpen}
