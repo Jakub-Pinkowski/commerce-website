@@ -70,7 +70,7 @@
 
 {#if product}
 	<section class="flex flex-col md:flex-row">
-		<div class="flex h-fit w-full md:max-w-[55%]">
+		<div class="flex h-fit w-full md:max-w-[55%] sticky top-4">
 			<div class="swiper thumb-image p-2 md:max-w-[15%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
@@ -275,7 +275,12 @@
 				</div>
 			</div>
 		</div>
+        <div>
+        </div>
 	</section>
+    <div>
+        Something goes here
+    </div>
 	{#if isModalOpen}
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<div
