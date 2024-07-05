@@ -18,7 +18,7 @@
 <div class="w-full flex-none md:max-w-[45%] md:p-8">
 	<h1 class="text-3xl font-bold">{product.name}</h1>
 	<span class="mt-4 inline-block text-lg">{product.brand}</span>
-	<p class="mt-4 text-xl">{product.description}</p>
+	<p class="mt-4 text-xl text-justify">{product.description}</p>
 	{#if product.price < product.listPrice}
 		<div class="mt-8">
 			<span class="mr-2 inline-block text-2xl text-gray-500 line-through">
