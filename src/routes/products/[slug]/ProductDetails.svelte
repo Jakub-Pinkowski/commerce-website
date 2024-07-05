@@ -15,7 +15,7 @@
 	}
 </script>
 
-<div class="w-full flex-none p-8 md:max-w-[45%]">
+<div class="w-full flex-none md:max-w-[45%] md:p-8">
 	<h1 class="text-3xl font-bold">{product.name}</h1>
 	<span class="mt-4 inline-block text-lg">{product.brand}</span>
 	<p class="mt-4 text-xl">{product.description}</p>
@@ -48,7 +48,7 @@
 			</svg>
 		</button>
 	</div>
-	<span class="mt-4 inline-block text-xl">
+	<span class="mt-4 inline-block text-md">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			id="Layer_1"
