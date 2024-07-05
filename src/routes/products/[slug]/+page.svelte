@@ -6,7 +6,7 @@
 
 	import GallerySwiper from './GallerySwiper.svelte';
 	import ProductDetails from './ProductDetails.svelte';
-    import RecommendationsCarousel from './RecommendationsCarousel.svelte';
+	import RecommendationsCarousel from './RecommendationsCarousel.svelte';
 
 	export let data: PageData;
 	export let product = data?.product;
@@ -50,7 +50,7 @@
 		});
 
 		recommendationsSwiper = new Swiper('.swiper.recommendations-carousel', {
-			slidesPerView: 4,
+			slidesPerView: 2,
 			spaceBetween: 15,
 			mousewheel: {
 				forceToAxis: true
@@ -59,6 +59,11 @@
 				nextEl: '.swiper.recommendations-carousel .button-next',
 				prevEl: '.swiper.recommendations-carousel  .button-prev',
 				disabledClass: 'swiper-button-disabled'
+			},
+			breakpoints: {
+				768: {
+					slidesPerView: 4
+				}
 			}
 		});
 	});
@@ -69,7 +74,7 @@
 		<GallerySwiper {product} />
 		<ProductDetails {product} />
 	</section>
-    <RecommendationsCarousel {product} />
+	<RecommendationsCarousel {product} />
 {:else}
 	<!-- TODO: Design this 404 part -->
 	<h1 class="text-xl font-bold">No product found</h1>
@@ -84,11 +89,11 @@
 		opacity: 1;
 	}
 
-    :global(.swiper-button-disabled) {
-        opacity: 0.5;
-    }
+	:global(.swiper-button-disabled) {
+		opacity: 0.5;
+	}
 
-    :global(.swiper-button-disabled button) {
-        cursor: not-allowed;
-    }
+	:global(.swiper-button-disabled button) {
+		cursor: not-allowed;
+	}
 </style>
