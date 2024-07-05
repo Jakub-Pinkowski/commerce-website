@@ -16,8 +16,8 @@
 	}
 </script>
 
-<div class="sticky top-4 flex h-fit w-full md:max-w-[55%]">
-	<div class="swiper thumb-image p-2 md:max-w-[15%]">
+<div class="top-4 flex h-fit w-full flex-col md:sticky md:max-w-[55%] md:flex-row">
+	<div class="swiper thumb-image order-2 w-full max-w-full p-2 md:order-1 md:max-w-[15%]">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<img src={product.imageUrl} alt={product.name} class="h-full object-cover" loading="lazy" />
@@ -29,7 +29,7 @@
 			{/each}
 		</div>
 	</div>
-	<div class="swiper main-image p-2 md:max-w-[85%]">
+	<div class="swiper main-image order-1 w-full max-w-full p-2 md:order-2 md:max-w-[85%]">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<button

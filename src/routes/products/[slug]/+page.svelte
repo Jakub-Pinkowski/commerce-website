@@ -17,11 +17,16 @@
 
 	onMount(() => {
 		thumbSwiper = new Swiper('.swiper.thumb-image', {
-			direction: 'vertical',
-			slidesPerView: 7,
+			slidesPerView: 4.4,
 			spaceBetween: 10,
 			slideToClickedSlide: true,
-			watchSlidesProgress: true
+			watchSlidesProgress: true,
+			breakpoints: {
+				768: {
+					direction: 'vertical',
+					slidesPerView: 7
+				}
+			}
 		});
 
 		mainSwiper = new Swiper('.swiper.main-image', {
