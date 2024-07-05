@@ -58,6 +58,7 @@
 			}
 		});
 
+        // TODO: Make it possible to swipe with a touchpad
 		smallInfoSwiper = new Swiper('.swiper.info-carousel', {
 			slidesPerView: 2.4,
 			spaceBetween: 15,
@@ -278,9 +279,6 @@
         <div>
         </div>
 	</section>
-    <div>
-        Something goes here
-    </div>
 	{#if isModalOpen}
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<div
