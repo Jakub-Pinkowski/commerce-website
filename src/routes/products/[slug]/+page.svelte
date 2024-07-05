@@ -15,6 +15,7 @@
 	let smallInfoSwiper: Swiper;
 	let recommendationsSwiper: Swiper;
 
+    // FIXME: On safari mobile all the carousels are way to high
 	onMount(() => {
 		thumbSwiper = new Swiper('.swiper.thumb-image', {
 			slidesPerView: 4.4,
@@ -55,16 +56,16 @@
 		});
 
 		recommendationsSwiper = new Swiper('.swiper.recommendations-carousel', {
-			slidesPerView: 2,
+			slidesPerView: 1.4,
 			spaceBetween: 15,
 			mousewheel: {
 				forceToAxis: true
 			},
-			navigation: {
-				nextEl: '.swiper.recommendations-carousel .button-next',
-				prevEl: '.swiper.recommendations-carousel  .button-prev',
-				disabledClass: 'swiper-button-disabled'
-			},
+			// navigation: {
+			// 	nextEl: '.swiper.recommendations-carousel .button-next',
+			// 	prevEl: '.swiper.recommendations-carousel  .button-prev',
+			// 	disabledClass: 'swiper-button-disabled'
+			// },
 			breakpoints: {
 				768: {
 					slidesPerView: 4

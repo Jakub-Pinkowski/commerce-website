@@ -47,7 +47,7 @@
 			{/each}
 			<!-- TODO: Adjust the arrows to be vertically in the middle of the image -->
 		</div>
-		<div
+		<!-- <div
 			class="button-prev absolute left-8 top-1/3 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
 		>
 			<button class="btn btn-circle bg-white shadow-xl">
@@ -78,6 +78,6 @@
 					/></svg
 				>
 			</button>
-		</div>
+		</div> -->
 	</div>
 </div>
