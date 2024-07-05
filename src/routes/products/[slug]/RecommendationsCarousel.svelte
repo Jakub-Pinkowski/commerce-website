@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let product;
+	export let product;
 </script>
 
 <div class="my-8">
@@ -45,9 +45,10 @@
 					</div>
 				</div>
 			{/each}
+			<!-- TODO: Adjust the arrows to be vertically in the middle of the image -->
 		</div>
 		<div
-			class="button-prev absolute left-8 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
+			class="button-prev absolute left-8 top-1/3 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
 		>
 			<button class="btn btn-circle bg-white shadow-xl">
 				<svg
@@ -63,7 +64,7 @@
 			</button>
 		</div>
 		<div
-			class="button-next absolute right-8 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
+			class="button-next absolute right-8 top-1/3 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
 		>
 			<button class="btn btn-circle bg-white shadow-xl">
 				<svg
