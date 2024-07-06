@@ -12,7 +12,7 @@
 	let displayedProducts: Product[] = [];
 
 	interface UpdateEventDetail {
-		displayedProducts: Product[]; 
+		displayedProducts: Product[];
 	}
 
 	function handleUpdatePagination(event: CustomEvent<UpdateEventDetail>) {
