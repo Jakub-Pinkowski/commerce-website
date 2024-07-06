@@ -12,7 +12,11 @@
 	let itemsPerPage = 8;
 	let displayedProducts: Product[] = [];
 
-	function handleUpdate(event) {
+	interface UpdateEventDetail {
+		displayedProducts: Product[]; 
+	}
+
+	function handleUpdate(event: CustomEvent<UpdateEventDetail>) {
 		displayedProducts = event.detail.displayedProducts;
 	}
 </script>
