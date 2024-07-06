@@ -119,3 +119,14 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	/* Swiper */
+	:global(.swiper-button-disabled) {
+		opacity: 0.5;
+	}
+
+	:global(.swiper-button-disabled button) {
+		cursor: not-allowed;
+	}
+</style>

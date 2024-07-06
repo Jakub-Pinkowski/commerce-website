@@ -53,7 +53,7 @@
 </script>
 
 <div class="top-4 flex h-fit w-full flex-col md:sticky md:max-w-[55%] md:flex-row">
-	<div class="swiper thumb-image order-2 w-full max-w-full p-2 md:order-1 md:max-w-[15%]">
+	<div class="swiper thumb-image order-2 w-full md:order-1 md:max-w-[15%]">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<img src={product.imageUrl} alt={product.name} class="h-full object-cover" loading="lazy" />
@@ -141,3 +141,21 @@
 		<img src={selectedImage} alt="Selected product" class="max-h-full max-w-full" />
 	</div>
 {/if}
+
+<style>
+	/* Swiper */
+	:global(.swiper.thumb-image .swiper-slide) {
+		opacity: 0.4;
+	}
+	:global(.swiper.thumb-image .swiper-slide-thumb-active) {
+		opacity: 1;
+	}
+
+	:global(.swiper-button-disabled) {
+		opacity: 0.5;
+	}
+
+	:global(.swiper-button-disabled button) {
+		cursor: not-allowed;
+	}
+</style>

@@ -23,18 +23,7 @@
 
 <style>
 	/* Swiper */
-	:global(.swiper.thumb-image .swiper-slide) {
-		opacity: 0.4;
-	}
-	:global(.swiper.thumb-image .swiper-slide-thumb-active) {
-		opacity: 1;
-	}
 
-	:global(.swiper-button-disabled) {
-		opacity: 0.5;
-	}
 
-	:global(.swiper-button-disabled button) {
-		cursor: not-allowed;
-	}
+
 </style>
