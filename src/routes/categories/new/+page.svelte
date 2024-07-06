@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
