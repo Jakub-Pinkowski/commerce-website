@@ -1,54 +1,40 @@
 <script lang="ts">
-	import Swiper from 'swiper/bundle';
-	import { onMount } from 'svelte';
-	import 'swiper/css/bundle';
-	import products from '$lib/products/products.json';
-
-	let swiper: Swiper;
-
-	onMount(() => {
-		swiper = new Swiper('.swiper', {
-			slidesPerView: 4,
-			spaceBetween: 10,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev'
-			}
-		});
-	});
+	import type { PageData } from './$types';
+	export let data: PageData;
+	export let products = data?.products;
 </script>
 
 <div>
-	<h1>New</h1>
-	<div class="mt-8">
-		<div class="swiper">
-			<div class="swiper-wrapper">
-				{#each products as product}
-					<div class="swiper-slide">
-						<div class="bg-white p-4">
-							<img
-								src={product.imageUrl}
-								alt={product.name}
-								class=" w-full rounded-lg object-cover"
-							/>
-							<div class="mt-4">
-								<span>{product.brand} </span>
-								<h2 class="text-lg font-semibold text-gray-900">{product.name}</h2>
-								{#if product.price < product.listPrice}
-									<span class="text-gray-500 line-through">${product.listPrice}</span>
-									<span class="text-red-500">${product.price}</span>
-								{:else}
-									<span class="mt-2 text-gray-600">Price: ${product.price}</span>
-								{/if}
+	<h1 class="mb-4 text-3xl font-bold">New</h1>
+	{#if products}
+		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+			{#each products as product}
+				<div>
+					<a href={product.url}>
+						<img src={product.imageUrl} alt={product.name} />
+					</a>
+					<div class="pt-2">
+						<a href={product.url}>
+							<h3 class="text-lg">{product.name}</h3>
+						</a>
+						<span class="block text-sm">{product.brand}</span>
+						{#if product.price < product.listPrice}
+							<div class="mt-8">
+								<span class="mr-2 inline-block text-xl text-gray-500 line-through">
+									${product.listPrice}
+								</span>
+								<span class="inline-block text-xl text-main-red">${product.price}</span>
 							</div>
-						</div>
+						{:else}
+							<div class="mt-8">
+								<span class="inline-block text-xl text-gray-500">${product.price}</span>
+							</div>
+						{/if}
 					</div>
-				{/each}
-			</div>
-			<div class="swiper-pagination"></div>
-
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
+				</div>
+			{/each}
 		</div>
-	</div>
+	{:else}
+		<p>No products found</p>
+	{/if}
 </div>
