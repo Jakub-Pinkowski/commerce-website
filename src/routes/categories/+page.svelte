@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
-	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
 	export let data: PageData;
