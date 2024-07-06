@@ -40,12 +40,12 @@
 						<span class="line-clamp-1 block text-sm">{product.brand}</span>
 						<div class="mt-4">
 							{#if product.price < product.listPrice}
-								<span class="mr-2 inline-block text-xl text-gray-500 line-through">
+								<span class="mr-1 inline-block text-lg text-gray-500 line-through">
 									${product.listPrice}
 								</span>
-								<span class="inline-block text-xl text-main-red">${product.price}</span>
+								<span class="inline-block text-lg text-main-red">${product.price}</span>
 							{:else}
-								<span class="inline-block text-xl text-gray-500">${product.price}</span>
+								<span class="inline-block text-lg text-gray-500">${product.price}</span>
 							{/if}
 						</div>
 						<div class="mt-4 flex w-full justify-between md:hidden">
