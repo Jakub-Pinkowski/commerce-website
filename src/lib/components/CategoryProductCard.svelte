@@ -1,16 +1,18 @@
 <script lang="ts">
-	export let product
+	export let product;
+	const hasSale = product.price < product.listPrice;
+	const hasLabel = product.label && product.label.trim() !== '';
+	const showAlternateImage = product.alternateImages.length > 0;
 </script>
-
 
 <div class="mb-8">
 	<a href={product.url} class="relative block w-full md:pb-[100%]">
-		{#if product.alternateImages.length > 0}
+		{#if showAlternateImage}
 			<div class="group absolute inset-0 hidden md:block">
 				<div class="relative h-full w-full">
-					{#if product.price < product.listPrice}
+					{#if hasSale}
 						<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
-					{:else if product.label && product.label.trim() !== ''}
+					{:else if hasLabel}
 						<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
 							{product.label}
 						</div>
@@ -21,7 +23,6 @@
 						alt={product.name}
 						class="absolute inset-0 block h-auto w-full object-cover opacity-100 group-hover:opacity-0"
 					/>
-
 					<!-- NOTE: Jacket images have wrong ratio on hover, ignore for now -->
 					<img
 						src={product.alternateImages[0]}
@@ -31,11 +32,11 @@
 				</div>
 			</div>
 			<!-- Mobile -->
-			{#if product.price < product.listPrice}
+			{#if hasSale}
 				<div class="badge badge-md absolute left-2 top-2 z-10 block text-main-red md:hidden">
 					Sale
 				</div>
-			{:else if product.label && product.label.trim() !== ''}
+			{:else if hasLabel}
 				<div class="badge badge-md absolute left-2 top-2 z-10 block text-primary md:hidden">
 					{product.label}
 				</div>
@@ -52,7 +53,7 @@
 		</a>
 		<span class="line-clamp-1 block text-sm">{product.brand}</span>
 		<div class="mt-4">
-			{#if product.price < product.listPrice}
+			{#if hasSale}
 				<span class="mr-1 inline-block text-lg text-gray-500 line-through">
 					${product.listPrice}
 				</span>
