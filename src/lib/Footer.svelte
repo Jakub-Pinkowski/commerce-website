@@ -1,4 +1,6 @@
-<footer class="bg-dark footer bottom-0 mt-auto w-full p-10 pb-2 text-white">
+<footer
+	class="footer bottom-0 mt-auto w-full grid-cols-2 bg-dark p-10 pb-2 text-white md:grid-cols-none"
+>
 	<nav>
 		<a href="/categories" class="link-hover link"><h6 class="footer-title">Shopping</h6></a>
 		<a href="/categories" class="link-hover link">Categories</a>
@@ -21,7 +23,7 @@
 	</nav>
 	<nav>
 		<h6 class="footer-title">Social</h6>
-        <!-- TODO: Update this later on -->
+		<!-- TODO: Update this later on -->
 		<div class="grid grid-flow-col gap-4">
 			<a href="/">
 				<svg
@@ -87,7 +89,7 @@
 		</fieldset>
 	</form>
 </footer>
-<footer class="bg-dark footer px-10 py-4 text-white">
+<footer class="footer bg-dark px-10 py-4 text-white">
 	<div
 		class="flex w-full flex-col items-center gap-3 border-t border-base-200 pt-4 md:flex-row md:justify-start md:gap-4"
 	>
