@@ -9,7 +9,7 @@
 	{#if products}
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 			{#each products as product}
-				<div class="mb-12">
+				<div class="mb-8">
 					<a href={product.url} class="relative block w-full md:pb-[100%]">
 						{#if product.alternateImages.length > 0}
 							<div class="group absolute inset-0 hidden md:block">

@@ -15,7 +15,8 @@
 	let smallInfoSwiper: Swiper;
 	let recommendationsSwiper: Swiper;
 
-    // FIXME: On safari mobile all the carousels are way to high
+	// FIXME: On safari mobile, all images on the carousels are way to high
+    // FIXME: On dekstop when there are more than 7 images the whole carousel is way too high
 	onMount(() => {
 		thumbSwiper = new Swiper('.swiper.thumb-image', {
 			slidesPerView: 4.4,
@@ -30,6 +31,7 @@
 			}
 		});
 
+		// FIXME: Images to the left and right are showing a bit next to the main image
 		mainSwiper = new Swiper('.swiper.main-image', {
 			slidesPerView: 1,
 			loop: true,
@@ -43,7 +45,6 @@
 			}
 		});
 
-		// TODO: Make it possible to swipe with a touchpad
 		smallInfoSwiper = new Swiper('.swiper.info-carousel', {
 			slidesPerView: 2.4,
 			spaceBetween: 15,
