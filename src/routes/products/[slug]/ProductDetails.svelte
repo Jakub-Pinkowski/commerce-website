@@ -107,11 +107,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="mt-8">
+	<!-- <div class="mt-8">
 		<h4 class="mt-4 text-lg text-gray-800">You may also like</h4>
 		<div class="swiper info-carousel mt-4">
 			<div class="swiper-wrapper">
-				<!-- NOTE: Those are kinda my other items now -->
 				{#each product.alternateImages as alternateImage}
 					<div class="swiper-slide">
 						<a href={product.url}>
@@ -136,5 +135,5 @@
 				<div class="swiper-scrollbar"></div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
