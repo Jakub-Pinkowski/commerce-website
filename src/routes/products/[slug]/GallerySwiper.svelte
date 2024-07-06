@@ -1,10 +1,16 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	import Swiper from 'swiper/bundle';
+	import { onMount } from 'svelte';
+	import 'swiper/css/bundle';
+
 	export let product;
 
 	let isModalOpen: boolean = false;
 	let selectedImage: string = '';
+	let mainSwiper: Swiper;
+	let thumbSwiper: Swiper;
 
 	function openModal(imageSrc: string) {
 		selectedImage = imageSrc;
@@ -14,6 +20,36 @@
 	function closeModal() {
 		isModalOpen = false;
 	}
+
+	onMount(() => {
+		// FIXME: On safari mobile, all images on the carousels are way to high
+		// FIXME: On dekstop when there are more than 7 images the whole carousel is way too high
+		thumbSwiper = new Swiper('.swiper.thumb-image', {
+			slidesPerView: 4.4,
+			spaceBetween: 10,
+			slideToClickedSlide: true,
+			watchSlidesProgress: true,
+			breakpoints: {
+				768: {
+					direction: 'vertical',
+					slidesPerView: 7
+				}
+			}
+		});
+
+		mainSwiper = new Swiper('.swiper.main-image', {
+			slidesPerView: 1,
+			loop: true,
+			thumbs: {
+				swiper: thumbSwiper
+			},
+			navigation: {
+				nextEl: '.swiper.main-image .button-next',
+				prevEl: '.swiper.main-image .button-prev',
+				disabledClass: 'swiper-button-disabled'
+			}
+		});
+	});
 </script>
 
 <div class="top-4 flex h-fit w-full flex-col md:sticky md:max-w-[55%] md:flex-row">
@@ -29,7 +65,7 @@
 			{/each}
 		</div>
 	</div>
-	<div class="swiper main-image order-1 w-full max-w-full p-2 md:order-2 md:max-w-[85%]">
+	<div class="swiper main-image order-1 w-full max-w-full md:order-2 md:max-w-[85%]">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<button

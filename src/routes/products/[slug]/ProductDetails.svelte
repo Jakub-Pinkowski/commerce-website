@@ -1,8 +1,13 @@
 <script lang="ts">
+	import Swiper from 'swiper/bundle';
+	import { onMount } from 'svelte';
+	import 'swiper/css/bundle';
+
 	export let product;
 	let quantity: number = 1;
 	let isOpenAccordion1: boolean = false;
 	let isOpenAccordion2: boolean = false;
+	// let smallInfoSwiper: Swiper;
 
 	function incrementQuantity() {
 		quantity += 1;
@@ -13,12 +18,25 @@
 			quantity -= 1;
 		}
 	}
+
+	// onMount(() => {
+	// 	smallInfoSwiper = new Swiper('.swiper.info-carousel', {
+	// 		slidesPerView: 2.4,
+	// 		spaceBetween: 15,
+	// 		mousewheel: {
+	// 			forceToAxis: true
+	// 		},
+	// 		scrollbar: {
+	// 			el: '.swiper.info-carousel .swiper-scrollbar'
+	// 		}
+	// 	});
+	// });
 </script>
 
 <div class="w-full flex-none md:max-w-[45%] md:p-8">
 	<h1 class="text-3xl font-bold">{product.name}</h1>
 	<span class="mt-4 inline-block text-lg">{product.brand}</span>
-	<p class="mt-4 text-xl text-justify">{product.description}</p>
+	<p class="mt-4 text-justify text-xl">{product.description}</p>
 	{#if product.price < product.listPrice}
 		<div class="mt-8">
 			<span class="mr-2 inline-block text-2xl text-gray-500 line-through">
@@ -48,7 +66,7 @@
 			</svg>
 		</button>
 	</div>
-	<span class="mt-4 inline-block text-md">
+	<span class="text-md mt-4 inline-block">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			id="Layer_1"
