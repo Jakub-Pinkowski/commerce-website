@@ -37,18 +37,16 @@
 							<h3 class="text-lg">{product.name}</h3>
 						</a>
 						<span class="block text-sm">{product.brand}</span>
-						{#if product.price < product.listPrice}
-							<div class="mt-8">
+						<div class="mt-8">
+							{#if product.price < product.listPrice}
 								<span class="mr-2 inline-block text-xl text-gray-500 line-through">
 									${product.listPrice}
 								</span>
 								<span class="inline-block text-xl text-main-red">${product.price}</span>
-							</div>
-						{:else}
-							<div class="mt-8">
+							{:else}
 								<span class="inline-block text-xl text-gray-500">${product.price}</span>
-							</div>
-						{/if}
+							{/if}
+						</div>
 					</div>
 				</div>
 			{/each}
