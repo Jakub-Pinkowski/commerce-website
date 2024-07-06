@@ -19,7 +19,7 @@
 	};
 </script>
 
-<header class="navbar bg-base-100 px-4">
+<header class="navbar border-b bg-base-100 px-4">
 	<div class="navbar-start lg:hidden">
 		<div class="btn btn-circle btn-ghost z-30 mx-1">
 			<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px" />
