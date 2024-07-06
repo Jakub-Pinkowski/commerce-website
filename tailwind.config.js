@@ -6,7 +6,7 @@ export default {
 			colors: {
 				dark: 'rgb(38, 38, 38)',
 				whiteish: '#f0f0f0',
-                primry: '#3f594b', // Dark green
+                primary: '#3f594b', // Dark green
                 secondary: '#2a9d8f', // Light green
                 accent: '#e9c46a', // Yellow
 				'secondary-accent': '#f4a261', // Orange

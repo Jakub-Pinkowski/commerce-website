@@ -14,6 +14,14 @@
 						{#if product.alternateImages.length > 0}
 							<div class="group absolute inset-0 hidden md:block">
 								<div class="relative h-full w-full">
+									{#if product.price < product.listPrice}
+										<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
+									{:else if product.label && product.label.trim() !== ''}
+										<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
+											{product.label}
+										</div>
+									{/if}
+
 									<img
 										src={product.imageUrl}
 										alt={product.name}
@@ -28,7 +36,20 @@
 									/>
 								</div>
 							</div>
-                            <img src={product.imageUrl} alt={product.name} class="block md:hidden" />
+							<!-- Mobile -->
+							{#if product.price < product.listPrice}
+								<div
+									class="badge badge-md absolute left-2 top-2 z-10 block text-main-red md:hidden"
+								>
+									Sale
+								</div>
+							{:else if product.label && product.label.trim() !== ''}
+								<div class="badge badge-md absolute left-2 top-2 z-10 block text-primary md:hidden">
+									{product.label}
+								</div>
+							{/if}
+							<img src={product.imageUrl} alt={product.name} class="block md:hidden" />
+							<!-- End Mobile -->
 						{:else}
 							<img src={product.imageUrl} alt={product.name} />
 						{/if}
@@ -49,7 +70,7 @@
 							{/if}
 						</div>
 						<div class="mt-4 flex w-full justify-between md:hidden">
-							<button class="btn btn-primary flex text-white px-6">
+							<button class="btn btn-primary flex px-6 text-white">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									id="Outline"

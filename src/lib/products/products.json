@@ -8,6 +8,7 @@
 		"description": "The NS40 Layer is a versatile, lightweight, and packable jacket that is perfect for any adventure. It is made from a durable, water-resistant fabric that will keep you dry and comfortable in any weather. The jacket features a full-length zipper, a hood with an adjustable drawstring, and two zippered hand pockets. The NS40 Layer is available in a range of colors and sizes, so you can find the perfect fit for your next adventure.",
 		"price": 129,
 		"listPrice": 129,
+        "label": "New",
 		"url": "http://localhost:5173/products/mens-ns40-layer",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Apparel-Jackets-NS40-Layer-M-Clover-Green-2b-ecom.jpg?v=1706717605",
 		"alternateImages": [
@@ -27,6 +28,7 @@
 		"description": "The NS40 Reversible Vest is a versatile and stylish addition to your wardrobe. It is made from a durable, water-resistant fabric that will keep you dry and comfortable in any weather. The vest features a full-length zipper, a hood with an adjustable drawstring, and two zippered hand pockets. The NS40 Reversible Vest is available in a range of colors and sizes, so you can find the perfect fit for your next adventure.",
 		"price": 99,
 		"listPrice": 99,
+        "label": "New",
         "url": "http://localhost:5173/products/womens-ns40-reversible-vest",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-NS40-Vest-W-Core-Black-3b-ecom.jpg?v=1706719033",
 		"alternateImages": [
