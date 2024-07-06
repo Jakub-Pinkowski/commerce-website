@@ -10,9 +10,9 @@
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 			{#each products as product}
 				<div class="mb-12">
-					<a href={product.url} class="relative block w-full pb-[100%]">
+					<a href={product.url} class="relative block w-full md:pb-[100%]">
 						{#if product.alternateImages.length > 0}
-							<div class="group absolute inset-0">
+							<div class="group absolute inset-0 hidden md:block">
 								<div class="relative h-full w-full">
 									<img
 										src={product.imageUrl}
@@ -28,6 +28,7 @@
 									/>
 								</div>
 							</div>
+                            <img src={product.imageUrl} alt={product.name} class="block md:hidden" />
 						{:else}
 							<img src={product.imageUrl} alt={product.name} />
 						{/if}
