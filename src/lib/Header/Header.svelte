@@ -34,6 +34,7 @@
 		<a href="/categories/new" class="btn btn-ghost">New</a>
 		<a href="/categories/best_sellers" class="btn btn-ghost">Best Sellers</a>
 		<a href="/categories/sale" class="btn btn-ghost">Sale</a>
+        <a href="/products" class="btn btn-ghost">Shop All</a>
 	</div>
 	<div class="navbar-center">
 		<a href="/" class="btn btn-ghost text-xl">Logo</a>
