@@ -12,7 +12,7 @@
 <div>
 	<h1 class="mb-4 text-3xl font-bold">Categories</h1>
 	{#if newProducts}
-		<div class="mb-2 mt-8">
+		<div class="mb-2 mt-10">
 			<h2 class="mb-4 text-2xl font-bold">New</h2>
 			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 				{#each newProducts.slice(0, 4) as product}
@@ -21,11 +21,11 @@
 			</div>
 		</div>
 		<div class="my-2 flex justify-center">
-			<a href="/categories/new" class="btn btn-accent"> View all New Products </a>
+			<a href="/categories/new" class="btn btn-accent"> View all new products </a>
 		</div>
 	{/if}
 	{#if saleProducts}
-		<div class="mb-2 mt-8">
+		<div class="mb-2 mt-10">
 			<h2 class="mb-4 text-2xl font-bold">Sale</h2>
 			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 				{#each saleProducts.slice(0, 4) as product}
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 		<div class="my-2 flex justify-center">
-			<a href="/categories/sale" class="btn btn-accent"> View all Products on Sale </a>
+			<a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
 		</div>
 	{/if}
 </div>
