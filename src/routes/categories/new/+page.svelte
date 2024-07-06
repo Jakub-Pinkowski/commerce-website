@@ -7,7 +7,7 @@
 	export let data: PageData;
 	export let products = data?.products;
 
-	const itemsPerPage = 4;
+	const itemsPerPage = 8;
 	let currentPage = 1;
 	let totalPages = 0;
 	let displayedProducts: Product[] = [];
@@ -22,7 +22,7 @@
 		const endIndex = startIndex + itemsPerPage;
 		displayedProducts = products.slice(startIndex, endIndex).map((product) => ({
 			...product,
-			id: product.id.toString() // Convert id from number to string
+			id: product.id.toString() 
 		}));
 	}
 
@@ -53,7 +53,6 @@
 			{/each}
 		</div>
 
-		<!-- TODO: Logic works, now make it look nice -->
 		<div class="flex justify-center">
 			<div class="join">
 				{#if currentPage > 1}
