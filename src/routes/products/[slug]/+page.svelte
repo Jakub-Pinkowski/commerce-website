@@ -6,7 +6,7 @@
 
 	import GallerySwiper from './GallerySwiper.svelte';
 	import ProductDetails from './ProductDetails.svelte';
-	import RecommendationsCarousel from './RecommendationsCarousel.svelte';
+	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
 	export let data: PageData;
 	export let product = data?.product;
