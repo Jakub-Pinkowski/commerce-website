@@ -3,44 +3,17 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
+	import Pagination from '$lib/components/Pagination.svelte';
 
 	export let data: PageData;
-	export let products = data?.products;
+	export let products: Product[] = data?.products;
 
-	const itemsPerPage = 8;
-	let currentPage = 1;
-	let totalPages = 0;
+	// TODO: Later on change to probably around 24 on desktop and 16 on mobile
+	let itemsPerPage = 8;
 	let displayedProducts: Product[] = [];
 
-	onMount(() => {
-		totalPages = Math.ceil(products.length / itemsPerPage);
-		updateDisplayedProducts();
-	});
-
-	function updateDisplayedProducts() {
-		const startIndex = (currentPage - 1) * itemsPerPage;
-		const endIndex = startIndex + itemsPerPage;
-		displayedProducts = products.slice(startIndex, endIndex).map((product) => ({
-			...product,
-			id: product.id.toString() 
-		}));
-	}
-
-	function goToPage(page: number) {
-		currentPage = page;
-		updateDisplayedProducts();
-	}
-
-	function nextPage() {
-		if (currentPage < totalPages) {
-			goToPage(currentPage + 1);
-		}
-	}
-
-	function prevPage() {
-		if (currentPage > 1) {
-			goToPage(currentPage - 1);
-		}
+	function handleUpdate(event) {
+		displayedProducts = event.detail.displayedProducts;
 	}
 </script>
 
@@ -52,27 +25,8 @@
 				<CategoryProductCard {product} />
 			{/each}
 		</div>
-
-		<div class="flex justify-center">
-			<div class="join">
-				{#if currentPage > 1}
-					<button on:click={prevPage} class="btn join-item">«</button>
-				{/if}
-
-				{#each Array(totalPages).fill(undefined) as _, i}
-					<button
-						class="btn join-item {currentPage === i + 1 ? 'btn-active' : ''}"
-						on:click={() => goToPage(i + 1)}
-					>
-						{i + 1}
-					</button>
-				{/each}
-
-				{#if currentPage < totalPages}
-					<button on:click={nextPage} class="btn join-item">»</button>
-				{/if}
-			</div>
-		</div>
+		<!-- TODO: Pass displayedProducts from Pagination to my main-->
+		<Pagination {itemsPerPage} {displayedProducts} {products} on:update={handleUpdate} />
 	{:else}
 		<p>No products found</p>
 	{/if}
