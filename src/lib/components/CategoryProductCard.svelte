@@ -17,7 +17,7 @@
 					<img
 						src={product.imageUrl}
 						alt={product.name}
-						class=" inset-0 block h-auto w-full object-cover opacity-100 group-hover:opacity-0"
+						class=" inset-0 block h-auto w-full object-cover opacity-100 md:group-hover:opacity-0"
 					/>
 					<!-- NOTE: Jacket images have wrong ratio on hover, ignore for now -->
 					<img
@@ -36,7 +36,7 @@
 			<h3 class="line-clamp-1">{product.name}</h3>
 		</a>
 		<span class="line-clamp-1 block text-sm">{product.brand}</span>
-		<div class="mt-4">
+		<div class="mt-2 md:mt-4">
 			{#if product.price < product.listPrice}
 				<span class="mr-1 inline-block text-lg text-gray-500 line-through">
 					${product.listPrice}
@@ -46,7 +46,7 @@
 				<span class="inline-block text-lg text-gray-500">${product.price}</span>
 			{/if}
 		</div>
-		<div class="mt-4 flex w-full justify-between md:hidden">
+		<div class="mt-2 flex w-full justify-between md:mt-4 md:hidden">
 			<button class="btn btn-primary flex px-6 text-white">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
