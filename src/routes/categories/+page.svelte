@@ -37,4 +37,17 @@
 			<a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
 		</div>
 	{/if}
+    {#if products}
+    <div class="mb-2 mt-10">
+        <h2 class="mb-4 text-2xl font-bold">All products</h2>
+        <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+            {#each products.slice(0, 4) as product}
+                <CategoryProductCard {product} />
+            {/each}
+        </div>
+    </div>
+    <div class="my-2 flex justify-center">
+        <a href="/products" class="btn btn-accent"> View all products </a>
+    </div>
+{/if}
 </div>
