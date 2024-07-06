@@ -33,7 +33,7 @@
 	// });
 </script>
 
-<div class="w-full flex-none md:max-w-[45%] md:p-8">
+<div class="mt-4 w-full flex-none md:mt-0 md:max-w-[45%] md:p-8">
 	<h1 class="text-3xl font-bold">{product.name}</h1>
 	<span class="mt-4 inline-block text-lg">{product.brand}</span>
 	<p class="mt-4 text-justify text-xl">{product.description}</p>
