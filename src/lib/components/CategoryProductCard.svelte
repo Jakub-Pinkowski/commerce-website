@@ -1,18 +1,15 @@
 <script lang="ts">
 	export let product;
-	const hasSale = product.price < product.listPrice;
-	const hasLabel = product.label && product.label.trim() !== '';
-	const showAlternateImage = product.alternateImages.length > 0;
 </script>
 
 <div class="mb-8">
 	<a href={product.url} class="relative block w-full">
-		{#if showAlternateImage}
+		{#if product.alternateImages.length > 0}
 			<div class="group inset-0">
 				<div class="relative h-full w-full">
-					{#if hasSale}
+					{#if product.price < product.listPrice}
 						<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
-					{:else if hasLabel}
+					{:else if product.label && product.label.trim() !== ''}
 						<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
 							{product.label}
 						</div>
@@ -40,7 +37,7 @@
 		</a>
 		<span class="line-clamp-1 block text-sm">{product.brand}</span>
 		<div class="mt-4">
-			{#if hasSale}
+			{#if product.price < product.listPrice}
 				<span class="mr-1 inline-block text-lg text-gray-500 line-through">
 					${product.listPrice}
 				</span>
