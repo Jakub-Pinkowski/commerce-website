@@ -1,36 +1,45 @@
 <script lang="ts">
-	export let product;
+	import type { Product } from '$lib/productTypes.ts';
+	import Swiper from 'swiper/bundle';
+	import { onMount } from 'svelte';
+	import 'swiper/css/bundle';
+
+	export let products: Product[];
+
+	let recommendationsSwiper: Swiper;
+
+	onMount(() => {
+		recommendationsSwiper = new Swiper('.swiper.recommendations-carousel', {
+			slidesPerView: 1.4,
+			spaceBetween: 15,
+			mousewheel: {
+				forceToAxis: true
+			},
+			navigation: {
+				nextEl: '.swiper.recommendations-carousel .button-next',
+				prevEl: '.swiper.recommendations-carousel  .button-prev',
+				disabledClass: 'swiper-button-disabled'
+			},
+			breakpoints: {
+				768: {
+					slidesPerView: 4
+				}
+			}
+		});
+	});
 </script>
 
+<!-- TODO: Add Hover -->
+<!-- TODO: Make styling similar to category pages -->
 <div class="my-8">
 	<h3 class="mt-8 border-b border-gray-200 pb-2 text-2xl font-bold">Similar products</h3>
 	<div class="swiper recommendations-carousel mt-4">
 		<div class="swiper-wrapper">
-			<!-- NOTE: Those are kinda my other items now -->
-			{#each product.alternateImages as alternateImage}
+			{#each products as product}
 				<div class="swiper-slide">
 					<a href={product.url}>
 						<img
-							src={alternateImage}
-							alt={product.name}
-							class="h-full object-cover"
-							loading="lazy"
-						/>
-					</a>
-					<div class="pt-2">
-						<a href={product.url}>
-							<h3 class="text-lg">Product name</h3>
-						</a>
-						<span class="block text-sm">Product brand</span>
-						<span class="block pt-2 text-lg text-gray-500">$99</span>
-					</div>
-				</div>
-			{/each}
-			{#each product.alternateImages as alternateImage}
-				<div class="swiper-slide">
-					<a href={product.url}>
-						<img
-							src={alternateImage}
+							src={product.imageUrl}
 							alt={product.name}
 							class="h-full object-cover"
 							loading="lazy"
@@ -47,7 +56,7 @@
 			{/each}
 			<!-- TODO: Adjust the arrows to be vertically in the middle of the image -->
 		</div>
-		<!-- <div
+		<div
 			class="button-prev absolute left-8 top-1/3 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
 		>
 			<button class="btn btn-circle bg-white shadow-xl">
@@ -78,6 +87,6 @@
 					/></svg
 				>
 			</button>
-		</div> -->
+		</div>
 	</div>
 </div>

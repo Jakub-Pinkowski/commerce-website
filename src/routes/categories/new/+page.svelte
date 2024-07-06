@@ -31,9 +31,10 @@
 		</div>
 		<!-- TODO: Pass displayedProducts from Pagination to my main-->
 		<Pagination {itemsPerPage} {displayedProducts} {products} on:update={handleUpdatePagination} />
+        <RecommendationsCarousel {products} />
 	{:else}
 		<p>No products found</p>
 	{/if}
 	<!-- TODO: Recommendation carousel goes here -->
-     <RecommendationsCarousel {products} />
+
 </div>

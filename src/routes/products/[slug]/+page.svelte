@@ -13,7 +13,6 @@
 	let mainSwiper: Swiper;
 	let thumbSwiper: Swiper;
 	let smallInfoSwiper: Swiper;
-	let recommendationsSwiper: Swiper;
 
 	// FIXME: On safari mobile, all images on the carousels are way to high
     // FIXME: On dekstop when there are more than 7 images the whole carousel is way too high
@@ -56,23 +55,7 @@
 			}
 		});
 
-		recommendationsSwiper = new Swiper('.swiper.recommendations-carousel', {
-			slidesPerView: 1.4,
-			spaceBetween: 15,
-			mousewheel: {
-				forceToAxis: true
-			},
-			// navigation: {
-			// 	nextEl: '.swiper.recommendations-carousel .button-next',
-			// 	prevEl: '.swiper.recommendations-carousel  .button-prev',
-			// 	disabledClass: 'swiper-button-disabled'
-			// },
-			breakpoints: {
-				768: {
-					slidesPerView: 4
-				}
-			}
-		});
+		
 	});
 </script>
 
@@ -81,7 +64,8 @@
 		<GallerySwiper {product} />
 		<ProductDetails {product} />
 	</section>
-	<RecommendationsCarousel {product} />
+    <!-- FIXME: Products vs Product issue -->
+	<!-- <RecommendationsCarousel {products} /> -->
 {:else}
 	<!-- TODO: Design this 404 part -->
 	<h1 class="text-xl font-bold">No product found</h1>
