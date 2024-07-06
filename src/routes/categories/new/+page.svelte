@@ -31,6 +31,7 @@
 		</div>
 		<!-- TODO: Pass displayedProducts from Pagination to my main-->
 		<Pagination {itemsPerPage} {displayedProducts} {products} on:update={handleUpdatePagination} />
+        <!-- TODO: Later on we need to use some recommendedProducts instead -->
         <RecommendationsCarousel {products} />
 	{:else}
 		<p>No products found</p>

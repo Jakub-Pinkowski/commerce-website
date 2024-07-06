@@ -37,20 +37,65 @@
 		<div class="swiper-wrapper">
 			{#each products as product}
 				<div class="swiper-slide">
-					<a href={product.url}>
-						<img
-							src={product.imageUrl}
-							alt={product.name}
-							class="h-full object-cover"
-							loading="lazy"
-						/>
+					<a href={product.url} class="relative block w-full md:pb-[100%]">
+						{#if product.alternateImages.length > 0}
+							<div class="group absolute inset-0 hidden md:block">
+								<div class="relative h-full w-full">
+									{#if product.price < product.listPrice}
+										<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
+									{:else if product.label && product.label.trim() !== ''}
+										<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
+											{product.label}
+										</div>
+									{/if}
+
+									<img
+										src={product.imageUrl}
+										alt={product.name}
+										class="absolute inset-0 block h-auto w-full object-cover opacity-100 group-hover:opacity-0"
+									/>
+
+									<!-- NOTE: Jacket images have wrong ratio on hover, ignore for now -->
+									<img
+										src={product.alternateImages[0]}
+										alt={`Alternate view of ${product.name}`}
+										class="absolute inset-0 block h-auto w-full object-cover opacity-0 group-hover:opacity-100"
+									/>
+								</div>
+							</div>
+							<!-- Mobile -->
+							{#if product.price < product.listPrice}
+								<div
+									class="badge badge-md absolute left-2 top-2 z-10 block text-main-red md:hidden"
+								>
+									Sale
+								</div>
+							{:else if product.label && product.label.trim() !== ''}
+								<div class="badge badge-md absolute left-2 top-2 z-10 block text-primary md:hidden">
+									{product.label}
+								</div>
+							{/if}
+							<img src={product.imageUrl} alt={product.name} class="block md:hidden" />
+							<!-- End Mobile -->
+						{:else}
+							<img src={product.imageUrl} alt={product.name} />
+						{/if}
 					</a>
 					<div class="pt-2">
 						<a href={product.url}>
-							<h3 class="text-lg">Product name</h3>
+							<h3 class="line-clamp-1">{product.name}</h3>
 						</a>
-						<span class="block text-sm">Product brand</span>
-						<span class="block pt-2 text-lg text-gray-500">$99</span>
+						<span class="line-clamp-1 block text-sm">{product.brand}</span>
+						<div class="mt-4">
+							{#if product.price < product.listPrice}
+								<span class="mr-1 inline-block text-lg text-gray-500 line-through">
+									${product.listPrice}
+								</span>
+								<span class="inline-block text-lg text-main-red">${product.price}</span>
+							{:else}
+								<span class="inline-block text-lg text-gray-500">${product.price}</span>
+							{/if}
+						</div>
 					</div>
 				</div>
 			{/each}
