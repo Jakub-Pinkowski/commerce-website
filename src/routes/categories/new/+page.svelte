@@ -34,9 +34,9 @@
 					</a>
 					<div class="pt-2">
 						<a href={product.url}>
-							<h3 class="text-lg">{product.name}</h3>
+							<h3 class="line-clamp-1">{product.name}</h3>
 						</a>
-						<span class="block text-sm">{product.brand}</span>
+						<span class="line-clamp-1 block text-sm">{product.brand}</span>
 						<div class="mt-4">
 							{#if product.price < product.listPrice}
 								<span class="mr-2 inline-block text-xl text-gray-500 line-through">
@@ -47,9 +47,9 @@
 								<span class="inline-block text-xl text-gray-500">${product.price}</span>
 							{/if}
 						</div>
-						<div class="mt-8 grid w-full grid-cols-[1fr,auto] gap-x-4">
-							<button class="btn btn-primary  text-white"> Add to cart </button>
-							<button class="btn ">
+						<div class="mt-4 grid w-full grid-cols-[1fr,auto] gap-x-4">
+							<button class="btn btn-primary text-white"> Add to cart </button>
+							<button class="btn">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 									<g id="_01_align_center" data-name="01 align center">
 										<path
