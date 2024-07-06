@@ -69,8 +69,8 @@
 					<span class="text-lg">Total</span>
 					<span class="text-lg text-gray-500">$199</span>
 				</div>
-				<button class="btn btn-neutral mt-8 w-full max-w-xl"> See the Cart </button>
-				<button class="btn btn-primary mt-8 w-full max-w-xl"> Order </button>
+				<a href="/cart" class="btn btn-neutral mt-8 w-full max-w-xl"> See the cart </a>
+				<a href="/cart/checkout" class="btn btn-primary mt-8 w-full max-w-xl"> Order </a>
 			</div>
 		</div>
 	</div>
