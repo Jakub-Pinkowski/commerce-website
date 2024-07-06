@@ -3,6 +3,7 @@
 	import type { Product } from '$lib/productTypes.ts';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import Pagination from '$lib/components/Pagination.svelte';
+	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
@@ -34,4 +35,5 @@
 		<p>No products found</p>
 	{/if}
 	<!-- TODO: Recommendation carousel goes here -->
+     <RecommendationsCarousel {products} />
 </div>
