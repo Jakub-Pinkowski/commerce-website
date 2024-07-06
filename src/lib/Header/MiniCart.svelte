@@ -42,7 +42,7 @@
 
 {#if openCart}
 	<div
-		class="fixed left-0 top-0 z-10 h-full w-full bg-black opacity-50"
+		class="fixed left-0 top-0 z-20 h-full w-full bg-black opacity-50"
 		on:click={toggleCartAndMenu}
 		on:keydown={handleKeyDown}
 		role="button"

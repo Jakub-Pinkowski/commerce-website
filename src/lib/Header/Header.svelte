@@ -19,29 +19,27 @@
 	};
 </script>
 
-<header>
-	<div class="navbar bg-base-100 px-4">
-		<div class="navbar-start lg:hidden">
-			<div class="btn btn-circle btn-ghost z-30 mx-1">
-				<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px" />
-			</div>
-			<SearchIcon {closeMenu} className="flex lg:hidden" />
+<header class="navbar bg-base-100 px-4">
+	<div class="navbar-start lg:hidden">
+		<div class="btn btn-circle btn-ghost z-30 mx-1">
+			<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px" />
+		</div>
+		<SearchIcon {closeMenu} className="flex lg:hidden" />
 
-			<MobileMenu {closeMenu} {toggleCartAndMenu} {open} />
-		</div>
-		<div class="navbar-start hidden lg:block">
-			<a href="/" class="btn btn-ghost">Home</a>
-			<a href="/categories" class="btn btn-ghost">Categories</a>
-			<a href="/categories/new" class="btn btn-ghost">New</a>
-			<a href="/categories/best_sellers" class="btn btn-ghost">Best Sellers</a>
-			<a href="/categories/sale" class="btn btn-ghost">Sale</a>
-		</div>
-		<div class="navbar-center">
-			<a href="/" class="btn btn-ghost text-xl">Logo</a>
-		</div>
-		<div class="navbar-end">
-			<DesktopMenu {closeMenu} {toggleCartAndMenu} />
-		</div>
+		<MobileMenu {closeMenu} {toggleCartAndMenu} {open} />
 	</div>
-	<MiniCart {toggleCartAndMenu} {openCart} />
+	<div class="navbar-start hidden lg:block">
+		<a href="/" class="btn btn-ghost">Home</a>
+		<a href="/categories" class="btn btn-ghost">Categories</a>
+		<a href="/categories/new" class="btn btn-ghost">New</a>
+		<a href="/categories/best_sellers" class="btn btn-ghost">Best Sellers</a>
+		<a href="/categories/sale" class="btn btn-ghost">Sale</a>
+	</div>
+	<div class="navbar-center">
+		<a href="/" class="btn btn-ghost text-xl">Logo</a>
+	</div>
+	<div class="navbar-end">
+		<DesktopMenu {closeMenu} {toggleCartAndMenu} />
+	</div>
 </header>
+<MiniCart {toggleCartAndMenu} {openCart} />
