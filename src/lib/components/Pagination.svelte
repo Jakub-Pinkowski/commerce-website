@@ -1,26 +1,26 @@
 <script lang="ts">
-    import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	import type { Product } from '$lib/productTypes.ts';
 
 	export let itemsPerPage = 8;
 	export let products: Product[] = [];
-    export let displayedProducts: Product[] = [];
+	export let displayedProducts: Product[] = [];
 	let currentPage = 1;
 	let totalPages = 0;
 
-    export const dispatch = createEventDispatcher();
+	export const dispatch = createEventDispatcher();
 
 	onMount(() => {
 		totalPages = Math.ceil(products.length / itemsPerPage);
 		updateDisplayedProducts();
 	});
 
-    function updateDisplayedProducts() {
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        displayedProducts = products.slice(startIndex, endIndex);
-        dispatch('update', { displayedProducts });
-    }
+	function updateDisplayedProducts() {
+		const startIndex = (currentPage - 1) * itemsPerPage;
+		const endIndex = startIndex + itemsPerPage;
+		displayedProducts = products.slice(startIndex, endIndex);
+		dispatch('update', { displayedProducts });
+	}
 
 	function goToPage(page: number) {
 		currentPage = page;
@@ -40,7 +40,7 @@
 	}
 </script>
 
-<div class="flex justify-center">
+<div class="my-8 flex justify-center">
 	<div class="join">
 		{#if currentPage > 1}
 			<button on:click={prevPage} class="btn join-item">«</button>
