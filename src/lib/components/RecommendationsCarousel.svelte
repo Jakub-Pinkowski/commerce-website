@@ -5,6 +5,7 @@
 	import 'swiper/css/bundle';
 
 	export let products: Product[];
+    export let title: string = 'You may also like';
 
 	let recommendationsSwiper: Swiper;
 
@@ -32,7 +33,7 @@
 <!-- TODO: Add Hover -->
 <!-- TODO: Make styling similar to category pages -->
 <div class="my-8">
-	<h3 class="mt-8 border-b border-gray-200 pb-2 text-2xl font-bold">You may also like</h3>
+	<h3 class="mt-8 border-b border-gray-200 pb-2 text-2xl font-bold">{title}</h3>
 	<div class="swiper recommendations-carousel mt-4">
 		<div class="swiper-wrapper">
 			{#each products as product}
