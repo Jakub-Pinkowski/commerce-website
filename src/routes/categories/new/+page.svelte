@@ -9,9 +9,28 @@
 	{#if products}
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 			{#each products as product}
-				<div>
-					<a href={product.url}>
-						<img src={product.imageUrl} alt={product.name} />
+				<div class="w-full">
+					<a href={product.url} class="relative block w-full pb-[100%]">
+						{#if product.alternateImages.length > 0}
+							<div class="group absolute inset-0">
+								<div class="relative h-full w-full">
+									<img
+										src={product.imageUrl}
+										alt={product.name}
+										class="absolute inset-0 block h-auto w-full object-cover opacity-100 group-hover:opacity-0"
+									/>
+
+									<!-- NOTE: Jacket images have wrong ratio on hover, ignore for now -->
+									<img
+										src={product.alternateImages[0]}
+										alt={`Alternate view of ${product.name}`}
+										class="absolute inset-0 block h-auto w-full object-cover opacity-0 group-hover:opacity-100"
+									/>
+								</div>
+							</div>
+						{:else}
+							<img src={product.imageUrl} alt={product.name} />
+						{/if}
 					</a>
 					<div class="pt-2">
 						<a href={product.url}>
