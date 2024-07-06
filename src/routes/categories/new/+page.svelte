@@ -16,7 +16,7 @@
 		displayedProducts: Product[]; 
 	}
 
-	function handleUpdate(event: CustomEvent<UpdateEventDetail>) {
+	function handleUpdatePagination(event: CustomEvent<UpdateEventDetail>) {
 		displayedProducts = event.detail.displayedProducts;
 	}
 </script>
@@ -30,7 +30,7 @@
 			{/each}
 		</div>
 		<!-- TODO: Pass displayedProducts from Pagination to my main-->
-		<Pagination {itemsPerPage} {displayedProducts} {products} on:update={handleUpdate} />
+		<Pagination {itemsPerPage} {displayedProducts} {products} on:update={handleUpdatePagination} />
 	{:else}
 		<p>No products found</p>
 	{/if}
