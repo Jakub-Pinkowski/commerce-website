@@ -7,6 +7,7 @@
 	export let data: PageData;
 	export let products: Product[] = data?.products;
 	let productsPerPage = 8;
+	let categories = ['New', 'Sale', 'All'];
 	let newProducts = products.filter((product) => product.label === 'New').slice(0, productsPerPage);
 	let saleProducts = products
 		.filter((product) => product.price < product.listPrice)
@@ -19,18 +20,12 @@
 <div>
 	{#if products}
 		<div class="tabs-boxed tabs mb-4 flex w-96 justify-between" role="tablist">
-			<button
-				class="tab flex-1 {activeTab === 'New' ? 'tab-active' : ''}"
-				on:click={() => (activeTab = 'New')}>New</button
-			>
-			<button
-				class="tab flex-1 {activeTab === 'Sale' ? 'tab-active' : ''}"
-				on:click={() => (activeTab = 'Sale')}>Sale</button
-			>
-			<button
-				class="tab flex-1 {activeTab === 'All' ? 'tab-active' : ''}"
-				on:click={() => (activeTab = 'All')}>Shop All</button
-			>
+			{#each categories as category (category)}
+				<button
+					class="tab flex-1 {activeTab === category ? 'tab-active' : ''}"
+					on:click={() => (activeTab = category)}>{category}</button
+				>
+			{/each}
 		</div>
 
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
@@ -39,19 +34,24 @@
 					<CategoryProductCard {product} />
 				{/each}
 			{/if}
+		</div>
 
+		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 			{#if activeTab === 'Sale' && newProducts.length}
 				{#each saleProducts as product}
 					<CategoryProductCard {product} />
 				{/each}
 			{/if}
+		</div>
 
+		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 			{#if activeTab === 'All' && products.length}
 				{#each products as product}
 					<CategoryProductCard {product} />
 				{/each}
 			{/if}
 		</div>
+
 		<div class="mt-8 flex justify-center">
 			<a
 				href={`/${activeTab === 'All' ? 'products' : 'categories/' + activeTab.toLowerCase()}`}
