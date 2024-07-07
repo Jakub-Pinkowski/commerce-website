@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
-	import { quadOut } from 'svelte/easing';
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
@@ -22,15 +20,18 @@
 <div>
 	{#if products}
 		<!-- TODO: Animate the buttons -->
-		<div class="tabs-boxed tabs mb-4 flex w-96 justify-between" role="tablist">
+		<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
 			{#each categories as category (category)}
 				<button
 					class="tab flex-1 {activeTab === category ? 'tab-active' : ''}"
-					on:click={() => (activeTab = category)}>{category}</button
+					on:click={() => (activeTab = category)}
 				>
+					{category}
+				</button>
 			{/each}
 		</div>
 
+		<!-- TODO: Possibly animate those as well, using svelte transitions -->
 		{#if activeTab === 'New' && newProducts.length}
 			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 				{#each newProducts as product}
