@@ -5,28 +5,28 @@
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
-	let productsPerPage = 8;
+	let productsPerCarousel = 8;
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 	let activeTabMainCategory: string = 'New';
 	let productCategories = ['Shoes', 'Jackets', 'Pants'];
 	let activeTabProductCategory: string = 'Shoes';
 
-	let newProducts = products.filter((product) => product.label === 'new').slice(0, productsPerPage);
+	let newProducts = products.filter((product) => product.label === 'new').slice(0, productsPerCarousel);
 	let saleProducts = products
 		.filter((product) => product.price < product.listPrice)
-		.slice(0, productsPerPage);
+		.slice(0, productsPerCarousel);
 	// TODO: Introduce real bestSellers later
-	let bestSellerProducts = products.slice(0, productsPerPage);
+	let bestSellerProducts = products.slice(0, productsPerCarousel);
 
 	let shoesProducts = products
 		.filter((product) => product.category === 'shoes')
-		.slice(0, productsPerPage);
+		.slice(0, productsPerCarousel);
 	let jacketsProducts = products
 		.filter((product) => product.category === 'jackets')
-		.slice(0, productsPerPage);
+		.slice(0, productsPerCarousel);
 	let pantsProducts = products
 		.filter((product) => product.category === 'pants')
-		.slice(0, productsPerPage);
+		.slice(0, productsPerCarousel);
 </script>
 
 <div>

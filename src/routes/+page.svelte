@@ -8,8 +8,19 @@
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
+	let productsPerCarousel = 8;
 	let newProducts = products.filter((product) => product.label === 'new');
 	let saleProducts = products.filter((product) => product.price < product.listPrice);
+
+	let shoesProducts = products
+		.filter((product) => product.category === 'shoes')
+		.slice(0, productsPerCarousel);
+	let jacketsProducts = products
+		.filter((product) => product.category === 'jackets')
+		.slice(0, productsPerCarousel);
+	let pantsProducts = products
+		.filter((product) => product.category === 'pants')
+		.slice(0, productsPerCarousel);
 </script>
 
 <div>
@@ -53,9 +64,9 @@
 			</div>
 		</div>
 	</section>
-    <!-- TODO: Create real pants category -->
+	<!-- TODO: Create real pants category -->
 	<div class="mb-8">
-		<RecommendationsCarousel products={products} title="Pants" />
+		<RecommendationsCarousel products={pantsProducts} title="Pants" />
 	</div>
 </div>
 
