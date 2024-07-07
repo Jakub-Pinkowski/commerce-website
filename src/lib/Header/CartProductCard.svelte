@@ -32,7 +32,7 @@
 			<a href="google.com">
 				<h3 class="line-clamp-2 text-lg">Random name</h3>
 			</a>
-			<span class=" mt-2 line-clamp-1 block text-xs">Random brand</span>
+			<span class=" mt-2 line-clamp-1 block text-sm">Random brand</span>
 		</div>
 		<div class="mt-auto flex w-full justify-between pl-2">
 			<div class="flex items-center">
