@@ -6,6 +6,7 @@
 	import jackets from '$lib/assets/images/jackets.jpg';
 	import shoes from '$lib/assets/images/footwear.jpg';
     import pants from '$lib/assets/images/pants.jpg';
+    import newImage from '$lib/assets/images/newImage.jpg';
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
@@ -50,7 +51,7 @@
 	<div class="flex justify-center">
 		<section
 			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
-			style="background-image: url({jackets});"
+			style="background-image: url({newImage});"
 		>
 			<div class="hero-overlay bg-opacity-60"></div>
 			<div class="hero-content text-center text-neutral-content">
@@ -82,6 +83,24 @@
 	</div>
 	<div class="mb-8">
 		<RecommendationsCarousel products={pantsProducts} title="Pants" />
+	</div>
+    <div class="flex justify-center">
+		<section
+			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
+			style="background-image: url({jackets});"
+		>
+			<div class="hero-overlay bg-opacity-60"></div>
+			<div class="hero-content text-center text-neutral-content">
+				<div class="max-w-md">
+					<h1 class="mb-5 text-5xl">Jackets</h1>
+					<p class="mb-5 text-xl">Checkout our collection of jackets!</p>
+					<a href="/categories/new" class="btn btn-primary">Shop jackets</a>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="mb-8">
+		<RecommendationsCarousel products={jacketsProducts} title="Jackets" />
 	</div>
 </div>
 
