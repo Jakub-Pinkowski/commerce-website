@@ -8,7 +8,7 @@
 	export let products: Product[] = data?.products;
 	let productsPerPage = 8;
 	let categories = ['New', 'Sale', 'All'];
-	let newProducts = products.filter((product) => product.label === 'New').slice(0, productsPerPage);
+	let newProducts = products.filter((product) => product.label === 'new').slice(0, productsPerPage);
 	let saleProducts = products
 		.filter((product) => product.price < product.listPrice)
 		.slice(0, productsPerPage);
