@@ -52,7 +52,7 @@
 				{/each}
 			{/if}
 		</div>
-		<div class="flex justify-center mt-8">
+		<div class="mt-8 flex justify-center">
 			<a
 				href={`/${activeTab === 'All' ? 'products' : 'categories/' + activeTab.toLowerCase()}`}
 				class="btn btn-accent"
@@ -60,7 +60,7 @@
 				{#if activeTab === 'All'}View all products{:else}View all {activeTab} products{/if}
 			</a>
 		</div>
-        <RecommendationsCarousel {products} />
+		<RecommendationsCarousel {products} />
 	{:else}
 		<p>No products found</p>
 	{/if}
