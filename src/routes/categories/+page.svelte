@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+	import { quadOut } from 'svelte/easing';
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
@@ -19,6 +21,7 @@
 
 <div>
 	{#if products}
+		<!-- TODO: Animate the buttons -->
 		<div class="tabs-boxed tabs mb-4 flex w-96 justify-between" role="tablist">
 			{#each categories as category (category)}
 				<button
@@ -28,29 +31,29 @@
 			{/each}
 		</div>
 
-		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-			{#if activeTab === 'New' && newProducts.length}
+		{#if activeTab === 'New' && newProducts.length}
+			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 				{#each newProducts as product}
 					<CategoryProductCard {product} />
 				{/each}
-			{/if}
-		</div>
+			</div>
+		{/if}
 
-		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-			{#if activeTab === 'Sale' && newProducts.length}
+		{#if activeTab === 'Sale' && newProducts.length}
+			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 				{#each saleProducts as product}
 					<CategoryProductCard {product} />
 				{/each}
-			{/if}
-		</div>
+			</div>
+		{/if}
 
-		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-			{#if activeTab === 'All' && products.length}
+		{#if activeTab === 'All' && products.length}
+			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 				{#each products as product}
 					<CategoryProductCard {product} />
 				{/each}
-			{/if}
-		</div>
+			</div>
+		{/if}
 
 		<div class="mt-8 flex justify-center">
 			<a
