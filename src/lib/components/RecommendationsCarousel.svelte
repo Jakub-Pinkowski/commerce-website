@@ -11,19 +11,19 @@
 
 	onMount(() => {
 		recommendationsSwiper = new Swiper('.swiper.recommendations-carousel', {
-			slidesPerView: 1.4,
+			slidesPerView: 2.3,
 			spaceBetween: 15,
 			mousewheel: {
 				forceToAxis: true
 			},
-			navigation: {
-				nextEl: '.swiper.recommendations-carousel .button-next',
-				prevEl: '.swiper.recommendations-carousel  .button-prev',
-				disabledClass: 'swiper-button-disabled'
-			},
 			breakpoints: {
 				768: {
-					slidesPerView: 4
+					slidesPerView: 4,
+					navigation: {
+						nextEl: '.swiper.recommendations-carousel .button-next',
+						prevEl: '.swiper.recommendations-carousel  .button-prev',
+						disabledClass: 'swiper-button-disabled'
+					}
 				}
 			}
 		});
@@ -86,37 +86,39 @@
 			{/each}
 			<!-- TODO: Adjust the arrows to be vertically in the middle of the image -->
 		</div>
-		<div
-			class="button-prev absolute left-8 top-1/3 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
-		>
-			<button class="btn btn-circle bg-white shadow-xl">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					id="Outline"
-					viewBox="0 0 24 24"
-					width="36"
-					height="36"
-					><path
-						d="M19,11H9l3.29-3.29a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0l-4.29,4.3A2,2,0,0,0,6,12H6a2,2,0,0,0,.59,1.4l4.29,4.3a1,1,0,1,0,1.41-1.42L9,13H19a1,1,0,0,0,0-2Z"
-					/></svg
-				>
-			</button>
-		</div>
-		<div
-			class="button-next absolute right-8 top-1/3 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
-		>
-			<button class="btn btn-circle bg-white shadow-xl">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					id="Outline"
-					viewBox="0 0 24 24"
-					width="36"
-					height="36"
-					><path
-						d="M18,12h0a2,2,0,0,0-.59-1.4l-4.29-4.3a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L15,11H5a1,1,0,0,0,0,2H15l-3.29,3.29a1,1,0,0,0,1.41,1.42l4.29-4.3A2,2,0,0,0,18,12Z"
-					/></svg
-				>
-			</button>
+		<div class="hidden md:block">
+			<div
+				class="button-prev absolute left-8 top-1/3 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
+			>
+				<button class="btn btn-circle bg-white shadow-xl">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						id="Outline"
+						viewBox="0 0 24 24"
+						width="36"
+						height="36"
+						><path
+							d="M19,11H9l3.29-3.29a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0l-4.29,4.3A2,2,0,0,0,6,12H6a2,2,0,0,0,.59,1.4l4.29,4.3a1,1,0,1,0,1.41-1.42L9,13H19a1,1,0,0,0,0-2Z"
+						/></svg
+					>
+				</button>
+			</div>
+			<div
+				class="button-next absolute right-8 top-1/3 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
+			>
+				<button class="btn btn-circle bg-white shadow-xl">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						id="Outline"
+						viewBox="0 0 24 24"
+						width="36"
+						height="36"
+						><path
+							d="M18,12h0a2,2,0,0,0-.59-1.4l-4.29-4.3a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L15,11H5a1,1,0,0,0,0,2H15l-3.29,3.29a1,1,0,0,0,1.41,1.42l4.29-4.3A2,2,0,0,0,18,12Z"
+						/></svg
+					>
+				</button>
+			</div>
 		</div>
 	</div>
 </div>
