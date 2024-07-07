@@ -19,10 +19,13 @@
 		<div class="hero-content text-center text-neutral-content">
 			<div class="max-w-md">
 				<h1 class="mb-5 text-5xl">Summer Sale</h1>
-				<p class="mb-5">Don't miss out on our summer sale! Get up to 50% off on selected items.</p>
+				<p class="mb-2 text-xl">Don't miss out on our summer sale!</p>
+				<p class="mb-5 text-xl">
+					Get up to <span class="text-2xl font-bold">50%</span> off on selected items.
+				</p>
 				<a href="/categories/sale" class="btn btn-accent">Shop sale</a>
 			</div>
 		</div>
 	</section>
-    <!-- TODO: I want a tabbed rec here -->
+	<!-- TODO: I want a tabbed rec here -->
 </div>
