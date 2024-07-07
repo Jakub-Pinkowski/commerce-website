@@ -13,7 +13,7 @@
 	<h1 class="mb-4 text-3xl font-bold">Categories</h1>
 	{#if newProducts}
 		<RecommendationsCarousel products={newProducts} title="New" />
-        <!-- NOTE: Haven't decided on the color of the button yet -->
+		<!-- NOTE: Haven't decided on the color of the button yet -->
 		<div class="flex justify-center">
 			<a href="/categories/new" class="btn btn-primary"> View all new products </a>
 		</div>
