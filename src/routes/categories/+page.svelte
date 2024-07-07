@@ -32,6 +32,45 @@
 <div>
 	{#if products}
 		<div class="my-8">
+			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
+				{#each productCategories as category (category)}
+					<button
+						class="tab flex-1 {activeTabProductCategory === category ? 'tab-active' : ''}"
+						on:click={() => (activeTabProductCategory = category)}
+					>
+						{category}
+					</button>
+				{/each}
+			</div>
+
+			{#if activeTabProductCategory === 'Shoes' && shoesProducts.length}
+				<div class="mb-4">
+					<RecommendationsCarousel products={shoesProducts} title="Shoes" />
+					<div class="flex justify-center">
+						<a href="/categories/shoes" class="btn btn-accent"> View all shoes </a>
+					</div>
+				</div>
+			{/if}
+
+			{#if activeTabProductCategory === 'Jackets' && jacketsProducts.length}
+				<div class="mb-4">
+					<RecommendationsCarousel products={jacketsProducts} title="Jackets" />
+					<div class="flex justify-center">
+						<a href="/categories/jackets" class="btn btn-accent"> View all jackets </a>
+					</div>
+				</div>
+			{/if}
+
+			{#if activeTabProductCategory === 'Pants' && pantsProducts.length}
+				<div class="mb-4">
+					<RecommendationsCarousel products={pantsProducts} title="Pants" />
+					<div class="flex justify-center">
+						<a href="/categories/pants" class="btn btn-accent"> View all pants </a>
+					</div>
+				</div>
+			{/if}
+		</div>
+		<div class="my-8">
 			<!-- TODO: Animate the buttons -->
 			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
 				{#each mainCategories as category (category)}
@@ -68,45 +107,6 @@
 					<RecommendationsCarousel products={bestSellerProducts} title="Best Sellers" />
 					<div class="flex justify-center">
 						<a href="/categories/best-sellers" class="btn btn-accent"> View all best sellers </a>
-					</div>
-				</div>
-			{/if}
-		</div>
-		<div class="my-8">
-			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
-				{#each productCategories as category (category)}
-					<button
-						class="tab flex-1 {activeTabProductCategory === category ? 'tab-active' : ''}"
-						on:click={() => (activeTabProductCategory = category)}
-					>
-						{category}
-					</button>
-				{/each}
-			</div>
-
-			{#if activeTabProductCategory === 'Shoes' && shoesProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={shoesProducts} title="Shoes" />
-					<div class="flex justify-center">
-						<a href="/categories/shoes" class="btn btn-accent"> View all shoes </a>
-					</div>
-				</div>
-			{/if}
-
-			{#if activeTabProductCategory === 'Jackets' && jacketsProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={jacketsProducts} title="Jackets" />
-					<div class="flex justify-center">
-						<a href="/categories/jackets" class="btn btn-accent"> View all jackets </a>
-					</div>
-				</div>
-			{/if}
-
-			{#if activeTabProductCategory === 'Pants' && pantsProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={pantsProducts} title="Pants" />
-					<div class="flex justify-center">
-						<a href="/categories/pants" class="btn btn-accent"> View all pants </a>
 					</div>
 				</div>
 			{/if}
