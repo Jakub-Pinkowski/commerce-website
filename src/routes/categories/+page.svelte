@@ -46,7 +46,7 @@
 
 			<!-- TODO: Possibly animate those as well, using svelte transitions -->
 			{#if activeTabMainCategory === 'New' && newProducts.length}
-				<div class="mb-8">
+				<div class="mb-4">
 					<RecommendationsCarousel products={newProducts} title="New" />
 					<div class="flex justify-center">
 						<a href="/categories/new" class="btn btn-accent"> View all new products </a>
@@ -55,7 +55,7 @@
 			{/if}
 
 			{#if activeTabMainCategory === 'Sale' && newProducts.length}
-				<div class="mb-8">
+				<div class="mb-4">
 					<RecommendationsCarousel products={saleProducts} title="Sale" />
 					<div class="flex justify-center">
 						<a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
@@ -64,7 +64,7 @@
 			{/if}
 
 			{#if activeTabMainCategory === 'Best Sellers' && products.length}
-				<div class="mb-8">
+				<div class="mb-4">
 					<RecommendationsCarousel products={bestSellerProducts} title="Best Sellers" />
 					<div class="flex justify-center">
 						<a href="/categories/best-sellers" class="btn btn-accent"> View all best sellers </a>
@@ -85,7 +85,7 @@
 			</div>
 
 			{#if activeTabProductCategory === 'Shoes' && shoesProducts.length}
-				<div class="mb-8">
+				<div class="mb-4">
 					<RecommendationsCarousel products={shoesProducts} title="Shoes" />
 					<div class="flex justify-center">
 						<a href="/categories/shoes" class="btn btn-accent"> View all shoes </a>
@@ -94,7 +94,7 @@
 			{/if}
 
 			{#if activeTabProductCategory === 'Jackets' && jacketsProducts.length}
-				<div class="mb-8">
+				<div class="mb-4">
 					<RecommendationsCarousel products={jacketsProducts} title="Jackets" />
 					<div class="flex justify-center">
 						<a href="/categories/jackets" class="btn btn-accent"> View all jackets </a>
@@ -103,7 +103,7 @@
 			{/if}
 
 			{#if activeTabProductCategory === 'Pants' && pantsProducts.length}
-				<div class="mb-8">
+				<div class="mb-4">
 					<RecommendationsCarousel products={pantsProducts} title="Pants" />
 					<div class="flex justify-center">
 						<a href="/categories/pants" class="btn btn-accent"> View all pants </a>
