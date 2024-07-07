@@ -10,6 +10,13 @@
 </script>
 
 {#if product}
+<div class="breadcrumbs mb-6 text-xs">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li>{product.name}</li>
+    </ul>
+</div>
 	<section class="flex flex-col md:flex-row">
 		<GallerySwiper {product} />
 		<ProductDetails {product} />

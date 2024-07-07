@@ -2,7 +2,7 @@
     import about_us from '$lib/assets/images/about_us.jpg';
 </script>
 
-<div class="breadcrumbs mb-6 text-sm">
+<div class="breadcrumbs mb-6 text-xs">
 	<ul>
 		<li><a href="/">Home</a></li>
 		<li><a href="/company">Company</a></li>

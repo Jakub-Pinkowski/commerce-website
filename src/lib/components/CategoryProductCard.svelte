@@ -35,7 +35,7 @@
 		<a href={product.url}>
 			<h3 class="line-clamp-1">{product.name}</h3>
 		</a>
-		<span class="line-clamp-1 block text-sm">{product.brand}</span>
+		<span class="line-clamp-1 block text-xs">{product.brand}</span>
 		<div class="mt-2 md:mt-4">
 			{#if product.price < product.listPrice}
 				<span class="mr-1 inline-block text-lg text-gray-500 line-through">

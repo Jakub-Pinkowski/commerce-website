@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Swiper from 'swiper/bundle';
-	import { onMount } from 'svelte';
+	// import Swiper from 'swiper/bundle';
+	// import { onMount } from 'svelte';
 	import 'swiper/css/bundle';
 
 	export let product;
@@ -143,7 +143,7 @@
 							<a href={product.url}>
 								<h3 class="text-lg">Product name</h3>
 							</a>
-							<span class="block text-sm">Product brand</span>
+							<span class="block text-xs">Product brand</span>
 							<span class="block pt-2 text-lg text-gray-500">$99</span>
 						</div>
 					</div>
