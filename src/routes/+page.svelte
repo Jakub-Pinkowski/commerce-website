@@ -29,3 +29,9 @@
 	</section>
 	<!-- TODO: I want a tabbed rec here -->
 </div>
+
+<!-- TODO: To be used later -->
+<!-- <RecommendationsCarousel products={saleProducts} title="Sale" /> -->
+<!-- <div class="flex justify-center">
+    <a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
+</div> -->

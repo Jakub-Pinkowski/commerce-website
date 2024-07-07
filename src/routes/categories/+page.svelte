@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
+	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
 	export let data: PageData;
@@ -12,39 +13,43 @@
 </script>
 
 <div>
-	<div class="tabs-boxed tabs mb-4 flex w-96 justify-between" role="tablist">
-		<button
-			class="tab flex-1 {activeTab === 'New' ? 'tab-active' : ''}"
-			on:click={() => (activeTab = 'New')}>New</button
-		>
-		<button
-			class="tab flex-1 {activeTab === 'Sale' ? 'tab-active' : ''}"
-			on:click={() => (activeTab = 'Sale')}>Sale</button
-		>
-		<button
-			class="tab flex-1 {activeTab === 'All' ? 'tab-active' : ''}"
-			on:click={() => (activeTab = 'All')}>Shop All</button
-		>
-	</div>
-
-	{#if activeTab === 'New' && newProducts.length}
-		<RecommendationsCarousel products={newProducts} title="New" />
-		<div class="flex justify-center">
-			<a href="/categories/new" class="btn btn-primary"> View all new products </a>
+	{#if products}
+		<div class="tabs-boxed tabs mb-4 flex w-96 justify-between" role="tablist">
+			<button
+				class="tab flex-1 {activeTab === 'New' ? 'tab-active' : ''}"
+				on:click={() => (activeTab = 'New')}>New</button
+			>
+			<button
+				class="tab flex-1 {activeTab === 'Sale' ? 'tab-active' : ''}"
+				on:click={() => (activeTab = 'Sale')}>Sale</button
+			>
+			<button
+				class="tab flex-1 {activeTab === 'All' ? 'tab-active' : ''}"
+				on:click={() => (activeTab = 'All')}>Shop All</button
+			>
 		</div>
-	{/if}
 
-	{#if activeTab === 'Sale' && saleProducts.length}
-		<RecommendationsCarousel products={saleProducts} title="Sale" />
-		<div class="flex justify-center">
-			<a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
-		</div>
-	{/if}
+		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+			{#if activeTab === 'New' && newProducts.length}
+				{#each newProducts as product}
+					<CategoryProductCard {product} />
+				{/each}
+			{/if}
 
-	{#if activeTab === 'All' && products.length}
-		<RecommendationsCarousel {products} title="All products" />
-		<div class="flex justify-center">
-			<a href="/products/" class="btn btn-accent"> View all products </a>
+			{#if activeTab === 'Sale' && newProducts.length}
+				{#each saleProducts as product}
+					<CategoryProductCard {product} />
+				{/each}
+			{/if}
+
+			{#if activeTab === 'All' && products.length}
+				{#each products as product}
+					<CategoryProductCard {product} />
+				{/each}
+			{/if}
 		</div>
+        
+	{:else}
+		<p>No products found</p>
 	{/if}
 </div>
