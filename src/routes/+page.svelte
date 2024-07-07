@@ -23,15 +23,35 @@
 				<p class="mb-5 text-xl">
 					Get up to <span class="text-2xl font-bold">50%</span> off on selected items.
 				</p>
-				<a href="/categories/sale" class="btn btn-accent">Shop sale</a>
+				<a href="/categories/sale" class="btn btn-primary">Shop sale</a>
 			</div>
 		</div>
 	</section>
-	<!-- TODO: I want a tabbed rec here -->
+	<div class="mb-8">
+		<RecommendationsCarousel products={saleProducts} title="Sale" />
+		<div class="flex justify-center">
+			<a href="/categories/sale" class="btn btn-primary"> View all products on sale </a>
+		</div>
+	</div>
+	<section
+		class="hero ml-[-2rem] w-screen md:h-96"
+		style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);"
+	>
+		<div class="hero-overlay bg-opacity-60"></div>
+		<div class="hero-content text-center text-neutral-content">
+			<div class="max-w-md">
+				<h1 class="mb-5 text-5xl">New Collection</h1>
+				<p class="mb-5 text-xl">Checkout our brand new arrivals!</p>
+				<a href="/categories/new" class="btn btn-accent">Shop new</a>
+			</div>
+		</div>
+	</section>
+	<div class="mb-8">
+		<RecommendationsCarousel products={newProducts} title="Sale" />
+		<div class="flex justify-center">
+			<a href="/categories/new" class="btn btn-accent"> View all new products </a>
+		</div>
+	</div>
 </div>
 
 <!-- TODO: To be used later -->
-<!-- <RecommendationsCarousel products={saleProducts} title="Sale" /> -->
-<!-- <div class="flex justify-center">
-    <a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
-</div> -->
