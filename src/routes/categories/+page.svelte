@@ -30,8 +30,14 @@
 </script>
 
 <div>
+	<div class="breadcrumbs mb-6 text-sm">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li>Categories</li>
+		</ul>
+	</div>
 	{#if products}
-		<div class="my-8">
+		<div class="mb-8">
 			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
 				{#each productCategories as category (category)}
 					<button

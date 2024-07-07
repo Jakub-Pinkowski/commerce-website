@@ -29,6 +29,12 @@
 </script>
 
 <div>
+    <div class="breadcrumbs mb-6 text-sm">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li>Products</li>
+        </ul>
+    </div>
 	<h1 class="mb-4 text-3xl font-bold">All products</h1>
 	{#if products}
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">

@@ -33,7 +33,7 @@
 		<a href="/" class="btn btn-ghost">Home</a>
 		<!-- Experimental -->
 		<div class="dropdown dropdown-hover">
-			<div tabindex="0" role="button" class="btn btn-ghost">Categories</div>
+			<a href="/categories" tabindex="0" role="button" class="btn btn-ghost">Categories</a>
 			<ul tabindex="-1" class="menu dropdown-content z-[1] w-36 rounded-box bg-base-100 p-2 shadow">
 				{#each productCategories as category}
 					<li>
