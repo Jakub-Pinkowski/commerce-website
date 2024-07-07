@@ -13,8 +13,8 @@
 		.filter((product) => product.price < product.listPrice)
 		.slice(0, productsPerPage);
 	products = products.slice(0, productsPerPage);
-    // TODO: Introduce real bestSellers later
-    let bestSellerProducts = products.slice(0, productsPerPage);
+	// TODO: Introduce real bestSellers later
+	let bestSellerProducts = products.slice(0, productsPerPage);
 
 	let activeTab: string = 'New';
 </script>
@@ -35,38 +35,32 @@
 
 		<!-- TODO: Possibly animate those as well, using svelte transitions -->
 		{#if activeTab === 'New' && newProducts.length}
-			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-				{#each newProducts as product}
-					<CategoryProductCard {product} />
-				{/each}
+			<div class="mb-8">
+				<RecommendationsCarousel products={newProducts} title="New" />
+				<div class="flex justify-center">
+					<a href="/categories/new" class="btn btn-accent"> View all new prodducts </a>
+				</div>
 			</div>
 		{/if}
 
 		{#if activeTab === 'Sale' && newProducts.length}
-			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-				{#each saleProducts as product}
-					<CategoryProductCard {product} />
-				{/each}
+			<div class="mb-8">
+				<RecommendationsCarousel products={saleProducts} title="Sale" />
+				<div class="flex justify-center">
+					<a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
+				</div>
 			</div>
 		{/if}
 
 		{#if activeTab === 'Best Sellers' && products.length}
-			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-				{#each bestSellerProducts as product}
-					<CategoryProductCard {product} />
-				{/each}
+			<div class="mb-8">
+				<RecommendationsCarousel products={bestSellerProducts} title="Best Sellers" />
+				<div class="flex justify-center">
+					<a href="/categories/best-sellers" class="btn btn-accent"> View all best sellers </a>
+				</div>
 			</div>
 		{/if}
 
-		<div class="mt-8 flex justify-center">
-			<a
-				href={`/${activeTab === 'All' ? 'products' : 'categories/' + activeTab.toLowerCase()}`}
-				class="btn btn-accent"
-			>
-				{#if activeTab === 'All'}View all products{:else}View all {activeTab} products{/if}
-			</a>
-		</div>
-		<RecommendationsCarousel {products} />
 	{:else}
 		<p>No products found</p>
 	{/if}
