@@ -8,7 +8,7 @@
 	export let data: PageData;
 	export let products: Product[] = data?.products;
 
-	let itemsPerPage = 8;
+	let itemsPerPage = 16;
 	let displayedProducts: Product[] = [];
 
 	interface UpdateEventDetail {
