@@ -23,7 +23,7 @@
 					<img
 						src={product.alternateImages[0]}
 						alt={`Alternate view of ${product.name}`}
-						class="absolute inset-0 hidden h-auto w-full object-cover opacity-0 group-hover:opacity-100 md:block"
+						class="absolute inset-0 hidden h-auto w-full object-cover opacity-0 md:block md:group-hover:opacity-100"
 					/>
 				</div>
 			</div>

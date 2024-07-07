@@ -5,7 +5,7 @@
 	import 'swiper/css/bundle';
 
 	export let products: Product[];
-    export let title: string = 'You may also like';
+	export let title: string = 'You may also like';
 
 	let recommendationsSwiper: Swiper;
 
@@ -52,13 +52,13 @@
 									<img
 										src={product.imageUrl}
 										alt={product.name}
-										class=" inset-0 block h-auto w-full object-cover opacity-100 group-hover:opacity-0"
+										class=" inset-0 block h-auto w-full object-cover opacity-100 md:group-hover:opacity-0"
 									/>
 									<!-- NOTE: Jacket images have wrong ratio on hover, ignore for now -->
 									<img
 										src={product.alternateImages[0]}
 										alt={`Alternate view of ${product.name}`}
-										class="absolute inset-0 hidden h-auto w-full object-cover opacity-0 group-hover:opacity-100 md:block"
+										class="absolute inset-0 hidden h-auto w-full object-cover opacity-0 md:block md:group-hover:opacity-100"
 									/>
 								</div>
 							</div>
