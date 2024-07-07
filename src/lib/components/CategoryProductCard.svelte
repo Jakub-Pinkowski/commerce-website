@@ -2,7 +2,7 @@
 	export let product;
 </script>
 
-<div class="mb-8">
+<div class="mb-4 md:mb-8">
 	<a href={product.url} class="relative block w-full">
 		{#if product.alternateImages.length > 0}
 			<div class="group inset-0">
@@ -46,7 +46,7 @@
 				<span class="inline-block text-lg text-gray-500">${product.price}</span>
 			{/if}
 		</div>
-		<div class="mt-2 flex w-full justify-between md:mt-4 md:hidden">
+		<!-- <div class="mt-2 flex w-full justify-between md:mt-4 md:hidden">
 			<button class="btn btn-primary flex px-6 text-white">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@
 					</g>
 				</svg>
 			</button>
-		</div>
+		</div> -->
 		<div class="mt-4 hidden w-full grid-cols-[1fr,auto] gap-x-4 md:grid">
 			<button class="btn btn-primary text-white"> Add to cart </button>
 			<button class="btn">

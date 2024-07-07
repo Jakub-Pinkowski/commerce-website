@@ -11,7 +11,7 @@
 
 	onMount(() => {
 		recommendationsSwiper = new Swiper('.swiper.recommendations-carousel', {
-			slidesPerView: 2.3,
+			slidesPerView: 1.3,
 			spaceBetween: 15,
 			mousewheel: {
 				forceToAxis: true
