@@ -9,7 +9,7 @@
 		"price": 129,
 		"listPrice": 129,
         "label": "new",
-		"url": "products/mens-ns40-layer",
+		"url": "http://localhost:5173/products/mens-ns40-layer",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Apparel-Jackets-NS40-Layer-M-Clover-Green-2b-ecom.jpg?v=1706717605",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-NS40-Layer-Detail-Clover-Green-1-ecom-m.jpg?v=1714396725",
@@ -29,7 +29,7 @@
 		"price": 99,
 		"listPrice": 99,
         "label": "new",
-        "url": "products/womens-ns40-reversible-vest",
+        "url": "http://localhost:5173/products/womens-ns40-reversible-vest",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-NS40-Vest-W-Core-Black-3b-ecom.jpg?v=1706719033",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-NS40-Vest-Detail-Core-Black-1-ecom-w.jpg?v=1714658922",
@@ -46,7 +46,7 @@
 		"description": "The NS40 Light Jacket is a versatile and stylish addition to your wardrobe. It is made from a durable, water-resistant fabric that will keep you dry and comfortable in any weather. The jacket features a full-length zipper, a hood with an adjustable drawstring, and two zippered hand pockets. The NS40 Light Jacket is available in a range of colors and sizes, so you can find the perfect fit for your next adventure.",
 		"price": 182,
 		"listPrice": 228,
-        "url": "products/womens-ns40-light-jacket",
+        "url": "http://localhost:5173/products/womens-ns40-light-jacket",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/NS40-Jacket-Women-Night-Blue-1-Pieces-2_ea6486c2-162e-4e0b-ad8e-c9d53279952b.jpg?v=1709111744",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-NS40-Light-Jacket-Night-Blue-1-ecom-w.jpg?v=1714658791",
@@ -64,7 +64,7 @@
 		"description": "The ProTravel Rain Shell is a versatile and stylish addition to your wardrobe. It is made from a durable, water-resistant fabric that will keep you dry and comfortable in any weather. The jacket features a full-length zipper, a hood with an adjustable drawstring, and two zippered hand pockets. The ProTravel Rain Shell is available in a range of colors and sizes, so you can find the perfect fit for your next adventure.",
 		"price": 169,
 		"listPrice": 169,
-        "url": "products/protravel-rain-shell",
+        "url": "http://localhost:5173/products/protravel-rain-shell",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-ProTravel-Rain-Shell-Cobalt-Blue-1.jpg?v=1696503417",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-Jackets-ProTravel-Rain-Shell-Cobalt-Blue-2.jpg?v=1696503417"
@@ -80,7 +80,7 @@
 		"price": 109,
 		"listPrice": 109,
         "label": "new",
-        "url": "products/womens-protravel-chino-pant",
+        "url": "http://localhost:5173/products/womens-protravel-chino-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-1.jpg?v=1709223499",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-2.jpg?v=1709223499",
@@ -104,7 +104,7 @@
 		"description": "Versatile and functional, the Women's ProTravel Zip-off Pant adapts to your needs on the go.",
 		"price": 129,
 		"listPrice": 129,
-        "url": "products/womens-protravel-zip-off-pant",
+        "url": "http://localhost:5173/products/womens-protravel-zip-off-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-W-Island-Fossil-1.jpg?v=1709223536",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-W-Island-Fossil-2.jpg?v=1709223536",
@@ -133,7 +133,7 @@
 		"description": "The Women's NS40 Shirt Jacket is a perfect blend of comfort and style for any casual outing.",
 		"price": 76,
 		"listPrice": 109,
-        "url": "products/mens-jogger-pant",
+        "url": "http://localhost:5173/products/mens-jogger-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Apparel-ProTravel-Pants-Jogger-M-Walnut-Sand-1.jpg?v=1706716656",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/products/DSC_4525copia.jpg?v=1699353520"
@@ -149,7 +149,7 @@
 		"price": 129,
 		"listPrice": 129,
         "label": "new",
-        "url": "products/mens-protravel-zip-off-pant",
+        "url": "http://localhost:5173/products/mens-protravel-zip-off-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-1.jpg?v=1709223519",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-2.jpg?v=1709223519",
@@ -177,7 +177,7 @@
 		"description": "The Jungle is a versatile, lightweight, and packable shoe that is perfect for any adventure.",
 		"price": 76,
 		"listPrice": 109,
-        "url": "products/jungle",
+        "url": "http://localhost:5173/products/jungle",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Footwear-ATS-WF-Jungle-SS21-Night-Blue-1-ecom.jpg?v=1660913167",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-04.jpg?v=1699261073",
@@ -196,7 +196,7 @@
 		"price": 119,
 		"listPrice": 119,
         "label": "new",
-        "url": "products/knyon",
+        "url": "http://localhost:5173/products/knyon",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-ecommerce-canyon-sage-green-1.jpg?v=1630334799",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-ecommerce-canyon-sage-green-4.jpg?v=1705495265"
@@ -211,7 +211,7 @@
 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"price": 129,
 		"listPrice": 129,
-        "url": "products/at-lite",
+        "url": "http://localhost:5173/products/at-lite",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-1.jpg?v=1709223271",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-2.jpg?v=1709223271",
@@ -230,7 +230,7 @@
 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"price": 82,
 		"listPrice": 109,
-        "url": "products/all-terrain",
+        "url": "http://localhost:5173/products/all-terrain",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-1.jpg?v=1709223335",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-2.jpg?v=1713253403",
