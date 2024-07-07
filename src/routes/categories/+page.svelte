@@ -6,8 +6,12 @@
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
-	let newProducts = products.filter((product) => product.label === 'New');
-	let saleProducts = products.filter((product) => product.price < product.listPrice);
+	let productsPerPage = 8;
+	let newProducts = products.filter((product) => product.label === 'New').slice(0, productsPerPage);
+	let saleProducts = products
+		.filter((product) => product.price < product.listPrice)
+		.slice(0, productsPerPage);
+	products = products.slice(0, productsPerPage);
 
 	let activeTab: string = 'New';
 </script>
@@ -48,7 +52,15 @@
 				{/each}
 			{/if}
 		</div>
-        
+		<div class="flex justify-center mt-8">
+			<a
+				href={`/${activeTab === 'All' ? 'products' : 'categories/' + activeTab.toLowerCase()}`}
+				class="btn btn-accent"
+			>
+				{#if activeTab === 'All'}View all products{:else}View all {activeTab} products{/if}
+			</a>
+		</div>
+        <RecommendationsCarousel {products} />
 	{:else}
 		<p>No products found</p>
 	{/if}
