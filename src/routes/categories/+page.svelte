@@ -87,27 +87,18 @@
 			{#if activeTabMainCategory === 'New' && newProducts.length}
 				<div class="mb-4">
 					<RecommendationsCarousel products={newProducts} title="New" />
-					<div class="flex justify-center">
-						<a href="/categories/new" class="btn btn-accent"> View all new products </a>
-					</div>
 				</div>
 			{/if}
 
 			{#if activeTabMainCategory === 'Sale' && newProducts.length}
 				<div class="mb-4">
 					<RecommendationsCarousel products={saleProducts} title="Sale" />
-					<div class="flex justify-center">
-						<a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
-					</div>
 				</div>
 			{/if}
 
 			{#if activeTabMainCategory === 'Best Sellers' && products.length}
 				<div class="mb-4">
 					<RecommendationsCarousel products={bestSellerProducts} title="Best Sellers" />
-					<div class="flex justify-center">
-						<a href="/categories/best-sellers" class="btn btn-accent"> View all best sellers </a>
-					</div>
 				</div>
 			{/if}
 		</div>

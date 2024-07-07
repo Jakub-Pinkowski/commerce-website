@@ -29,9 +29,6 @@
 	</section>
 	<div class="mb-8">
 		<RecommendationsCarousel products={saleProducts} title="Sale" />
-		<div class="flex justify-center">
-			<a href="/categories/sale" class="btn btn-accent"> View all products on sale </a>
-		</div>
 	</div>
 	<section class="hero ml-[-2rem] w-screen md:h-96" style="background-image: url({jackets});">
 		<div class="hero-overlay bg-opacity-60"></div>
@@ -44,10 +41,7 @@
 		</div>
 	</section>
 	<div class="mb-8">
-		<RecommendationsCarousel products={newProducts} title="Sale" />
-		<div class="flex justify-center">
-			<a href="/categories/new" class="btn btn-primary"> View all new products </a>
-		</div>
+		<RecommendationsCarousel products={newProducts} title="New" />
 	</div>
 	<section class="hero ml-[-2rem] w-screen md:h-96" style="background-image: url({jackets});">
 		<div class="hero-overlay bg-opacity-60"></div>
@@ -61,10 +55,7 @@
 	</section>
     <!-- TODO: Create real pants category -->
 	<div class="mb-8">
-		<RecommendationsCarousel products={products} title="Sale" />
-		<div class="flex justify-center">
-			<a href="/categories/pants" class="btn btn-primary"> View all pants </a>
-		</div>
+		<RecommendationsCarousel products={products} title="Pants" />
 	</div>
 </div>
 

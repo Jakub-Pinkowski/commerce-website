@@ -49,7 +49,7 @@
 				<ul class="w-1/2 p-2">
 					{#each mainCategories as category}
 						<li>
-							<a href="/main-categories/{category.toLowerCase()}">{category}</a>
+							<a href="/categories/{category.replace(/\s+/g, '_').toLowerCase()}">{category}</a>
 						</li>
 					{/each}
 				</ul>

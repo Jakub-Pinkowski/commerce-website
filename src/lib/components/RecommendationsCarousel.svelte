@@ -35,7 +35,9 @@
 <div class="my-8">
 	<div class="flex items-center justify-between border-b border-gray-200">
 		<h3 class="mb-2 text-2xl font-bold">{title}</h3>
-		<a href="/categories/pants" class="btn btn-accent mb-2"> View all {title} </a>
+		{#if title !== 'You may also like'}
+			<a href="/categories/pants" class="btn btn-accent mb-2"> View all {title} </a>
+		{/if}
 	</div>
 	<div class="swiper recommendations-carousel mt-4">
 		<div class="swiper-wrapper">
