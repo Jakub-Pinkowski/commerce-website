@@ -7,9 +7,9 @@
 	export let products: Product[] = data?.products;
 	let productsPerPage = 8;
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
-    let activeTabMainCategory: string = 'New';
+	let activeTabMainCategory: string = 'New';
 	let productCategories = ['Shoes', 'Jackets', 'Pants'];
-    let activeTabProductCategory: string = 'Shoes';
+	let activeTabProductCategory: string = 'Shoes';
 
 	let newProducts = products.filter((product) => product.label === 'new').slice(0, productsPerPage);
 	let saleProducts = products
@@ -18,10 +18,15 @@
 	// TODO: Introduce real bestSellers later
 	let bestSellerProducts = products.slice(0, productsPerPage);
 
-    let shoesProducts = products.filter((product) => product.category === 'shoes').slice(0, productsPerPage);
-    let jacketsProducts = products.filter((product) => product.category === 'jackets').slice(0, productsPerPage);
-    let pantsProducts = products.filter((product) => product.category === 'pants').slice(0, productsPerPage);
-
+	let shoesProducts = products
+		.filter((product) => product.category === 'shoes')
+		.slice(0, productsPerPage);
+	let jacketsProducts = products
+		.filter((product) => product.category === 'jackets')
+		.slice(0, productsPerPage);
+	let pantsProducts = products
+		.filter((product) => product.category === 'pants')
+		.slice(0, productsPerPage);
 </script>
 
 <div>
@@ -44,7 +49,7 @@
 				<div class="mb-8">
 					<RecommendationsCarousel products={newProducts} title="New" />
 					<div class="flex justify-center">
-						<a href="/categories/new" class="btn btn-accent"> View all new prodducts </a>
+						<a href="/categories/new" class="btn btn-accent"> View all new products </a>
 					</div>
 				</div>
 			{/if}
@@ -67,8 +72,8 @@
 				</div>
 			{/if}
 		</div>
-        <div class="my-8">
-            <div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
+		<div class="my-8">
+			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
 				{#each productCategories as category (category)}
 					<button
 						class="tab flex-1 {activeTabProductCategory === category ? 'tab-active' : ''}"
@@ -79,35 +84,33 @@
 				{/each}
 			</div>
 
-            {#if activeTabProductCategory === 'Shoes' && shoesProducts.length}
-                <div class="mb-8">
-                    <RecommendationsCarousel products={shoesProducts} title="Shoes" />
-                    <div class="flex justify-center">
-                        <a href="/categories/shoes" class="btn btn-accent"> View all shoes </a>
-                    </div>
-                </div>
-            {/if}
+			{#if activeTabProductCategory === 'Shoes' && shoesProducts.length}
+				<div class="mb-8">
+					<RecommendationsCarousel products={shoesProducts} title="Shoes" />
+					<div class="flex justify-center">
+						<a href="/categories/shoes" class="btn btn-accent"> View all shoes </a>
+					</div>
+				</div>
+			{/if}
 
-            {#if activeTabProductCategory === 'Jackets' && jacketsProducts.length}
-                <div class="mb-8">
-                    <RecommendationsCarousel products={jacketsProducts} title="Jackets" />
-                    <div class="flex justify-center">
-                        <a href="/categories/jackets" class="btn btn-accent"> View all jackets </a>
-                    </div>
-                </div>
-            {/if}
+			{#if activeTabProductCategory === 'Jackets' && jacketsProducts.length}
+				<div class="mb-8">
+					<RecommendationsCarousel products={jacketsProducts} title="Jackets" />
+					<div class="flex justify-center">
+						<a href="/categories/jackets" class="btn btn-accent"> View all jackets </a>
+					</div>
+				</div>
+			{/if}
 
-            {#if activeTabProductCategory === 'Pants' && pantsProducts.length}
-                <div class="mb-8">
-                    <RecommendationsCarousel products={pantsProducts} title="Pants" />
-                    <div class="flex justify-center">
-                        <a href="/categories/pants" class="btn btn-accent"> View all pants </a>
-                    </div>
-                </div>
-            {/if}
-        
-                    
-        </div>
+			{#if activeTabProductCategory === 'Pants' && pantsProducts.length}
+				<div class="mb-8">
+					<RecommendationsCarousel products={pantsProducts} title="Pants" />
+					<div class="flex justify-center">
+						<a href="/categories/pants" class="btn btn-accent"> View all pants </a>
+					</div>
+				</div>
+			{/if}
+		</div>
 	{:else}
 		<p>No products found</p>
 	{/if}
