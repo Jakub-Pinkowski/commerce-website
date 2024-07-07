@@ -22,6 +22,13 @@
 </script>
 
 <div>
+	<div class="breadcrumbs mb-6 text-sm">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/categories">Categories</a></li>
+			<li>Best Sellers</li>
+		</ul>
+	</div>
 	<h1 class="mb-4 text-3xl font-bold">Best Sellers</h1>
 	{#if products}
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
@@ -31,11 +38,10 @@
 		</div>
 		<!-- TODO: Pass displayedProducts from Pagination to my main-->
 		<Pagination {itemsPerPage} {displayedProducts} {products} on:update={handleUpdatePagination} />
-        <!-- TODO: Later on we need to use some recommendedProducts instead -->
-        <RecommendationsCarousel {products} />
+		<!-- TODO: Later on we need to use some recommendedProducts instead -->
+		<RecommendationsCarousel {products} />
 	{:else}
 		<p>No products found</p>
 	{/if}
 	<!-- TODO: Recommendation carousel goes here -->
-
 </div>
