@@ -7,12 +7,14 @@
 	export let data: PageData;
 	export let products: Product[] = data?.products;
 	let productsPerPage = 8;
-	let categories = ['New', 'Sale', 'All'];
+	let categories = ['New', 'Sale', 'Best Sellers'];
 	let newProducts = products.filter((product) => product.label === 'new').slice(0, productsPerPage);
 	let saleProducts = products
 		.filter((product) => product.price < product.listPrice)
 		.slice(0, productsPerPage);
 	products = products.slice(0, productsPerPage);
+    // TODO: Introduce real bestSellers later
+    let bestSellerProducts = products.slice(0, productsPerPage);
 
 	let activeTab: string = 'New';
 </script>
@@ -48,9 +50,9 @@
 			</div>
 		{/if}
 
-		{#if activeTab === 'All' && products.length}
+		{#if activeTab === 'Best Sellers' && products.length}
 			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-				{#each products as product}
+				{#each bestSellerProducts as product}
 					<CategoryProductCard {product} />
 				{/each}
 			</div>
