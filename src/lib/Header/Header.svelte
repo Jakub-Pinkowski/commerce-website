@@ -9,6 +9,7 @@
 	let open: boolean = false;
 	let openCart: boolean = false;
 	let productCategories = ['Shoes', 'Jackets', 'Pants'];
+	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 
 	const closeMenu = () => {
 		open = false;
@@ -34,13 +35,25 @@
 		<!-- Experimental -->
 		<div class="dropdown dropdown-hover">
 			<a href="/categories" tabindex="0" role="button" class="btn btn-ghost">Categories</a>
-			<ul tabindex="-1" class="menu dropdown-content z-[1] w-36 rounded-box bg-base-100 p-2 shadow">
-				{#each productCategories as category}
-					<li>
-						<a href="/categories/{category.toLowerCase()}">{category}</a>
-					</li>
-				{/each}
-			</ul>
+			<div
+				tabindex="-1"
+				class="menu dropdown-content z-[1] flex w-96 flex-row rounded-box bg-base-100 p-2 shadow"
+			>
+				<ul class="w-1/2 p-2">
+					{#each productCategories as category}
+						<li>
+							<a href="/categories/{category.toLowerCase()}">{category}</a>
+						</li>
+					{/each}
+				</ul>
+				<ul class="w-1/2 p-2">
+					{#each mainCategories as category}
+						<li>
+							<a href="/main-categories/{category.toLowerCase()}">{category}</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 		<!-- End experimental -->
 		<a href="/categories/new" class="btn btn-ghost text-primary">New</a>
