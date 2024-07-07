@@ -33,7 +33,10 @@
 <!-- TODO: Add Hover -->
 <!-- TODO: Make styling similar to category pages -->
 <div class="my-8">
-	<h3 class="mt-8 border-b border-gray-200 pb-2 text-2xl font-bold">{title}</h3>
+	<div class="flex items-center justify-between border-b border-gray-200">
+		<h3 class="mb-2 text-2xl font-bold">{title}</h3>
+		<a href="/categories/pants" class="btn btn-accent mb-2"> View all {title} </a>
+	</div>
 	<div class="swiper recommendations-carousel mt-4">
 		<div class="swiper-wrapper">
 			{#each products as product}

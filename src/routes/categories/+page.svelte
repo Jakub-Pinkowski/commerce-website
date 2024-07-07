@@ -52,27 +52,21 @@
 			{#if activeTabProductCategory === 'Shoes' && shoesProducts.length}
 				<div class="mb-4">
 					<RecommendationsCarousel products={shoesProducts} title="Shoes" />
-					<div class="flex justify-center">
+					<!-- <div class="flex justify-center">
 						<a href="/categories/shoes" class="btn btn-accent"> View all shoes </a>
-					</div>
+					</div> -->
 				</div>
 			{/if}
 
 			{#if activeTabProductCategory === 'Jackets' && jacketsProducts.length}
 				<div class="mb-4">
 					<RecommendationsCarousel products={jacketsProducts} title="Jackets" />
-					<div class="flex justify-center">
-						<a href="/categories/jackets" class="btn btn-accent"> View all jackets </a>
-					</div>
 				</div>
 			{/if}
 
 			{#if activeTabProductCategory === 'Pants' && pantsProducts.length}
 				<div class="mb-4">
 					<RecommendationsCarousel products={pantsProducts} title="Pants" />
-					<div class="flex justify-center">
-						<a href="/categories/pants" class="btn btn-accent"> View all pants </a>
-					</div>
 				</div>
 			{/if}
 		</div>
