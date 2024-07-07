@@ -8,6 +8,7 @@
 
 	let open: boolean = false;
 	let openCart: boolean = false;
+	let productCategories = ['Shoes', 'Jackets', 'Pants'];
 
 	const closeMenu = () => {
 		open = false;
@@ -30,11 +31,23 @@
 	</div>
 	<div class="navbar-start hidden lg:block">
 		<a href="/" class="btn btn-ghost">Home</a>
-		<a href="/categories" class="btn btn-ghost">Categories</a>
-		<a href="/categories/new" class="btn btn-ghost">New</a>
+		<!-- Experimental -->
+		<div class="dropdown dropdown-hover">
+			<div tabindex="0" role="button" class="btn btn-ghost">Categories</div>
+			<ul tabindex="-1" class="menu dropdown-content z-[1] w-36 rounded-box bg-base-100 p-2 shadow">
+				{#each productCategories as category}
+					<li>
+						<a href="/categories/{category.toLowerCase()}">{category}</a>
+					</li>
+				{/each}
+			</ul>
+		</div>
+		<!-- End experimental -->
+		<a href="/categories/new" class="btn btn-ghost text-primary">New</a>
+
+		<a href="/categories/sale" class="btn btn-ghost text-main-red">Sale</a>
 		<a href="/categories/best_sellers" class="btn btn-ghost">Best Sellers</a>
-		<a href="/categories/sale" class="btn btn-ghost">Sale</a>
-        <a href="/products" class="btn btn-ghost">Shop All</a>
+		<a href="/products" class="btn btn-ghost">Shop All</a>
 	</div>
 	<div class="navbar-center">
 		<a href="/" class="btn btn-ghost text-xl">Logo</a>
