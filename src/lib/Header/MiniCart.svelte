@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { cart } from '$lib/stores/cart';
+    import type { CartItem } from '$lib/stores/cart';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
@@ -10,7 +11,7 @@
 	export let openCart: boolean = false;
 
 	let isMobile: boolean = false;
-    let items = $cart;
+    let items: CartItem[] = [];
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
@@ -34,8 +35,12 @@
 	onMount(() => {
 		isMobile = window.innerWidth < 768;
 		toggleBodyScroll(openCart);
+		const unsubscribe = cart.subscribe((value) => {
+			items = value;
+		});
 		return () => {
 			document.body.classList.remove('overflow-hidden');
+			unsubscribe();
 		};
 	});
 
