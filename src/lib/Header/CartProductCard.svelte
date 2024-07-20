@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { removeFromCart} from '$lib/stores/cart';
+	import { removeFromCart } from '$lib/stores/cart';
 	import type { CartItem } from '$lib/stores/cart';
 	export let item: CartItem;
 

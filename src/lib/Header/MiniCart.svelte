@@ -11,7 +11,6 @@
 
 	let isMobile: boolean = false;
     const items = $cart;
-    console.log('items', items);
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
