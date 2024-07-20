@@ -1,4 +1,15 @@
 <script lang="ts">
+	let quantity = 1;
+
+	function increaseQuantity() {
+		quantity += 1;
+	}
+
+	function decreaseQuantity() {
+		if (quantity > 1) {
+			quantity -= 1;
+		}
+	}
 </script>
 
 <div class="relative flex border-b border-gray-300 py-6">
@@ -37,9 +48,9 @@
 		<div class="mt-auto flex w-full justify-between pl-2">
 			<div class="flex items-center">
 				<div class="join">
-					<button class="btn join-item h-10 min-h-10 text-lg">-</button>
-					<span class="btn join-item h-10 min-h-10 cursor-default text-lg">1</span>
-					<button class="btn join-item h-10 min-h-10 text-lg">+</button>
+					<button class="btn join-item h-10 min-h-10 text-lg" on:click={decreaseQuantity}>-</button>
+					<span class="btn join-item h-10 min-h-10 cursor-default text-lg">{quantity}</span>
+					<button class="btn join-item h-10 min-h-10 text-lg" on:click={increaseQuantity}>+</button>
 				</div>
 			</div>
 			<div class="flex items-center">
