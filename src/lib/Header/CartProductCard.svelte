@@ -1,17 +1,8 @@
 <script lang="ts">
-	import { removeFromCart } from '$lib/stores/cart';
+	import { removeFromCart, increaseQuantity, decreaseQuantity } from '$lib/stores/cart';
 	import type { CartItem } from '$lib/stores/cart';
 	export let item: CartItem;
 
-	function increaseQuantity() {
-		item.quantity += 1;
-	}
-
-	function decreaseQuantity() {
-		if (item.quantity > 1) {
-			item.quantity -= 1;
-		}
-	}
 </script>
 
 <div class="relative flex border-b border-gray-300 py-6">
@@ -47,9 +38,9 @@
 		<div class="mt-auto flex w-full justify-between pl-2">
 			<div class="flex items-center">
 				<div class="join">
-					<button class="btn join-item h-10 min-h-10 text-lg" on:click={decreaseQuantity}>-</button>
-					<span class="btn join-item h-10 min-h-10 cursor-default text-lg">{item.quantity}</span>
-					<button class="btn join-item h-10 min-h-10 text-lg" on:click={increaseQuantity}>+</button>
+                    <button class="btn join-item h-10 min-h-10 text-lg" on:click={() => decreaseQuantity(item, 1)}>-</button>
+                    <span class="btn join-item h-10 min-h-10 cursor-default text-lg">{item.quantity}</span>
+                    <button class="btn join-item h-10 min-h-10 text-lg" on:click={() => increaseQuantity(item, 1)}>+</button>
 				</div>
 			</div>
 			<!-- TODO: Add discounted price -->

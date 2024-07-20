@@ -51,7 +51,7 @@ export const decreaseQuantity = (item: CartItem, quantity: number) => {
 	cart.update((items) => {
 		const existingItem = items.find((i) => i.id === item.id);
 		if (existingItem) {
-			existingItem.quantity -= quantity;
+			existingItem.quantity = Math.max(existingItem.quantity - quantity, 1);
 		}
 		return items;
 	});

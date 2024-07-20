@@ -10,7 +10,7 @@
 	export let openCart: boolean = false;
 
 	let isMobile: boolean = false;
-    const items = $cart;
+    let items = $cart;
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
