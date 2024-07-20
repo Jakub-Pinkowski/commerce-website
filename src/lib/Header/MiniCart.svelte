@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { cart, removeFromCart, clearCart } from '$lib/stores/cart';
-	import { get } from 'svelte/store';
+	import { cart } from '$lib/stores/cart';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';

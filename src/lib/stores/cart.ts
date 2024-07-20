@@ -21,20 +21,28 @@ export const addToCart = (item: CartItem, quantity: number) => {
 	});
 };
 
-export const removeFromCart = (id: number) => {
-	cart.update((items) => items.filter((item) => item.id !== id));
-};
-
-export const updateQuantity = (id: number, quantity: number) => {
+export const removeFromCart = (item: CartItem) => {
 	cart.update((items) => {
-		const item = items.find((i) => i.id === id);
-		if (item) {
-			item.quantity = quantity;
-		}
-		return items;
+		return items.filter((i) => i.id !== item.id);
 	});
 };
 
-export const clearCart = () => {
-	cart.set([]);
-};
+export const increaseQuantity = (item: CartItem, quantity: number) => {
+    cart.update((items) => {
+        const existingItem = items.find((i) => i.id === item.id);
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        }
+        return items;
+    });
+}
+
+export const decreaseQuantity = (item: CartItem, quantity: number) => {
+    cart.update((items) => {
+        const existingItem = items.find((i) => i.id === item.id);
+        if (existingItem) {
+            existingItem.quantity -= quantity;
+        }
+        return items;
+    });
+}

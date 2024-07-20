@@ -1,6 +1,7 @@
 <script lang="ts">
-    import type { CartItem } from "$lib/stores/cart";
-    export let item: CartItem;
+	import { removeFromCart} from '$lib/stores/cart';
+	import type { CartItem } from '$lib/stores/cart';
+	export let item: CartItem;
 
 	function increaseQuantity() {
 		item.quantity += 1;
@@ -16,7 +17,7 @@
 <div class="relative flex border-b border-gray-300 py-6">
 	<div class="max-w-[35%]">
 		<div class="absolute -right-3 top-4">
-			<button class="btn btn-circle btn-ghost">
+			<button class="btn btn-circle btn-ghost" on:click={() => removeFromCart(item)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					id="Layer_1"
@@ -32,16 +33,13 @@
 				</svg>
 			</button>
 		</div>
-		<a href="google.com">
-			<img
-				src="https://shop.tropicfeel.com/cdn/shop/products/Footwear-ATS-WF-Jungle-SS21-Night-Blue-1-ecom.jpg?v=1660913167"
-				alt="random product"
-			/>
+		<a href={item.url}>
+			<img src={item.imageUrl} alt={item.name} />
 		</a>
 	</div>
 	<div class="flex w-full max-w-[65%] flex-col">
 		<div class="flex flex-col px-4">
-			<a href="google.com">
+			<a href={item.url}>
 				<h3 class="line-clamp-2 text-lg">{item.name}</h3>
 			</a>
 			<span class=" mt-2 line-clamp-1 block text-sm">{item.brand}</span>
@@ -54,9 +52,9 @@
 					<button class="btn join-item h-10 min-h-10 text-lg" on:click={increaseQuantity}>+</button>
 				</div>
 			</div>
-            <!-- TODO: Add discounted price -->
+			<!-- TODO: Add discounted price -->
 			<div class="flex items-center">
-				<span class="p-0 text-lg text-gray-500">{item.price}</span>
+				<span class="p-0 text-lg text-gray-500">${item.price * item.quantity}</span>
 			</div>
 		</div>
 	</div>
