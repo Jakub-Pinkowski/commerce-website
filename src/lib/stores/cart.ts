@@ -2,60 +2,57 @@ import { writable } from 'svelte/store';
 import type { Product } from '$lib/productTypes.ts';
 
 export interface CartItem extends Product {
-    quantity: number;
+	quantity: number;
 }
 
 let initialCart: CartItem[] = [];
 
-// Check if localStorage is available
 if (typeof window !== 'undefined') {
-    const storedCart = localStorage.getItem('cart');
-    initialCart = storedCart ? JSON.parse(storedCart) : [];
+	const storedCart = localStorage.getItem('cart');
+	initialCart = storedCart ? JSON.parse(storedCart) : [];
 }
 
 export const cart = writable<CartItem[]>(initialCart);
-
-// Subscribe to cart changes and save to localStorage
 if (typeof window !== 'undefined') {
-    cart.subscribe((items) => {
-        localStorage.setItem('cart', JSON.stringify(items));
-    });
+	cart.subscribe((items) => {
+		localStorage.setItem('cart', JSON.stringify(items));
+	});
 }
 
 export const addToCart = (item: CartItem, quantity: number) => {
-    cart.update((items) => {
-        const existingItem = items.find((i) => i.id === item.id);
-        if (existingItem) {
-            existingItem.quantity += quantity;
-        } else {
-            items.push({ ...item, quantity });
-        }
-        return items;
-    });
+	cart.update((items) => {
+		const existingItem = items.find((i) => i.id === item.id);
+		if (existingItem) {
+			existingItem.quantity += quantity;
+		} else {
+			items.push({ ...item, quantity });
+		}
+		return items;
+	});
 };
 
 export const removeFromCart = (item: CartItem) => {
-    cart.update((items) => {
-        return items.filter((i) => i.id !== item.id);
-    });
+	cart.update((items) => {
+		return items.filter((i) => i.id !== item.id);
+	});
 };
 
 export const increaseQuantity = (item: CartItem, quantity: number) => {
-    cart.update((items) => {
-        const existingItem = items.find((i) => i.id === item.id);
-        if (existingItem) {
-            existingItem.quantity += quantity;
-        }
-        return items;
-    });
+	cart.update((items) => {
+		const existingItem = items.find((i) => i.id === item.id);
+		if (existingItem) {
+			existingItem.quantity += quantity;
+		}
+		return items;
+	});
 };
 
 export const decreaseQuantity = (item: CartItem, quantity: number) => {
-    cart.update((items) => {
-        const existingItem = items.find((i) => i.id === item.id);
-        if (existingItem) {
-            existingItem.quantity -= quantity;
-        }
-        return items;
-    });
+	cart.update((items) => {
+		const existingItem = items.find((i) => i.id === item.id);
+		if (existingItem) {
+			existingItem.quantity -= quantity;
+		}
+		return items;
+	});
 };
