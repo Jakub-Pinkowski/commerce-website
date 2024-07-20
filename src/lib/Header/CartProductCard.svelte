@@ -1,13 +1,14 @@
 <script lang="ts">
-	let quantity = 1;
+    import type { CartItem } from "$lib/stores/cart";
+    export let item: CartItem;
 
 	function increaseQuantity() {
-		quantity += 1;
+		item.quantity += 1;
 	}
 
 	function decreaseQuantity() {
-		if (quantity > 1) {
-			quantity -= 1;
+		if (item.quantity > 1) {
+			item.quantity -= 1;
 		}
 	}
 </script>
@@ -41,20 +42,21 @@
 	<div class="flex w-full max-w-[65%] flex-col">
 		<div class="flex flex-col px-4">
 			<a href="google.com">
-				<h3 class="line-clamp-2 text-lg">Random name</h3>
+				<h3 class="line-clamp-2 text-lg">{item.name}</h3>
 			</a>
-			<span class=" mt-2 line-clamp-1 block text-sm">Random brand</span>
+			<span class=" mt-2 line-clamp-1 block text-sm">{item.brand}</span>
 		</div>
 		<div class="mt-auto flex w-full justify-between pl-2">
 			<div class="flex items-center">
 				<div class="join">
 					<button class="btn join-item h-10 min-h-10 text-lg" on:click={decreaseQuantity}>-</button>
-					<span class="btn join-item h-10 min-h-10 cursor-default text-lg">{quantity}</span>
+					<span class="btn join-item h-10 min-h-10 cursor-default text-lg">{item.quantity}</span>
 					<button class="btn join-item h-10 min-h-10 text-lg" on:click={increaseQuantity}>+</button>
 				</div>
 			</div>
+            <!-- TODO: Add discounted price -->
 			<div class="flex items-center">
-				<span class="p-0 text-lg text-gray-500">$99</span>
+				<span class="p-0 text-lg text-gray-500">{item.price}</span>
 			</div>
 		</div>
 	</div>

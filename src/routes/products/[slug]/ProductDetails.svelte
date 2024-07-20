@@ -1,13 +1,11 @@
 <script lang="ts">
-	// import Swiper from 'swiper/bundle';
-	// import { onMount } from 'svelte';
+	import { addToCart } from '$lib/stores/cart';
 	import 'swiper/css/bundle';
 
 	export let product;
 	let quantity: number = 1;
 	let isOpenAccordion1: boolean = false;
 	let isOpenAccordion2: boolean = false;
-	// let smallInfoSwiper: Swiper;
 
 	function incrementQuantity() {
 		quantity += 1;
@@ -18,19 +16,6 @@
 			quantity -= 1;
 		}
 	}
-
-	// onMount(() => {
-	// 	smallInfoSwiper = new Swiper('.swiper.info-carousel', {
-	// 		slidesPerView: 2.4,
-	// 		spaceBetween: 15,
-	// 		mousewheel: {
-	// 			forceToAxis: true
-	// 		},
-	// 		scrollbar: {
-	// 			el: '.swiper.info-carousel .swiper-scrollbar'
-	// 		}
-	// 	});
-	// });
 </script>
 
 <div class="mt-4 w-full flex-none md:mt-0 md:max-w-[45%] md:p-8">
@@ -55,7 +40,9 @@
 		<button class="btn join-item text-2xl" on:click={incrementQuantity}>+</button>
 	</div>
 	<div class="mt-8 grid w-full grid-cols-[1fr,auto] gap-x-4">
-		<button class="btn btn-primary text-lg text-white"> Add to cart </button>
+		<button class="btn btn-primary text-lg text-white" on:click={() => addToCart(product, quantity)}
+			>Add to cart
+		</button>
 		<button class="btn text-lg">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 				<g id="_01_align_center" data-name="01 align center">
@@ -125,33 +112,4 @@
 			</div>
 		</div>
 	</div>
-	<!-- <div class="mt-8">
-		<h4 class="mt-4 text-lg text-gray-800">You may also like</h4>
-		<div class="swiper info-carousel mt-4">
-			<div class="swiper-wrapper">
-				{#each product.alternateImages as alternateImage}
-					<div class="swiper-slide">
-						<a href={product.url}>
-							<img
-								src={alternateImage}
-								alt={product.name}
-								class="h-full object-cover"
-								loading="lazy"
-							/>
-						</a>
-						<div class="pt-2">
-							<a href={product.url}>
-								<h3 class="text-lg">Product name</h3>
-							</a>
-							<span class="block text-xs">Product brand</span>
-							<span class="block pt-2 text-lg text-gray-500">$99</span>
-						</div>
-					</div>
-				{/each}
-			</div>
-			<div class="mt-4">
-				<div class="swiper-scrollbar"></div>
-			</div>
-		</div>
-	</div> -->
 </div>

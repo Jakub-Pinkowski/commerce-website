@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { cart, removeFromCart, clearCart } from '$lib/stores/cart';
+	import { get } from 'svelte/store';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
@@ -9,6 +11,8 @@
 	export let openCart: boolean = false;
 
 	let isMobile: boolean = false;
+    const items = $cart;
+    console.log('items', items);
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
@@ -60,14 +64,14 @@
 				<CloseIcon {toggleCartAndMenu} />
 			</div>
 			<div class="relative flex w-full flex-col overflow-auto p-6">
-				<CartProductCard />
-				<CartProductCard />
-				<CartProductCard />
+				{#each items as item (item.id)}
+					<CartProductCard {item} />
+				{/each}
 			</div>
 			<div class="mt-auto flex w-full flex-col items-center p-6">
 				<div class="flex w-full justify-between">
 					<span class="text-lg">Total</span>
-					<span class="text-lg text-gray-500">$199</span>
+					<span class="text-lg text-gray-500">$199 [hardcoded]</span>
 				</div>
 				<a href="/cart" class="btn btn-neutral mt-8 w-full max-w-xl"> See the cart </a>
 				<a href="/cart/checkout" class="btn btn-primary mt-8 w-full max-w-xl"> Order </a>
