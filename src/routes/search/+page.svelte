@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
+	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
@@ -27,9 +28,11 @@
 	<!-- TODO: Add filters to search and categories -->
 
 	{#if filteredProducts && filteredProducts.length > 0}
-		{#each filteredProducts as product}
-			<p>{product.name}</p>
-		{/each}
+		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+			{#each filteredProducts as product}
+				<CategoryProductCard {product} />
+			{/each}
+		</div>
 	{:else}
 		<p>No products found</p>
 	{/if}
