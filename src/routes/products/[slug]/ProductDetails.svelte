@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { addToCart } from '$lib/stores/cart';
+	import { openMiniCart } from '$lib/stores/miniCart';
+    import type { Product } from '$lib/productTypes';
+
 	import 'swiper/css/bundle';
 
-	export let product;
+	export let product: Product;
 	let quantity: number = 1;
 	let isOpenAccordion1: boolean = false;
 	let isOpenAccordion2: boolean = false;
@@ -16,6 +19,11 @@
 			quantity -= 1;
 		}
 	}
+
+    function handleAddToCart() {
+        addToCart(product, quantity);
+        openMiniCart();
+    }
 </script>
 
 <div class="mt-4 w-full flex-none md:mt-0 md:max-w-[45%] md:p-8">
@@ -38,8 +46,8 @@
 		<button class="btn join-item text-2xl" on:click={incrementQuantity}>+</button>
 	</div>
 	<div class="mt-8 grid w-full grid-cols-[1fr,auto] gap-x-4">
-		<button class="btn btn-primary text-lg text-white" on:click={() => addToCart(product, quantity)}
-			>Add to cart
+		<button class="btn btn-primary text-lg text-white" on:click={handleAddToCart}>
+			Add to cart
 		</button>
 		<button class="btn text-lg">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

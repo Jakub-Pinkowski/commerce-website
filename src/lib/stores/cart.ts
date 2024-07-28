@@ -19,7 +19,7 @@ if (typeof window !== 'undefined') {
 	});
 }
 
-export const addToCart = (item: CartItem, quantity: number) => {
+export const addToCart = (item: Product, quantity: number) => {
 	cart.update((items) => {
 		const existingItem = items.find((i) => i.id === item.id);
 		if (existingItem) {
