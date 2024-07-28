@@ -3,7 +3,7 @@
 	import { cart } from '$lib/stores/cart';
 	import type { CartItem } from '$lib/stores/cart';
 	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import CloseIcon from './icons/CloseIcon.svelte';
 	import CartProductCard from './CartProductCard.svelte';
@@ -67,9 +67,15 @@
 				<CloseIcon {closeMiniCart} />
 			</div>
 			<div class="relative flex w-full flex-col overflow-auto p-4">
-				<!-- TODO: Add nice transition when removing items -->
 				{#each items as item (item.id)}
-					<CartProductCard {item} />
+					<div
+						transition:fade={{
+							delay: 100 * item.id,
+							easing: quadOut
+						}}
+					>
+						<CartProductCard {item} />
+					</div>
 				{/each}
 			</div>
 			<div class="mt-auto flex w-full flex-col items-center p-4">
