@@ -62,17 +62,17 @@
 		transition:fly={{ x: '150px', duration: 500, easing: quadOut }}
 	>
 		<div class="flex h-full flex-col">
-			<div class="flex w-full items-center justify-between pl-6 pr-2 pt-6 lg:p-6">
+			<div class="flex w-full items-center justify-between pl-4 pt-4">
 				<span class=" text-3xl font-bold">Cart</span>
 				<CloseIcon {closeMiniCart} />
 			</div>
-			<div class="relative flex w-full flex-col overflow-auto p-6">
+			<div class="relative flex w-full flex-col overflow-auto p-4">
 				<!-- TODO: Add nice transition when removing items -->
 				{#each items as item (item.id)}
 					<CartProductCard {item} />
 				{/each}
 			</div>
-			<div class="mt-auto flex w-full flex-col items-center p-6">
+			<div class="mt-auto flex w-full flex-col items-center p-4">
 				<div class="flex w-full justify-between">
 					<span class="text-lg">Total</span>
 					<span class="text-lg text-gray-500">

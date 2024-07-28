@@ -28,13 +28,13 @@
 		</a>
 	</div>
 	<div class="flex w-full max-w-[65%] flex-col">
-		<div class="flex flex-col px-4">
+		<div class="flex flex-col px-4 pr-8">
 			<a href={item.url}>
-				<h3 class="line-clamp-2 text-lg">{item.name}</h3>
+				<h3 class="line-clamp-2 md:text-lg">{item.name}</h3>
 			</a>
 			<span class=" mt-2 line-clamp-1 block text-sm">{item.brand}</span>
 		</div>
-		<div class="mt-auto flex w-full justify-between pl-2">
+		<div class="mt-auto flex w-full justify-between pl-2 pt-2">
 			<div class="flex items-center">
 				<div class="join">
 					<button
