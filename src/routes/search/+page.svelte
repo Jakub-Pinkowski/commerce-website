@@ -16,8 +16,15 @@
 </script>
 
 <div>
-	<h1>Search</h1>
+	<div class="breadcrumbs mb-6 text-xs">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li>Search</li>
+		</ul>
+	</div>
+	<h1 class="mb-4 text-3xl font-bold">Search</h1>
 	<input type="text" class="my-6 bg-slate-200" bind:value={searchQuery} />
+	<!-- TODO: Add filters to search and categories -->
 
 	{#if filteredProducts && filteredProducts.length > 0}
 		{#each filteredProducts as product}
