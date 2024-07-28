@@ -67,6 +67,7 @@
 				<CloseIcon {toggleCartAndMenu} />
 			</div>
 			<div class="relative flex w-full flex-col overflow-auto p-6">
+                <!-- TODO: Add nice transition when removing items -->
 				{#each items as item (item.id)}
 					<CartProductCard {item} />
 				{/each}
