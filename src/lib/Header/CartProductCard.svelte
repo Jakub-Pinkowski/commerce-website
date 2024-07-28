@@ -2,7 +2,6 @@
 	import { removeFromCart, increaseQuantity, decreaseQuantity } from '$lib/stores/cart';
 	import type { CartItem } from '$lib/stores/cart';
 	export let item: CartItem;
-
 </script>
 
 <div class="relative flex border-b border-gray-300 py-6">
@@ -38,14 +37,26 @@
 		<div class="mt-auto flex w-full justify-between pl-2">
 			<div class="flex items-center">
 				<div class="join">
-                    <button class="btn join-item h-10 min-h-10 text-lg" on:click={() => decreaseQuantity(item, 1)}>-</button>
-                    <span class="btn join-item h-10 min-h-10 cursor-default text-lg">{item.quantity}</span>
-                    <button class="btn join-item h-10 min-h-10 text-lg" on:click={() => increaseQuantity(item, 1)}>+</button>
+					<button
+						class="btn join-item h-10 min-h-10 text-lg"
+						on:click={() => decreaseQuantity(item, 1)}>-</button
+					>
+					<span class="btn join-item h-10 min-h-10 cursor-default text-lg">{item.quantity}</span>
+					<button
+						class="btn join-item h-10 min-h-10 text-lg"
+						on:click={() => increaseQuantity(item, 1)}>+</button
+					>
 				</div>
 			</div>
-			<!-- TODO: Add discounted price -->
 			<div class="flex items-center">
-				<span class="p-0 text-lg text-gray-500">${item.price * item.quantity}</span>
+				{#if item.price < item.listPrice}
+					<span class="mr-2 p-0 text-lg text-gray-500 line-through selection:inline-block">
+						${item.listPrice * item.quantity}
+					</span>
+					<span class="inline-block p-0 text-lg text-main-red">${item.price * item.quantity}</span>
+				{:else}
+					<span class=" inline-block p-0 text-lg text-gray-500">${item.price * item.quantity}</span>
+				{/if}
 			</div>
 		</div>
 	</div>

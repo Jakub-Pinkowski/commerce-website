@@ -22,18 +22,16 @@
 	<h1 class="text-3xl font-bold">{product.name}</h1>
 	<span class="mt-4 inline-block text-lg">{product.brand}</span>
 	<p class="mt-4 text-justify text-xl">{product.description}</p>
-	{#if product.price < product.listPrice}
-		<div class="mt-8">
+	<div class="mt-8">
+		{#if product.price < product.listPrice}
 			<span class="mr-2 inline-block text-2xl text-gray-500 line-through">
 				${product.listPrice}
 			</span>
 			<span class="inline-block text-2xl text-main-red">${product.price}</span>
-		</div>
-	{:else}
-		<div class="mt-8">
+		{:else}
 			<span class="inline-block text-2xl text-gray-500">${product.price}</span>
-		</div>
-	{/if}
+		{/if}
+	</div>
 	<div class="join mt-8">
 		<button class="btn join-item text-2xl" on:click={decrementQuantity}>-</button>
 		<span class="btn join-item cursor-default text-xl">{quantity}</span>
