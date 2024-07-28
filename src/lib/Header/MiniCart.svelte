@@ -68,12 +68,7 @@
 			</div>
 			<div class="relative flex w-full flex-col overflow-auto p-4">
 				{#each items as item (item.id)}
-					<div
-						transition:fade={{
-							delay: 100 * item.id,
-							easing: quadOut
-						}}
-					>
+					<div transition:fade={{ delay: 100 * item.id, easing: quadOut }}>
 						<CartProductCard {item} />
 					</div>
 				{/each}
