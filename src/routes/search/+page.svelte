@@ -2,18 +2,21 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
+	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
 
 	let searchQuery = '';
 
-	$: filteredProducts = products?.filter(
-		(product) =>
-			product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			product.category.toLowerCase().includes(searchQuery.toLowerCase())
-	);
+	$: filteredProducts = searchQuery
+		? products?.filter(
+				(product) =>
+					product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					product.category.toLowerCase().includes(searchQuery.toLowerCase())
+			)
+		: [];
 </script>
 
 <div>
@@ -35,5 +38,7 @@
 		</div>
 	{:else}
 		<p>No products found</p>
+		<!-- TODO: Insert best sellers or sales or whatever else, some real data -->
+		<RecommendationsCarousel {products} />
 	{/if}
 </div>
