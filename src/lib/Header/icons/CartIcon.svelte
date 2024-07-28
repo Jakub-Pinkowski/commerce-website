@@ -1,4 +1,3 @@
-<!-- TODO: Make this a real cart -->
 <script lang="ts">
     import {totalQuantity} from '$lib/stores/cart';
 
