@@ -1,21 +1,21 @@
 <script lang="ts">
+	import { closeMiniCart } from '$lib/stores/miniCart';
 	import { cart } from '$lib/stores/cart';
-    import type { CartItem } from '$lib/stores/cart';
+	import type { CartItem } from '$lib/stores/cart';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import CloseIcon from './icons/CloseIcon.svelte';
 	import CartProductCard from './CartProductCard.svelte';
 
-	export let toggleCartAndMenu: () => void;
-	export let openCart: boolean = false;
+	export let isCartOpen: boolean = false;
 
-	let isMobile: boolean = false;
-    let items: CartItem[] = [];
+	let items: CartItem[] = [];
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
-			openCart = !openCart;
+			event.preventDefault();
+			closeMiniCart();
 		}
 	};
 
@@ -33,41 +33,41 @@
 	};
 
 	onMount(() => {
-		isMobile = window.innerWidth < 768;
-		toggleBodyScroll(openCart);
-		const unsubscribe = cart.subscribe((value) => {
+		const unsubscribeCart = cart.subscribe((value) => {
 			items = value;
 		});
+
 		return () => {
 			document.body.classList.remove('overflow-hidden');
-			unsubscribe();
+			unsubscribeCart();
 		};
 	});
 
-	$: openCart, toggleBodyScroll(openCart);
+	$: total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+	$: {
+		toggleBodyScroll(isCartOpen);
+	}
 </script>
 
-{#if openCart}
+{#if isCartOpen}
 	<div
 		class="fixed left-0 top-0 z-20 h-full w-full bg-black opacity-50"
-		on:click={toggleCartAndMenu}
+		on:click={closeMiniCart}
 		on:keydown={handleKeyDown}
 		role="button"
 		tabindex="0"
 	></div>
 	<div
 		class="fixed right-0 top-0 z-40 h-full w-full bg-white transition-transform duration-200 ease-in-out lg:w-[30rem]"
-		transition:fly={isMobile
-			? { y: 150, duration: 500, easing: quadOut }
-			: { x: 150, duration: 500, easing: quadOut }}
+		transition:fly={{ x: '150px', duration: 500, easing: quadOut }}
 	>
 		<div class="flex h-full flex-col">
 			<div class="flex w-full items-center justify-between pl-6 pr-2 pt-6 lg:p-6">
 				<span class=" text-3xl font-bold">Cart</span>
-				<CloseIcon {toggleCartAndMenu} />
+				<CloseIcon {closeMiniCart} />
 			</div>
 			<div class="relative flex w-full flex-col overflow-auto p-6">
-                <!-- TODO: Add nice transition when removing items -->
+				<!-- TODO: Add nice transition when removing items -->
 				{#each items as item (item.id)}
 					<CartProductCard {item} />
 				{/each}
@@ -76,8 +76,8 @@
 				<div class="flex w-full justify-between">
 					<span class="text-lg">Total</span>
 					<span class="text-lg text-gray-500">
-                        {items.reduce((acc, item) => acc + item.price * item.quantity, 0)} €
-                    </span>
+						${total}
+					</span>
 				</div>
 				<a href="/cart" class="btn btn-neutral mt-8 w-full max-w-xl"> See the cart </a>
 				<a href="/cart/checkout" class="btn btn-primary mt-8 w-full max-w-xl"> Order </a>

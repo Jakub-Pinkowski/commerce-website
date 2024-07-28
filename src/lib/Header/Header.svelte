@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { Hamburger } from 'svelte-hamburgers';
+	import { isMiniCartOpen, toggleMiniCart } from '$lib/stores/miniCart';
+	import { onDestroy } from 'svelte';
 
 	import MobileMenu from './MobileMenu.svelte';
 	import DesktopMenu from './DesktopMenu.svelte';
@@ -7,7 +9,6 @@
 	import SearchIcon from './icons/SearchIcon.svelte';
 
 	let open: boolean = false;
-	let openCart: boolean = false;
 	let productCategories = ['Shoes', 'Jackets', 'Pants'];
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 
@@ -17,8 +18,17 @@
 
 	const toggleCartAndMenu = () => {
 		closeMenu();
-		openCart = !openCart;
+		toggleMiniCart();
 	};
+
+	let isCartOpen: boolean;
+	const unsubscribe = isMiniCartOpen.subscribe((value) => {
+		isCartOpen = value;
+	});
+
+	onDestroy(() => {
+		unsubscribe();
+	});
 </script>
 
 <header class="navbar border-b bg-base-100 px-4">
@@ -69,4 +79,4 @@
 		<DesktopMenu {closeMenu} {toggleCartAndMenu} />
 	</div>
 </header>
-<MiniCart {toggleCartAndMenu} {openCart} />
+<MiniCart {isCartOpen} />
