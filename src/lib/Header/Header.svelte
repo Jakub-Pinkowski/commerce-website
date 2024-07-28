@@ -42,7 +42,6 @@
 	</div>
 	<div class="navbar-start hidden lg:block">
 		<a href="/" class="btn btn-ghost">Home</a>
-		<!-- Experimental -->
 		<div class="dropdown dropdown-hover">
 			<a href="/categories" tabindex="0" role="button" class="btn btn-ghost">Categories</a>
 			<div
@@ -65,7 +64,6 @@
 				</ul>
 			</div>
 		</div>
-		<!-- End experimental -->
 		<a href="/categories/new" class="btn btn-ghost text-primary">New</a>
 
 		<a href="/categories/sale" class="btn btn-ghost text-main-red">Sale</a>

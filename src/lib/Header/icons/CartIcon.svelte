@@ -1,5 +1,7 @@
 <!-- TODO: Make this a real cart -->
 <script lang="ts">
+    import {totalQuantity} from '$lib/stores/cart';
+
 	export let className: string = '';
 	export let toggleCartAndMenu: () => void;
 </script>
@@ -20,7 +22,9 @@
 		<span
 			class="badge indicator-item badge-sm right-[-5px] border-none bg-transparent p-0 text-base text-red-600"
 		>
-			8
+			{#if $totalQuantity > 0}
+                {$totalQuantity}
+            {/if}
 		</span>
 	</div>
 </button>

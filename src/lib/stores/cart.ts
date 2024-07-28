@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable, derived } from 'svelte/store';
 import type { Product } from '$lib/productTypes.ts';
 
 export interface CartItem extends Product {
@@ -56,3 +56,7 @@ export const decreaseQuantity = (item: CartItem, quantity: number) => {
 		return items;
 	});
 };
+
+export const totalQuantity = derived(cart, ($cart) =>
+	$cart.reduce((total, item) => total + item.quantity, 0)
+);
