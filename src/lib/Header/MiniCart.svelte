@@ -1,10 +1,12 @@
 <script lang="ts">
-	import { closeMiniCart } from '$lib/stores/miniCart';
-	import { cart } from '$lib/stores/cart';
-	import type { CartItem } from '$lib/stores/cart';
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+
+	import { closeMiniCart } from '$lib/stores/miniCart';
+	import { cart } from '$lib/stores/cart';
+	import type { CartItem } from '$lib/stores/cart';
+    
 	import CloseIcon from './icons/CloseIcon.svelte';
 	import CartProductCard from './CartProductCard.svelte';
 

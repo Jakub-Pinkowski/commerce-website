@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
+
 export const isMiniCartOpen = writable(false);
 
 export const toggleMiniCart = () => {

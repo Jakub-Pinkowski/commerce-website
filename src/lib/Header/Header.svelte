@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { Hamburger } from 'svelte-hamburgers';
-	import { isMiniCartOpen, toggleMiniCart } from '$lib/stores/miniCart';
 	import { onDestroy } from 'svelte';
+	import { Hamburger } from 'svelte-hamburgers';
 
+	import { isMiniCartOpen, toggleMiniCart } from '$lib/stores/miniCart';
+    
 	import MobileMenu from './MobileMenu.svelte';
 	import DesktopMenu from './DesktopMenu.svelte';
 	import MiniCart from './MiniCart.svelte';
