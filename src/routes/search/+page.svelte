@@ -30,14 +30,18 @@
 	<input type="text" class="my-6 bg-slate-200" bind:value={searchQuery} />
 	<!-- TODO: Add filters to search and categories -->
 
-	{#if filteredProducts && filteredProducts.length > 0}
+	{#if !searchQuery}
+		<!-- TODO: Style it -->
+		<div class="mb-12">Enter your search here</div>
+		<RecommendationsCarousel {products} />
+	{:else if filteredProducts && filteredProducts.length > 0}
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 			{#each filteredProducts as product}
 				<CategoryProductCard {product} />
 			{/each}
 		</div>
 	{:else}
-		<p>No products found</p>
+		<div class="mb-12">No products found</div>
 		<!-- TODO: Insert best sellers or sales or whatever else, some real data -->
 		<RecommendationsCarousel {products} />
 	{/if}
