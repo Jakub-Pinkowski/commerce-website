@@ -40,7 +40,7 @@
 	}
 </script>
 
-<div class="my-8 flex justify-center">
+<div class="my-8 flex justify-center w-full">
 	<div class="join">
 		{#if currentPage > 1}
 			<button on:click={prevPage} class="btn join-item">«</button>

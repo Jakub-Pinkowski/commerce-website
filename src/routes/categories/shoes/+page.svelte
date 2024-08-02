@@ -11,7 +11,7 @@
 	let itemsPerPage = 24;
 	let displayedProducts: Product[] = [];
 
-	let minPrice: number | null = 100;
+	let minPrice: number | null = null;
 	let maxPrice: number | null = null;
 	let selectedColors: Set<string> = new Set();
 
@@ -80,7 +80,7 @@
 		</div>
 	</div>
 
-	{#if products}
+	{#if displayedProducts}
 		<div class="flex">
 			<!-- Sidebar -->
 			<div class="flex w-64 min-w-64 max-w-64 flex-col pr-4">
@@ -173,19 +173,23 @@
 			</div>
 
 			<!-- Products -->
-			<div>
+			<div class="w-full">
 				<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 					{#each displayedProducts as product}
 						<CategoryProductCard {product} />
 					{/each}
 				</div>
 
-				<Pagination
-					{itemsPerPage}
-					{displayedProducts}
-					{products}
-					on:update={handleUpdatePagination}
-				/>
+				<!-- TODO: Design a new Pagination compatible with Svelte 5 later on -->
+				<!-- TODO: Show Pagination only if there are some items on the next page -->
+				{#if displayedProducts.length > itemsPerPage}
+					<Pagination
+						{itemsPerPage}
+						{displayedProducts}
+						{products}
+						on:update={handleUpdatePagination}
+					/>
+				{/if}
 			</div>
 		</div>
 
