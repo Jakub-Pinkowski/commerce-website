@@ -93,37 +93,10 @@
 									/>
 									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Blue</label>
 								</div>
-								<div class="flex items-center">
-									<input
-										type="checkbox"
-										id="random-for-now"
-										checked={false}
-										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-									/>
-									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Green</label>
-								</div>
-								<div class="flex items-center">
-									<input
-										type="checkbox"
-										id="random-for-now"
-										checked={false}
-										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-									/>
-									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Yellow</label>
-								</div>
-								<div class="flex items-center">
-									<input
-										type="checkbox"
-										id="random-for-now"
-										checked={false}
-										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-									/>
-									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Red</label>
-								</div>
 							</div>
 						</div>
 					</div>
-					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
+					<!-- <div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-4" />
 						<div class="collapse-title pl-1 text-lg font-medium">Size</div>
 						<div class="collapse-content pl-1">
@@ -166,7 +139,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 

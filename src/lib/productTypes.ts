@@ -7,6 +7,7 @@ export type Product = {
     description: string;
     price: number;
     listPrice: number;
+    color?: string;
     label?: string;
     url: string;
     imageUrl: string;
