@@ -23,6 +23,7 @@
 				.map((color) => color.charAt(0).toUpperCase() + color.slice(1))
 		)
 	].sort();
+    // TODO: Add new categories later on
 
 	interface UpdateEventDetail {
 		displayedProducts: Product[];
