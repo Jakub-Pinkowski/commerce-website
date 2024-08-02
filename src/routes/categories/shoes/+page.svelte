@@ -14,6 +14,9 @@
 	let minPrice: number | null = null;
 	let maxPrice: number | null = null;
 	let selectedColors: Set<string> = new Set();
+	let possibleColors = [
+		...new Set(products.flatMap((product) => product.colors).filter((color) => color !== undefined))
+	].sort();
 
 	interface UpdateEventDetail {
 		displayedProducts: Product[];
@@ -27,10 +30,24 @@
 		displayedProducts = products.filter((product) => {
 			const matchesPrice =
 				(!minPrice || product.price >= minPrice) && (!maxPrice || product.price <= maxPrice);
-			const matchesColor = selectedColors.size === 0 || selectedColors.has(product.color ?? '');
-			return matchesPrice && matchesColor;
+			if (product.colors) {
+				const matchesColor =
+					selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color));
+
+				return matchesPrice && matchesColor;
+			}
+
+			return matchesPrice;
 		});
-		console.log('displayedProducts', displayedProducts);
+	}
+
+	function toggleColor(color: string) {
+		if (selectedColors.has(color)) {
+			selectedColors.delete(color);
+		} else {
+			selectedColors.add(color);
+		}
+		filterProducts();
 	}
 
 	$: [products, minPrice, maxPrice, selectedColors], filterProducts();
@@ -110,65 +127,22 @@
 						<div class="collapse-title pl-1 text-lg font-medium">Color</div>
 						<div class="collapse-content pl-1">
 							<div class="flex flex-col gap-2">
-								<div class="flex items-center">
-									<input
-										type="checkbox"
-										id="color-blue"
-										on:change={() =>
-											selectedColors.has('night blue')
-												? selectedColors.delete('night blue')
-												: selectedColors.add('night blue')}
-										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-									/>
-									<label for="color-blue" class="ml-3 text-sm text-gray-600">Blue</label>
-								</div>
+								{#each Array.from(possibleColors) as color}
+									<div class="flex items-center">
+										<input
+											type="checkbox"
+											id={color}
+											checked={selectedColors.has(color)}
+											value={color}
+											on:change={() => toggleColor(color)}
+											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
+										/>
+										<label for={color} class="ml-3 text-sm text-gray-600">{color}</label>
+									</div>
+								{/each}
 							</div>
 						</div>
 					</div>
-					<!-- <div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
-						<input type="checkbox" name="my-accordion-4" />
-						<div class="collapse-title pl-1 text-lg font-medium">Size</div>
-						<div class="collapse-content pl-1">
-							<div class="flex flex-col gap-2">
-								<div class="flex items-center">
-									<input
-										type="checkbox"
-										id="random-for-now"
-										checked={false}
-										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-									/>
-									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Blue</label>
-								</div>
-								<div class="flex items-center">
-									<input
-										type="checkbox"
-										id="random-for-now"
-										checked={false}
-										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-									/>
-									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Green</label>
-								</div>
-								<div class="flex items-center">
-									<input
-										type="checkbox"
-										id="random-for-now"
-										checked={false}
-										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-									/>
-									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Yellow</label>
-								</div>
-								<div class="flex items-center">
-									<input
-										type="checkbox"
-										id="random-for-now"
-										checked={false}
-										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-									/>
-									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Red</label>
-								</div>
-							</div>
-						</div>
-					</div> -->
 				</div>
 			</div>
 

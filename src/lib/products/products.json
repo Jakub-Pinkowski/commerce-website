@@ -177,7 +177,7 @@
 		"description": "The Jungle is a versatile, lightweight, and packable shoe that is perfect for any adventure.",
 		"price": 76,
 		"listPrice": 109,
-		"color": "night blue",
+		"colors": ["blue", "navy", "sage"],
 		"url": "http://localhost:5173/products/jungle",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Footwear-ATS-WF-Jungle-SS21-Night-Blue-1-ecom.jpg?v=1660913167",
 		"alternateImages": [
@@ -196,7 +196,7 @@
 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"price": 119,
 		"listPrice": 119,
-		"color": "sage green",
+		"colors": ["swamp", "green", "sage"],
 		"label": "new",
 		"url": "http://localhost:5173/products/knyon",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-ecommerce-canyon-sage-green-1.jpg?v=1630334799",
@@ -213,7 +213,7 @@
 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"price": 129,
 		"listPrice": 129,
-		"color": "baltic navy",
+		"colors": ["blue", "navy", "sage"],
 		"url": "http://localhost:5173/products/at-lite",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-1.jpg?v=1709223271",
 		"alternateImages": [
@@ -233,7 +233,7 @@
 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"price": 82,
 		"listPrice": 109,
-		"color": "swamp green sage",
+		"colors": ["swamp", "green", "sage"],
 		"url": "http://localhost:5173/products/all-terrain",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-1.jpg?v=1709223335",
 		"alternateImages": [
