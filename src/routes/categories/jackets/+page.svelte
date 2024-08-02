@@ -29,7 +29,7 @@
 			<li>Jackets</li>
 		</ul>
 	</div>
-	<h1 class="mb-4 text-3xl font-bold">Best Sellers</h1>
+	<h1 class="mb-4 text-3xl font-bold">Jackets</h1>
 	{#if products}
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 			{#each displayedProducts as product}
