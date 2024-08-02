@@ -30,12 +30,16 @@
 		</ul>
 	</div>
 
-	<div class="mb-4 flex justify-between border-b border-gray-200">
-		<h1 class="  pb-6 text-3xl font-bold">Shoes</h1>
+	<div class="mb-4 pb-6 flex justify-between border-b border-gray-200">
+		<h1 class="text-3xl font-bold">Shoes</h1>
 		<div class="dropdown dropdown-end">
-			<div tabindex="0" role="button" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+			<div
+				tabindex="0"
+				role="button"
+				class="group inline-flex justify-center font-medium text-gray-700 hover:text-gray-900"
+			>
 				Sort
-                <svg
+				<svg
 					class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
 					viewBox="0 0 20 20"
 					fill="currentColor"
@@ -50,11 +54,11 @@
 			</div>
 
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-			<ul tabindex="0" class="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow">
-				<li>Most popular</li>
-				<li>Best seller</li>
-				<li>Price: Low to high</li>
-				<li>Price: High to low</li>
+			<ul tabindex="0" class="menu dropdown-content z-20 w-52 rounded-box bg-base-100 p-2 shadow">
+				<li><button>Most popular</button></li>
+				<li><button>Best seller</button></li>
+				<li><button>Price low</button></li>
+				<li><button>Price high</button></li>
 			</ul>
 		</div>
 	</div>
