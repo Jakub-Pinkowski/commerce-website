@@ -21,6 +21,7 @@
 	}
 </script>
 
+<!-- svelte-ignore css_unused_selector -->
 <div>
 	<div class="breadcrumbs mb-6 text-xs">
 		<ul>
@@ -30,7 +31,7 @@
 		</ul>
 	</div>
 
-	<div class="mb-4 pb-6 flex justify-between border-b border-gray-200">
+	<div class="mb-4 flex justify-between border-b border-gray-200 pb-6">
 		<h1 class="text-3xl font-bold">Shoes</h1>
 		<div class="dropdown dropdown-end">
 			<div
@@ -54,11 +55,12 @@
 			</div>
 
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-			<ul tabindex="0" class="menu dropdown-content z-20 w-52 rounded-box bg-base-100 p-2 shadow">
-				<li><button>Most popular</button></li>
-				<li><button>Best seller</button></li>
-				<li><button>Price low</button></li>
-				<li><button>Price high</button></li>
+			<ul tabindex="0" class="menu dropdown-content z-20 w-44 rounded-box bg-base-100 p-2 shadow">
+				<li><button>Most Popular</button></li>
+				<li><button>Best Rating</button></li>
+				<li><button>Newest</button></li>
+				<li><button>Price: low to high</button></li>
+				<li><button>Price: high to low</button></li>
 			</ul>
 		</div>
 	</div>
@@ -188,8 +190,7 @@
 </div>
 
 <style scoped>
-	[type='checkbox']:focus,
-	[type='radio']:focus {
+	[type='checkbox']:focus {
 		outline: 2px solid transparent;
 		outline-offset: 2px;
 		--tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
