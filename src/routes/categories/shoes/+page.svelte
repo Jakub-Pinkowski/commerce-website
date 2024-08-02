@@ -30,18 +30,44 @@
 		</ul>
 	</div>
 
-	<h1 class="mb-4 border-b border-gray-200 pb-6 text-3xl font-bold">Shoes</h1>
+	<div class="mb-4 flex justify-between border-b border-gray-200">
+		<h1 class="  pb-6 text-3xl font-bold">Shoes</h1>
+		<div class="dropdown dropdown-end">
+			<div tabindex="0" role="button" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+				Sort
+                <svg
+					class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+					viewBox="0 0 20 20"
+					fill="currentColor"
+					aria-hidden="true"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+						clip-rule="evenodd"
+					/>
+				</svg>
+			</div>
+
+			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+			<ul tabindex="0" class="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow">
+				<li>Most popular</li>
+				<li>Best seller</li>
+				<li>Price: Low to high</li>
+				<li>Price: High to low</li>
+			</ul>
+		</div>
+	</div>
+
 	{#if products}
 		<div class="flex">
-			<!-- Top Toolbar -->
-
 			<!-- Sidebar -->
 			<div class="flex w-64 min-w-64 max-w-64 flex-col pr-4">
 				<div class="join join-vertical w-full">
 					<div class="collapse join-item collapse-plus border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
-						<div class="collapse-title text-lg font-medium">Price</div>
-						<div class="collapse-content">
+						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
+						<div class="collapse-content pl-1">
 							<div class="flex gap-2">
 								<input type="text" placeholder="Min" class="input input-bordered w-full text-sm" />
 								<input type="text" placeholder="Max" class="input input-bordered w-full text-sm" />
@@ -50,8 +76,8 @@
 					</div>
 					<div class="collapse join-item collapse-plus border-b border-base-300">
 						<input type="checkbox" name="my-accordion-4" />
-						<div class="collapse-title text-lg font-medium">Color</div>
-						<div class="collapse-content">
+						<div class="collapse-title pl-1 text-lg font-medium">Color</div>
+						<div class="collapse-content pl-1">
 							<div class="flex flex-col gap-2">
 								<div class="flex items-center">
 									<input
@@ -94,8 +120,8 @@
 					</div>
 					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-4" />
-						<div class="collapse-title text-lg font-medium">Size</div>
-						<div class="collapse-content">
+						<div class="collapse-title pl-1 text-lg font-medium">Size</div>
+						<div class="collapse-content pl-1">
 							<div class="flex flex-col gap-2">
 								<div class="flex items-center">
 									<input
@@ -139,6 +165,7 @@
 				</div>
 			</div>
 
+			<!-- Products -->
 			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 				{#each displayedProducts as product}
 					<CategoryProductCard {product} />
