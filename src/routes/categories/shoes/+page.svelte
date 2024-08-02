@@ -11,6 +11,10 @@
 	let itemsPerPage = 24;
 	let displayedProducts: Product[] = [];
 
+	let minPrice: number | null = 100;
+	let maxPrice: number | null = null;
+	let selectedColors: Set<string> = new Set();
+
 	interface UpdateEventDetail {
 		displayedProducts: Product[];
 	}
@@ -18,6 +22,18 @@
 	function handleUpdatePagination(event: CustomEvent<UpdateEventDetail>) {
 		displayedProducts = event.detail.displayedProducts;
 	}
+
+	function filterProducts() {
+		displayedProducts = products.filter((product) => {
+			const matchesPrice =
+				(!minPrice || product.price >= minPrice) && (!maxPrice || product.price <= maxPrice);
+			const matchesColor = selectedColors.size === 0 || selectedColors.has(product.color ?? '');
+			return matchesPrice && matchesColor;
+		});
+		console.log('displayedProducts', displayedProducts);
+	}
+
+	$: [products, minPrice, maxPrice, selectedColors], filterProducts();
 </script>
 
 <!-- svelte-ignore css_unused_selector -->
@@ -74,8 +90,18 @@
 						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
 						<div class="collapse-content pl-1">
 							<div class="flex gap-2">
-								<input type="text" placeholder="Min" class="input input-bordered w-full text-sm" />
-								<input type="text" placeholder="Max" class="input input-bordered w-full text-sm" />
+								<input
+									type="text"
+									placeholder="Min"
+									class="input input-bordered w-full text-sm"
+									bind:value={minPrice}
+								/>
+								<input
+									type="text"
+									placeholder="Max"
+									class="input input-bordered w-full text-sm"
+									bind:value={maxPrice}
+								/>
 							</div>
 						</div>
 					</div>
@@ -87,11 +113,14 @@
 								<div class="flex items-center">
 									<input
 										type="checkbox"
-										id="random-for-now"
-										checked={false}
+										id="color-blue"
+										on:change={() =>
+											selectedColors.has('night blue')
+												? selectedColors.delete('night blue')
+												: selectedColors.add('night blue')}
 										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
 									/>
-									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Blue</label>
+									<label for="color-blue" class="ml-3 text-sm text-gray-600">Blue</label>
 								</div>
 							</div>
 						</div>
