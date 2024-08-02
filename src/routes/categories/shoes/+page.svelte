@@ -8,8 +8,7 @@
 	export let data: PageData;
 	export let products: Product[] = data?.products;
 
-	// TODO: Later on change to probably around 24 on desktop and 16 on mobile
-	let itemsPerPage = 8;
+	let itemsPerPage = 24;
 	let displayedProducts: Product[] = [];
 
 	interface UpdateEventDetail {
@@ -37,7 +36,7 @@
 			<div
 				tabindex="0"
 				role="button"
-				class="group inline-flex justify-center font-medium text-gray-700 hover:text-gray-900"
+				class="group inline-flex justify-center text-gray-700 hover:text-gray-900"
 			>
 				Sort
 				<svg
@@ -172,21 +171,29 @@
 			</div>
 
 			<!-- Products -->
-			<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-				{#each displayedProducts as product}
-					<CategoryProductCard {product} />
-				{/each}
+			<div>
+				<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+					{#each displayedProducts as product}
+						<CategoryProductCard {product} />
+					{/each}
+				</div>
+
+				<Pagination
+					{itemsPerPage}
+					{displayedProducts}
+					{products}
+					on:update={handleUpdatePagination}
+				/>
 			</div>
 		</div>
 
 		<!-- TODO: Pass displayedProducts from Pagination to my main-->
-		<Pagination {itemsPerPage} {displayedProducts} {products} on:update={handleUpdatePagination} />
+
 		<!-- TODO: Later on we need to use some recommendedProducts instead -->
 		<!-- <RecommendationsCarousel {products} /> -->
 	{:else}
 		<p>No products found</p>
 	{/if}
-	<!-- TODO: Recommendation carousel goes here -->
 </div>
 
 <style scoped>
