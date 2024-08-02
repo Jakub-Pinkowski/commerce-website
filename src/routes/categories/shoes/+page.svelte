@@ -38,9 +38,19 @@
 			<!-- Sidebar -->
 			<div class="flex w-64 min-w-64 max-w-64 flex-col pr-4">
 				<div class="join join-vertical w-full">
-					<div class="collapse join-item collapse-plus border border-base-300">
+					<div class="collapse join-item collapse-plus border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
-						<div class="collapse-title text-xl font-medium">Price</div>
+						<div class="collapse-title text-lg font-medium">Price</div>
+						<div class="collapse-content">
+							<div class="flex gap-2">
+								<input type="text" placeholder="Min" class="input input-bordered w-full text-sm" />
+								<input type="text" placeholder="Max" class="input input-bordered w-full text-sm" />
+							</div>
+						</div>
+					</div>
+					<div class="collapse join-item collapse-plus border-b border-base-300">
+						<input type="checkbox" name="my-accordion-4" />
+						<div class="collapse-title text-lg font-medium">Color</div>
 						<div class="collapse-content">
 							<div class="flex flex-col gap-2">
 								<div class="flex items-center">
@@ -82,24 +92,48 @@
 							</div>
 						</div>
 					</div>
-					<div class="collapse join-item collapse-plus border border-base-300">
+					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-4" />
-						<div class="collapse-title text-xl font-medium">Size</div>
+						<div class="collapse-title text-lg font-medium">Size</div>
 						<div class="collapse-content">
-							<input type="checkbox" checked={true} class="checkbox-primary checkbox" />
-							<input type="checkbox" checked={false} class="checkbox-primary checkbox" />
-							<input type="checkbox" checked={false} class="checkbox-primary checkbox" />
-							<input type="checkbox" checked={false} class="checkbox-primary checkbox" />
-						</div>
-					</div>
-					<div class="collapse join-item collapse-plus border border-base-300">
-						<input type="checkbox" name="my-accordion-4" />
-						<div class="collapse-title text-xl font-medium">Color</div>
-						<div class="collapse-content">
-							<input type="checkbox" checked={true} class="checkbox-primary checkbox" />
-							<input type="checkbox" checked={false} class="checkbox-primary checkbox" />
-							<input type="checkbox" checked={false} class="checkbox-primary checkbox" />
-							<input type="checkbox" checked={false} class="checkbox-primary checkbox" />
+							<div class="flex flex-col gap-2">
+								<div class="flex items-center">
+									<input
+										type="checkbox"
+										id="random-for-now"
+										checked={false}
+										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
+									/>
+									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Blue</label>
+								</div>
+								<div class="flex items-center">
+									<input
+										type="checkbox"
+										id="random-for-now"
+										checked={false}
+										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
+									/>
+									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Green</label>
+								</div>
+								<div class="flex items-center">
+									<input
+										type="checkbox"
+										id="random-for-now"
+										checked={false}
+										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
+									/>
+									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Yellow</label>
+								</div>
+								<div class="flex items-center">
+									<input
+										type="checkbox"
+										id="random-for-now"
+										checked={false}
+										class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
+									/>
+									<label for="random-for-now" class="ml-3 text-sm text-gray-600">Red</label>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
