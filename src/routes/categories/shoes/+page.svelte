@@ -14,8 +14,14 @@
 	let minPrice: number | null = null;
 	let maxPrice: number | null = null;
 	let selectedColors: Set<string> = new Set();
+
 	let possibleColors = [
-		...new Set(products.flatMap((product) => product.colors).filter((color) => color !== undefined))
+		...new Set(
+			products
+				.flatMap((product) => product.colors)
+				.filter((color) => color !== undefined)
+				.map((color) => color.charAt(0).toUpperCase() + color.slice(1))
+		)
 	].sort();
 
 	interface UpdateEventDetail {
@@ -26,6 +32,21 @@
 		displayedProducts = event.detail.displayedProducts;
 	}
 
+	function debounce<T extends (...args: any[]) => void>(
+		func: T,
+		wait: number
+	): (...args: Parameters<T>) => void {
+		let timeout: number;
+		return function (...args: Parameters<T>) {
+			const later = () => {
+				clearTimeout(timeout);
+				func(...args);
+			};
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+		};
+	}
+
 	function filterProducts() {
 		displayedProducts = products.filter((product) => {
 			const matchesPrice =
@@ -33,7 +54,6 @@
 			if (product.colors) {
 				const matchesColor =
 					selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color));
-
 				return matchesPrice && matchesColor;
 			}
 
@@ -41,16 +61,18 @@
 		});
 	}
 
+	const debouncedFilterProducts = debounce(filterProducts, 400);
+
 	function toggleColor(color: string) {
 		if (selectedColors.has(color)) {
 			selectedColors.delete(color);
 		} else {
 			selectedColors.add(color);
 		}
-		filterProducts();
+		debouncedFilterProducts();
 	}
 
-	$: [products, minPrice, maxPrice, selectedColors], filterProducts();
+	$: [products, minPrice, maxPrice, selectedColors], debouncedFilterProducts();
 </script>
 
 <!-- svelte-ignore css_unused_selector -->
@@ -134,7 +156,7 @@
 											id={color}
 											checked={selectedColors.has(color)}
 											value={color}
-											on:change={() => toggleColor(color)}
+											on:change={() => toggleColor(color.toLowerCase())}
 											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
 										/>
 										<label for={color} class="ml-3 text-sm text-gray-600">{color}</label>
