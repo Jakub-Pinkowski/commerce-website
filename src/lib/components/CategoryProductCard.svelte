@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { derived } from 'svelte/store';
+    
 	import { addToCart } from '$lib/stores/cart';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
