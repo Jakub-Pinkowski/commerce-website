@@ -15,11 +15,10 @@
 		data.wishlist.subscribe((items: Product[]) => {
 			wishlist = items;
 		});
-		console.log(wishlist);
+		console.log("wishlist", wishlist);
 	});
 
-	let toastWishlist: boolean = false;
-	let toastMessage: string = '';
+    // TODO: Finish Toast logic, still doesn't work
 </script>
 
 <div>
@@ -41,23 +40,3 @@
 		<!-- TODO: Add RecommendationsCarousel -->
 	{/if}
 </div>
-
-{#if toastWishlist}
-	<div class="toast toast-center toast-top" transition:fade>
-		<div class="alert alert-success">
-			<span> {@html toastMessage}</span>
-		</div>
-	</div>
-{/if}
-
-<style scoped>
-	.alert-success {
-		--alert-bg: var(--light-accent);
-		color: var(--fallback-ac, oklch(var(--ac) / var(--tw-text-opacity)));
-		border-color: var(--light-accent);
-	}
-
-	.toast:where(.toast-top) {
-		top: 50px;
-	}
-</style>
