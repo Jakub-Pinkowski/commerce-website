@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
+	import { debounce } from '$lib/helpers/functions';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import Pagination from '$lib/components/Pagination.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
@@ -33,21 +34,6 @@
 		displayedProducts = event.detail.displayedProducts;
 	}
 
-	function debounce<T extends (...args: any[]) => void>(
-		func: T,
-		wait: number
-	): (...args: Parameters<T>) => void {
-		let timeout: number;
-		return function (...args: Parameters<T>) {
-			const later = () => {
-				clearTimeout(timeout);
-				func(...args);
-			};
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-		};
-	}
-
 	function filterProducts() {
 		displayedProducts = products.filter((product) => {
 			const matchesPrice =
@@ -76,7 +62,6 @@
 	$: [products, minPrice, maxPrice, selectedColors], debouncedFilterProducts();
 </script>
 
-<!-- svelte-ignore css_unused_selector -->
 <div>
 	<div class="breadcrumbs mb-6 text-xs">
 		<ul>
@@ -178,7 +163,6 @@
 				</div>
 
 				<!-- TODO: Design a new Pagination compatible with Svelte 5 later on -->
-				<!-- TODO: Show Pagination only if there are some items on the next page -->
 				{#if displayedProducts.length > itemsPerPage}
 					<Pagination
 						{itemsPerPage}
