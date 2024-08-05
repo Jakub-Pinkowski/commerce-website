@@ -23,7 +23,7 @@
 				.map((color) => color.charAt(0).toUpperCase() + color.slice(1))
 		)
 	].sort();
-    // TODO: Add new categories later on
+	// TODO: Add new categories later on
 
 	interface UpdateEventDetail {
 		displayedProducts: Product[];
@@ -62,7 +62,7 @@
 		});
 	}
 
-	const debouncedFilterProducts = debounce(filterProducts, 400);
+	const debouncedFilterProducts = debounce(filterProducts, 200);
 
 	function toggleColor(color: string) {
 		if (selectedColors.has(color)) {
