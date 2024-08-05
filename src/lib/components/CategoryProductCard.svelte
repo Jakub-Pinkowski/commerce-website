@@ -1,12 +1,16 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+	import { derived } from 'svelte/store';
 	import { addToCart } from '$lib/stores/cart';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
 	import type { Product } from '$lib/productTypes';
-	import { derived } from 'svelte/store';
 
 	export let product: Product;
 	let quantity: number = 1;
+
+	let toastWishlist: boolean = false;
+	let toastMessage: string = '';
 
 	const handleAddToCart = () => {
 		addToCart(product, quantity);
@@ -18,6 +22,15 @@
 	);
 
 	const handleWishlistToggle = () => {
+		toastWishlist = true;
+		if ($isWishlisted) {
+			toastMessage = `<span class="font-bold">${product.name}</span> has been removed from wishlist`;
+		} else {
+			toastMessage = `<span class="font-bold">${product.name}</span> has been added to wishlist`;
+		}
+		setTimeout(() => {
+			toastWishlist = false;
+		}, 2000);
 		toggleWishlist(product);
 	};
 </script>
@@ -101,3 +114,23 @@
 		</div>
 	</div>
 </div>
+
+{#if toastWishlist}
+	<div class="toast toast-center toast-top" transition:fade>
+		<div class="alert alert-success">
+			<span> {@html toastMessage}</span>
+		</div>
+	</div>
+{/if}
+
+<style scoped>
+	.alert-success {
+		--alert-bg: var(--light-accent);
+		color: var(--fallback-ac, oklch(var(--ac) / var(--tw-text-opacity)));
+		border-color: var(--light-accent);
+	}
+
+	.toast:where(.toast-top) {
+		top: 50px;
+	}
+</style>
