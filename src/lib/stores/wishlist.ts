@@ -30,3 +30,14 @@ export const removeFromWishlist = (item: Product) => {
 		return items.filter((i) => i.id !== item.id);
 	});
 };
+
+export const toggleWishlist = (item: Product) => {
+	wishlist.update((items) => {
+		if (items.find((i) => i.id === item.id)) {
+			return items.filter((i) => i.id !== item.id);
+		} else {
+			items.push(item);
+			return items;
+		}
+	});
+};

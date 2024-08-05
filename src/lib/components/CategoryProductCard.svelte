@@ -1,15 +1,25 @@
 <script lang="ts">
 	import { addToCart } from '$lib/stores/cart';
+	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
 	import type { Product } from '$lib/productTypes';
+	import { derived } from 'svelte/store';
 
 	export let product: Product;
 	let quantity: number = 1;
 
-	function handleAddToCart() {
+	const handleAddToCart = () => {
 		addToCart(product, quantity);
 		openMiniCart();
-	}
+	};
+
+	const isWishlisted = derived(wishlist, ($wishlist) =>
+		$wishlist.some((item) => item.id === product.id)
+	);
+
+	const handleWishlistToggle = () => {
+		toggleWishlist(product);
+	};
 </script>
 
 <div class="mb-4 md:mb-8">
@@ -58,14 +68,35 @@
 		</div>
 		<div class="mt-4 hidden w-full grid-cols-[1fr,auto] gap-x-4 md:grid">
 			<button class="btn btn-primary text-white" on:click={handleAddToCart}> Add to cart </button>
-			<button class="btn">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-					<g id="_01_align_center" data-name="01 align center">
+			<button class="btn" on:click={handleWishlistToggle}>
+				{#if $isWishlisted}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						id="Layer_1"
+						data-name="Layer 1"
+						viewBox="0 0 24 24"
+						width="24"
+						height="24"
+					>
 						<path
-							d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"
+							d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917Z"
 						/>
-					</g>
-				</svg>
+					</svg>
+				{:else}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						width="24"
+						height="24"
+						fill="black"
+					>
+						<g id="_01_align_center" data-name="01 align center">
+							<path
+								d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"
+							/>
+						</g>
+					</svg>
+				{/if}
 			</button>
 		</div>
 	</div>
