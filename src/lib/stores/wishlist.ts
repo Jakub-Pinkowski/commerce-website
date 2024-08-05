@@ -41,3 +41,5 @@ export const toggleWishlist = (item: Product) => {
 		}
 	});
 };
+
+export const totalWishlistItems = derived(wishlist, ($wishlist) => $wishlist.length);
