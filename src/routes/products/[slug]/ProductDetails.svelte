@@ -13,8 +13,10 @@
 	let quantity: number = 1;
 	let isOpenAccordion1: boolean = false;
 	let isOpenAccordion2: boolean = false;
+	let toastCart: boolean = false;
+	let toastCartMessage: string = '';
 	let toastWishlist: boolean = false;
-	let toastMessage: string = '';
+	let toastWishlistMessage: string = '';
 
 	function incrementQuantity() {
 		quantity += 1;
@@ -28,6 +30,11 @@
 
 	function handleAddToCart() {
 		addToCart(product, quantity);
+		toastCart = true;
+		toastCartMessage = `<span class="font-bold">${product.name}</span> has been added to cart`;
+		setTimeout(() => {
+			toastCart = false;
+		}, 2000);
 		openMiniCart();
 	}
 
@@ -38,9 +45,9 @@
 	const handleWishlistToggle = () => {
 		toastWishlist = true;
 		if ($isWishlisted) {
-			toastMessage = `<span class="font-bold">${product.name}</span> has been removed from wishlist`;
+			toastWishlistMessage = `<span class="font-bold">${product.name}</span> has been removed from wishlist`;
 		} else {
-			toastMessage = `<span class="font-bold">${product.name}</span> has been added to wishlist`;
+			toastWishlistMessage = `<span class="font-bold">${product.name}</span> has been added to wishlist`;
 		}
 		setTimeout(() => {
 			toastWishlist = false;
@@ -163,19 +170,32 @@
 		</div>
 	</div>
 </div>
+{#if toastCart}
+	<div class="toast toast-center toast-top" transition:fade>
+		<div class="alert-add-to-cart alert">
+			<span> {@html toastCartMessage}</span>
+		</div>
+	</div>
+{/if}
 
 {#if toastWishlist}
 	<div class="toast toast-center toast-top" transition:fade>
-		<div class="alert alert-success">
-			<span> {@html toastMessage}</span>
+		<div class="alert-wishlist alert">
+			<span> {@html toastWishlistMessage}</span>
 		</div>
 	</div>
 {/if}
 
 <style scoped>
-	.alert-success {
+	.alert-add-to-cart {
+		--alert-bg: var(--primary);
+		color: var(--whiteish);
+		border-color: var(--primary);
+	}
+
+	.alert-wishlist {
 		--alert-bg: var(--light-accent);
-		color: var(--fallback-ac, oklch(var(--ac) / var(--tw-text-opacity)));
+        color: var(--dark);
 		border-color: var(--light-accent);
 	}
 

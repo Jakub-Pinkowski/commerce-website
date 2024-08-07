@@ -15,10 +15,9 @@
 		data.wishlist.subscribe((items: Product[]) => {
 			wishlist = items;
 		});
-		console.log("wishlist", wishlist);
 	});
 
-    // TODO: Finish Toast logic, still doesn't work
+	// TODO: Finish Toast logic, still doesn't work
 </script>
 
 <div>
