@@ -56,7 +56,7 @@
 		} else {
 			selectedColors.add(color);
 		}
-		debouncedFilterProducts();
+		filterProducts();
 	}
 
 	$: [products, minPrice, maxPrice, selectedColors], debouncedFilterProducts();
