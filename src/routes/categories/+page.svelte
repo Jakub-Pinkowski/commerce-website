@@ -11,7 +11,9 @@
 	let productCategories = ['Shoes', 'Jackets', 'Pants'];
 	let activeTabProductCategory: string = 'Shoes';
 
-	let newProducts = products.filter((product) => product.label === 'new').slice(0, productsPerCarousel);
+	let newProducts = products
+		.filter((product) => product.label === 'new')
+		.slice(0, productsPerCarousel);
 	let saleProducts = products
 		.filter((product) => product.price < product.listPrice)
 		.slice(0, productsPerCarousel);

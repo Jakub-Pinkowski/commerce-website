@@ -1,12 +1,13 @@
 <script lang="ts">
-	import type { Product } from '$lib/productTypes.ts';
-	import Swiper from 'swiper/bundle';
 	import { onMount } from 'svelte';
+	import Swiper from 'swiper/bundle';
 	import 'swiper/css/bundle';
+
+	import type { Product } from '$lib/productTypes.ts';
 
 	export let products: Product[];
 	export let title: string = 'You may also like';
-    const link = title.toLowerCase().replace(/\s+/g, '_');
+	const link = title.toLowerCase().replace(/\s+/g, '_');
 
 	let recommendationsSwiper: Swiper;
 
