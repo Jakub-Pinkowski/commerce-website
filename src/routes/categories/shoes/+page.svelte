@@ -24,10 +24,9 @@
 	// Filtering and Sorting
 	let minPrice: number | null = null;
 	let maxPrice: number | null = null;
+    let sortOption: string | null = null;
+    let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
-	let sortOption: string | null = null;
-
-	let possibleColors = getPossibleColors(products);
 	// TODO: Add new categories later on
 
 	function updateDisplayedProducts() {
