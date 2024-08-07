@@ -19,8 +19,8 @@ export function filterProducts(
 	products: Product[],
 	minPrice: number | null,
 	maxPrice: number | null,
-	selectedColors: Set<string>,
-	sortOption: string | null
+	sortOption: string | null,
+	selectedColors: Set<string>
 ): Product[] {
 	let filteredProducts = products.filter((product) => {
 		const matchesPrice =

@@ -24,13 +24,13 @@
 	// Filtering and Sorting
 	let minPrice: number | null = null;
 	let maxPrice: number | null = null;
-    let sortOption: string | null = null;
-    let possibleColors = getPossibleColors(products);
+	let sortOption: string | null = null;
+	let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
 	// TODO: Add new categories later on
 
 	function updateDisplayedProducts() {
-		displayedProducts = filterProducts(products, minPrice, maxPrice, selectedColors, sortOption);
+		displayedProducts = filterProducts(products, minPrice, maxPrice, sortOption, selectedColors);
 	}
 
 	const debouncedUpdateDisplayedProducts = debounce(updateDisplayedProducts, 200);
@@ -40,7 +40,7 @@
 		updateDisplayedProducts();
 	}
 
-	$: [products, minPrice, maxPrice, selectedColors, sortOption], debouncedUpdateDisplayedProducts();
+	$: [products, minPrice, maxPrice, sortOption, selectedColors], debouncedUpdateDisplayedProducts();
 </script>
 
 <div>
