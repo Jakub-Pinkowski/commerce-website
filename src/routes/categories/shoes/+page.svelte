@@ -171,8 +171,6 @@
 			</div>
 		</div>
 
-		<!-- TODO: Pass displayedProducts from Pagination to my main-->
-
 		<!-- TODO: Later on we need to use some recommendedProducts instead -->
 		<!-- <RecommendationsCarousel {products} /> -->
 	{:else}
