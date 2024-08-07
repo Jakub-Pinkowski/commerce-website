@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import { debounce } from '$lib/helpers/functions';
+	import { filterProducts, getPossibleColors, toggleColor } from '$lib/helpers/filtering';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import Pagination from '$lib/components/Pagination.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
@@ -17,14 +18,7 @@
 	let selectedColors: Set<string> = new Set();
 	let sortOption: string | null = null;
 
-	let possibleColors = [
-		...new Set(
-			products
-				.flatMap((product) => product.colors)
-				.filter((color) => color !== undefined)
-				.map((color) => color.charAt(0).toUpperCase() + color.slice(1))
-		)
-	].sort();
+	let possibleColors = getPossibleColors(products);
 	// TODO: Add new categories later on
 
 	interface UpdateEventDetail {
@@ -35,49 +29,18 @@
 		displayedProducts = event.detail.displayedProducts;
 	}
 
-	function sortProducts(products: Product[]): Product[] {
-		if (!sortOption) return products;
-
-		return products.slice().sort((a, b) => {
-			switch (sortOption) {
-				case 'Price: low to high':
-					return a.price - b.price;
-				case 'Price: high to low':
-					return b.price - a.price;
-				default:
-					return 0;
-			}
-		});
+	function updateDisplayedProducts() {
+		displayedProducts = filterProducts(products, minPrice, maxPrice, selectedColors, sortOption);
 	}
 
-	function filterProducts() {
-		let filteredProducts = products.filter((product) => {
-			const matchesPrice =
-				(!minPrice || product.price >= minPrice) && (!maxPrice || product.price <= maxPrice);
-			if (product.colors) {
-				const matchesColor =
-					selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color));
-				return matchesPrice && matchesColor;
-			}
+	const debouncedUpdateDisplayedProducts = debounce(updateDisplayedProducts, 200);
 
-			return matchesPrice;
-		});
-
-		displayedProducts = sortProducts(filteredProducts);
+	function handleToggleColor(color: string) {
+		selectedColors = new Set(toggleColor(selectedColors, color));
+		updateDisplayedProducts();
 	}
 
-	const debouncedFilterProducts = debounce(filterProducts, 200);
-
-	function toggleColor(color: string) {
-		if (selectedColors.has(color)) {
-			selectedColors.delete(color);
-		} else {
-			selectedColors.add(color);
-		}
-		filterProducts();
-	}
-
-	$: [products, minPrice, maxPrice, selectedColors], debouncedFilterProducts();
+	$: [products, minPrice, maxPrice, selectedColors, sortOption], debouncedUpdateDisplayedProducts();
 </script>
 
 <div>
@@ -91,7 +54,6 @@
 
 	<div class="mb-4 flex items-center justify-between border-b border-gray-200 pb-6">
 		<h1 class="text-3xl font-bold">Shoes</h1>
-		<!-- TODO: Make sorting actually work -->
 		<div class="dropdown dropdown-end">
 			<div
 				tabindex="0"
@@ -120,7 +82,7 @@
 					<button
 						on:click={() => {
 							sortOption = 'Price: low to high';
-							filterProducts();
+							updateDisplayedProducts();
 						}}>Price: low to high</button
 					>
 				</li>
@@ -128,7 +90,7 @@
 					<button
 						on:click={() => {
 							sortOption = 'Price: high to low';
-							filterProducts();
+							updateDisplayedProducts();
 						}}>Price: high to low</button
 					>
 				</li>
@@ -168,12 +130,12 @@
 							<div class="flex flex-col gap-2">
 								{#each Array.from(possibleColors) as color}
 									<div class="flex items-center">
+										<!-- FIXME: Something si wrong with input not being filled in with color -->
 										<input
 											type="checkbox"
 											id={color}
-											checked={selectedColors.has(color)}
 											value={color}
-											on:change={() => toggleColor(color.toLowerCase())}
+											on:change={() => handleToggleColor(color.toLowerCase())}
 											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
 										/>
 										<label for={color} class="ml-3 text-sm text-gray-600">{color}</label>
@@ -182,7 +144,7 @@
 							</div>
 						</div>
 					</div>
-                    <!-- TODO: Add some more facets later on -->
+					<!-- TODO: Add some more facets later on -->
 				</div>
 			</div>
 
