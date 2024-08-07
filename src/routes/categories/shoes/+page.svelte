@@ -15,6 +15,7 @@
 	let minPrice: number | null = null;
 	let maxPrice: number | null = null;
 	let selectedColors: Set<string> = new Set();
+	let sortOption: string | null = null;
 
 	let possibleColors = [
 		...new Set(
@@ -34,8 +35,23 @@
 		displayedProducts = event.detail.displayedProducts;
 	}
 
+	function sortProducts(products: Product[]): Product[] {
+		if (!sortOption) return products;
+
+		return products.slice().sort((a, b) => {
+			switch (sortOption) {
+				case 'Price: low to high':
+					return a.price - b.price;
+				case 'Price: high to low':
+					return b.price - a.price;
+				default:
+					return 0;
+			}
+		});
+	}
+
 	function filterProducts() {
-		displayedProducts = products.filter((product) => {
+		let filteredProducts = products.filter((product) => {
 			const matchesPrice =
 				(!minPrice || product.price >= minPrice) && (!maxPrice || product.price <= maxPrice);
 			if (product.colors) {
@@ -46,6 +62,8 @@
 
 			return matchesPrice;
 		});
+
+		displayedProducts = sortProducts(filteredProducts);
 	}
 
 	const debouncedFilterProducts = debounce(filterProducts, 200);
@@ -96,12 +114,24 @@
 			</div>
 
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+			<!-- TODO: Make it dynamic later, define all sorting options in a separate component -->
 			<ul tabindex="0" class="menu dropdown-content z-20 w-44 rounded-box bg-base-100 p-2 shadow">
-				<li><button>Most Popular</button></li>
-				<li><button>Best Rating</button></li>
-				<li><button>Newest</button></li>
-				<li><button>Price: low to high</button></li>
-				<li><button>Price: high to low</button></li>
+				<li>
+					<button
+						on:click={() => {
+							sortOption = 'Price: low to high';
+							filterProducts();
+						}}>Price: low to high</button
+					>
+				</li>
+				<li>
+					<button
+						on:click={() => {
+							sortOption = 'Price: high to low';
+							filterProducts();
+						}}>Price: high to low</button
+					>
+				</li>
 			</ul>
 		</div>
 	</div>
