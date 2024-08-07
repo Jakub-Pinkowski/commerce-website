@@ -71,8 +71,9 @@
 		</ul>
 	</div>
 
-	<div class="mb-4 flex justify-between border-b border-gray-200 pb-6">
+	<div class="mb-4 flex items-center justify-between border-b border-gray-200 pb-6">
 		<h1 class="text-3xl font-bold">Shoes</h1>
+		<!-- TODO: Make sorting actually work -->
 		<div class="dropdown dropdown-end">
 			<div
 				tabindex="0"
@@ -107,8 +108,8 @@
 
 	{#if displayedProducts}
 		<div class="flex">
-			<!-- Sidebar -->
-			<div class="flex w-64 min-w-64 max-w-64 flex-col pr-4">
+			<!-- Desktop Sidebar -->
+			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 lg:flex">
 				<div class="join join-vertical w-full">
 					<div class="collapse join-item collapse-plus border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
@@ -153,6 +154,9 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Mobile Sidebar -->
+			<div class="lg:hidden"></div>
 
 			<!-- Products -->
 			<div class="w-full">
