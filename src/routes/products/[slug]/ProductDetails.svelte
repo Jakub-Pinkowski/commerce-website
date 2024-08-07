@@ -35,7 +35,9 @@
 		setTimeout(() => {
 			toastCart = false;
 		}, 2000);
-		openMiniCart();
+		setTimeout(() => {
+			openMiniCart();
+		}, 400);
 	}
 
 	const isWishlisted = derived(wishlist, ($wishlist) =>
@@ -171,7 +173,7 @@
 	</div>
 </div>
 {#if toastCart}
-	<div class="toast toast-center toast-top" transition:fade>
+	<div class="toast toast-center toast-top z-10" transition:fade>
 		<div class="alert-add-to-cart alert">
 			<span> {@html toastCartMessage}</span>
 		</div>
@@ -179,7 +181,7 @@
 {/if}
 
 {#if toastWishlist}
-	<div class="toast toast-center toast-top" transition:fade>
+	<div class="toast toast-center toast-top z-10" transition:fade>
 		<div class="alert-wishlist alert">
 			<span> {@html toastWishlistMessage}</span>
 		</div>
@@ -195,7 +197,7 @@
 
 	.alert-wishlist {
 		--alert-bg: var(--light-accent);
-        color: var(--dark);
+		color: var(--dark);
 		border-color: var(--light-accent);
 	}
 
