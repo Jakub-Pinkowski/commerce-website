@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import type { Product } from '$lib/productTypes.ts';
+	import type { Product } from '$lib/productTypes';
 	import { debounce } from '$lib/helpers/functions';
 	import { filterProducts, getPossibleColors, toggleColor } from '$lib/helpers/filtering';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
@@ -10,9 +10,18 @@
 	export let data: PageData;
 	export let products: Product[] = data?.products;
 
+	// Pagination
 	let itemsPerPage = 24;
 	let displayedProducts: Product[] = [];
+    
+	interface UpdateEventDetail {
+		displayedProducts: Product[];
+	}
+	function handleUpdatePagination(event: CustomEvent<UpdateEventDetail>) {
+		displayedProducts = event.detail.displayedProducts;
+	}
 
+	// Filtering and Sorting
 	let minPrice: number | null = null;
 	let maxPrice: number | null = null;
 	let selectedColors: Set<string> = new Set();
@@ -20,15 +29,6 @@
 
 	let possibleColors = getPossibleColors(products);
 	// TODO: Add new categories later on
-
-	interface UpdateEventDetail {
-		displayedProducts: Product[];
-	}
-
-	function handleUpdatePagination(event: CustomEvent<UpdateEventDetail>) {
-		displayedProducts = event.detail.displayedProducts;
-	}
-
 	function updateDisplayedProducts() {
 		displayedProducts = filterProducts(products, minPrice, maxPrice, selectedColors, sortOption);
 	}
