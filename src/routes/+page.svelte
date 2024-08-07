@@ -2,7 +2,6 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
-
 	import jackets from '$lib/assets/images/jackets.jpg';
 	import shoes from '$lib/assets/images/footwear.jpg';
 	import pants from '$lib/assets/images/pants.jpg';
@@ -67,7 +66,7 @@
 		<RecommendationsCarousel products={newProducts} title="New" />
 	</div>
 	<!-- Experimental -->
-	<div class="flex justify-center my-8">
+	<div class="my-8 flex justify-center">
 		<div class="stats stats-vertical text-center lg:stats-horizontal">
 			<div class="stat w-full">
 				<div class="stat-value mb-4">
@@ -105,7 +104,7 @@
 						/>
 					</svg>
 				</div>
-				<div class="stat-title whitespace-normal font-semibold ">
+				<div class="stat-title whitespace-normal font-semibold">
 					Free returns and exchanges within 30 days
 				</div>
 			</div>
