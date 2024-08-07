@@ -13,7 +13,7 @@
 	// Pagination
 	let itemsPerPage = 24;
 	let displayedProducts: Product[] = [];
-    
+
 	interface UpdateEventDetail {
 		displayedProducts: Product[];
 	}
@@ -29,6 +29,7 @@
 
 	let possibleColors = getPossibleColors(products);
 	// TODO: Add new categories later on
+
 	function updateDisplayedProducts() {
 		displayedProducts = filterProducts(products, minPrice, maxPrice, selectedColors, sortOption);
 	}
@@ -130,7 +131,6 @@
 							<div class="flex flex-col gap-2">
 								{#each Array.from(possibleColors) as color}
 									<div class="flex items-center">
-										<!-- FIXME: Something si wrong with input not being filled in with color -->
 										<input
 											type="checkbox"
 											id={color}

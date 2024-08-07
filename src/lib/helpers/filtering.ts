@@ -37,6 +37,7 @@ export function filterProducts(
 	return sortProducts(filteredProducts, sortOption);
 }
 
+// TODO: When adding new facets follow the same pattern as colors
 export function getPossibleColors(products: Product[]): string[] {
 	return [
 		...new Set(
