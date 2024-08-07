@@ -182,6 +182,7 @@
 							</div>
 						</div>
 					</div>
+                    <!-- TODO: Add some more facets later on -->
 				</div>
 			</div>
 
