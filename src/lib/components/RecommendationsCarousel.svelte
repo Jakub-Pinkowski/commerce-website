@@ -31,8 +31,6 @@
 	});
 </script>
 
-<!-- TODO: Add Hover -->
-<!-- TODO: Make styling similar to category pages -->
 <div class="my-8">
 	<div class="flex items-center justify-between border-b border-gray-200">
 		<h3 class="mb-2 text-2xl font-bold">{title}</h3>
@@ -60,7 +58,7 @@
 										alt={product.name}
 										class=" inset-0 block h-auto w-full object-cover opacity-100 md:group-hover:opacity-0"
 									/>
-									<!-- NOTE: Jacket images have wrong ratio on hover, ignore for now -->
+									<!-- FIXME: Jacket images have wrong ratio on hover-->
 									<img
 										src={product.alternateImages[0]}
 										alt={`Alternate view of ${product.name}`}
