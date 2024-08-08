@@ -37,6 +37,7 @@ export const removeFromCart = (item: CartItem) => {
 	});
 };
 
+
 export const increaseQuantity = (item: CartItem, quantity: number) => {
 	cart.update((items) => {
 		const existingItem = items.find((i) => i.id === item.id);
