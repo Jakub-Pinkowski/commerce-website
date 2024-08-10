@@ -9,6 +9,7 @@
 
 	let searchQuery = '';
 
+    // TODO: Should be able to filter by color as well
 	$: filteredProducts = searchQuery
 		? products?.filter(
 				(product) =>
