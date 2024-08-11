@@ -28,8 +28,11 @@
 	}
 
 	// Filtering and Sorting
-	let minPrice: number | null = null;
-	let maxPrice: number | null = null;
+	let [minPrice, maxPrice] = [
+		Math.min(...products.map((p) => p.price)),
+		Math.max(...products.map((p) => p.price))
+	];
+
 	let sortOption: string | null = null;
 	let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
@@ -131,13 +134,13 @@
 							<div class="flex gap-2">
 								<input
 									type="text"
-									placeholder="Min"
+									placeholder={minPrice ? '' : 'Min'}
 									class="input input-bordered w-full text-sm"
 									bind:value={minPrice}
 								/>
 								<input
 									type="text"
-									placeholder="Max"
+									placeholder={maxPrice ? '' : 'Max'}
 									class="input input-bordered w-full text-sm"
 									bind:value={maxPrice}
 								/>
