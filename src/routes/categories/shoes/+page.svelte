@@ -28,11 +28,8 @@
 	}
 
 	// Filtering and Sorting
-	let [minPrice, maxPrice] = [
-		Math.min(...products.map((p) => p.price)),
-		Math.max(...products.map((p) => p.price))
-	];
-
+	let minPrice: number = 0;
+	let maxPrice: number = 0;
 	let sortOption: string | null = null;
 	let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
@@ -61,6 +58,46 @@
 	function handleToggleBrand(brand: string) {
 		selectedBrands = new Set(toggleBrand(selectedBrands, brand));
 		updateDisplayedProducts();
+	}
+
+	// Function to get possible colors based on selected brands
+	function getPossibleColorsByBrands(products: Product[], selectedBrands: Set<string>): string[] {
+		const filteredProducts = products.filter(
+			(product) => selectedBrands.size === 0 || selectedBrands.has(product.brand)
+		);
+		return getPossibleColors(filteredProducts);
+	}
+
+	// Function to get possible brands based on selected colors
+	function getPossibleBrandsByColors(products: Product[], selectedColors: Set<string>): string[] {
+		const filteredProducts = products.filter(
+			(product) =>
+				selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color))
+		);
+		return getPossibleBrands(filteredProducts);
+	}
+
+	// Reactive statement to update possible colors when selected brands change
+	$: possibleColors = getPossibleColorsByBrands(products, selectedBrands);
+
+	// Reactive statement to update possible brands when selected colors change
+	$: possibleBrands = getPossibleBrandsByColors(products, selectedColors);
+
+	// Reactive statement to update minPrice and maxPrice when products change
+	$: {
+		const filteredProducts = products.filter(
+			(product) =>
+				(selectedBrands.size === 0 || selectedBrands.has(product.brand)) &&
+				(selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color)))
+		);
+
+		if (filteredProducts.length > 0) {
+			minPrice = Math.min(...filteredProducts.map((p) => p.price));
+			maxPrice = Math.max(...filteredProducts.map((p) => p.price));
+		} else {
+			minPrice = 0;
+			maxPrice = 0;
+		}
 	}
 
 	$: [products, minPrice, maxPrice, sortOption, selectedColors, selectedBrands],
