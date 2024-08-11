@@ -88,7 +88,12 @@ function getPossibleValues(products: Product[], attribute: keyof Product): Recor
 		}
 	});
 
-	return valueCounts;
+	// Convert to array, sort alphabetically, and convert back to object
+	const sortedValueCounts = Object.fromEntries(
+		Object.entries(valueCounts).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+	);
+
+	return sortedValueCounts;
 }
 
 // Generic function to toggle selection for any attribute

@@ -31,12 +31,12 @@
 	}
 
 	// Filtering and Sorting
-	// TODO: Prices should update based on the selected filters
 	const initialMinPrice: number = Math.min(...products.map((product) => product.price));
 	const initialMaxPrice: number = Math.max(...products.map((product) => product.price));
 	let minPrice: number = initialMinPrice;
 	let maxPrice: number = initialMaxPrice;
 	let sortOption: string | null = null;
+    // TODO: Count of colors should be updated based on the selected filters
 	let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
 	let possibleBrands = getPossibleBrands(products);
