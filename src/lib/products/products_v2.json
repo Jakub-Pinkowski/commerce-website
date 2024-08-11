@@ -352,5 +352,107 @@
 			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f77511d9098843e9bce9ad6e00cb75c8_9366/Adilette_Comfort_Slides_Black_GZ5891_02_standard_hover.jpg",
 			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6c7d41c0c83f47c3b165ad6e00cb7c78_9366/Adilette_Comfort_Slides_Black_GZ5891_03_standard.jpg"
 		]
+	},
+	{
+		"id": 18,
+		"name": "Kids' Balance Bike Discover 500",
+		"handle": "kids-balance-bike-discover-500",
+		"brand": "Decathlon",
+		"category": "bikes",
+		"description": "Designed for children aged 2 to 4 years (85 to 100 cm) learning to balance on a bike. Balance bike for kids learning the basics of cycling.",
+		"price": 149,
+		"listPrice": 199,
+		"colors": ["blue", "white"],
+		"label": "new",
+		"url": "https://commerce-website-psi.vercel.app/products/kids-balance-bike-discover-500",
+		"imageUrl": "https://contents.mediadecathlon.com/p2663515/k$79b7230f759c2b046d1e001a82a37466/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646",
+		"alternateImages": [
+			"https://contents.mediadecathlon.com/p2663512/k$16ebef64cccaba801af72185ac15bf93/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2663508/k$5ed76a8215b8cc516df8b5c62fd5a122/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2663518/k$e8759dc35cc6ed2e960c3d08d681071c/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2663507/k$82326b36b9aa4fcf663f56da2880ee6b/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2663517/k$e02e88c88b8901755e65f30c387fcde2/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646"
+		]
+	},
+	{
+		"id": 19,
+		"name": "Low Frame City Bike Elops 540",
+		"handle": "low-frame-city-bike-elops-540",
+		"brand": "Decathlon",
+		"category": "bikes",
+		"description": "This city bike comes with quality components: a low frame, pannier rack, internal 7-speed hub, double-walled rims, and automatic lights powered by its dynamo hub.",
+		"price": 359,
+		"listPrice": 359,
+		"colors": ["blue", "white"],
+		"url": "https://commerce-website-psi.vercel.app/products/low-frame-city-bike-elops-540",
+		"imageUrl": "https://contents.mediadecathlon.com/p2693564/k$e144210187e3c5688b342b3e2edf18b5/sq/city-bike-2628-zoll-elops-520-lf-damen-hellblau.jpg?format=auto&f=646x646",
+		"alternateImages": [
+			"https://contents.mediadecathlon.com/p2693567/k$36930bf3fe62885bf34faf0395f22637/sq/city-bike-2628-zoll-elops-520-lf-damen-hellblau.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2693568/k$594a21301a91ad11b8abcca920250ead/sq/city-bike-2628-zoll-elops-520-lf-damen-hellblau.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2693565/k$706bc8af078425eaaff1c7164f4e8c28/sq/city-bike-2628-zoll-elops-520-lf-damen-hellblau.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2693563/k$9d4ac90e8c1bc57ed35f7cbf868447d5/sq/city-bike-2628-zoll-elops-520-lf-damen-hellblau.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2693566/k$c409e8d320304aabe6a1f3213bef34b6/sq/city-bike-2628-zoll-elops-520-lf-damen-hellblau.jpg?format=auto&f=646x646"
+		]
+	},
+	{
+		"id": 20,
+		"name": "E-cargo bike Cargobike R500E Longtail V2 black",
+		"handle": "e-cargo-bike-cargobike-r500e-longtail-v2-black",
+		"brand": "Decathlon",
+		"category": "bikes",
+		"description": "With the electric longtail cargo bike, you can transport all your belongings in the city and on paved roads.",
+		"price": 2999,
+		"listPrice": 2999,
+		"colors": ["black", "brown"],
+		"label": "new",
+		"url": "https://commerce-website-psi.vercel.app/products/e-cargo-bike-cargobike-r500e-longtail-v2-black",
+		"imageUrl": "https://contents.mediadecathlon.com/p2700407/k$0a664ebefd8b2822c5551b85e44a1eee/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646",
+		"alternateImages": [
+			"https://contents.mediadecathlon.com/p2758046/k$2bfadab5f7125d81feda09815a35df7d/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2700434/k$221fc6136194fb65141c5364ce0316e6/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2700438/k$2b3d8a6e705abaf6788beded9d1a7ae4/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2700437/k$7c10b0bb57caa04aca9cb88d45da685a/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2700426/k$8bfa783e237ba6bb509cf2b276bb5c6f/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646"
+		]
+	},
+	{
+		"id": 21,
+		"name": "E-mountain Hardtail E-ST 100",
+		"handle": "e-mountain-hardtail-e-st-100",
+		"brand": "Decathlon",
+		"category": "bikes",
+		"description": "This E-MTB was developed for touring on any terrain and undulating routes. This MTB is ideal for your first tours on easy terrain with little difference in altitude.",
+		"price": 1099,
+		"listPrice": 1299,
+		"colors": ["white", "red", "black"],
+		"url": "https://commerce-website-psi.vercel.app/products/e-mountain-hardtail-e-st-100",
+		"imageUrl": "https://contents.mediadecathlon.com/p2623171/k$9d17c556d9d2e6d0f0da3770060d5191/sq/e-mountainbike-hardtail-275-zoll-e-st-100-weiss.jpg?format=auto&f=646x646",
+		"alternateImages": [
+			"https://contents.mediadecathlon.com/p2470097/k$951f45dd38ae2244319655eff6fe4ea3/sq/e-mountainbike-hardtail-275-zoll-e-st-100-weiss.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2470096/k$711a6b80a84f306111f82f855b674387/sq/e-mountainbike-hardtail-275-zoll-e-st-100-weiss.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2470094/k$9fa6059359a0b2c2c89f26ecc08fd955/sq/e-mountainbike-hardtail-275-zoll-e-st-100-weiss.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2470098/k$e4ac7b2c38f68780b627a6f8ed1a200b/sq/e-mountainbike-hardtail-275-zoll-e-st-100-weiss.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2470093/k$d946e850d2d403ec664fcfd8016375d9/sq/e-mountainbike-hardtail-275-zoll-e-st-100-weiss.jpg?format=auto&f=646x646"
+		]
+	},
+	{
+		"id": 22,
+		"name": "Road bike gravel bike Triban GRVL 120",
+		"handle": "road-bike-gravel-bike-triban-grvl-120",
+		"brand": "Decathlon",
+		"category": "bikes",
+		"description": "The GRVL120, developed for entry-level gravel sports, is simple and versatile: a chainring, handlebars with flare, tubeless-ready tires and wheels.",
+		"price": 799,
+		"listPrice": 899,
+		"colors": ["green", "black", "gold", "yellow"],
+		"url": "https://commerce-website-psi.vercel.app/products/road-bike-gravel-bike-triban-grvl-120",
+		"imageUrl": "https://contents.mediadecathlon.com/p1824558/k$cd58dd29746c314441906e89c4020920/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646",
+		"alternateImages": [
+			"https://contents.mediadecathlon.com/p1824554/k$4569c4dc2beaa6924190487f68936522/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p1824555/k$59ce8e244e28d81d83b5efc7706c4745/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p1824556/k$5443d79ead83b943fe6f4e7d47f8126d/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p1824557/k$fde1b89f0c2e5873c37cf73121e52ef4/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646",
+			"https://contents.mediadecathlon.com/p2046485/k$ade59fc920c9cf8611dccdaa8e4da373/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646"
+		]
 	}
 ]
