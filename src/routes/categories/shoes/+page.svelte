@@ -7,7 +7,9 @@
 		getPossibleColors,
 		toggleColor,
 		getPossibleBrands,
-		toggleBrand
+		toggleBrand,
+		getPossibleCategories,
+		toggleCategory
 	} from '$lib/helpers/filtering';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import Pagination from '$lib/components/Pagination.svelte';
@@ -35,7 +37,9 @@
 	let selectedColors: Set<string> = new Set();
 	let possibleBrands = getPossibleBrands(products);
 	let selectedBrands: Set<string> = new Set();
-        
+	let possibleCategories = getPossibleCategories(products);
+	let selectedCategories: Set<string> = new Set();
+
 	// TODO: Add new categories later on
 
 	function updateDisplayedProducts() {
@@ -45,7 +49,8 @@
 			maxPrice,
 			sortOption,
 			selectedColors,
-			selectedBrands
+			selectedBrands,
+			selectedCategories
 		);
 	}
 
@@ -53,55 +58,23 @@
 
 	function handleToggleColor(color: string) {
 		selectedColors = new Set(toggleColor(selectedColors, color));
+        console.log('selectedColors', selectedColors);
 		updateDisplayedProducts();
 	}
 
 	function handleToggleBrand(brand: string) {
 		selectedBrands = new Set(toggleBrand(selectedBrands, brand));
+		console.log('selectedBrands', selectedBrands);
 		updateDisplayedProducts();
 	}
 
-	// Function to get possible colors based on selected brands
-	function getPossibleColorsByBrands(products: Product[], selectedBrands: Set<string>): string[] {
-		const filteredProducts = products.filter(
-			(product) => selectedBrands.size === 0 || selectedBrands.has(product.brand)
-		);
-		return getPossibleColors(filteredProducts);
+	function handleToggleCategory(category: string) {
+		selectedCategories = new Set(toggleCategory(selectedCategories, category));
+		console.log('selectedCategories', selectedCategories);
+		updateDisplayedProducts();
 	}
 
-	// Function to get possible brands based on selected colors
-	function getPossibleBrandsByColors(products: Product[], selectedColors: Set<string>): string[] {
-		const filteredProducts = products.filter(
-			(product) =>
-				selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color))
-		);
-		return getPossibleBrands(filteredProducts);
-	}
-
-	// Reactive statement to update possible colors when selected brands change
-	$: possibleColors = getPossibleColorsByBrands(products, selectedBrands);
-
-	// Reactive statement to update possible brands when selected colors change
-	$: possibleBrands = getPossibleBrandsByColors(products, selectedColors);
-
-	// Reactive statement to update minPrice and maxPrice when products change
-	$: {
-		const filteredProducts = products.filter(
-			(product) =>
-				(selectedBrands.size === 0 || selectedBrands.has(product.brand)) &&
-				(selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color)))
-		);
-
-		if (filteredProducts.length > 0) {
-			minPrice = Math.min(...filteredProducts.map((p) => p.price));
-			maxPrice = Math.max(...filteredProducts.map((p) => p.price));
-		} else {
-			minPrice = 0;
-			maxPrice = 0;
-		}
-	}
-
-	$: [products, minPrice, maxPrice, sortOption, selectedColors, selectedBrands],
+	$: [products, minPrice, maxPrice, sortOption, selectedColors, selectedBrands, selectedCategories],
 		debouncedUpdateDisplayedProducts();
 </script>
 
@@ -165,7 +138,7 @@
 			<!-- Desktop Sidebar -->
 			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 lg:flex">
 				<div class="join join-vertical w-full">
-					<div class="collapse join-item collapse-plus border-b border-base-300">
+					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
 						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
 						<div class="collapse-content pl-1">
@@ -185,7 +158,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="collapse join-item collapse-plus border-b border-base-300">
+					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-4" />
 						<div class="collapse-title pl-1 text-lg font-medium">Color</div>
 						<div class="collapse-content pl-1">
@@ -205,16 +178,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="collapse join-item collapse-plus border-b border-base-300">
+					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-5" />
 						<div class="collapse-title pl-1 text-lg font-medium">Brand</div>
 						<div class="collapse-content pl-1">
 							<div class="flex flex-col gap-2">
 								{#each Array.from(possibleBrands) as brand}
-									<div
-										class="items -center
-                                    flex"
-									>
+									<div class="flex items-center">
 										<input
 											type="checkbox"
 											id={brand}
@@ -223,6 +193,26 @@
 											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
 										/>
 										<label for={brand} class="ml-3 text-sm text-gray-600">{brand}</label>
+									</div>
+								{/each}
+							</div>
+						</div>
+					</div>
+					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
+						<input type="checkbox" name="my-accordion-6" />
+						<div class="collapse-title pl-1 text-lg font-medium">Category</div>
+						<div class="collapse-content pl-1">
+							<div class="flex flex-col gap-2">
+								{#each Array.from(possibleCategories) as category}
+									<div class="flex items-center">
+										<input
+											type="checkbox"
+											id={category}
+											value={category}
+											on:change={() => handleToggleCategory(category)}
+											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
+										/>
+										<label for={category} class="ml-3 text-sm text-gray-600">{category}</label>
 									</div>
 								{/each}
 							</div>

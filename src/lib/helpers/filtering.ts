@@ -46,12 +46,14 @@ export function filterProducts(
 	maxPrice: number | null,
 	sortOption: string | null,
 	selectedColors: Set<string>,
-	selectedBrands: Set<string>
+	selectedBrands: Set<string>,
+    selectedCategories: Set<string>
 ): Product[] {
 	const filters = [
 		(products: Product[]) => filterByAttribute(products, 'price', [minPrice, maxPrice]),
 		(products: Product[]) => filterByAttribute(products, 'colors', selectedColors),
-		(products: Product[]) => filterByAttribute(products, 'brand', selectedBrands)
+		(products: Product[]) => filterByAttribute(products, 'brand', selectedBrands),
+        (products: Product[]) => filterByAttribute(products, 'category', selectedCategories)
 	];
 
 	let filteredProducts = applyFilters(products, filters);
@@ -66,6 +68,7 @@ function getPossibleValues(products: Product[], attribute: keyof Product): strin
 		if (Array.isArray(values)) {
 			values.forEach((value) => {
 				if (value) {
+                    console.log("value: ", value);
 					valueSet.add(value.charAt(0).toUpperCase() + value.slice(1));
 				}
 			});
@@ -103,7 +106,7 @@ export function toggleBrand(selectedBrands: Set<string>, brand: string): Set<str
 	return toggleSelection(selectedBrands, brand);
 }
 
-export function getpossibleCategories(products: Product[]): string[] {
+export function getPossibleCategories(products: Product[]): string[] {
     return getPossibleValues(products, 'category');
 }
 
