@@ -25,6 +25,7 @@
 	function goToPage(page: number) {
 		currentPage = page;
 		updateDisplayedProducts();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 
 	function nextPage() {
