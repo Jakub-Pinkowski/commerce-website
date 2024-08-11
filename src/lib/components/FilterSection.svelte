@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let title: string;
-	export let filters: string[];
+	export let filters: Record<string, number>;
 	export let handleToggle: (item: string) => void;
 
 	function capitalizeFirstLetter(str: string): string {
@@ -13,7 +13,7 @@
 	<div class="collapse-title pl-1 text-lg font-medium">{title}</div>
 	<div class="collapse-content pl-1">
 		<div class="flex flex-col gap-2">
-			{#each Array.from(filters) as filter}
+			{#each Object.entries(filters) as [filter, count]}
 				<div class="flex items-center">
 					<input
 						type="checkbox"
@@ -23,7 +23,7 @@
 						class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
 					/>
 					<label for={filter} class="ml-3 text-sm text-gray-600"
-						>{capitalizeFirstLetter(filter)}</label
+						>{capitalizeFirstLetter(filter)} ({count})</label
 					>
 				</div>
 			{/each}

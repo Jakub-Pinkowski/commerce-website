@@ -72,22 +72,23 @@ export function filterProducts(
 	return sortProducts(filteredProducts, sortOption);
 }
 
-// Generic function to get possible values for any attribute
-function getPossibleValues(products: Product[], attribute: keyof Product): string[] {
-	const valueSet = new Set<string>();
+// Generic function to get possible values and their counts for any attribute
+function getPossibleValues(products: Product[], attribute: keyof Product): Record<string, number> {
+	const valueCounts: Record<string, number> = {};
 
 	products.forEach((product) => {
 		const values = product[attribute];
 		if (Array.isArray(values)) {
 			values.forEach((value) => {
-				valueSet.add(value);
+				valueCounts[value] = (valueCounts[value] || 0) + 1;
 			});
 		} else {
-			valueSet.add(values as string);
+			const value = values as string;
+			valueCounts[value] = (valueCounts[value] || 0) + 1;
 		}
 	});
 
-	return Array.from(valueSet).sort();
+	return valueCounts;
 }
 
 // Generic function to toggle selection for any attribute
@@ -101,7 +102,7 @@ function toggleSelection(selectedSet: Set<string>, value: string): Set<string> {
 }
 
 // Category filtering using generic functions
-export function getPossibleColors(products: Product[]): string[] {
+export function getPossibleColors(products: Product[]): Record<string, number> {
 	return getPossibleValues(products, 'colors');
 }
 
@@ -109,7 +110,7 @@ export function toggleColor(selectedColors: Set<string>, color: string): Set<str
 	return toggleSelection(selectedColors, color);
 }
 
-export function getPossibleBrands(products: Product[]): string[] {
+export function getPossibleBrands(products: Product[]): Record<string, number> {
 	return getPossibleValues(products, 'brand');
 }
 
@@ -117,7 +118,7 @@ export function toggleBrand(selectedBrands: Set<string>, brand: string): Set<str
 	return toggleSelection(selectedBrands, brand);
 }
 
-export function getPossibleCategories(products: Product[]): string[] {
+export function getPossibleCategories(products: Product[]): Record<string, number> {
 	return getPossibleValues(products, 'category');
 }
 
