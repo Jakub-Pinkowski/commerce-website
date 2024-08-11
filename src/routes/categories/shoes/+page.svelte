@@ -156,11 +156,11 @@
 							</div>
 						</div>
 					</div>
-					<FilterSection title="Color" products={possibleColors} handleToggle={handleToggleColor} />
-					<FilterSection title="Brand" products={possibleBrands} handleToggle={handleToggleBrand} />
+					<FilterSection title="Color" filters={possibleColors} handleToggle={handleToggleColor} />
+					<FilterSection title="Brand" filters={possibleBrands} handleToggle={handleToggleBrand} />
 					<FilterSection
 						title="Category"
-						products={possibleCategories}
+						filters={possibleCategories}
 						handleToggle={handleToggleCategory}
 					/>
 					<!-- TODO: Add some more facets later on -->
