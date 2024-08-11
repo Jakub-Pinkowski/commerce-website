@@ -15,28 +15,22 @@ export function sortProducts(products: Product[], sortOption: string | null): Pr
 	});
 }
 
-function filterByPrice(
+function filterByAttribute<T>(
 	products: Product[],
-	minPrice: number | null,
-	maxPrice: number | null
+	attribute: keyof Product,
+	values: Set<T> | [number | null, number | null]
 ): Product[] {
-	return products.filter(
-		(product) =>
-			(!minPrice || product.price >= minPrice) && (!maxPrice || product.price <= maxPrice)
-	);
-}
-
-function filterByColor(products: Product[], selectedColors: Set<string>): Product[] {
-	return products.filter(
-		(product) =>
-			selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color))
-	);
-}
-
-function filterByBrand(products: Product[], selectedBrands: Set<string>): Product[] {
-	return products.filter(
-		(product) => selectedBrands.size === 0 || selectedBrands.has(product.brand)
-	);
+	if (Array.isArray(values)) {
+		const [min, max] = values;
+		return products.filter((product) => {
+			const value = product[attribute];
+			return typeof value === 'number' && (!min || value >= min) && (!max || value <= max);
+		});
+	} else {
+		return products.filter(
+			(product) => values.size === 0 || values.has(product[attribute] as unknown as T)
+		);
+	}
 }
 
 function applyFilters(
@@ -55,51 +49,64 @@ export function filterProducts(
 	selectedBrands: Set<string>
 ): Product[] {
 	const filters = [
-		(products: Product[]) => filterByPrice(products, minPrice, maxPrice),
-		(products: Product[]) => filterByColor(products, selectedColors),
-		(products: Product[]) => filterByBrand(products, selectedBrands)
+		(products: Product[]) => filterByAttribute(products, 'price', [minPrice, maxPrice]),
+		(products: Product[]) => filterByAttribute(products, 'colors', selectedColors),
+		(products: Product[]) => filterByAttribute(products, 'brand', selectedBrands)
 	];
 
 	let filteredProducts = applyFilters(products, filters);
 	return sortProducts(filteredProducts, sortOption);
 }
 
-export function getPossibleColors(products: Product[]): string[] {
-	const colorSet = new Set<string>();
+// Generic function to get possible values for any attribute
+function getPossibleValues(products: Product[], attribute: keyof Product): string[] {
+	const valueSet = new Set<string>();
 	products.forEach((product) => {
-		product.colors.forEach((color) => {
-			if (color) {
-				colorSet.add(color.charAt(0).toUpperCase() + color.slice(1));
-			}
-		});
+		const values = product[attribute];
+		if (Array.isArray(values)) {
+			values.forEach((value) => {
+				if (value) {
+					valueSet.add(value.charAt(0).toUpperCase() + value.slice(1));
+				}
+			});
+		} else if (values) {
+			valueSet.add((values as string).charAt(0).toUpperCase() + (values as string).slice(1));
+		}
 	});
-	return Array.from(colorSet).sort();
+	return Array.from(valueSet).sort();
+}
+
+// Generic function to toggle selection for any attribute
+function toggleSelection(selectedSet: Set<string>, value: string): Set<string> {
+	if (selectedSet.has(value)) {
+		selectedSet.delete(value);
+	} else {
+		selectedSet.add(value);
+	}
+	return selectedSet;
+}
+
+// Category filtering using generic functions
+export function getPossibleColors(products: Product[]): string[] {
+	return getPossibleValues(products, 'colors');
 }
 
 export function toggleColor(selectedColors: Set<string>, color: string): Set<string> {
-	if (selectedColors.has(color)) {
-		selectedColors.delete(color);
-	} else {
-		selectedColors.add(color);
-	}
-	return selectedColors;
+	return toggleSelection(selectedColors, color);
 }
 
 export function getPossibleBrands(products: Product[]): string[] {
-	const brandSet = new Set<string>();
-	products.forEach((product) => {
-		if (product.brand) {
-			brandSet.add(product.brand.charAt(0).toUpperCase() + product.brand.slice(1));
-		}
-	});
-	return Array.from(brandSet).sort();
+	return getPossibleValues(products, 'brand');
 }
 
 export function toggleBrand(selectedBrands: Set<string>, brand: string): Set<string> {
-	if (selectedBrands.has(brand)) {
-		selectedBrands.delete(brand);
-	} else {
-		selectedBrands.add(brand);
-	}
-	return selectedBrands;
+	return toggleSelection(selectedBrands, brand);
+}
+
+export function getpossibleCategories(products: Product[]): string[] {
+    return getPossibleValues(products, 'category');
+}
+
+export function toggleCategory(selectedCategories: Set<string>, category: string): Set<string> {
+    return toggleSelection(selectedCategories, category);
 }
