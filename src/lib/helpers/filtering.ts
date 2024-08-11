@@ -35,45 +35,42 @@ export function filterProducts(
 	return sortProducts(filteredProducts, sortOption);
 }
 
-// TODO: When adding new facets follow the same pattern as colors
 export function getPossibleColors(products: Product[]): string[] {
-	return [
-		...new Set(
-			products
-				.flatMap((product) => product.colors)
-				.filter((color) => color !== undefined)
-				.map((color) => color.charAt(0).toUpperCase() + color.slice(1))
-		)
-	].sort();
+	const colorSet = new Set<string>();
+	products.forEach((product) => {
+		product.colors.forEach((color) => {
+			if (color) {
+				colorSet.add(color.charAt(0).toUpperCase() + color.slice(1));
+			}
+		});
+	});
+	return Array.from(colorSet).sort();
 }
 
 export function toggleColor(selectedColors: Set<string>, color: string): Set<string> {
-	const newSelectedColors = new Set(selectedColors);
-	if (newSelectedColors.has(color)) {
-		newSelectedColors.delete(color);
+	if (selectedColors.has(color)) {
+		selectedColors.delete(color);
 	} else {
-		newSelectedColors.add(color);
+		selectedColors.add(color);
 	}
-	return newSelectedColors;
+	return selectedColors;
 }
 
 export function getPossibleBrands(products: Product[]): string[] {
-	return [
-		...new Set(
-			products
-				.flatMap((product) => product.brand)
-				.filter((brand) => brand !== undefined)
-				.map((brand) => brand.charAt(0).toUpperCase() + brand.slice(1))
-		)
-	].sort();
+	const brandSet = new Set<string>();
+	products.forEach((product) => {
+		if (product.brand) {
+			brandSet.add(product.brand.charAt(0).toUpperCase() + product.brand.slice(1));
+		}
+	});
+	return Array.from(brandSet).sort();
 }
 
 export function toggleBrand(selectedBrands: Set<string>, brand: string): Set<string> {
-	const newSelectedBrands = new Set(selectedBrands);
-	if (newSelectedBrands.has(brand)) {
-		newSelectedBrands.delete(brand);
+	if (selectedBrands.has(brand)) {
+		selectedBrands.delete(brand);
 	} else {
-		newSelectedBrands.add(brand);
+		selectedBrands.add(brand);
 	}
-	return newSelectedBrands;
+	return selectedBrands;
 }

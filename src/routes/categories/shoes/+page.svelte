@@ -35,6 +35,7 @@
 	let selectedColors: Set<string> = new Set();
 	let possibleBrands = getPossibleBrands(products);
 	let selectedBrands: Set<string> = new Set();
+        
 	// TODO: Add new categories later on
 
 	function updateDisplayedProducts() {
