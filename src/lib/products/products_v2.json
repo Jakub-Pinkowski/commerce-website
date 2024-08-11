@@ -251,5 +251,106 @@
 			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-5.jpg?v=1709223335",
 			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-6.jpg?v=1709223335"
 		]
+	},
+	{
+		"id": 13,
+		"name": "Ultraboost 5X Shoes",
+		"handle": "ultraboost-5x-shoes",
+		"brand": "Adidas",
+		"category": "shoes",
+		"description": "The Ultraboost 5X Shoes are designed for comfort and style, perfect for any casual outing.",
+		"price": 180,
+		"listPrice": 180,
+		"colors": ["black", "gray"],
+		"url": "https://commerce-website-psi.vercel.app/products/ultraboost-5x-shoes",
+		"imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3cb9aaddde35469b9f6adac637736015_9366/Ultraboost_5X_Shoes_Black_JH7244_01_standard_hover.jpg",
+		"alternateImages": [
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b4b1c544643c4e1da084cde64c9a8200_9366/Ultraboost_5X_Shoes_Black_JH7244_04_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/e42e461b6dc8445f99654b7996ebb0b9_9366/Ultraboost_5X_Shoes_Black_JH7244_02_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/4c0f3b12afbf4879bc3d6e4e42fd59dd_9366/Ultraboost_5X_Shoes_Black_JH7244_03_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fc4d0c3689024b79b3363aa6387c3b51_9366/Ultraboost_5X_Shoes_Black_JH7244_012_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/be606ae15a544d159d826941cbc92b01_9366/Ultraboost_5X_Shoes_Black_JH7244_16_standard.jpg,"
+		]
+	},
+	{
+		"id": 14,
+		"name": "Gazelle Indoor Shoes",
+		"handle": "gazelle-indoor-shoes",
+		"brand": "Adidas",
+		"category": "shoes",
+		"description": "An update of the iconic indoor soccer training shoe, these adidas Gazelle shoes feature a breathable cotton mesh upper with suede overlays.",
+		"price": 80,
+		"listPrice": 130,
+		"colors": ["orange", "black", "gum"],
+		"url": "https://commerce-website-psi.vercel.app/products/gazelle-indoor-shoes",
+		"imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/925a49e9688f4b9fb53c588ca7b2d86b_9366/Gazelle_Indoor_Shoes_Orange_IH4770_01_standard.jpg",
+		"alternateImages": [
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f7f44e01fcf04954bb13719df12c850b_9366/Gazelle_Indoor_Shoes_Orange_IH4770_02_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/73044a36c33b4dd29b064153975c6477_9366/Gazelle_Indoor_Shoes_Orange_IH4770_03_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f09baa45e0a14d08bb0c3692e348ccac_9366/Gazelle_Indoor_Shoes_Orange_IH4770_04_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a3ad8f18f58e45ce9ed4c95af8190bd5_9366/Gazelle_Indoor_Shoes_Orange_IH4770_05_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a43c3a26d698458e96d79a0eed076ccb_9366/Gazelle_Indoor_Shoes_Orange_IH4770_15_hover_standard.jpg"
+		]
+	},
+	{
+		"id": 15,
+		"name": "Superstar Shoes",
+		"handle": "superstar-shoes",
+		"brand": "Adidas",
+		"category": "shoes",
+		"description": "Built for basketball, adopted by hip hop and skate, the classic leather Superstar changed the game the moment it stepped off the court.",
+		"price": 100,
+		"listPrice": 100,
+		"colors": ["white", "black", "gold"],
+		"url": "https://commerce-website-psi.vercel.app/products/superstar-shoes",
+		"imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7ed0855435194229a525aad6009a0497_9366/Superstar_Shoes_White_EG4958_01_standard.jpg",
+		"alternateImages": [
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ff2e419f1eda4ebab23faad6009a3a9e_9366/Superstar_Shoes_White_EG4958_04_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/31cf91f6e16c4f0aa11caad6009a4590_9366/Superstar_Shoes_White_EG4958_05_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8a358bcd5e3d453da815aad6009a249e_9366/Superstar_Shoes_White_EG4958_02_standard_hover.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3708ab90979a4ba59535aad6009a2fa8_9366/Superstar_Shoes_White_EG4958_03_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/82195e908dde47519a74aad6009a50e0_9366/Superstar_Shoes_White_EG4958_41_detail.jpg"
+		]
+	},
+	{
+		"id": 16,
+		"name": "Kaptir 3.0 Shoes",
+		"handle": "kaptir-3-0-shoes",
+		"brand": "Adidas",
+		"category": "shoes",
+		"description": "For those who move through life with purpose, these adidas shoes are your perfect companion.",
+		"price": 90,
+		"listPrice": 90,
+		"colors": ["black", "red"],
+		"label": "new",
+		"url": "https://commerce-website-psi.vercel.app/products/kaptir-3-0-shoes",
+		"imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/cd94de8858c04741853150b94e864333_9366/Kaptir_3.0_Shoes_Black_JI1246_01_standard.jpg",
+		"alternateImages": [
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/bd608fc3a3fa4e2abc773b0d0f504ef6_9366/Kaptir_3.0_Shoes_Black_JI1246_04_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/17cb9d6edf484b26b393a982f18556eb_9366/Kaptir_3.0_Shoes_Black_JI1246_06_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1452d72a1c8e4c409dfdf4b8a58e4eae_9366/Kaptir_3.0_Shoes_Black_JI1246_02_standard_hover.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3e8c28bb6025444e84699dbeebdd361c_9366/Kaptir_3.0_Shoes_Black_JI1246_03_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a1e99c2ef52242519d604105df90013a_9366/Kaptir_3.0_Shoes_Black_JI1246_42_detail.jpg"
+		]
+	},
+	{
+		"id": 17,
+		"name": "Adilette Comfort Slides",
+		"handle": "adilette-comfort-slides",
+		"brand": "Adidas",
+		"category": "shoes",
+		"description": "Whether you're heading to the locker room after an intense gym session or at home recovering on the couch, these slides keep your feet wrapped in lightweight comfort.",
+		"price": 35,
+		"listPrice": 40,
+		"colors": ["black", "white"],
+		"url": "https://commerce-website-psi.vercel.app/products/adilette-comfort-slides",
+		"imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/735919589b6d4d84bb66ad6e00cb68ba_9366/Adilette_Comfort_Slides_Black_GZ5891_01_standard.jpg",
+		"alternateImages": [
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9526a39629494a0ca755ad6e00cb8291_9366/Adilette_Comfort_Slides_Black_GZ5891_04_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b94f22fb5125448db552ad6e00cb8930_9366/Adilette_Comfort_Slides_Black_GZ5891_05_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ed41cb7faffc46819bddad6e00cb6e7b_9366/Adilette_Comfort_Slides_Black_GZ5891_06_standard.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f77511d9098843e9bce9ad6e00cb75c8_9366/Adilette_Comfort_Slides_Black_GZ5891_02_standard_hover.jpg",
+			"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6c7d41c0c83f47c3b165ad6e00cb7c78_9366/Adilette_Comfort_Slides_Black_GZ5891_03_standard.jpg"
+		]
 	}
 ]
