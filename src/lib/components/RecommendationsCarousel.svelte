@@ -51,7 +51,7 @@
 										<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
 									{:else if product.label && product.label.trim() !== ''}
 										<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
-											{product.label}
+                                            {product.label.charAt(0).toUpperCase() + product.label.slice(1).toLowerCase()}
 										</div>
 									{/if}
 									<img
