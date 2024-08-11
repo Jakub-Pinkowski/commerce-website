@@ -82,6 +82,8 @@
 		</div>
 		<div class="mt-4 hidden w-full grid-cols-[1fr,auto] gap-x-4 md:grid">
 			<button class="btn btn-primary text-white" on:click={handleAddToCart}> Add to cart </button>
+			<!-- FIXME: AT Lite and All-Terrain get added both at the same time -->
+			<!-- FIXME: It's buggy in general, needs debugging -->
 			<button class="btn" on:click={handleWishlistToggle}>
 				{#if $isWishlisted}
 					<svg
