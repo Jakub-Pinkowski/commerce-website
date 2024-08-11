@@ -27,9 +27,18 @@ function filterByAttribute<T>(
 			return typeof value === 'number' && (!min || value >= min) && (!max || value <= max);
 		});
 	} else {
-		return products.filter(
-			(product) => values.size === 0 || values.has(product[attribute] as unknown as T)
-		);
+		// If the values set is empty, return all products
+		if (values.size === 0) {
+			return products;
+		}
+		return products.filter((product) => {
+			const value = product[attribute];
+			if (Array.isArray(value)) {
+				return value.some((v) => values.has(v as unknown as T));
+			} else {
+				return values.has(value as unknown as T);
+			}
+		});
 	}
 }
 
@@ -47,13 +56,13 @@ export function filterProducts(
 	sortOption: string | null,
 	selectedColors: Set<string>,
 	selectedBrands: Set<string>,
-    selectedCategories: Set<string>
+	selectedCategories: Set<string>
 ): Product[] {
 	const filters = [
 		(products: Product[]) => filterByAttribute(products, 'price', [minPrice, maxPrice]),
 		(products: Product[]) => filterByAttribute(products, 'colors', selectedColors),
 		(products: Product[]) => filterByAttribute(products, 'brand', selectedBrands),
-        (products: Product[]) => filterByAttribute(products, 'category', selectedCategories)
+		(products: Product[]) => filterByAttribute(products, 'category', selectedCategories)
 	];
 
 	let filteredProducts = applyFilters(products, filters);
@@ -63,17 +72,15 @@ export function filterProducts(
 // Generic function to get possible values for any attribute
 function getPossibleValues(products: Product[], attribute: keyof Product): string[] {
 	const valueSet = new Set<string>();
+
 	products.forEach((product) => {
 		const values = product[attribute];
 		if (Array.isArray(values)) {
 			values.forEach((value) => {
-				if (value) {
-                    console.log("value: ", value);
-					valueSet.add(value.charAt(0).toUpperCase() + value.slice(1));
-				}
+				valueSet.add(value);
 			});
-		} else if (values) {
-			valueSet.add((values as string).charAt(0).toUpperCase() + (values as string).slice(1));
+		} else {
+			valueSet.add(values as string);
 		}
 	});
 	return Array.from(valueSet).sort();
@@ -107,9 +114,9 @@ export function toggleBrand(selectedBrands: Set<string>, brand: string): Set<str
 }
 
 export function getPossibleCategories(products: Product[]): string[] {
-    return getPossibleValues(products, 'category');
+	return getPossibleValues(products, 'category');
 }
 
 export function toggleCategory(selectedCategories: Set<string>, category: string): Set<string> {
-    return toggleSelection(selectedCategories, category);
+	return toggleSelection(selectedCategories, category);
 }

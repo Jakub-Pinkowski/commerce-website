@@ -169,7 +169,7 @@
 											type="checkbox"
 											id={color}
 											value={color}
-											on:change={() => handleToggleColor(color.toLowerCase())}
+											on:change={() => handleToggleColor(color)}
 											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
 										/>
 										<label for={color} class="ml-3 text-sm text-gray-600">{color}</label>
