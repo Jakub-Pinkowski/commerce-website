@@ -31,8 +31,11 @@
 	}
 
 	// Filtering and Sorting
-	let minPrice: number = 0;
-	let maxPrice: number = 0;
+	// TODO: Prices should update based on the selected filters
+	const initialMinPrice: number = Math.min(...products.map((product) => product.price));
+	const initialMaxPrice: number = Math.max(...products.map((product) => product.price));
+	let minPrice: number = initialMinPrice;
+	let maxPrice: number = initialMaxPrice;
 	let sortOption: string | null = null;
 	let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
@@ -41,10 +44,25 @@
 	let possibleCategories = getPossibleCategories(products);
 	let selectedCategories: Set<string> = new Set();
 
-	// TODO: Add new categories later on
+	function updatePriceRange(filteredProducts: Product[]) {
+		if (filteredProducts.length > 0) {
+			minPrice = Math.min(...filteredProducts.map((product) => product.price));
+			maxPrice = Math.max(...filteredProducts.map((product) => product.price));
+		} else {
+			minPrice = initialMinPrice;
+			maxPrice = initialMaxPrice;
+		}
+	}
+
+	function resetPriceRangeIfNeeded() {
+		if (selectedColors.size === 0 && selectedBrands.size === 0 && selectedCategories.size === 0) {
+			minPrice = initialMinPrice;
+			maxPrice = initialMaxPrice;
+		}
+	}
 
 	function updateDisplayedProducts() {
-		displayedProducts = filterProducts(
+		const filteredProducts = filterProducts(
 			products,
 			minPrice,
 			maxPrice,
@@ -53,23 +71,32 @@
 			selectedBrands,
 			selectedCategories
 		);
+		updatePriceRange(filteredProducts);
+		displayedProducts = filteredProducts;
 	}
 
 	const debouncedUpdateDisplayedProducts = debounce(updateDisplayedProducts, 200);
 
-	function handleToggleColor(color: string) {
-		selectedColors = new Set(toggleColor(selectedColors, color));
+	function handleToggle(
+		set: Set<string>,
+		toggleFunction: (set: Set<string>, item: string) => Set<string>,
+		item: string
+	) {
+		set = new Set(toggleFunction(set, item));
+		resetPriceRangeIfNeeded();
 		updateDisplayedProducts();
+	}
+
+	function handleToggleColor(color: string) {
+		handleToggle(selectedColors, toggleColor, color);
 	}
 
 	function handleToggleBrand(brand: string) {
-		selectedBrands = new Set(toggleBrand(selectedBrands, brand));
-		updateDisplayedProducts();
+		handleToggle(selectedBrands, toggleBrand, brand);
 	}
 
 	function handleToggleCategory(category: string) {
-		selectedCategories = new Set(toggleCategory(selectedCategories, category));
-		updateDisplayedProducts();
+		handleToggle(selectedCategories, toggleCategory, category);
 	}
 
 	$: [products, minPrice, maxPrice, sortOption, selectedColors, selectedBrands, selectedCategories],
