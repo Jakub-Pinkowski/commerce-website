@@ -58,19 +58,16 @@
 
 	function handleToggleColor(color: string) {
 		selectedColors = new Set(toggleColor(selectedColors, color));
-        console.log('selectedColors', selectedColors);
 		updateDisplayedProducts();
 	}
 
 	function handleToggleBrand(brand: string) {
 		selectedBrands = new Set(toggleBrand(selectedBrands, brand));
-		console.log('selectedBrands', selectedBrands);
 		updateDisplayedProducts();
 	}
 
 	function handleToggleCategory(category: string) {
 		selectedCategories = new Set(toggleCategory(selectedCategories, category));
-		console.log('selectedCategories', selectedCategories);
 		updateDisplayedProducts();
 	}
 

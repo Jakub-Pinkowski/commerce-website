@@ -15,6 +15,7 @@ export function sortProducts(products: Product[], sortOption: string | null): Pr
 	});
 }
 
+// Generic function to filter products by any attribute
 function filterByAttribute<T>(
 	products: Product[],
 	attribute: keyof Product,
@@ -42,6 +43,7 @@ function filterByAttribute<T>(
 	}
 }
 
+// Generic function to apply multiple filters to products
 function applyFilters(
 	products: Product[],
 	filters: ((products: Product[]) => Product[])[]
@@ -49,6 +51,7 @@ function applyFilters(
 	return filters.reduce((filteredProducts, filter) => filter(filteredProducts), products);
 }
 
+// Filter products by price, color, brand, and category
 export function filterProducts(
 	products: Product[],
 	minPrice: number | null,
