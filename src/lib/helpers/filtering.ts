@@ -86,6 +86,7 @@ function getPossibleValues(products: Product[], attribute: keyof Product): strin
 			valueSet.add(values as string);
 		}
 	});
+
 	return Array.from(valueSet).sort();
 }
 

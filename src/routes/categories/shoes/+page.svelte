@@ -12,6 +12,7 @@
 		toggleCategory
 	} from '$lib/helpers/filtering';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
+	import FilterSection from '$lib/components/FilterSection.svelte';
 	import Pagination from '$lib/components/Pagination.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
@@ -155,66 +156,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
-						<input type="checkbox" name="my-accordion-4" />
-						<div class="collapse-title pl-1 text-lg font-medium">Color</div>
-						<div class="collapse-content pl-1">
-							<div class="flex flex-col gap-2">
-								{#each Array.from(possibleColors) as color}
-									<div class="flex items-center">
-										<input
-											type="checkbox"
-											id={color}
-											value={color}
-											on:change={() => handleToggleColor(color)}
-											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-										/>
-										<label for={color} class="ml-3 text-sm text-gray-600">{color}</label>
-									</div>
-								{/each}
-							</div>
-						</div>
-					</div>
-					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
-						<input type="checkbox" name="my-accordion-5" />
-						<div class="collapse-title pl-1 text-lg font-medium">Brand</div>
-						<div class="collapse-content pl-1">
-							<div class="flex flex-col gap-2">
-								{#each Array.from(possibleBrands) as brand}
-									<div class="flex items-center">
-										<input
-											type="checkbox"
-											id={brand}
-											value={brand}
-											on:change={() => handleToggleBrand(brand)}
-											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-										/>
-										<label for={brand} class="ml-3 text-sm text-gray-600">{brand}</label>
-									</div>
-								{/each}
-							</div>
-						</div>
-					</div>
-					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
-						<input type="checkbox" name="my-accordion-6" />
-						<div class="collapse-title pl-1 text-lg font-medium">Category</div>
-						<div class="collapse-content pl-1">
-							<div class="flex flex-col gap-2">
-								{#each Array.from(possibleCategories) as category}
-									<div class="flex items-center">
-										<input
-											type="checkbox"
-											id={category}
-											value={category}
-											on:change={() => handleToggleCategory(category)}
-											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
-										/>
-										<label for={category} class="ml-3 text-sm text-gray-600">{category}</label>
-									</div>
-								{/each}
-							</div>
-						</div>
-					</div>
+					<FilterSection title="Color" products={possibleColors} handleToggle={handleToggleColor} />
+					<FilterSection title="Brand" products={possibleBrands} handleToggle={handleToggleBrand} />
+					<FilterSection
+						title="Category"
+						products={possibleCategories}
+						handleToggle={handleToggleCategory}
+					/>
 					<!-- TODO: Add some more facets later on -->
 				</div>
 			</div>
