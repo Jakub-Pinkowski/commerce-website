@@ -112,7 +112,7 @@
 		"price": 109,
 		"listPrice": 109,
 		"label": "new",
-		"url": "http://localhost:5173/products/womens-protravel-chino-pant",
+		"url": "https://commerce-website-psi.vercel.app/products/womens-protravel-chino-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-1.jpg?v=1709223499",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-2.jpg?v=1709223499",
@@ -131,7 +131,7 @@
 		"description": "Versatile and functional, the Women's ProTravel Zip-off Pant adapts to your needs on the go.",
 		"price": 129,
 		"listPrice": 129,
-		"url": "http://localhost:5173/products/womens-protravel-zip-off-pant",
+		"url": "https://commerce-website-psi.vercel.app/products/womens-protravel-zip-off-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-W-Island-Fossil-1.jpg?v=1709223536",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-W-Island-Fossil-2.jpg?v=1709223536",
@@ -150,7 +150,7 @@
 		"description": "The Women's NS40 Shirt Jacket is a perfect blend of comfort and style for any casual outing.",
 		"price": 76,
 		"listPrice": 109,
-		"url": "http://localhost:5173/products/mens-jogger-pant",
+		"url": "https://commerce-website-psi.vercel.app/products/mens-jogger-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Apparel-ProTravel-Pants-Jogger-M-Walnut-Sand-1.jpg?v=1706716656",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/products/DSC_4525copia.jpg?v=1699353520"
@@ -166,7 +166,7 @@
 		"price": 129,
 		"listPrice": 129,
 		"label": "new",
-		"url": "http://localhost:5173/products/mens-protravel-zip-off-pant",
+		"url": "https://commerce-website-psi.vercel.app/products/mens-protravel-zip-off-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-1.jpg?v=1709223519",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-M-Sage-Khaki-2.jpg?v=1709223519",
@@ -186,7 +186,7 @@
 		"price": 76,
 		"listPrice": 109,
 		"colors": ["blue", "navy", "sage"],
-		"url": "http://localhost:5173/products/jungle",
+		"url": "https://commerce-website-psi.vercel.app/products/jungle",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/Footwear-ATS-WF-Jungle-SS21-Night-Blue-1-ecom.jpg?v=1660913167",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-web-ecommerce-jungle-night-blue-04.jpg?v=1699261073",
@@ -206,7 +206,7 @@
 		"listPrice": 119,
 		"colors": ["swamp", "green", "sage"],
 		"label": "new",
-		"url": "http://localhost:5173/products/knyon",
+		"url": "https://commerce-website-psi.vercel.app/products/knyon",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-ecommerce-canyon-sage-green-1.jpg?v=1630334799",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-ecommerce-canyon-sage-green-4.jpg?v=1705495265"
@@ -222,7 +222,7 @@
 		"price": 129,
 		"listPrice": 129,
 		"colors": ["blue", "navy", "sage"],
-		"url": "http://localhost:5173/products/at-lite",
+		"url": "https://commerce-website-psi.vercel.app/products/at-lite",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-1.jpg?v=1709223271",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-Lite-SS24-Baltic-Navy-2.jpg?v=1709223271",
@@ -242,7 +242,7 @@
 		"price": 82,
 		"listPrice": 109,
 		"colors": ["swamp", "green", "sage"],
-		"url": "http://localhost:5173/products/all-terrain",
+		"url": "https://commerce-website-psi.vercel.app/products/all-terrain",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-1.jpg?v=1709223335",
 		"alternateImages": [
 			"https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-2.jpg?v=1713253403",
