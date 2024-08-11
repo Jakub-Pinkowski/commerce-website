@@ -20,18 +20,16 @@ export function filterProducts(
 	minPrice: number | null,
 	maxPrice: number | null,
 	sortOption: string | null,
-	selectedColors: Set<string>
+	selectedColors: Set<string>,
+	selectedBrands: Set<string>
 ): Product[] {
 	let filteredProducts = products.filter((product) => {
 		const matchesPrice =
 			(!minPrice || product.price >= minPrice) && (!maxPrice || product.price <= maxPrice);
-		if (product.colors) {
-			const matchesColor =
-				selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color));
-			return matchesPrice && matchesColor;
-		}
-
-		return matchesPrice;
+		const matchesColor =
+			selectedColors.size === 0 || product.colors.some((color) => selectedColors.has(color));
+		const matchesBrand = selectedBrands.size === 0 || selectedBrands.has(product.brand);
+		return matchesPrice && matchesColor && matchesBrand;
 	});
 
 	return sortProducts(filteredProducts, sortOption);
@@ -57,4 +55,25 @@ export function toggleColor(selectedColors: Set<string>, color: string): Set<str
 		newSelectedColors.add(color);
 	}
 	return newSelectedColors;
+}
+
+export function getPossibleBrands(products: Product[]): string[] {
+	return [
+		...new Set(
+			products
+				.flatMap((product) => product.brand)
+				.filter((brand) => brand !== undefined)
+				.map((brand) => brand.charAt(0).toUpperCase() + brand.slice(1))
+		)
+	].sort();
+}
+
+export function toggleBrand(selectedBrands: Set<string>, brand: string): Set<string> {
+	const newSelectedBrands = new Set(selectedBrands);
+	if (newSelectedBrands.has(brand)) {
+		newSelectedBrands.delete(brand);
+	} else {
+		newSelectedBrands.add(brand);
+	}
+	return newSelectedBrands;
 }

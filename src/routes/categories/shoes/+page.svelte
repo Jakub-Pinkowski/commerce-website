@@ -2,7 +2,13 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes';
 	import { debounce } from '$lib/helpers/functions';
-	import { filterProducts, getPossibleColors, toggleColor } from '$lib/helpers/filtering';
+	import {
+		filterProducts,
+		getPossibleColors,
+		toggleColor,
+		getPossibleBrands,
+		toggleBrand
+	} from '$lib/helpers/filtering';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import Pagination from '$lib/components/Pagination.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
@@ -27,10 +33,19 @@
 	let sortOption: string | null = null;
 	let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
+	let possibleBrands = getPossibleBrands(products);
+	let selectedBrands: Set<string> = new Set();
 	// TODO: Add new categories later on
 
 	function updateDisplayedProducts() {
-		displayedProducts = filterProducts(products, minPrice, maxPrice, sortOption, selectedColors);
+		displayedProducts = filterProducts(
+			products,
+			minPrice,
+			maxPrice,
+			sortOption,
+			selectedColors,
+			selectedBrands
+		);
 	}
 
 	const debouncedUpdateDisplayedProducts = debounce(updateDisplayedProducts, 200);
@@ -40,7 +55,13 @@
 		updateDisplayedProducts();
 	}
 
-	$: [products, minPrice, maxPrice, sortOption, selectedColors], debouncedUpdateDisplayedProducts();
+	function handleToggleBrand(brand: string) {
+		selectedBrands = new Set(toggleBrand(selectedBrands, brand));
+		updateDisplayedProducts();
+	}
+
+	$: [products, minPrice, maxPrice, sortOption, selectedColors, selectedBrands],
+		debouncedUpdateDisplayedProducts();
 </script>
 
 <div>
@@ -138,6 +159,29 @@
 											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
 										/>
 										<label for={color} class="ml-3 text-sm text-gray-600">{color}</label>
+									</div>
+								{/each}
+							</div>
+						</div>
+					</div>
+					<div class="collapse join-item collapse-plus border-b border-base-300">
+						<input type="checkbox" name="my-accordion-5" />
+						<div class="collapse-title pl-1 text-lg font-medium">Brand</div>
+						<div class="collapse-content pl-1">
+							<div class="flex flex-col gap-2">
+								{#each Array.from(possibleBrands) as brand}
+									<div
+										class="items -center
+                                    flex"
+									>
+										<input
+											type="checkbox"
+											id={brand}
+											value={brand}
+											on:change={() => handleToggleBrand(brand)}
+											class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
+										/>
+										<label for={brand} class="ml-3 text-sm text-gray-600">{brand}</label>
 									</div>
 								{/each}
 							</div>
