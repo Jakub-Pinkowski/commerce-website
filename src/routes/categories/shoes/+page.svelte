@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+
 	import type { Product } from '$lib/productTypes';
 	import { debounce } from '$lib/helpers/functions';
 	import {
@@ -12,6 +13,7 @@
 		toggleCategory
 	} from '$lib/helpers/filtering';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import FilterSection from '$lib/components/FilterSection.svelte';
 	import Pagination from '$lib/components/Pagination.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
@@ -22,6 +24,9 @@
 	// Pagination
 	let itemsPerPage = 24;
 	let displayedProducts: Product[] = [];
+
+	// Breadcrumbs
+	let breadcrumbs = ['Home', 'Categories', 'Shoes'];
 
 	interface UpdateEventDetail {
 		displayedProducts: Product[];
@@ -36,7 +41,7 @@
 	let minPrice: number = initialMinPrice;
 	let maxPrice: number = initialMaxPrice;
 	let sortOption: string | null = null;
-    // TODO: Count of colors should be updated based on the selected filters
+	// TODO: Count of colors should be updated based on the selected filters
 	let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
 	let possibleBrands = getPossibleBrands(products);
@@ -104,17 +109,11 @@
 </script>
 
 <div>
-	<div class="breadcrumbs mb-6 text-xs">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/categories">Categories</a></li>
-			<li>Shoes</li>
-		</ul>
-	</div>
+	<Breadcrumbs {breadcrumbs} />
 
 	<div class="mb-4 flex items-center justify-between border-b border-gray-200 pb-6">
 		<h1 class="text-3xl font-bold">Shoes</h1>
-        <!-- TODO: Export sorting -->
+		<!-- TODO: Export sorting -->
 		<div class="dropdown dropdown-end">
 			<div
 				tabindex="0"
@@ -164,7 +163,7 @@
 			<!-- Desktop Sidebar -->
 			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 lg:flex">
 				<div class="join join-vertical w-full">
-                    <!-- TODO: Export range filter -->
+					<!-- TODO: Export range filter -->
 					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
 						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
@@ -222,6 +221,7 @@
 		<!-- TODO: Later on we need to use some recommendedProducts instead -->
 		<!-- <RecommendationsCarousel {products} /> -->
 	{:else}
+		<!-- TODO: Style this part -->
 		<p>No products found</p>
 	{/if}
 </div>

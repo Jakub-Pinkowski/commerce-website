@@ -1,12 +1,25 @@
 <script lang="ts">
-
-    
+    export let breadcrumbs: string[] = [];
 </script>
 
 <div class="breadcrumbs mb-6 text-xs">
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/categories">Categories</a></li>
-        <li>Shoes</li>
+        {#each breadcrumbs as breadcrumb, index}
+            <li>
+                {#if index === breadcrumbs.length - 1}
+                    {breadcrumb}
+                {:else if breadcrumb === 'Home'}
+                    <a href="/">{breadcrumb}</a>
+                {:else}
+                    <a
+                        href={'/' +
+                            breadcrumbs
+                                .slice(1, index + 1)
+                                .join('/')
+                                .toLowerCase()}>{breadcrumb}</a
+                    >
+                {/if}
+            </li>
+        {/each}
     </ul>
 </div>
