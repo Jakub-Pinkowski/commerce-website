@@ -50,7 +50,7 @@
 		"price": 39,
 		"listPrice": 39,
 		"colors": ["gray", "khaki"],
-		"label": "New",
+		"label": "new",
 		"url": "http://localhost:5173/products/hiking-backpack-nh-arpenaz-500-30l-ice-compartment",
 		"imageUrl": "https://contents.mediadecathlon.com/p2629887/k$dbd779740cebe8bd794f99b3d2168742/sq/wanderrucksack-arpenaz-mit-kuhlfach-nh500-30-l.jpg?format=auto&f=1200x1200",
 		"alternateImages": [
@@ -91,7 +91,7 @@
 		"price": 89,
 		"listPrice": 89,
 		"colors": ["red", "gray", "brown", "terracota"],
-		"label": "New",
+		"label": "new",
 		"url": "http://localhost:5173/products/mens-trekking-backpack-70l-mt100-easyfit",
 		"imageUrl": "https://contents.mediadecathlon.com/p2606572/k$b67a2bca04f66c17066b0daceeccb666/sq/trekkingrucksack-easyfit-mt100-70-liter-herren.jpg?format=auto&f=1200x1200",
 		"alternateImages": [
@@ -112,7 +112,7 @@
 		"price": 109,
 		"listPrice": 109,
         "colors": ["walnut", "sand", "beige"],
-		"label": "New",
+		"label": "new",
 		"url": "http://localhost:5173/products/womens-protravel-chino-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Chino-W-Island-Fossil-1.jpg?v=1709223499",
 		"alternateImages": [
@@ -209,7 +209,7 @@
 		"price": 119,
 		"listPrice": 119,
 		"colors": ["swamp", "green", "sage"],
-		"label": "New",
+		"label": "new",
 		"url": "http://localhost:5173/products/knyon",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/products/tropicfeel-ecommerce-canyon-sage-green-1.jpg?v=1630334799",
 		"alternateImages": [
@@ -326,7 +326,7 @@
 		"price": 90,
 		"listPrice": 90,
 		"colors": ["black", "red"],
-		"label": "New",
+		"label": "new",
 		"url": "http://localhost:5173/products/kaptir-3-0-shoes",
 		"imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/cd94de8858c04741853150b94e864333_9366/Kaptir_3.0_Shoes_Black_JI1246_01_standard.jpg",
 		"alternateImages": [
@@ -367,7 +367,7 @@
 		"price": 149,
 		"listPrice": 199,
 		"colors": ["blue", "white"],
-		"label": "New",
+		"label": "new",
 		"url": "http://localhost:5173/products/kids-balance-bike-discover-500",
 		"imageUrl": "https://contents.mediadecathlon.com/p2663515/k$79b7230f759c2b046d1e001a82a37466/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646",
 		"alternateImages": [
@@ -408,7 +408,7 @@
 		"price": 2999,
 		"listPrice": 2999,
 		"colors": ["black", "brown"],
-		"label": "New",
+		"label": "new",
 		"url": "http://localhost:5173/products/e-cargo-bike-cargobike-r500e-longtail-v2-black",
 		"imageUrl": "https://contents.mediadecathlon.com/p2700407/k$0a664ebefd8b2822c5551b85e44a1eee/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646",
 		"alternateImages": [
