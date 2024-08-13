@@ -8,7 +8,7 @@ export function debounce<T extends (...args: any[]) => void>(
 			clearTimeout(timeout);
 			func(...args);
 		};
-		clearTimeout(timeout);
+		clearTimeout(timeout);capitalizeWords
 		timeout = setTimeout(later, wait);
 	};
 }

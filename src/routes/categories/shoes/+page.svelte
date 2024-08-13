@@ -114,6 +114,7 @@
 
 	<div class="mb-4 flex items-center justify-between border-b border-gray-200 pb-6">
 		<h1 class="text-3xl font-bold">Shoes</h1>
+        <!-- TODO: Export sorting -->
 		<div class="dropdown dropdown-end">
 			<div
 				tabindex="0"
@@ -163,6 +164,7 @@
 			<!-- Desktop Sidebar -->
 			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 lg:flex">
 				<div class="join join-vertical w-full">
+                    <!-- TODO: Export range filter -->
 					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
 						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
