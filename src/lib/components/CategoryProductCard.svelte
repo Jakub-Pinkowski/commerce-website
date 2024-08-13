@@ -3,6 +3,7 @@
 	import { derived } from 'svelte/store';
 
 	import { addToCart } from '$lib/stores/cart';
+    import { capitalizeWords } from '$lib/helpers/functions';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
 	import type { Product } from '$lib/productTypes';
@@ -45,7 +46,7 @@
 						<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
 					{:else if product.label && product.label.trim() !== ''}
 						<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
-							{product.label}
+                            {capitalizeWords(product.label)}
 						</div>
 					{/if}
 					<img

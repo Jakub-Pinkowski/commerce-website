@@ -3,6 +3,7 @@
 	import Swiper from 'swiper/bundle';
 	import 'swiper/css/bundle';
 
+	import { capitalizeWords } from '$lib/helpers/functions';
 	import type { Product } from '$lib/productTypes.ts';
 
 	export let products: Product[];
@@ -51,7 +52,7 @@
 										<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
 									{:else if product.label && product.label.trim() !== ''}
 										<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
-                                            {product.label}
+											{capitalizeWords(product.label)}
 										</div>
 									{/if}
 									<img
