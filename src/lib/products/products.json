@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"name": "Hiking Backpack 10 L",
+		"name": "Hiking Backpack 10L",
 		"handle": "hiking-backpack-10l",
 		"brand": "decathlon",
 		"category": "backpacks",
@@ -22,7 +22,7 @@
 	},
 	{
 		"id": 2,
-		"name": "Mountain Walking 20 L Backpack",
+		"name": "Mountain Walking 20L Backpack",
 		"handle": "mountain-walking-20l-backpack",
 		"brand": "decathlon",
 		"category": "backpacks",
@@ -42,8 +42,8 @@
 	},
 	{
 		"id": 3,
-		"name": "Hiking Backpack NH Arpenaz 500 30 L Ice Compartment",
-		"handle": "hiking-backpack-nh-arpenaz-500-30l-ice-compartment",
+		"name": "Hiking Backpack 30L",
+        "handle": "hiking-backpack-30l",
 		"brand": "decathlon",
 		"category": "backpacks",
 		"description": "Full of surprises, this hiking backpack also has an isothermal compartment to keep your picnic cool. The removable rug will keep you dry when eating.",
@@ -63,8 +63,8 @@
 	},
 	{
 		"id": 4,
-		"name": "Hiking backpack 23L - NH Escape 500 Rolltop",
-		"handle": "hiking-backpack-23l-nh-escape-500-rolltop",
+		"name": "Hiking backpack 23L",
+        "handle": "hiking-backpack-23l",
 		"brand": "decathlon",
 		"category": "backpacks",
 		"description": "This hiking backpack is comfortable and smart, thanks to its expandable main compartment with flap and 13 pockets. Tested for optimal durability, you'll be able to take it everywhere!",
@@ -83,8 +83,8 @@
 	},
 	{
 		"id": 5,
-		"name": "Men's Trekking Backpack 70 L - MT100 EASYFIT",
-		"handle": "mens-trekking-backpack-70l-mt100-easyfit",
+		"name": "Men's Trekking Backpack 70L",
+        "handle": "mens-trekking-backpack-70l",
 		"brand": "decathlon",
 		"category": "backpacks",
 		"description": "Set off on multi-day excursions with this easily adjustable 70L backpack. It offers comfort and simplicity, along with a rain cover for protection against the elements.",
@@ -359,8 +359,8 @@
 	},
 	{
 		"id": 18,
-		"name": "Kids' Balance Bike Discover 500",
-		"handle": "kids-balance-bike-discover-500",
+		"name": "Balance Bike Discover 500",
+		"handle": "balance-bike-discover-500",
 		"brand": "decathlon",
 		"category": "bikes",
 		"description": "Designed for children aged 2 to 4 years (85 to 100 cm) learning to balance on a bike. Balance bike for kids learning the basics of cycling.",
@@ -400,8 +400,8 @@
 	},
 	{
 		"id": 20,
-		"name": "E-cargo bike Cargobike R500E Longtail V2 black",
-		"handle": "e-cargo-bike-cargobike-r500e-longtail-v2-black",
+		"name": "E-cargo Cargobike",
+		"handle": "e-cargo-cargobike",
 		"brand": "decathlon",
 		"category": "bikes",
 		"description": "With the electric longtail cargo bike, you can transport all your belongings in the city and on paved roads.",
@@ -421,8 +421,8 @@
 	},
 	{
 		"id": 21,
-		"name": "E-mountain Hardtail E-ST 100",
-		"handle": "e-mountain-hardtail-e-st-100",
+		"name": "E-mountain Hardtail",
+		"handle": "e-mountain-hardtail",
 		"brand": "decathlon",
 		"category": "bikes",
 		"description": "This E-MTB was developed for touring on any terrain and undulating routes. This MTB is ideal for your first tours on easy terrain with little difference in altitude.",
@@ -441,8 +441,8 @@
 	},
 	{
 		"id": 22,
-		"name": "Road bike gravel bike Triban GRVL 120",
-		"handle": "road-bike-gravel-bike-triban-grvl-120",
+		"name": "Road bike gravel",
+		"handle": "road-bike-gravel",
 		"brand": "decathlon",
 		"category": "bikes",
 		"description": "The GRVL120, developed for entry-level gravel sports, is simple and versatile: a chainring, handlebars with flare, tubeless-ready tires and wheels.",
