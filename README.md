@@ -20,4 +20,3 @@
 
 ## Known Issues
 - The mobile version may encounter some issues with the current implementation of the website.
-```
