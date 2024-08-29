@@ -20,6 +20,7 @@
 	// TODO: Introduce real bestSellers later
 	let bestSellerProducts = products.slice(0, productsPerCarousel);
 
+    // TODO: Update those categories below, only shoes is correct and jackets don't exist anymore.
 	let shoesProducts = products
 		.filter((product) => product.category === 'shoes')
 		.slice(0, productsPerCarousel);

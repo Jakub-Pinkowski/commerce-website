@@ -51,7 +51,7 @@
 		"listPrice": 39,
 		"colors": ["gray", "khaki"],
 		"label": "new",
-		"url": "http://localhost:5173/products/hiking-backpack-nh-arpenaz-500-30l-ice-compartment",
+		"url": "http://localhost:5173/products/hiking-backpack-30l",
 		"imageUrl": "https://contents.mediadecathlon.com/p2629887/k$dbd779740cebe8bd794f99b3d2168742/sq/wanderrucksack-arpenaz-mit-kuhlfach-nh500-30-l.jpg?format=auto&f=1200x1200",
 		"alternateImages": [
 			"https://contents.mediadecathlon.com/p2651437/k$a7ab89a10cffc734180d834ac211c8df/sq/wanderrucksack-arpenaz-mit-kuhlfach-nh500-30-l.jpg?format=auto&f=1200x1200",
@@ -71,7 +71,7 @@
 		"price": 39,
 		"listPrice": 49,
 		"colors": ["yellow"],
-		"url": "http://localhost:5173/products/hiking-backpack-23l-nh-escape-500-rolltop",
+		"url": "http://localhost:5173/products/hiking-backpack-23l",
 		"imageUrl": "https://contents.mediadecathlon.com/p2183141/k$306fa5e66d8cf8342babd8dfdc08be16/sq/wanderrucksack-escape-rolltop-nh500-23-l.jpg?format=auto&f=1200x1200",
 		"alternateImages": [
 			"https://contents.mediadecathlon.com/p2183143/k$47fc84bd7f75caaedd4a2fdc380f897f/sq/wanderrucksack-escape-rolltop-nh500-23-l.jpg?format=auto&f=1200x1200",
@@ -92,7 +92,7 @@
 		"listPrice": 89,
 		"colors": ["red", "gray", "brown", "terracota"],
 		"label": "new",
-		"url": "http://localhost:5173/products/mens-trekking-backpack-70l-mt100-easyfit",
+		"url": "http://localhost:5173/products/mens-trekking-backpack-70l",
 		"imageUrl": "https://contents.mediadecathlon.com/p2606572/k$b67a2bca04f66c17066b0daceeccb666/sq/trekkingrucksack-easyfit-mt100-70-liter-herren.jpg?format=auto&f=1200x1200",
 		"alternateImages": [
 			"https://contents.mediadecathlon.com/p1799228/k$4931d60615c9abae250e654d40702b6e/sq/trekkingrucksack-easyfit-mt100-70-liter-herren.jpg?format=auto&f=1200x1200",
