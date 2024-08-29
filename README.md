@@ -1,3 +1,6 @@
-E-commerce website - work still very much in place
+# E-commerce Website
 
-Mobile version might experience some issues with the current version of the website.
+**Note:** This project is still a work in progress.
+
+### Known Issues
+- The mobile version may encounter some issues with the current implementation of the website.
