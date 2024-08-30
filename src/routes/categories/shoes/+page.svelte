@@ -215,6 +215,7 @@
 				</div>
 			</div>
 
+            <!-- TODO: Design and build Mobile Sidebar -->
 			<!-- Mobile Sidebar -->
 			<div class="lg:hidden"></div>
 
