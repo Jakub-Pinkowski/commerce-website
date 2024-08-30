@@ -7,10 +7,8 @@
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
-    console.log("Products: ", products);
 
-	// TODO: Later on change to probably around 24 on desktop and 16 on mobile
-	let itemsPerPage = 8;
+	let itemsPerPage = 24;
 	let displayedProducts: Product[] = [];
 
 	interface UpdateEventDetail {
