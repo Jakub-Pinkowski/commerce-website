@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
-	import jackets from '$lib/assets/images/jackets.jpg';
+    import bikes from '$lib/assets/images/bikes.jpg';
 	import shoes from '$lib/assets/images/footwear.jpg';
 	import pants from '$lib/assets/images/pants.jpg';
 	import newImage from '$lib/assets/images/newImage.jpg';
@@ -13,14 +13,18 @@
 	let newProducts = products.filter((product) => product.label === 'new');
 	let saleProducts = products.filter((product) => product.price < product.listPrice);
 
+	// Product categories
 	let shoesProducts = products
 		.filter((product) => product.category === 'shoes')
 		.slice(0, productsPerCarousel);
-	let jacketsProducts = products
-		.filter((product) => product.category === 'jackets')
+	let backpackProducts = products
+		.filter((product) => product.category === 'backpacks')
 		.slice(0, productsPerCarousel);
 	let pantsProducts = products
 		.filter((product) => product.category === 'pants')
+		.slice(0, productsPerCarousel);
+	let bikesProducts = products
+		.filter((product) => product.category === 'bikes')
 		.slice(0, productsPerCarousel);
 </script>
 
@@ -148,20 +152,20 @@
 	<div class="flex justify-center">
 		<section
 			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
-			style="background-image: url({jackets});"
+			style="background-image: url({bikes});"
 		>
 			<div class="hero-overlay bg-opacity-60"></div>
 			<div class="hero-content text-center text-neutral-content">
 				<div class="max-w-md">
-					<h1 class="mb-5 text-5xl">Jackets</h1>
-					<p class="mb-5 text-xl">Checkout our collection of jackets!</p>
-					<a href="/categories/new" class="btn btn-primary">Shop jackets</a>
+					<h1 class="mb-5 text-5xl">Bikes</h1>
+					<p class="mb-5 text-xl">Checkout our collection of bikes!</p>
+					<a href="/categories/new" class="btn btn-primary">Shop bikes</a>
 				</div>
 			</div>
 		</section>
 	</div>
 	<div class="mb-8">
-		<RecommendationsCarousel products={jacketsProducts} title="Jackets" />
+		<RecommendationsCarousel products={bikesProducts} title="Jackets" />
 	</div>
 </div>
 
