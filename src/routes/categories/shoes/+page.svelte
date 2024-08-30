@@ -40,6 +40,8 @@
 	const initialMaxPrice: number = Math.max(...products.map((product) => product.price));
 	let minPrice: number = initialMinPrice;
 	let maxPrice: number = initialMaxPrice;
+	let tempMinPrice: number = initialMinPrice;
+	let tempMaxPrice: number = initialMaxPrice;
 	let sortOption: string | null = null;
 	// TODO: Count of colors should be updated based on the selected filters
 	let possibleColors = getPossibleColors(products);
@@ -103,6 +105,18 @@
 
 	function handleToggleCategory(category: string) {
 		handleToggle(selectedCategories, toggleCategory, category);
+	}
+
+	function handlePriceInputBlur() {
+		minPrice = tempMinPrice;
+		maxPrice = tempMaxPrice;
+		updateDisplayedProducts();
+	}
+
+	function handlePriceInputKeydown(event: KeyboardEvent) {
+		if (event.key === 'Enter') {
+			handlePriceInputBlur();
+		}
 	}
 
 	$: [products, minPrice, maxPrice, sortOption, selectedColors, selectedBrands, selectedCategories],
@@ -174,13 +188,17 @@
 									type="text"
 									placeholder={minPrice ? '' : 'Min'}
 									class="input input-bordered w-full text-sm"
-									bind:value={minPrice}
+									bind:value={tempMinPrice}
+									on:blur={handlePriceInputBlur}
+									on:keydown={handlePriceInputKeydown}
 								/>
 								<input
 									type="text"
 									placeholder={maxPrice ? '' : 'Max'}
 									class="input input-bordered w-full text-sm"
-									bind:value={maxPrice}
+									bind:value={tempMaxPrice}
+									on:blur={handlePriceInputBlur}
+									on:keydown={handlePriceInputKeydown}
 								/>
 							</div>
 						</div>
@@ -237,7 +255,7 @@
 		--tw-ring-color: #3f594b;
 		--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width)
 			var(--tw-ring-offset-color);
-		--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width))
+		--tw-ring-shadow: var (--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width))
 			var(--tw-ring-color);
 		box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 	}
