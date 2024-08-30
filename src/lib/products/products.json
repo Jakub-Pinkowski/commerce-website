@@ -371,7 +371,7 @@
 		"listPrice": 199,
 		"colors": ["blue", "white"],
 		"label": "new",
-		"url": "http://localhost:5173/products/kids-balance-bike-discover-500",
+		"url": "http://localhost:5173/products/balance-bike-discover-500",
 		"imageUrl": "https://contents.mediadecathlon.com/p2663515/k$79b7230f759c2b046d1e001a82a37466/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646",
 		"alternateImages": [
 			"https://contents.mediadecathlon.com/p2663512/k$16ebef64cccaba801af72185ac15bf93/sq/kinderfahrrad-14-zoll-discover-900-blau.jpg?format=auto&f=646x646",
@@ -412,7 +412,7 @@
 		"listPrice": 2999,
 		"colors": ["black", "brown"],
 		"label": "new",
-		"url": "http://localhost:5173/products/e-cargo-bike-cargobike-r500e-longtail-v2-black",
+		"url": "http://localhost:5173/products/e-cargo-cargobike",
 		"imageUrl": "https://contents.mediadecathlon.com/p2700407/k$0a664ebefd8b2822c5551b85e44a1eee/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646",
 		"alternateImages": [
 			"https://contents.mediadecathlon.com/p2758046/k$2bfadab5f7125d81feda09815a35df7d/sq/e-lastenfahrrad-cargobike-r500e-longtail-v2-schwarz.jpg?format=auto&f=646x646",
@@ -432,7 +432,7 @@
 		"price": 1099,
 		"listPrice": 1299,
 		"colors": ["white", "red", "black"],
-		"url": "http://localhost:5173/products/e-mountain-hardtail-e-st-100",
+		"url": "http://localhost:5173/products/e-mountain-hardtail",
 		"imageUrl": "https://contents.mediadecathlon.com/p2623171/k$9d17c556d9d2e6d0f0da3770060d5191/sq/e-mountainbike-hardtail-275-zoll-e-st-100-weiss.jpg?format=auto&f=646x646",
 		"alternateImages": [
 			"https://contents.mediadecathlon.com/p2470097/k$951f45dd38ae2244319655eff6fe4ea3/sq/e-mountainbike-hardtail-275-zoll-e-st-100-weiss.jpg?format=auto&f=646x646",
@@ -453,7 +453,7 @@
 		"listPrice": 899,
 		"colors": ["green", "black", "gold", "yellow"],
         "label": "best seller",
-		"url": "http://localhost:5173/products/road-bike-gravel-bike-triban-grvl-120",
+		"url": "http://localhost:5173/products/road-bike-gravel",
 		"imageUrl": "https://contents.mediadecathlon.com/p1824558/k$cd58dd29746c314441906e89c4020920/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646",
 		"alternateImages": [
 			"https://contents.mediadecathlon.com/p1824554/k$4569c4dc2beaa6924190487f68936522/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646",
