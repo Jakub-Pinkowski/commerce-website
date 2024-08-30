@@ -51,7 +51,7 @@
 	let possibleCategories = getPossibleCategories(products);
 	let selectedCategories: Set<string> = new Set();
 
-	// FIXME: Range filter, when I start typing in the input, the value is reset
+    // TODO: Show active filters section
 	function updatePriceRange(filteredProducts: Product[]) {
 		if (filteredProducts.length > 0) {
 			minPrice = Math.min(...filteredProducts.map((product) => product.price));
