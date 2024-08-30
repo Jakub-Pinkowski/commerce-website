@@ -9,13 +9,15 @@
 
 	let searchQuery = '';
 
-    // TODO: Should be able to filter by color as well
 	$: filteredProducts = searchQuery
 		? products?.filter(
 				(product) =>
 					product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
 					product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					product.category.toLowerCase().includes(searchQuery.toLowerCase())
+					product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					product.label?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					product.colors.some((color) => color.toLowerCase().includes(searchQuery.toLowerCase()))
 			)
 		: [];
 </script>
