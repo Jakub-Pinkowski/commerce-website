@@ -8,7 +8,7 @@
 	let productsPerCarousel = 8;
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 	let activeTabMainCategory: string = 'New';
-	let productCategories = ['Shoes', 'Jackets', 'Pants'];
+	let productCategories = ['Shoes', 'Backpacks', 'Pants', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
 
 	let newProducts = products
@@ -18,17 +18,22 @@
 		.filter((product) => product.price < product.listPrice)
 		.slice(0, productsPerCarousel);
 	// TODO: Introduce real bestSellers later
-	let bestSellerProducts = products.slice(0, productsPerCarousel);
+	let bestSellerProducts = products
+		.filter((product) => product.label === 'best seller')
+		.slice(0, productsPerCarousel);
 
-    // TODO: Update those categories below, only shoes is correct and jackets don't exist anymore.
+	// TODO: Update those categories below, only shoes is correct and jackets don't exist anymore.
 	let shoesProducts = products
 		.filter((product) => product.category === 'shoes')
 		.slice(0, productsPerCarousel);
-	let jacketsProducts = products
-		.filter((product) => product.category === 'jackets')
+	let backpackProducts = products
+		.filter((product) => product.category === 'backpacks')
 		.slice(0, productsPerCarousel);
 	let pantsProducts = products
 		.filter((product) => product.category === 'pants')
+		.slice(0, productsPerCarousel);
+	let bikesProducts = products
+		.filter((product) => product.category === 'bikes')
 		.slice(0, productsPerCarousel);
 </script>
 
@@ -61,15 +66,21 @@
 				</div>
 			{/if}
 
-			{#if activeTabProductCategory === 'Jackets' && jacketsProducts.length}
+			{#if activeTabProductCategory === 'Backpacks' && backpackProducts.length}
 				<div class="mb-4">
-					<RecommendationsCarousel products={jacketsProducts} title="Jackets" />
+					<RecommendationsCarousel products={backpackProducts} title="Jackets" />
 				</div>
 			{/if}
 
 			{#if activeTabProductCategory === 'Pants' && pantsProducts.length}
 				<div class="mb-4">
 					<RecommendationsCarousel products={pantsProducts} title="Pants" />
+				</div>
+			{/if}
+
+			{#if activeTabProductCategory === 'Bikes' && bikesProducts.length}
+				<div class="mb-4">
+					<RecommendationsCarousel products={bikesProducts} title="Bikes" />
 				</div>
 			{/if}
 		</div>

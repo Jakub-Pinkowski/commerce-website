@@ -133,6 +133,7 @@
 		"price": 129,
 		"listPrice": 129,
         "colors": ["walnut", "sand", "beige"],
+        "label": "best seller",
 		"url": "http://localhost:5173/products/womens-protravel-zip-off-pant",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Apparel-ProTravel-Pants-SS24-Zip-Off-W-Island-Fossil-1.jpg?v=1709223536",
 		"alternateImages": [
@@ -246,6 +247,7 @@
 		"price": 82,
 		"listPrice": 109,
 		"colors": ["swamp", "green", "sage"],
+        "label": "best seller",
 		"url": "http://localhost:5173/products/all-terrain",
 		"imageUrl": "https://shop.tropicfeel.com/cdn/shop/files/Footwear-WF-All-Terrain-SS24-Swamp-Green-1.jpg?v=1709223335",
 		"alternateImages": [
@@ -347,6 +349,7 @@
 		"price": 35,
 		"listPrice": 40,
 		"colors": ["black", "white"],
+        "label": "best seller",
 		"url": "http://localhost:5173/products/adilette-comfort-slides",
 		"imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/735919589b6d4d84bb66ad6e00cb68ba_9366/Adilette_Comfort_Slides_Black_GZ5891_01_standard.jpg",
 		"alternateImages": [
@@ -449,6 +452,7 @@
 		"price": 799,
 		"listPrice": 899,
 		"colors": ["green", "black", "gold", "yellow"],
+        "label": "best seller",
 		"url": "http://localhost:5173/products/road-bike-gravel-bike-triban-grvl-120",
 		"imageUrl": "https://contents.mediadecathlon.com/p1824558/k$cd58dd29746c314441906e89c4020920/sq/rennrad-gravelbike-triban-grvl-120-herren.jpg?format=auto&f=646x646",
 		"alternateImages": [
