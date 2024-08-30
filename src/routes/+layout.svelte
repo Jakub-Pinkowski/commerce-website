@@ -17,8 +17,6 @@
 	<Footer />
 </div>
 
-<!-- TODO: Style all the links -->
-
 <style lang="scss">
 	.app {
 		display: flex;
