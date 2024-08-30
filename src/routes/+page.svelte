@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
-    import bikes from '$lib/assets/images/bikes.jpg';
+	import bikes from '$lib/assets/images/bikes.jpg';
 	import shoes from '$lib/assets/images/footwear.jpg';
 	import pants from '$lib/assets/images/pants.jpg';
 	import newImage from '$lib/assets/images/newImage.jpg';
@@ -31,17 +31,28 @@
 <div>
 	<section class="hero mx-[-1.5rem] mb-2 w-screen border-y border-accent md:mx-[-2rem]">
 		<div class="hero-overlay bg-light-accent bg-opacity-60"></div>
-		<div class="hero-content text-center text-neutral-content">
+		<div class="hero-content max-w-full text-center text-neutral-content">
 			<div class="max-w-full text-dark">
 				<h1 class="mb-2 text-xl">
 					This project is still a work in progress, website is under constant development.
 				</h1>
 				<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
-				<p>
+				<p class="mb-1 text-sm">
 					Disclaimer: This website is for demonstration purposes only. It is not a real e-commerce
-					store, and you cannot actually purchase any items. Prices, names, categories, and images
-					are only placeholders. The website is not connected to any payment system and doesn't
-					store any user's data.
+					store, and you cannot actually purchase any items. Names, prices, categories, images and
+					all other products' details are only placeholders.
+				</p>
+				<p class=" text-sm">
+					Anonymous data is collected for analytics purposes only. <strong
+						>No cookies are used.</strong
+					>
+					By using this website, you agree to this data collection. For more information, see the
+					official Vercel's
+					<a
+						class="link"
+						href="https://vercel.com/docs/analytics/privacy-policy#data-point-information"
+						target="_blank">privacy policy</a
+					>.
 				</p>
 			</div>
 		</div>
