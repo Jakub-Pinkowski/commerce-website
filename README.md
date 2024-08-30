@@ -43,4 +43,5 @@
 ## Known Issues
 
 - The mobile version may encounter some issues with the current implementation of the website.
+- Filtering and sorting products may not work as expected.
 - Some subpages may not be fully functional.

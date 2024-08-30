@@ -1,4 +1,5 @@
 <script lang="ts">
+    // TODO: Export this whole component into a separate file since all those categories have the same structure
 	import type { PageData } from './$types';
 
 	import type { Product } from '$lib/productTypes';
