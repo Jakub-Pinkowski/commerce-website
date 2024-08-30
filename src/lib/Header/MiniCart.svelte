@@ -82,8 +82,16 @@
 						${total}
 					</span>
 				</div>
-				<a href="/cart" class="btn btn-neutral mt-8 w-full max-w-xl"> See the cart </a>
-				<a href="/cart/checkout" class="btn btn-primary mt-8 w-full max-w-xl"> Order </a>
+				<a href="/cart" class="btn btn-neutral mt-8 w-full max-w-xl" on:click={closeMiniCart}>
+					See the cart
+				</a>
+				<a
+					href="/cart/checkout"
+					class="btn btn-primary mt-8 w-full max-w-xl"
+					on:click={closeMiniCart}
+				>
+					Order
+				</a>
 			</div>
 		</div>
 	</div>
