@@ -21,7 +21,7 @@
 		To track your order, please follow these steps:
 		<ul class="list-disc pl-8 text-gray-700">
 			<li>
-				Visit the <a href="/order-tracking" class="text-blue-500 underline">Order Tracking Page</a>.
+				Visit the <a href="/profile/order-tracking" class="text-blue-500 underline">Order Tracking Page</a>.
 			</li>
 			<li>Enter your order number and email address in the provided fields.</li>
 			<li>Click the "Track" button to view your order status and shipping details.</li>
