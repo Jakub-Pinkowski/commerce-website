@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
@@ -35,7 +36,7 @@
 
 <div>
 	{#if showBanner}
-		<div class="flex justify-center">
+		<div class="flex justify-center" transition:fade>
 			<section
 				class="hero relative mx-[-1.5rem] mb-2 w-screen border-y border-accent md:mx-[-2rem]"
 			>
