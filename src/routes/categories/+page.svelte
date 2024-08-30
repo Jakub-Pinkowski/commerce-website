@@ -17,12 +17,10 @@
 	let saleProducts = products
 		.filter((product) => product.price < product.listPrice)
 		.slice(0, productsPerCarousel);
-	// TODO: Introduce real bestSellers later
 	let bestSellerProducts = products
 		.filter((product) => product.label === 'best seller')
 		.slice(0, productsPerCarousel);
 
-	// TODO: Update those categories below, only shoes is correct and jackets don't exist anymore.
 	let shoesProducts = products
 		.filter((product) => product.category === 'shoes')
 		.slice(0, productsPerCarousel);
@@ -46,6 +44,7 @@
 	</div>
 	{#if products}
 		<div class="mb-8">
+			<!-- TODO: Animate the buttons -->
 			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
 				{#each productCategories as category (category)}
 					<button
@@ -60,9 +59,6 @@
 			{#if activeTabProductCategory === 'Shoes' && shoesProducts.length}
 				<div class="mb-4">
 					<RecommendationsCarousel products={shoesProducts} title="Shoes" />
-					<!-- <div class="flex justify-center">
-						<a href="/categories/shoes" class="btn btn-accent"> View all shoes </a>
-					</div> -->
 				</div>
 			{/if}
 
