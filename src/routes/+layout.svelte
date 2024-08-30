@@ -1,7 +1,10 @@
 <script>
+	import { inject } from '@vercel/analytics';
 	import Header from '../lib/Header/Header.svelte';
 	import Footer from '../lib/Footer.svelte';
 	import '../app.css';
+
+	inject();
 </script>
 
 <div class="app">
@@ -14,6 +17,8 @@
 	<Footer />
 </div>
 
+<!-- TODO: Style all the links -->
+
 <style lang="scss">
 	.app {
 		display: flex;
@@ -21,5 +26,3 @@
 		min-height: 100vh;
 	}
 </style>
-
-<!-- TODO: Style all the links -->
