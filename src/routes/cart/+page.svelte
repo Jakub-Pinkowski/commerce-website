@@ -1,6 +1,7 @@
 <script lang="ts">
+	import UnderConstruction from '$lib/components/UnderConstruction.svelte';
 </script>
 
 <div>
-    <h1>Cart</h1>
+	<UnderConstruction />
 </div>
