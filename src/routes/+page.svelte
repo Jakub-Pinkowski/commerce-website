@@ -25,8 +25,24 @@
 </script>
 
 <div>
+	<section class="hero mx-[-1.5rem] mb-2 w-screen border-y border-accent md:mx-[-2rem]">
+		<div class="hero-overlay bg-light-accent bg-opacity-60"></div>
+		<div class="hero-content text-center text-neutral-content">
+			<div class="max-w-full text-dark">
+				<h1 class="mb-2 text-xl">
+					This project is still a work in progress, website is under constant development.
+				</h1>
+				<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
+				<p>
+					Disclaimer: This website is for demonstration purposes only. It is not a real e-commerce
+					store, and you cannot actually purchase any items. Prices, names, categories, and images
+					are only placeholders. The website is not connected to any payment system and doesn't
+					store any user's data.
+				</p>
+			</div>
+		</div>
+	</section>
 	<div class="flex justify-center">
-		<!-- TODO: Style some nice hero image, it will be seasonal -->
 		<section
 			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
 			style="background-image: url({shoes});"
