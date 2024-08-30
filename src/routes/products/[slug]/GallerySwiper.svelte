@@ -24,7 +24,7 @@
 
 	onMount(() => {
 		// FIXME: On safari mobile, all images on the carousels are way to high
-		// FIXME: On dekstop when there are more than 7 images the whole carousel is way too high
+		// FIXME: On desktop when there are more than 7 images the whole carousel is way too high
 		thumbSwiper = new Swiper('.swiper.thumb-image', {
 			slidesPerView: 4.4,
 			spaceBetween: 10,

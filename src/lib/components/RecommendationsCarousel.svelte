@@ -60,7 +60,6 @@
 										alt={product.name}
 										class=" inset-0 block h-auto w-full object-cover opacity-100 md:group-hover:opacity-0"
 									/>
-									<!-- FIXME: Jacket images have wrong ratio on hover-->
 									<img
 										src={product.alternateImages[0]}
 										alt={`Alternate view of ${product.name}`}
