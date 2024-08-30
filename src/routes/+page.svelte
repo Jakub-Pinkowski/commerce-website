@@ -12,6 +12,11 @@
 	let productsPerCarousel = 8;
 	let newProducts = products.filter((product) => product.label === 'new');
 	let saleProducts = products.filter((product) => product.price < product.listPrice);
+	let showBanner: boolean = true;
+
+	const hideBanner = () => {
+		showBanner = false;
+	};
 
 	// Product categories
 	let shoesProducts = products
@@ -29,34 +34,56 @@
 </script>
 
 <div>
-	<section class="hero mx-[-1.5rem] mb-2 w-screen border-y border-accent md:mx-[-2rem]">
-		<div class="hero-overlay bg-light-accent bg-opacity-60"></div>
-		<div class="hero-content max-w-full text-center text-neutral-content">
-			<div class="max-w-full text-dark">
-				<h1 class="mb-2 text-xl">
-					This project is still a work in progress, website is under constant development.
-				</h1>
-				<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
-				<p class="mb-1 text-sm">
-					Disclaimer: This website is for demonstration purposes only. It is not a real e-commerce
-					store, and you cannot actually purchase any items. Names, prices, categories, images and
-					all other products' details are only placeholders.
-				</p>
-				<p class=" text-sm">
-					Anonymous data is collected for analytics purposes only. <strong
-						>No cookies are used.</strong
+	{#if showBanner}
+		<div class="flex justify-center">
+			<section
+				class="hero relative mx-[-1.5rem] mb-2 w-screen border-y border-accent md:mx-[-2rem]"
+			>
+				<button
+					class="rounded-full0 btn btn-circle btn-ghost absolute right-2 top-2"
+					on:click={hideBanner}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						id="Outline"
+						viewBox="0 0 24 24"
+						width="24"
+						height="24"
 					>
-					By using this website, you agree to this data collection. For more information, see the
-					official Vercel's
-					<a
-						class="link"
-						href="https://vercel.com/docs/analytics/privacy-policy#data-point-information"
-						target="_blank">privacy policy</a
-					>.
-				</p>
-			</div>
+						<path
+							d="M18,6h0a1,1,0,0,0-1.414,0L12,10.586,7.414,6A1,1,0,0,0,6,6H6A1,1,0,0,0,6,7.414L10.586,12,6,16.586A1,1,0,0,0,6,18H6a1,1,0,0,0,1.414,0L12,13.414,16.586,18A1,1,0,0,0,18,18h0a1,1,0,0,0,0-1.414L13.414,12,18,7.414A1,1,0,0,0,18,6Z"
+						/>
+					</svg>
+				</button>
+				<div class="hero-overlay bg-light-accent bg-opacity-60"></div>
+				<div class="hero-content max-w-full text-center text-neutral-content">
+					<div class="max-w-full text-dark">
+						<h1 class="mb-2 text-xl">
+							This project is still a work in progress, website is under constant development.
+						</h1>
+						<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
+						<p class="mb-1 text-sm">
+							Disclaimer: This website is for demonstration purposes only. It is not a real
+							e-commerce store, and you cannot actually purchase any items. Names, prices,
+							categories, images and all other products' details are only placeholders.
+						</p>
+						<p class=" text-sm">
+							Anonymous data is collected for analytics purposes only. <strong
+								>No cookies are used.</strong
+							>
+							By using this website, you agree to this data collection. For more information, see the
+							official Vercel's
+							<a
+								class="link"
+								href="https://vercel.com/docs/analytics/privacy-policy#data-point-information"
+								target="_blank">privacy policy</a
+							>.
+						</p>
+					</div>
+				</div>
+			</section>
 		</div>
-	</section>
+	{/if}
 	<div class="flex justify-center">
 		<section
 			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
