@@ -13,7 +13,7 @@
 	import UserIcon from './icons/UserIcon.svelte';
 
 	let open: boolean = false;
-	let productCategories = ['Shoes', 'Jackets', 'Pants'];
+	let productCategories = ['Shoes', 'Backpacks', 'Pants', 'Bikes'];
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 
 	const closeMenu = () => {
@@ -52,14 +52,15 @@
 				tabindex="-1"
 				class="menu dropdown-content z-[1] flex w-96 flex-row rounded-box bg-base-100 p-2 shadow"
 			>
-				<ul class="w-1/2 p-2">
+				<ul class="w-[calc(50%-8px)] p-2">
 					{#each productCategories as category}
 						<li>
 							<a href="/categories/{category.toLowerCase()}">{category}</a>
 						</li>
 					{/each}
 				</ul>
-				<ul class="w-1/2 p-2">
+				<div class="divider divider-horizontal mx-0 p-2"></div>
+				<ul class="w-[calc(50%-8px)] p-2">
 					{#each mainCategories as category}
 						<li>
 							<a href="/categories/{category.replace(/\s+/g, '_').toLowerCase()}">{category}</a>
