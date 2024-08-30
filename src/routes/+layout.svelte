@@ -17,10 +17,6 @@
 	<Footer />
 </div>
 
-<!-- TODO: Do something about the photos -->
-<!-- Store them locally
-Generate them -->
-
 <style lang="scss">
 	.app {
 		display: flex;

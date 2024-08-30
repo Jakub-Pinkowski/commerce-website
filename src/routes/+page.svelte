@@ -64,6 +64,7 @@
 						</h1>
 						<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
 						<p class="mb-1 text-sm">
+                            <!-- TODO: Mention that all images are AI generated -->
 							Disclaimer: This website is for demonstration purposes only. It is not a real
 							e-commerce store, and you cannot actually purchase any items. Names, prices,
 							categories, images and all other products' details are only placeholders.
