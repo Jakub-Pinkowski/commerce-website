@@ -64,10 +64,9 @@
 						</h1>
 						<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
 						<p class="mb-1 text-sm">
-                            <!-- TODO: Mention that all images are AI generated -->
-							Disclaimer: This website is for demonstration purposes only. It is not a real
-							e-commerce store, and you cannot actually purchase any items. Names, prices,
-							categories, images and all other products' details are only placeholders.
+							Disclaimer: This website is a demonstration project and not an actual e-commerce store.
+							You cannot make purchases here. All names or brands mentioned are purely fictional and
+							all images have been AI generated.
 						</p>
 						<p class=" text-sm">
 							Anonymous data is collected for analytics purposes only. <strong

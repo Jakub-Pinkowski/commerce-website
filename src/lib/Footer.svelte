@@ -99,6 +99,8 @@
 		<span class="hidden md:inline">|</span>
 		<p>UIcons by <a href="https://www.flaticon.com/uicons" class="link">Flaticon</a></p>
 		<span class="hidden md:inline">|</span>
+        <p>Photos by <a href="https://unsplash.com/" class="link">Unplash</a></p>
+        <span class="hidden md:inline">|</span>
 		<p>© 2024 Jakub Pinkowski, All right reserved</p>
 	</div>
 </footer>
