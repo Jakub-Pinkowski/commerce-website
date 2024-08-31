@@ -1,6 +1,6 @@
 <!-- TODO: Make this look nice -->
 <script lang="ts">
-    import facebook_icon from '$lib/assets/facebook_icon.png';
+    import facebook_icon from '$lib/assets/icons/facebook_icon.png';
 </script>
 
 <button class="gsi-material-button">
