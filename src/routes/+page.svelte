@@ -5,7 +5,7 @@
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 	import bikes from '$lib/assets/images/bikes.jpg';
 	import shoes from '$lib/assets/images/footwear.jpg';
-	import pants from '$lib/assets/images/pants.jpg';
+	import caps from '$lib/assets/images/caps.jpg';
 	import newImage from '$lib/assets/images/newImage.jpg';
 
 	export let data: PageData;
@@ -173,7 +173,7 @@
 	<div class="flex justify-center">
 		<section
 			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
-			style="background-image: url({pants});"
+			style="background-image: url({caps});"
 		>
 			<div class="hero-overlay bg-opacity-60"></div>
 			<div class="hero-content text-center text-neutral-content">
