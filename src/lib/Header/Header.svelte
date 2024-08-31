@@ -13,7 +13,7 @@
 	import UserIcon from './icons/UserIcon.svelte';
 
 	let open: boolean = false;
-	let productCategories = ['Shoes', 'Backpacks', 'Pants', 'Bikes'];
+	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 
 	const closeMenu = () => {

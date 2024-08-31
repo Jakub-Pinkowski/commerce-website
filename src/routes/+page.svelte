@@ -26,8 +26,8 @@
 	let backpackProducts = products
 		.filter((product) => product.category === 'backpacks')
 		.slice(0, productsPerCarousel);
-	let pantsProducts = products
-		.filter((product) => product.category === 'pants')
+	let capsProducts = products
+		.filter((product) => product.category === 'caps')
 		.slice(0, productsPerCarousel);
 	let bikesProducts = products
 		.filter((product) => product.category === 'bikes')
@@ -64,9 +64,9 @@
 						</h1>
 						<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
 						<p class="mb-1 text-sm">
-							Disclaimer: This website is a demonstration project and not an actual e-commerce store.
-							You cannot make purchases here. All names or brands mentioned are purely fictional and
-							all products' images have been AI generated.
+							Disclaimer: This website is a demonstration project and not an actual e-commerce
+							store. You cannot make purchases here. All names or brands mentioned are purely
+							fictional and all products' images have been AI generated.
 						</p>
 						<p class=" text-sm">
 							Anonymous data is collected for analytics purposes only. <strong
@@ -178,15 +178,15 @@
 			<div class="hero-overlay bg-opacity-60"></div>
 			<div class="hero-content text-center text-neutral-content">
 				<div class="max-w-md">
-					<h1 class="mb-5 text-5xl">Pants</h1>
-					<p class="mb-5 text-xl">Checkout our collection of pants!</p>
-					<a href="/categories/new" class="btn btn-primary">Shop pants</a>
+					<h1 class="mb-5 text-5xl">Caps</h1>
+					<p class="mb-5 text-xl">Checkout our collection of caps!</p>
+					<a href="/categories/new" class="btn btn-primary">Shop caps</a>
 				</div>
 			</div>
 		</section>
 	</div>
 	<div class="mb-8">
-		<RecommendationsCarousel products={pantsProducts} title="Pants" />
+		<RecommendationsCarousel products={capsProducts} title="Caps" />
 	</div>
 	<div class="flex justify-center">
 		<section

@@ -8,10 +8,10 @@
 	let productsPerCarousel = 8;
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 	let activeTabMainCategory: string = 'New';
-	let productCategories = ['Shoes', 'Backpacks', 'Pants', 'Bikes'];
+	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
 
-    // Main categories
+	// Main categories
 	let newProducts = products
 		.filter((product) => product.label === 'new')
 		.slice(0, productsPerCarousel);
@@ -22,15 +22,15 @@
 		.filter((product) => product.label === 'best seller')
 		.slice(0, productsPerCarousel);
 
-    // Product categories
+	// Product categories
 	let shoesProducts = products
 		.filter((product) => product.category === 'shoes')
 		.slice(0, productsPerCarousel);
 	let backpackProducts = products
 		.filter((product) => product.category === 'backpacks')
 		.slice(0, productsPerCarousel);
-	let pantsProducts = products
-		.filter((product) => product.category === 'pants')
+	let capsProducts = products
+		.filter((product) => product.category === 'caps')
 		.slice(0, productsPerCarousel);
 	let bikesProducts = products
 		.filter((product) => product.category === 'bikes')
@@ -70,9 +70,9 @@
 				</div>
 			{/if}
 
-			{#if activeTabProductCategory === 'Pants' && pantsProducts.length}
+			{#if activeTabProductCategory === 'Caps' && capsProducts.length}
 				<div class="mb-4">
-					<RecommendationsCarousel products={pantsProducts} title="Pants" />
+					<RecommendationsCarousel products={capsProducts} title="Caps" />
 				</div>
 			{/if}
 
