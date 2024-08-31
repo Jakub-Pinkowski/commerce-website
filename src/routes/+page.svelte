@@ -66,7 +66,7 @@
 						<p class="mb-1 text-sm">
 							Disclaimer: This website is a demonstration project and not an actual e-commerce store.
 							You cannot make purchases here. All names or brands mentioned are purely fictional and
-							all images have been AI generated.
+							all products' images have been AI generated.
 						</p>
 						<p class=" text-sm">
 							Anonymous data is collected for analytics purposes only. <strong
