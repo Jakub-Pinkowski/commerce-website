@@ -204,7 +204,7 @@
 		</section>
 	</div>
 	<div class="mb-8">
-		<RecommendationsCarousel products={bikesProducts} title="Jackets" />
+		<RecommendationsCarousel products={bikesProducts} title="Bikes" />
 	</div>
 </div>
 

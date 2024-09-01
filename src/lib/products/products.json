@@ -75,10 +75,9 @@
 		"brand": "Noltaced",
 		"category": "backpacks",
 		"description": "The Trekking Backpack is perfect for multi-day hikes. It has a 70L capacity and comes in a stylish gray and red color combination.",
-		"price": 55,
+		"price": 50,
 		"listPrice": 55,
 		"colors": ["gray", "red"],
-		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/trekking-backpack-70l",
 		"imageUrl": "/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_0.png",
 		"alternateImages": [
