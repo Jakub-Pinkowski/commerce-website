@@ -11,10 +11,10 @@
 		"colors": ["white", "black"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/city-backpack-10l",
-		"imageUrl": "/src/lib/assets/products/backpacks/city-backpack-10l/city_backpack_10l_0.png",
+		"imageUrl": "/src/lib/assets/products/backpacks/city-backpack-10l/city-backpack-10l_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/backpacks/city-backpack-10l/city_backpack_10l_1.png",
-			"/src/lib/assets/products/backpacks/city-backpack-10l/city_backpack_10l_2.png"
+			"/src/lib/assets/products/backpacks/city-backpack-10l/city-backpack-10l_1.png",
+			"/src/lib/assets/products/backpacks/city-backpack-10l/city-backpack-10l_2.png"
 		]
 	},
 	{
@@ -29,8 +29,11 @@
 		"colors": ["yellow"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/hiking-backpack-20l",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_1.png",
+			"/src/lib/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_2.png"
+		]
 	},
 	{
 		"id": 3,
@@ -44,8 +47,10 @@
 		"colors": ["khaki"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/hiking-backpack-40l",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/backpacks/hiking-backpack-40l/hiking-backpack-40l_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/backpacks/hiking-backpack-40l/hiking-backpack-40l_1.png"
+		]
 	},
 	{
 		"id": 4,
@@ -59,8 +64,11 @@
 		"colors": ["black", "white"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/trekking-backpack-80l",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_1.png",
+			"/src/lib/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_2.png"
+		]
 	},
 	{
 		"id": 5,
@@ -74,8 +82,12 @@
 		"colors": ["gray", "red"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/trekking-backpack-70l",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_1.png",
+			"/src/lib/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_2.png",
+			"/src/lib/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_3.png"
+		]
 	},
 	{
 		"id": 6,
@@ -89,8 +101,11 @@
 		"colors": ["yellow"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/sunburst-sneakers",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_1.png",
+			"/src/lib/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_2.png"
+		]
 	},
 	{
 		"id": 7,
@@ -99,13 +114,18 @@
 		"brand": "Abibas",
 		"category": "shoes",
 		"description": "Comfortable white and red sneakers for everyday use.",
-		"price": 30,
-		"listPrice": 35,
+		"price": 40,
+		"listPrice": 40,
 		"colors": ["white", "red"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/crimson-wave-sneakers",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_1.png",
+			"/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_2.png",
+			"/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_3.png",
+			"/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_4.png"
+		]
 	},
 	{
 		"id": 8,
@@ -114,13 +134,16 @@
 		"brand": "Abibas",
 		"category": "shoes",
 		"description": "Blue sneakers that combine style and comfort.",
-		"price": 30,
+		"price": 35,
 		"listPrice": 35,
 		"colors": ["blue"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/ocean-breeze-sneakers",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_1.png",
+			"/src/lib/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_2.png"
+		]
 	},
 	{
 		"id": 9,
@@ -134,8 +157,12 @@
 		"colors": ["pink"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/pink-blossom-sneakers",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_1.png",
+			"/src/lib/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_2.png",
+			"/src/lib/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_3.png"
+		]
 	},
 	{
 		"id": 10,
@@ -144,13 +171,18 @@
 		"brand": "Abibas",
 		"category": "shoes",
 		"description": "White and purple sneakers for a unique style.",
-		"price": 30,
-		"listPrice": 35,
+		"price": 50,
+		"listPrice": 50,
 		"colors": ["white", "purple"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/lavender-dream-sneakers",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_1.png",
+			"/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_2.png",
+			"/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_3.png",
+			"/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_4.png"
+		]
 	},
 	{
 		"id": 11,
@@ -164,8 +196,12 @@
 		"colors": ["black", "red", "white"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/inferno-sneakers",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/inferno-sneakers/inferno-sneakers_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/inferno-sneakers/inferno-sneakers_1.png",
+			"/src/lib/assets/products/shoes/inferno-sneakers/inferno-sneakers_2.png",
+			"/src/lib/assets/products/shoes/inferno-sneakers/inferno-sneakers_3.png"
+		]
 	},
 	{
 		"id": 12,
@@ -177,10 +213,14 @@
 		"price": 35,
 		"listPrice": 35,
 		"colors": ["black", "green"],
-		"label": "best seller ",
+		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/forest-trail-sneakers",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_1.png",
+			"/src/lib/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_2.png",
+			"/src/lib/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_3.png"
+		]
 	},
 	{
 		"id": 13,
@@ -194,8 +234,11 @@
 		"colors": ["green"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/evergreen-hiking-shoes",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_1.png",
+			"/src/lib/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_2.png"
+		]
 	},
 	{
 		"id": 14,
@@ -207,10 +250,14 @@
 		"price": 50,
 		"listPrice": 50,
 		"colors": ["blue"],
-		"label": "best seller ",
+		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/blue-ridge-hiking-shoes",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_1.png",
+			"/src/lib/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_2.png",
+			"/src/lib/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_3.png"
+		]
 	},
 	{
 		"id": 15,
@@ -224,8 +271,11 @@
 		"colors": ["gray"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/winter-warmth-beanie",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_1.png",
+			"/src/lib/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_2.png"
+		]
 	},
 	{
 		"id": 16,
@@ -238,8 +288,11 @@
 		"listPrice": 30,
 		"colors": ["beige"],
 		"url": "https://commerce-website-psi.vercel.app/products/chic-parisian-beret",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/caps/chic-parisian-beret/chic-parisian-beret_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/caps/chic-parisian-beret/chic-parisian-beret_1.png",
+			"/src/lib/assets/products/caps/chic-parisian-beret/chic-parisian-beret_2.png"
+		]
 	},
 	{
 		"id": 17,
@@ -251,10 +304,13 @@
 		"price": 20,
 		"listPrice": 20,
 		"colors": ["blue"],
-		"label": "best seller ",
+		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/everyday-classic-cap",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/caps/everyday-classic-cap/everyday-classic-cap_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/caps/everyday-classic-cap/everyday-classic-cap_1.png",
+			"/src/lib/assets/products/caps/everyday-classic-cap/everyday-classic-cap_2.png"
+		]
 	},
 	{
 		"id": 18,
@@ -267,8 +323,11 @@
 		"listPrice": 20,
 		"colors": ["red"],
 		"url": "https://commerce-website-psi.vercel.app/products/bold-statement-cap",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/caps/bold-statement-cap/bold-statement-cap_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/caps/bold-statement-cap/bold-statement-cap_1.png",
+			"/src/lib/assets/products/caps/bold-statement-cap/bold-statement-cap_2.png"
+		]
 	},
 	{
 		"id": 19,
@@ -280,10 +339,13 @@
 		"price": 15,
 		"listPrice": 20,
 		"colors": ["yellow"],
-		"label": "best seller ",
+		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/sunny-day-cap",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/caps/sunny-day-cap/sunny-day-cap_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/caps/sunny-day-cap/sunny-day-cap_1.png",
+			"/src/lib/assets/products/caps/sunny-day-cap/sunny-day-cap_2.png"
+		]
 	},
 	{
 		"id": 20,
@@ -297,8 +359,10 @@
 		"colors": ["gray"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/sophisticated-fedora",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/caps/sophisticated-fedora/sophisticated-fedora_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/caps/sophisticated-fedora/sophisticated-fedora_1.png"
+		]
 	},
 	{
 		"id": 21,
@@ -312,8 +376,10 @@
 		"colors": ["green"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/unique-style-fedora",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/caps/unique-style-fedora/unique-style-fedora_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/caps/unique-style-fedora/unique-style-fedora_1.png"
+		]
 	},
 	{
 		"id": 22,
@@ -327,23 +393,28 @@
 		"colors": ["green"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/mountain-explorer-bike",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/bikes/mountain-explorer-bike/mountain-explorer-bike_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/bikes/mountain-explorer-bike/mountain-explorer-bike_1.png"
+		]
 	},
 	{
 		"id": 23,
-		"name": "Kids Fun Bike",
-		"handle": "kids-fun-bike",
+		"name": "E-Mountain Conqueror",
+		"handle": "e-mountain-conqueror",
 		"brand": "BikeMaster",
 		"category": "bikes",
-		"description": "A fun and safe bike for kids.",
-		"price": 180,
-		"listPrice": 180,
-		"colors": ["blue", "white"],
-		"label": "new",
-		"url": "https://commerce-website-psi.vercel.app/products/kids-fun-bike",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"description": "An electric mountain bike for extreme trails.",
+		"price": 1300,
+		"listPrice": 1300,
+		"colors": ["white", "black", "red"],
+		"url": "https://commerce-website-psi.vercel.app/products/e-mountain-conqueror",
+		"imageUrl": "/src/lib/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_1.png",
+			"/src/lib/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_2.png",
+			"/src/lib/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_3.png"
+		]
 	},
 	{
 		"id": 24,
@@ -356,8 +427,11 @@
 		"listPrice": 750,
 		"colors": ["red"],
 		"url": "https://commerce-website-psi.vercel.app/products/red-gravel-grinder",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_1.png",
+			"/src/lib/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_2.png"
+		]
 	},
 	{
 		"id": 25,
@@ -371,8 +445,10 @@
 		"colors": ["yellow"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/yellow-gravel-crusher",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/bikes/yellow-gravel-crusher/yellow-gravel-crusher_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/bikes/yellow-gravel-crusher/yellow-gravel-crusher_1.png"
+		]
 	},
 	{
 		"id": 26,
@@ -384,10 +460,13 @@
 		"price": 450,
 		"listPrice": 450,
 		"colors": ["black"],
-		"label": "best seller ",
+		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/urban-commuter-bike",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_1.png",
+			"/src/lib/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_2.png"
+		]
 	},
 	{
 		"id": 27,
@@ -401,21 +480,10 @@
 		"colors": ["green"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/green-city-cruiser",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
-	},
-	{
-		"id": 28,
-		"name": "E-Mountain Conqueror",
-		"handle": "e-mountain-conqueror",
-		"brand": "BikeMaster",
-		"category": "bikes",
-		"description": "An electric mountain bike for extreme trails.",
-		"price": 1200,
-		"listPrice": 1300,
-		"colors": ["white", "black", "red"],
-		"url": "https://commerce-website-psi.vercel.app/products/e-mountain-conqueror",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/bikes/green-city-cruiser/green-city-cruiser_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/bikes/green-city-cruiser/green-city-cruiser_1.png",
+			"/src/lib/assets/products/bikes/green-city-cruiser/green-city-cruiser_2.png"
+		]
 	}
 ]
