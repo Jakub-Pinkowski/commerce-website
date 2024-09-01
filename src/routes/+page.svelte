@@ -207,5 +207,3 @@
 		<RecommendationsCarousel products={bikesProducts} title="Bikes" />
 	</div>
 </div>
-
-<!-- TODO: To be used later -->

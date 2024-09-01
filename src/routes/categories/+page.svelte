@@ -66,7 +66,7 @@
 
 			{#if activeTabProductCategory === 'Backpacks' && backpackProducts.length}
 				<div class="mb-4">
-					<RecommendationsCarousel products={backpackProducts} title="Jackets" />
+					<RecommendationsCarousel products={backpackProducts} title="Backpacks" />
 				</div>
 			{/if}
 
