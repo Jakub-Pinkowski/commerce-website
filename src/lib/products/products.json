@@ -11,10 +11,10 @@
 		"colors": ["white", "black"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/city-backpack-10l",
-		"imageUrl": "/src/lib/assets/products/backpacks/city-backpack-10l/city-backpack-10l_0.png",
+		"imageUrl": "/assets/products/backpacks/city-backpack-10l/city-backpack-10l_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/backpacks/city-backpack-10l/city-backpack-10l_1.png",
-			"/src/lib/assets/products/backpacks/city-backpack-10l/city-backpack-10l_2.png"
+			"/assets/products/backpacks/city-backpack-10l/city-backpack-10l_1.png",
+			"/assets/products/backpacks/city-backpack-10l/city-backpack-10l_2.png"
 		]
 	},
 	{
@@ -29,10 +29,10 @@
 		"colors": ["yellow"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/hiking-backpack-20l",
-		"imageUrl": "/src/lib/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_0.png",
+		"imageUrl": "/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_1.png",
-			"/src/lib/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_2.png"
+			"/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_1.png",
+			"/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_2.png"
 		]
 	},
 	{
@@ -47,10 +47,8 @@
 		"colors": ["khaki"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/hiking-backpack-40l",
-		"imageUrl": "/src/lib/assets/products/backpacks/hiking-backpack-40l/hiking-backpack-40l_0.png",
-		"alternateImages": [
-			"/src/lib/assets/products/backpacks/hiking-backpack-40l/hiking-backpack-40l_1.png"
-		]
+		"imageUrl": "/assets/products/backpacks/hiking-backpack-40l/hiking-backpack-40l_0.png",
+		"alternateImages": ["/assets/products/backpacks/hiking-backpack-40l/hiking-backpack-40l_1.png"]
 	},
 	{
 		"id": 4,
@@ -64,10 +62,10 @@
 		"colors": ["black", "white"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/trekking-backpack-80l",
-		"imageUrl": "/src/lib/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_0.png",
+		"imageUrl": "/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_1.png",
-			"/src/lib/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_2.png"
+			"/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_1.png",
+			"/assets/products/backpacks/trekking-backpack-80l/trekking-backpack-80l_2.png"
 		]
 	},
 	{
@@ -82,11 +80,11 @@
 		"colors": ["gray", "red"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/trekking-backpack-70l",
-		"imageUrl": "/src/lib/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_0.png",
+		"imageUrl": "/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_1.png",
-			"/src/lib/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_2.png",
-			"/src/lib/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_3.png"
+			"/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_1.png",
+			"/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_2.png",
+			"/assets/products/backpacks/trekking-backpack-70l/trekking-backpack-70l_3.png"
 		]
 	},
 	{
@@ -101,10 +99,10 @@
 		"colors": ["yellow"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/sunburst-sneakers",
-		"imageUrl": "/src/lib/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_0.png",
+		"imageUrl": "/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_1.png",
-			"/src/lib/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_2.png"
+			"/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_1.png",
+			"/assets/products/shoes/sunburst-sneakers/sunburst-sneakers_2.png"
 		]
 	},
 	{
@@ -119,12 +117,12 @@
 		"colors": ["white", "red"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/crimson-wave-sneakers",
-		"imageUrl": "/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_0.png",
+		"imageUrl": "/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_1.png",
-			"/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_2.png",
-			"/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_3.png",
-			"/src/lib/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_4.png"
+			"/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_1.png",
+			"/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_2.png",
+			"/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_3.png",
+			"/assets/products/shoes/crimson-wave-sneakers/crimson-wave-sneakers_4.png"
 		]
 	},
 	{
@@ -139,10 +137,10 @@
 		"colors": ["blue"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/ocean-breeze-sneakers",
-		"imageUrl": "/src/lib/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_0.png",
+		"imageUrl": "/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_1.png",
-			"/src/lib/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_2.png"
+			"/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_1.png",
+			"/assets/products/shoes/ocean-breeze-sneakers/ocean-breeze-sneakers_2.png"
 		]
 	},
 	{
@@ -157,11 +155,11 @@
 		"colors": ["pink"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/pink-blossom-sneakers",
-		"imageUrl": "/src/lib/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_0.png",
+		"imageUrl": "/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_1.png",
-			"/src/lib/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_2.png",
-			"/src/lib/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_3.png"
+			"/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_1.png",
+			"/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_2.png",
+			"/assets/products/shoes/pink-blossom-sneakers/pink-blossom-sneakers_3.png"
 		]
 	},
 	{
@@ -176,12 +174,12 @@
 		"colors": ["white", "purple"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/lavender-dream-sneakers",
-		"imageUrl": "/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_0.png",
+		"imageUrl": "/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_1.png",
-			"/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_2.png",
-			"/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_3.png",
-			"/src/lib/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_4.png"
+			"/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_1.png",
+			"/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_2.png",
+			"/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_3.png",
+			"/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_4.png"
 		]
 	},
 	{
@@ -196,11 +194,11 @@
 		"colors": ["black", "red", "white"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/inferno-sneakers",
-		"imageUrl": "/src/lib/assets/products/shoes/inferno-sneakers/inferno-sneakers_0.png",
+		"imageUrl": "/assets/products/shoes/inferno-sneakers/inferno-sneakers_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/inferno-sneakers/inferno-sneakers_1.png",
-			"/src/lib/assets/products/shoes/inferno-sneakers/inferno-sneakers_2.png",
-			"/src/lib/assets/products/shoes/inferno-sneakers/inferno-sneakers_3.png"
+			"/assets/products/shoes/inferno-sneakers/inferno-sneakers_1.png",
+			"/assets/products/shoes/inferno-sneakers/inferno-sneakers_2.png",
+			"/assets/products/shoes/inferno-sneakers/inferno-sneakers_3.png"
 		]
 	},
 	{
@@ -215,11 +213,11 @@
 		"colors": ["black", "green"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/forest-trail-sneakers",
-		"imageUrl": "/src/lib/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_0.png",
+		"imageUrl": "/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_1.png",
-			"/src/lib/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_2.png",
-			"/src/lib/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_3.png"
+			"/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_1.png",
+			"/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_2.png",
+			"/assets/products/shoes/forest-trail-sneakers/forest-trail-sneakers_3.png"
 		]
 	},
 	{
@@ -234,10 +232,10 @@
 		"colors": ["green"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/evergreen-hiking-shoes",
-		"imageUrl": "/src/lib/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_0.png",
+		"imageUrl": "/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_1.png",
-			"/src/lib/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_2.png"
+			"/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_1.png",
+			"/assets/products/shoes/evergreen-hiking-shoes/evergreen-hiking-shoes_2.png"
 		]
 	},
 	{
@@ -252,11 +250,11 @@
 		"colors": ["blue"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/blue-ridge-hiking-shoes",
-		"imageUrl": "/src/lib/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_0.png",
+		"imageUrl": "/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_1.png",
-			"/src/lib/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_2.png",
-			"/src/lib/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_3.png"
+			"/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_1.png",
+			"/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_2.png",
+			"/assets/products/shoes/blue-ridge-hiking-shoes/blue-ridge-hiking-shoes_3.png"
 		]
 	},
 	{
@@ -271,10 +269,10 @@
 		"colors": ["gray"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/winter-warmth-beanie",
-		"imageUrl": "/src/lib/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_0.png",
+		"imageUrl": "/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_1.png",
-			"/src/lib/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_2.png"
+			"/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_1.png",
+			"/assets/products/caps/winter-warmth-beanie/winter-warmth-beanie_2.png"
 		]
 	},
 	{
@@ -288,10 +286,10 @@
 		"listPrice": 30,
 		"colors": ["beige"],
 		"url": "https://commerce-website-psi.vercel.app/products/chic-parisian-beret",
-		"imageUrl": "/src/lib/assets/products/caps/chic-parisian-beret/chic-parisian-beret_0.png",
+		"imageUrl": "/assets/products/caps/chic-parisian-beret/chic-parisian-beret_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/caps/chic-parisian-beret/chic-parisian-beret_1.png",
-			"/src/lib/assets/products/caps/chic-parisian-beret/chic-parisian-beret_2.png"
+			"/assets/products/caps/chic-parisian-beret/chic-parisian-beret_1.png",
+			"/assets/products/caps/chic-parisian-beret/chic-parisian-beret_2.png"
 		]
 	},
 	{
@@ -306,10 +304,10 @@
 		"colors": ["blue"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/everyday-classic-cap",
-		"imageUrl": "/src/lib/assets/products/caps/everyday-classic-cap/everyday-classic-cap_0.png",
+		"imageUrl": "/assets/products/caps/everyday-classic-cap/everyday-classic-cap_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/caps/everyday-classic-cap/everyday-classic-cap_1.png",
-			"/src/lib/assets/products/caps/everyday-classic-cap/everyday-classic-cap_2.png"
+			"/assets/products/caps/everyday-classic-cap/everyday-classic-cap_1.png",
+			"/assets/products/caps/everyday-classic-cap/everyday-classic-cap_2.png"
 		]
 	},
 	{
@@ -323,10 +321,10 @@
 		"listPrice": 20,
 		"colors": ["red"],
 		"url": "https://commerce-website-psi.vercel.app/products/bold-statement-cap",
-		"imageUrl": "/src/lib/assets/products/caps/bold-statement-cap/bold-statement-cap_0.png",
+		"imageUrl": "/assets/products/caps/bold-statement-cap/bold-statement-cap_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/caps/bold-statement-cap/bold-statement-cap_1.png",
-			"/src/lib/assets/products/caps/bold-statement-cap/bold-statement-cap_2.png"
+			"/assets/products/caps/bold-statement-cap/bold-statement-cap_1.png",
+			"/assets/products/caps/bold-statement-cap/bold-statement-cap_2.png"
 		]
 	},
 	{
@@ -341,10 +339,10 @@
 		"colors": ["yellow"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/sunny-day-cap",
-		"imageUrl": "/src/lib/assets/products/caps/sunny-day-cap/sunny-day-cap_0.png",
+		"imageUrl": "/assets/products/caps/sunny-day-cap/sunny-day-cap_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/caps/sunny-day-cap/sunny-day-cap_1.png",
-			"/src/lib/assets/products/caps/sunny-day-cap/sunny-day-cap_2.png"
+			"/assets/products/caps/sunny-day-cap/sunny-day-cap_1.png",
+			"/assets/products/caps/sunny-day-cap/sunny-day-cap_2.png"
 		]
 	},
 	{
@@ -359,10 +357,8 @@
 		"colors": ["gray"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/sophisticated-fedora",
-		"imageUrl": "/src/lib/assets/products/caps/sophisticated-fedora/sophisticated-fedora_0.png",
-		"alternateImages": [
-			"/src/lib/assets/products/caps/sophisticated-fedora/sophisticated-fedora_1.png"
-		]
+		"imageUrl": "/assets/products/caps/sophisticated-fedora/sophisticated-fedora_0.png",
+		"alternateImages": ["/assets/products/caps/sophisticated-fedora/sophisticated-fedora_1.png"]
 	},
 	{
 		"id": 21,
@@ -376,10 +372,8 @@
 		"colors": ["green"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/unique-style-fedora",
-		"imageUrl": "/src/lib/assets/products/caps/unique-style-fedora/unique-style-fedora_0.png",
-		"alternateImages": [
-			"/src/lib/assets/products/caps/unique-style-fedora/unique-style-fedora_1.png"
-		]
+		"imageUrl": "/assets/products/caps/unique-style-fedora/unique-style-fedora_0.png",
+		"alternateImages": ["/assets/products/caps/unique-style-fedora/unique-style-fedora_1.png"]
 	},
 	{
 		"id": 22,
@@ -393,9 +387,9 @@
 		"colors": ["green"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/mountain-explorer-bike",
-		"imageUrl": "/src/lib/assets/products/bikes/mountain-explorer-bike/mountain-explorer-bike_0.png",
+		"imageUrl": "/assets/products/bikes/mountain-explorer-bike/mountain-explorer-bike_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/bikes/mountain-explorer-bike/mountain-explorer-bike_1.png"
+			"/assets/products/bikes/mountain-explorer-bike/mountain-explorer-bike_1.png"
 		]
 	},
 	{
@@ -409,11 +403,11 @@
 		"listPrice": 1300,
 		"colors": ["white", "black", "red"],
 		"url": "https://commerce-website-psi.vercel.app/products/e-mountain-conqueror",
-		"imageUrl": "/src/lib/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_0.png",
+		"imageUrl": "/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_1.png",
-			"/src/lib/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_2.png",
-			"/src/lib/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_3.png"
+			"/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_1.png",
+			"/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_2.png",
+			"/assets/products/bikes/e-mountain-conqueror/e-mountain-conqueror_3.png"
 		]
 	},
 	{
@@ -427,10 +421,10 @@
 		"listPrice": 750,
 		"colors": ["red"],
 		"url": "https://commerce-website-psi.vercel.app/products/red-gravel-grinder",
-		"imageUrl": "/src/lib/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_0.png",
+		"imageUrl": "/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_1.png",
-			"/src/lib/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_2.png"
+			"/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_1.png",
+			"/assets/products/bikes/red-gravel-grinder/red-gravel-grinder_2.png"
 		]
 	},
 	{
@@ -445,10 +439,8 @@
 		"colors": ["yellow"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/yellow-gravel-crusher",
-		"imageUrl": "/src/lib/assets/products/bikes/yellow-gravel-crusher/yellow-gravel-crusher_0.png",
-		"alternateImages": [
-			"/src/lib/assets/products/bikes/yellow-gravel-crusher/yellow-gravel-crusher_1.png"
-		]
+		"imageUrl": "/assets/products/bikes/yellow-gravel-crusher/yellow-gravel-crusher_0.png",
+		"alternateImages": ["/assets/products/bikes/yellow-gravel-crusher/yellow-gravel-crusher_1.png"]
 	},
 	{
 		"id": 26,
@@ -462,10 +454,10 @@
 		"colors": ["black"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/urban-commuter-bike",
-		"imageUrl": "/src/lib/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_0.png",
+		"imageUrl": "/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_1.png",
-			"/src/lib/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_2.png"
+			"/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_1.png",
+			"/assets/products/bikes/urban-commuter-bike/urban-commuter-bike_2.png"
 		]
 	},
 	{
@@ -480,10 +472,10 @@
 		"colors": ["green"],
 		"label": "new",
 		"url": "https://commerce-website-psi.vercel.app/products/green-city-cruiser",
-		"imageUrl": "/src/lib/assets/products/bikes/green-city-cruiser/green-city-cruiser_0.png",
+		"imageUrl": "/assets/products/bikes/green-city-cruiser/green-city-cruiser_0.png",
 		"alternateImages": [
-			"/src/lib/assets/products/bikes/green-city-cruiser/green-city-cruiser_1.png",
-			"/src/lib/assets/products/bikes/green-city-cruiser/green-city-cruiser_2.png"
+			"/assets/products/bikes/green-city-cruiser/green-city-cruiser_1.png",
+			"/assets/products/bikes/green-city-cruiser/green-city-cruiser_2.png"
 		]
 	}
 ]
