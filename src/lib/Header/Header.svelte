@@ -11,6 +11,7 @@
 	import WishlistIcon from './icons/WishlistIcon.svelte';
 	import CartIcon from './icons/CartIcon.svelte';
 	import UserIcon from './icons/UserIcon.svelte';
+	import logo from '$lib/assets/images/logo.png';
 
 	let open: boolean = false;
 	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
@@ -76,7 +77,14 @@
 		<a href="/products" class="btn btn-ghost">Shop All</a>
 	</div>
 	<div class="navbar-center">
-		<a href="/" class="btn btn-ghost text-xl">Logo</a>
+		<a href="/">
+			<img
+				src={logo}
+				alt="logo"
+				class="h-12 max-h-12 transform rounded-lg transition-transform duration-300 hover:scale-105 md:hover:scale-105"
+				style="max-height: 46px;"
+			/>
+		</a>
 	</div>
 	<div class="navbar-end">
 		<SearchIcon {closeMenu} className="hidden lg:flex" />

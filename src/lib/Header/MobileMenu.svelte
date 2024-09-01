@@ -6,6 +6,7 @@
 	import LanguageIcon from './icons/LanguageIcon.svelte';
 	import WishlistIcon from './icons/WishlistIcon.svelte';
 	import CartIcon from './icons/CartIcon.svelte';
+	import logo from '$lib/assets/images/logo.png';
 
 	export let open: boolean = false;
 	export let toggleCartAndMenu: () => void;
@@ -30,8 +31,13 @@
 		class="fixed left-0 top-0 z-20 h-full w-64 bg-white transition-transform duration-200 ease-in-out"
 		transition:fly={{ x: -100, duration: 500, easing: quadOut }}
 	>
-		<a href="/" class="btn btn-ghost absolute right-2.5 top-2.5 text-xl" on:click={closeMenu}>
-			Logo
+		<a href="/" class="absolute right-2.5 top-2.5" on:click={closeMenu}>
+			<img
+				src={logo}
+				alt="logo"
+				class="h-12 max-h-12 transform rounded-lg transition-transform duration-300 hover:scale-105 md:hover:scale-105"
+				style="max-height: 46px;"
+			/>
 		</a>
 		<div class="menu flex h-full flex-col bg-base-200 pt-20">
 			<ul>
@@ -43,7 +49,7 @@
 					</a>
 				</li>
 				<li><a href="/categories/sale" class="block p-4 text-lg" on:click={closeMenu}>Sale</a></li>
-                <li><a href="/products" class="block p-4 text-lg" on:click={closeMenu}>Shop All</a></li>
+				<li><a href="/products" class="block p-4 text-lg" on:click={closeMenu}>Shop All</a></li>
 			</ul>
 			<div class="mb-4 ml-4 mt-auto flex">
 				<UserIcon {closeMenu} />
