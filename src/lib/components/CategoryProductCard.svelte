@@ -50,7 +50,7 @@
 						</div>
 					{/if}
 					<img
-						src={product.imageUrl}
+                        src={product.imageUrl}
 						alt={product.name}
 						class=" inset-0 block h-auto w-full object-cover opacity-100 md:group-hover:opacity-0"
 					/>

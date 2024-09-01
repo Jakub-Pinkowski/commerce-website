@@ -11,8 +11,11 @@
 		"colors": ["white", "black"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/city-backpack-10l",
-		"imageUrl": "",
-		"alternateImages": ["", "", "", "", ""]
+		"imageUrl": "/src/lib/assets/products/backpacks/city-backpack-10l/city_backpack_10l_0.png",
+		"alternateImages": [
+			"/src/lib/assets/products/backpacks/city-backpack-10l/city_backpack_10l_1.png",
+			"/src/lib/assets/products/backpacks/city-backpack-10l/city_backpack_10l_2.png"
+		]
 	},
 	{
 		"id": 2,
