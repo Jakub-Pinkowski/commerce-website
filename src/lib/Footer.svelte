@@ -77,7 +77,7 @@
 				<span>Sign up for a newsletter to get 10% off your first purchase</span>
 			</label>
 			<div class="join mt-4">
-				<input type="text" placeholder="username@site.com" class="input join-item input-bordered" />
+				<input type="text" placeholder="username@site.com" class="input join-item input-bordered text-dark" />
 				<button class="btn btn-primary join-item">Subscribe</button>
 			</div>
 			<span class="mt-3 text-xs">
