@@ -11,6 +11,7 @@
 
 	export let data: PageData;
 	export let products: Product[] = data?.products;
+    
 	let productsPerCarousel = 8;
 	let newProducts = products.filter((product) => product.label === 'new');
 	let saleProducts = products.filter((product) => product.price < product.listPrice);
