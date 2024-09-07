@@ -1,6 +1,10 @@
 <script lang="ts">
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
+	let breadcrumbs = ['Home', 'Profile', 'Forgot password'];
 </script>
 
 <div>
-    <h1>Forgot password</h1>
+	<Breadcrumbs {breadcrumbs} />
+	<h1>Forgot password</h1>
 </div>

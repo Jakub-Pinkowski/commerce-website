@@ -1,7 +1,11 @@
 <script lang="ts">
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
 	import Google from '$lib/login_buttons/Google.svelte';
-    import Apple from '$lib/login_buttons/Apple.svelte';
-    import Facebook from '$lib/login_buttons/Facebook.svelte';
+	import Apple from '$lib/login_buttons/Apple.svelte';
+	import Facebook from '$lib/login_buttons/Facebook.svelte';
+
+	let breadcrumbs = ['Home', 'Profile', 'Register'];
 
 	let email: string;
 	let password: string;
@@ -48,13 +52,14 @@
 	};
 </script>
 
+<Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Login</h1>
 	<div class="mb-8 flex flex-col items-center gap-4">
 		<Google />
 		<Apple />
-        <Facebook />
-    </div>
+		<Facebook />
+	</div>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<span>Sign in with Email</span>
 		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">

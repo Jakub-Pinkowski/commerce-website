@@ -1,4 +1,8 @@
 <script lang="ts">
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
+	let breadcrumbs = ['Home', 'Profile', 'Register'];
+
 	let email: string;
 	let password: string;
 	let repeatPassword: string;
@@ -55,6 +59,7 @@
 	};
 </script>
 
+<Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
@@ -98,8 +103,8 @@
 		>
 		<div class="mt-7 text-lg">
 			<span>
-                Already have an account? <a href="/profile/login" class="text-blue-500">Login</a> instead
-            </span>
+				Already have an account? <a href="/profile/login" class="text-blue-500">Login</a> instead
+			</span>
 		</div>
 	</form>
 </div>
