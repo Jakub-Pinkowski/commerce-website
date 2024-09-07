@@ -16,6 +16,7 @@
 	import Pagination from '$lib/components/Pagination.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
+	export let title: string;
 	export let products: Product[];
 	export let breadcrumbs: string[];
 
@@ -122,7 +123,7 @@
 	<Breadcrumbs {breadcrumbs} />
 
 	<div class="mb-4 flex items-center justify-between border-b border-gray-200 pb-6">
-		<h1 class="text-3xl font-bold">Shoes</h1>
+		<h1 class="text-3xl font-bold">{title}</h1>
 		<!-- TODO: Export sorting -->
 		<div class="dropdown dropdown-end">
 			<div
