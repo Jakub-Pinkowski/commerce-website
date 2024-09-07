@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import type { Product } from '$lib/productTypes';
 	import { debounce } from '$lib/helpers/functions';
 	import {
@@ -39,7 +38,7 @@
 	let tempMinPrice: number = initialMinPrice;
 	let tempMaxPrice: number = initialMaxPrice;
 	let sortOption: string | null = null;
-
+	// TODO: Count of colors should be updated based on the selected filters
 	let possibleColors = getPossibleColors(products);
 	let selectedColors: Set<string> = new Set();
 	let possibleBrands = getPossibleBrands(products);
@@ -47,6 +46,7 @@
 	let possibleCategories = getPossibleCategories(products);
 	let selectedCategories: Set<string> = new Set();
 
+	// TODO: Show active filters section
 	function updatePriceRange(filteredProducts: Product[]) {
 		if (filteredProducts.length > 0) {
 			minPrice = Math.min(...filteredProducts.map((product) => product.price));
@@ -122,7 +122,8 @@
 	<Breadcrumbs {breadcrumbs} />
 
 	<div class="mb-4 flex items-center justify-between border-b border-gray-200 pb-6">
-		<h1 class="text-3xl font-bold">Backpacks</h1>
+		<h1 class="text-3xl font-bold">Shoes</h1>
+		<!-- TODO: Export sorting -->
 		<div class="dropdown dropdown-end">
 			<div
 				tabindex="0"
@@ -145,6 +146,7 @@
 			</div>
 
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+			<!-- TODO: Make it dynamic later, define all sorting options in a separate component -->
 			<ul tabindex="0" class="menu dropdown-content z-20 w-44 rounded-box bg-base-100 p-2 shadow">
 				<li>
 					<button
@@ -171,6 +173,7 @@
 			<!-- Desktop Sidebar -->
 			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 lg:flex">
 				<div class="join join-vertical w-full">
+					<!-- TODO: Export range filter -->
 					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
 						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
@@ -202,9 +205,11 @@
 						filters={possibleCategories}
 						handleToggle={handleToggleCategory}
 					/>
+					<!-- TODO: Add some more facets later on -->
 				</div>
 			</div>
 
+			<!-- TODO: Design and build Mobile Sidebar -->
 			<!-- Mobile Sidebar -->
 			<div class="lg:hidden"></div>
 
@@ -216,6 +221,7 @@
 					{/each}
 				</div>
 
+				<!-- TODO: Design a new Pagination compatible with Svelte 5 later on -->
 				{#if displayedProducts.length > itemsPerPage}
 					<Pagination
 						{itemsPerPage}
@@ -227,8 +233,10 @@
 			</div>
 		</div>
 
+		<!-- TODO: Later on we need to use some recommendedProducts instead -->
 		<!-- <RecommendationsCarousel {products} /> -->
 	{:else}
+		<!-- TODO: Style this part -->
 		<p>No products found</p>
 	{/if}
 </div>
