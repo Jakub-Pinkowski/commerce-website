@@ -5,7 +5,7 @@
     export let data: PageData;
     const products = data?.products;
 
-    let title = 'Sale';
+    let title = 'New';
     let breadcrumbs = ['Home', 'Categories', 'New'];
 </script>
 
