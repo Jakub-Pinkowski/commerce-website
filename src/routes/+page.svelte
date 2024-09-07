@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+    
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';

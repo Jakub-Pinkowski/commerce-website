@@ -1,6 +1,7 @@
 <script lang="ts">
 	import axios from 'axios';
 	import { fade } from 'svelte/transition';
+    
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
 	let breadcrumbs = ['Home', 'Company', 'Contact'];
