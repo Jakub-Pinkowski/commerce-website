@@ -171,14 +171,11 @@
 
 	{#if displayedProducts}
 		<div class="flex">
-            <div class="indicator">
-                <span class="indicator-item badge badge-primary">new</span>
-                <div class="bg-base-300 grid h-32 w-32 place-items-center">content</div>
-              </div>
 			<!-- Desktop Sidebar -->
 			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 lg:flex">
 				<div class="join join-vertical w-full">
 					<!-- TODO: Export range filter -->
+					<span class="badge indicator-item badge-accent">Filtering is a bit buggy!</span>
 					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
 						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
