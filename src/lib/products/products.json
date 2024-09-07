@@ -11,10 +11,10 @@
 		"colors": ["white", "black"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/city-backpack-10l",
-		"imageUrl": "/assets/products/backpacks/city-backpack-10l/city-backpack-10l_0.png",
+		"imageUrl": "https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/backpacks/city-backpack-10l/city-backpack-10l_0-OwUzYMpBRbb1c64RfuMeDJNgOlSATp.png",
 		"alternateImages": [
-			"/assets/products/backpacks/city-backpack-10l/city-backpack-10l_1.png",
-			"/assets/products/backpacks/city-backpack-10l/city-backpack-10l_2.png"
+			"https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/backpacks/city-backpack-10l/city-backpack-10l_1-q26LpVm36rJUvAVOEUj7nHjZNth2Fb.png",
+			"https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/backpacks/city-backpack-10l/city-backpack-10l_2-DPTv19Bu7UHGZNp447Noiabhd2j8Gq.png"
 		]
 	},
 	{
