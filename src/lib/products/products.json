@@ -44,7 +44,7 @@
 		"description": "The Hiking Backpack is designed for extended trips. It has a 40L capacity and comes in a stylish khaki color.",
 		"price": 29,
 		"listPrice": 29,
-		"colors": ["khaki"],
+		"colors": ["khaki, brown"],
 		"label": "best seller",
 		"url": "https://commerce-website-psi.vercel.app/products/hiking-backpack-40l",
 		"imageUrl": "/assets/products/backpacks/hiking-backpack-40l/hiking-backpack-40l_0.png",

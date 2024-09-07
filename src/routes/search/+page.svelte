@@ -52,7 +52,10 @@
 		{/each}
 	</div>
 {:else}
-	<div class="mb-12">No products found</div>
+	<div class="mb-12">
+		No products found matching your query
+		<span class="font-bold">'{searchQuery}'</span>
+	</div>
 	<!-- TODO: Insert best sellers or sales or whatever else, some real data -->
 	<RecommendationsCarousel {products} />
 {/if}
