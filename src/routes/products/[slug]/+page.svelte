@@ -4,19 +4,16 @@
 
 	import GallerySwiper from './GallerySwiper.svelte';
 	import ProductDetails from './ProductDetails.svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
 	export let data: PageData;
 	export let product = data?.product;
+
+	let breadcrumbs = ['Home', 'Support', product?.name ?? ''];
 </script>
 
 {#if product}
-	<div class="breadcrumbs mb-6 text-xs">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/products">Products</a></li>
-			<li>{product.name}</li>
-		</ul>
-	</div>
+	<Breadcrumbs {breadcrumbs} />
 	<section class="flex flex-col md:flex-row">
 		<GallerySwiper {product} />
 		<ProductDetails {product} />

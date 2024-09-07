@@ -1,13 +1,10 @@
 <script lang="ts">
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
+	let breadcrumbs = ['Home', 'Support', 'FAQ'];
 </script>
 
-<div class="breadcrumbs mb-6 text-xs">
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/support">Support</a></li>
-		<li>FAQ</li>
-	</ul>
-</div>
+<Breadcrumbs {breadcrumbs} />
 
 <div>
 	<h1 class="mb-4 text-3xl font-bold text-gray-900">Frequently Asked Questions</h1>
