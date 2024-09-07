@@ -1,10 +1,13 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { page } from '$app/stores';
+
+	import desert from '$lib/assets/images/desert.jpg';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
 	import GallerySwiper from './GallerySwiper.svelte';
 	import ProductDetails from './ProductDetails.svelte';
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
 	export let data: PageData;
 	export let product = data?.product;
@@ -21,8 +24,19 @@
 	<!-- FIXME: Products vs Product issue -->
 	<!-- <RecommendationsCarousel {products} /> -->
 {:else}
-	<!-- TODO: Design this 404 part -->
-	<h1 class="text-xl font-bold">No product found</h1>
+	<section
+		class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
+		style="background-image: url({desert});"
+	>
+		<div class="hero-overlay bg-opacity-60"></div>
+		<div class="hero-content text-center text-neutral-content">
+			<div class="max-w-2xl">
+				<h1 class="mb-8 text-5xl">Error 404: Not Found</h1>
+				<p class="mb-8 text-4xl">Looks like this page doesn't exist</p>
+				<a href="/" class="btn btn-accent">Homepage</a>
+			</div>
+		</div>
+	</section>
 {/if}
 
 <style>

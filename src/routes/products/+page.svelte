@@ -26,7 +26,7 @@
 	let displayedProducts: Product[] = [];
 
 	// Breadcrumbs
-	let breadcrumbs = ['Home', 'Categories', 'Shoes'];
+	let breadcrumbs = ['Home', 'Products'];
 
 	interface UpdateEventDetail {
 		displayedProducts: Product[];
