@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
 
 	import type { PageData } from './$types';
-	import { toggleWishlist } from '$lib/stores/wishlist';
 	import type { Product } from '$lib/productTypes.ts';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
 	export let data: PageData;
 	let wishlist: Product[] = [];
+	let breadcrumbs = ['Home', 'Profile', 'Wishlist'];
 
 	onMount(() => {
 		data.wishlist.subscribe((items: Product[]) => {
@@ -21,12 +21,7 @@
 </script>
 
 <div>
-	<div class="breadcrumbs mb-6 text-xs">
-		<ul>
-			<li><a href="/">Profile</a></li>
-			<li>Wishlist</li>
-		</ul>
-	</div>
+	<Breadcrumbs {breadcrumbs} />
 	<h1 class="mb-4 text-3xl font-bold">Wishlist</h1>
 	{#if wishlist.length > 0}
 		<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
