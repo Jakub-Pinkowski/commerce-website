@@ -7,6 +7,11 @@
 	inject();
 </script>
 
+<svelte:head>
+	<title>E-commerce website</title>
+	<meta name="description" content="E-commerce website" />
+</svelte:head>
+
 <div class="app">
 	<Header />
 
