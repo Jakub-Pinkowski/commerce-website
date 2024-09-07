@@ -23,7 +23,7 @@
 	</nav>
 	<nav>
 		<h6 class="footer-title">Social</h6>
-		<!-- TODO: Update this later on -->
+		<!-- TODO: Add real socials -->
 		<div class="grid grid-flow-col gap-4">
 			<a href="/">
 				<svg
