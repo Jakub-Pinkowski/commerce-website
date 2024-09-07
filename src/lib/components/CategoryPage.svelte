@@ -171,6 +171,10 @@
 
 	{#if displayedProducts}
 		<div class="flex">
+            <div class="indicator">
+                <span class="indicator-item badge badge-primary">new</span>
+                <div class="bg-base-300 grid h-32 w-32 place-items-center">content</div>
+              </div>
 			<!-- Desktop Sidebar -->
 			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 lg:flex">
 				<div class="join join-vertical w-full">
