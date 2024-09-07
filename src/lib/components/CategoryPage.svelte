@@ -205,7 +205,7 @@
 						filters={possibleCategories}
 						handleToggle={handleToggleCategory}
 					/>
-					<!-- TODO: Add some more facets later on -->
+					<!-- TODO: Add some more facets -->
 				</div>
 			</div>
 
@@ -221,7 +221,7 @@
 					{/each}
 				</div>
 
-				<!-- TODO: Design a new Pagination compatible with Svelte 5 later on -->
+				<!-- TODO: Design a new Pagination compatible with Svelte 5 -->
 				{#if displayedProducts.length > itemsPerPage}
 					<Pagination
 						{itemsPerPage}

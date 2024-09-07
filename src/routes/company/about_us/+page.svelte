@@ -1,19 +1,16 @@
 <script lang="ts">
-    import about_us from '$lib/assets/images/about_us.jpg';
+	import about_us from '$lib/assets/images/about_us.jpg';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
+	let breadcrumbs = ['Home', 'Company', 'About Us'];
 </script>
 
-<div class="breadcrumbs mb-6 text-xs">
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/company">Company</a></li>
-        <li>About Us</li>
-	</ul>
-</div>
+<Breadcrumbs {breadcrumbs} />
 
 <div>
 	<div
 		class="hero h-96 rounded-lg"
-        style="background-image: url({about_us}); background-size: cover; background-position: center;"
+		style="background-image: url({about_us}); background-size: cover; background-position: center;"
 	>
 		<div class="hero-overlay rounded-lg bg-opacity-60"></div>
 		<div class="hero-content text-center text-neutral-content">
@@ -55,5 +52,4 @@
 			</div>
 		</div>
 	</div>
-    
 </div>

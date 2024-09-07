@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
+
+    import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
 	export let data: PageData;
@@ -10,6 +12,8 @@
 	let activeTabMainCategory: string = 'New';
 	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
+
+    let breadcrumbs = ['Home', 'Categories'];
 
 	// Main categories
 	let newProducts = products
@@ -38,12 +42,7 @@
 </script>
 
 <div>
-	<div class="breadcrumbs mb-6 text-xs">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li>Categories</li>
-		</ul>
-	</div>
+    <Breadcrumbs {breadcrumbs} />
 	{#if products}
 		<div class="mb-8">
 			<!-- TODO: Animate the buttons -->

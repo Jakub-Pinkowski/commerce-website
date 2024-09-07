@@ -1,6 +1,10 @@
 <script lang="ts">
 	import axios from 'axios';
 	import { fade } from 'svelte/transition';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
+	let breadcrumbs = ['Home', 'Company', 'Contact'];
+
 
 	let name: string;
 	let email: string;
@@ -65,13 +69,7 @@
 	};
 </script>
 
-<div class="breadcrumbs mb-6 text-xs">
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/company">Company</a></li>
-        <li>Contact</li>
-	</ul>
-</div>
+<Breadcrumbs {breadcrumbs} />
 
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-bold dark:text-white">Contact Us</h1>
