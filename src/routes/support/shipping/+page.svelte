@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
-	let breadcrumbs = ['Home', 'Support', 'Shipping Policy'];
+	let breadcrumbs = ['Home', 'Support', 'Shipping'];
 </script>
 
 <Breadcrumbs {breadcrumbs} />

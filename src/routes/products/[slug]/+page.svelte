@@ -9,7 +9,7 @@
 	export let data: PageData;
 	export let product = data?.product;
 
-	let breadcrumbs = ['Home', 'Support', product?.name ?? ''];
+	let breadcrumbs = ['Home', 'Products', product?.name ?? ''];
 </script>
 
 {#if product}
