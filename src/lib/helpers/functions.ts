@@ -1,3 +1,4 @@
+// Generic debounce function
 export function debounce<T extends (...args: any[]) => void>(
 	func: T,
 	wait: number
@@ -13,6 +14,12 @@ export function debounce<T extends (...args: any[]) => void>(
 	};
 }
 
+// Capitalize the first letter of each word in a string
 export const capitalizeWords = (str: string) => {
 	return str.replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+// Capitalize the first letter of a string
+export const capitalizeFirstWord = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
 };

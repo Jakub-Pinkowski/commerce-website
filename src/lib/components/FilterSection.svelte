@@ -1,11 +1,9 @@
 <script lang="ts">
+	import { capitalizeFirstWord } from '$lib/helpers/functions';
+    
 	export let title: string;
 	export let filters: Record<string, number>;
 	export let handleToggle: (item: string) => void;
-
-	function capitalizeFirstLetter(str: string): string {
-		return str.charAt(0).toUpperCase() + str.slice(1);
-	}
 </script>
 
 <div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
@@ -22,9 +20,9 @@
 						on:change={() => handleToggle(filter)}
 						class="checkbox-primary checkbox h-4 w-4 rounded focus:ring-1 focus:ring-primary"
 					/>
-					<label for={filter} class="ml-3 text-sm text-gray-600"
-						>{capitalizeFirstLetter(filter)} ({count})</label
-					>
+					<label for={filter} class="ml-3 text-sm text-gray-600">
+						{capitalizeFirstWord(filter)} ({count})
+					</label>
 				</div>
 			{/each}
 		</div>

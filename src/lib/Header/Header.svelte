@@ -3,7 +3,7 @@
 	import { Hamburger } from 'svelte-hamburgers';
 
 	import { isMiniCartOpen, toggleMiniCart } from '$lib/stores/miniCart';
-
+	import logo from '$lib/assets/images/logo.png';
 	import MobileMenu from './MobileMenu.svelte';
 	import MiniCart from './MiniCart.svelte';
 	import SearchIcon from './icons/SearchIcon.svelte';
@@ -11,7 +11,6 @@
 	import WishlistIcon from './icons/WishlistIcon.svelte';
 	import CartIcon from './icons/CartIcon.svelte';
 	import UserIcon from './icons/UserIcon.svelte';
-	import logo from '$lib/assets/images/logo.png';
 
 	let open: boolean = false;
 	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
