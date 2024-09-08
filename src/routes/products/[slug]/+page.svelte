@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { page } from '$app/stores';
+	import type { Product } from '$lib/productTypes.ts';
 
 	import desert from '$lib/assets/images/desert.jpg';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
@@ -10,7 +10,7 @@
 	import ProductDetails from './ProductDetails.svelte';
 
 	export let data: PageData;
-	export let product = data?.product;
+	const product = data?.product as Product;
 
 	let breadcrumbs = ['Home', 'Products', product?.name ?? ''];
 </script>

@@ -6,7 +6,7 @@
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
 	export let data: PageData;
-	export let products: Product[] = data?.products;
+    const products = data?.products as Product[];
 
 	let searchQuery = '';
 	let breadcrumbs = ['Home', 'Search'];
