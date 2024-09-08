@@ -24,7 +24,9 @@ export const load: PageServerLoad = async () => {
 		alternateImages: row.alternate_images
 	}));
 
+	const capsProducts = products.filter((product) => product.category === 'caps');
+
 	return {
-		products
+		products: capsProducts
 	};
 };

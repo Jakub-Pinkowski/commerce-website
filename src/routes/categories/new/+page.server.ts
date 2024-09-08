@@ -24,7 +24,9 @@ export const load: PageServerLoad = async () => {
 		alternateImages: row.alternate_images
 	}));
 
+    const newProducts = products.filter(product => product.label === 'new');
+
 	return {
-		products
+		products: newProducts
 	};
 };

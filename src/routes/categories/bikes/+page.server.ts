@@ -24,7 +24,9 @@ export const load: PageServerLoad = async () => {
 		alternateImages: row.alternate_images
 	}));
 
+	const bikesProducts = products.filter((product) => product.category === 'bikes');
+
 	return {
-		products
+		products: bikesProducts
 	};
 };

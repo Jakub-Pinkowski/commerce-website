@@ -1,12 +1,13 @@
 <script lang="ts">
-    import CategoryPage from '$lib/components/CategoryPage.svelte';
-    import type { PageData } from './$types';
+	import type { PageData } from './$types';
+	import type { Product } from '$lib/productTypes.ts';
+	import CategoryPage from '$lib/components/CategoryPage.svelte';
 
-    export let data: PageData;
-    const products = data?.products;
+	export let data: PageData;
+	const products = data?.products as Product[];
 
-    let title = 'Bikes';
-    let breadcrumbs = ['Home', 'Categories', 'Bikes'];
+	let title = 'Bikes';
+	let breadcrumbs = ['Home', 'Categories', 'Bikes'];
 </script>
 
 <CategoryPage {title} {products} {breadcrumbs} />

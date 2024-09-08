@@ -24,7 +24,9 @@ export const load: PageServerLoad = async () => {
 		alternateImages: row.alternate_images
 	}));
 
+    const saleProducts = products.filter(product => product.price < product.listPrice);
+
 	return {
-		products
+		products: saleProducts
 	};
 };
