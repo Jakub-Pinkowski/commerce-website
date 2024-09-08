@@ -1,6 +1,6 @@
 <script>
-	import Header from '../lib/Header/Header.svelte';
-	import Footer from '../lib/Footer.svelte';
+	import Header from '../lib/components/Header/Header.svelte';
+	import Footer from '../lib/components/Footer.svelte';
 	import '../app.css';
 
 	function isSafari() {
