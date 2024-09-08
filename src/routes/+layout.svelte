@@ -1,10 +1,15 @@
 <script>
-	import { inject } from '@vercel/analytics';
 	import Header from '../lib/Header/Header.svelte';
 	import Footer from '../lib/Footer.svelte';
 	import '../app.css';
 
-	inject();
+	function isSafari() {
+		return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+	}
+
+	if (typeof window !== 'undefined' && !isSafari()) {
+		import('@vercel/analytics').then(({ inject }) => inject());
+	}
 </script>
 
 <svelte:head>
