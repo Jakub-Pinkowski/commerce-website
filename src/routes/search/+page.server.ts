@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { sql, createPool } from '@vercel/postgres';
+import { createPool } from '@vercel/postgres';
 import { POSTGRES_URL } from '$env/static/private';
 import type { Product } from '$lib/productTypes.ts';
 
@@ -16,12 +16,12 @@ export const load: PageServerLoad = async () => {
 		category: row.category,
 		description: row.description,
 		price: Number(row.price),
-		listPrice: Number(row.listPrice),
+		listPrice: Number(row.list_price),
 		colors: row.colors,
 		label: row.label,
 		url: row.url,
-		imageUrl: row.imageUrl,
-		alternateImages: row.alternateImages
+		imageUrl: row.imageurl,
+		alternateImages: row.alternate_images
 	}));
 
 	return {
