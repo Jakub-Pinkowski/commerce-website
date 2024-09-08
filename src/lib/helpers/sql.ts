@@ -1,5 +1,6 @@
 import type { Product } from '$lib/types/productTypes.ts';
 
+// Map the result of a SQL query to a Product object
 export function mapProducts(result: any): Product[] {
 	return result.rows.map((row: any) => ({
 		id: row.id,

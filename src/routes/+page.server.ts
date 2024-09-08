@@ -7,7 +7,6 @@ export const load: PageServerLoad = async () => {
 	const pool = createPool({ connectionString: POSTGRES_URL });
 	const result = await pool.sql`SELECT * FROM products`;
 
-	// Map the query result rows to the Product type
 	const products = mapProducts(result);
 
 	return {

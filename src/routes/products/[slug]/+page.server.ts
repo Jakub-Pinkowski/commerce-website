@@ -5,12 +5,9 @@ import { mapProducts } from '$lib/helpers/sql';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const pool = createPool({ connectionString: POSTGRES_URL });
-	const result = await pool.sql`SELECT * FROM products`;
-
-	// Map the query result rows to the Product type
+	const result = await pool.sql`SELECT * FROM products WHERE handle = ${params.slug}`;
 	const products = mapProducts(result);
-
-	const product = products.find((p) => p.handle === params.slug);
+	const product = products[0];
 
 	return {
 		product
