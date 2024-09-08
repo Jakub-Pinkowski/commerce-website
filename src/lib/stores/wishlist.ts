@@ -4,15 +4,24 @@ import type { Product } from '$lib//types/productTypes.ts';
 let initialWishlist: Product[] = [];
 
 if (typeof window !== 'undefined') {
-	const storedWishlist = localStorage.getItem('wishlist');
-	initialWishlist = storedWishlist ? JSON.parse(storedWishlist) : [];
+	try {
+		const storedWishlist = localStorage.getItem('wishlist');
+		initialWishlist = storedWishlist ? JSON.parse(storedWishlist) : [];
+	} catch (error) {
+		console.error('Failed to parse wishlist from localStorage', error);
+		initialWishlist = [];
+	}
 }
 
 export const wishlist = writable<Product[]>(initialWishlist);
 
 if (typeof window !== 'undefined') {
 	wishlist.subscribe((items) => {
-		localStorage.setItem('wishlist', JSON.stringify(items));
+		try {
+			localStorage.setItem('wishlist', JSON.stringify(items));
+		} catch (error) {
+			console.error('Failed to save wishlist to localStorage', error);
+		}
 	});
 }
 

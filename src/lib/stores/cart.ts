@@ -58,6 +58,10 @@ export const increaseQuantity = (item: CartItem, quantity: number) => {
 };
 
 export const decreaseQuantity = (item: CartItem, quantity: number) => {
+	if (quantity <= 0) {
+		console.warn('Quantity should be a positive integer');
+		return;
+	}
 	cart.update((items) => {
 		const existingItem = items.find((i) => i.id === item.id);
 		if (existingItem) {
