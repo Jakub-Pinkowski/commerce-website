@@ -8,14 +8,24 @@ export interface CartItem extends Product {
 let initialCart: CartItem[] = [];
 
 if (typeof window !== 'undefined') {
-	const storedCart = localStorage.getItem('cart');
-	initialCart = storedCart ? JSON.parse(storedCart) : [];
+	try {
+		const storedCart = localStorage.getItem('cart');
+		initialCart = storedCart ? JSON.parse(storedCart) : [];
+	} catch (error) {
+		console.error('Failed to parse cart from localStorage', error);
+		initialCart = [];
+	}
 }
 
 export const cart = writable<CartItem[]>(initialCart);
+
 if (typeof window !== 'undefined') {
 	cart.subscribe((items) => {
-		localStorage.setItem('cart', JSON.stringify(items));
+		try {
+			localStorage.setItem('cart', JSON.stringify(items));
+		} catch (error) {
+			console.error('Failed to save cart to localStorage', error);
+		}
 	});
 }
 
@@ -36,7 +46,6 @@ export const removeFromCart = (item: CartItem) => {
 		return items.filter((i) => i.id !== item.id);
 	});
 };
-
 
 export const increaseQuantity = (item: CartItem, quantity: number) => {
 	cart.update((items) => {

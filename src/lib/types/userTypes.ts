@@ -4,3 +4,5 @@ export type User = {
     password: string;
 	createdAt: Date;
 };
+
+// Implement User Auth with Clerk
