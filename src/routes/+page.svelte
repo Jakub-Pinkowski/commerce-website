@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-    
+
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/productTypes.ts';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
@@ -10,8 +10,8 @@
 	import newImage from '$lib/assets/images/newImage.jpg';
 
 	export let data: PageData;
-	export let products: Product[] = data?.products;
-    
+	const products = data?.products as Product[];
+
 	let productsPerCarousel = 8;
 	let newProducts = products.filter((product) => product.label === 'new');
 	let saleProducts = products.filter((product) => product.price < product.listPrice);
