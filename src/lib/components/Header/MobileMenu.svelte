@@ -8,7 +8,6 @@
 	import WishlistIcon from './icons/WishlistIcon.svelte';
 	import CartIcon from './icons/CartIcon.svelte';
 
-
 	export let open: boolean = false;
 	export let toggleCartAndMenu: () => void;
 	export let closeMenu: () => void;
