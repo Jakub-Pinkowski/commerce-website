@@ -32,6 +32,7 @@
 	}
 
 	// Filtering and Sorting
+    // TODO: Refactor, fix and optimize the whole filtering logic
 	const initialMinPrice: number = Math.min(...products.map((product) => product.price));
 	const initialMaxPrice: number = Math.max(...products.map((product) => product.price));
 	let minPrice: number = initialMinPrice;

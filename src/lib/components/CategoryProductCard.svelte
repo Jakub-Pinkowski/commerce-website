@@ -9,8 +9,8 @@
 	import type { Product } from '$lib/types/productTypes';
 
 	export let product: Product;
+    
 	let quantity: number = 1;
-
 	let toastCart: boolean = false;
 	let toastCartMessage: string = '';
 	let toastWishlist: boolean = false;
@@ -140,4 +140,3 @@
 		</div>
 	</div>
 {/if}
-

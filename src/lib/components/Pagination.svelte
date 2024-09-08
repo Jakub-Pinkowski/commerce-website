@@ -5,6 +5,7 @@
 	export let itemsPerPage = 8;
 	export let products: Product[] = [];
 	export let displayedProducts: Product[] = [];
+    
 	let currentPage = 1;
 	let totalPages = 0;
 

@@ -8,6 +8,7 @@
 
 	export let products: Product[];
 	export let title: string = 'You may also like';
+    
 	const link = title.toLowerCase().replace(/\s+/g, '_');
 
 	let recommendationsSwiper: Swiper;
