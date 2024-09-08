@@ -5,14 +5,15 @@
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 
 	export let data: PageData;
-	export let products: Product[] = data?.products;
+    const products = data?.products as Product[];
+
+    let breadcrumbs = ['Home', 'Categories'];
 	let productsPerCarousel = 8;
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 	let activeTabMainCategory: string = 'New';
 	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
 
-    let breadcrumbs = ['Home', 'Categories'];
 
 	// Main categories
 	let newProducts = products
