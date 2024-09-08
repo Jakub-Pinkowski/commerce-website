@@ -43,7 +43,7 @@
 				class="hero relative mx-[-1.5rem] mb-2 w-screen border-y border-accent md:mx-[-2rem]"
 			>
 				<button
-					class="rounded-full0 btn btn-circle btn-ghost absolute right-2 top-2"
+					class="rounded-full0 btn btn-circle btn-ghost absolute right-2 top-2 z-10"
 					on:click={hideBanner}
 				>
 					<svg
@@ -60,7 +60,7 @@
 				</button>
 				<div class="hero-overlay bg-light-accent bg-opacity-60"></div>
 				<div class="hero-content max-w-full text-center text-neutral-content">
-					<div class="max-w-full text-dark">
+					<div class="max-w-[85%] text-dark lg:max-w-full">
 						<h1 class="mb-2 text-xl">
 							This project is still a work in progress, website is under constant development.
 						</h1>

@@ -18,6 +18,7 @@
 	});
 
 	// TODO: Finish Toast logic, still doesn't work
+    // TODO: On mobile, add ability to remove items from wishlist
 </script>
 
 <div>
