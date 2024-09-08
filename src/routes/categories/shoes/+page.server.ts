@@ -5,7 +5,7 @@ import type { Product } from '$lib/productTypes.ts';
 
 export const load: PageServerLoad = async () => {
 	const pool = createPool({ connectionString: POSTGRES_URL });
-	const result = await pool.sql`SELECT * FROM products`;
+	const result = await pool.sql`SELECT * FROM products WHERE category = 'shoes'`;
 
 	// Map the query result rows to the Product type
 	const products: Product[] = result.rows.map((row) => ({
@@ -24,9 +24,7 @@ export const load: PageServerLoad = async () => {
 		alternateImages: row.alternate_images
 	}));
 
-    const shoesProducts = products.filter((product) => product.category === 'shoes');
-
 	return {
-		products: shoesProducts
+		products
 	};
 };
