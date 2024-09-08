@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store';
-import type { Product } from '$lib/productTypes.ts';
+import type { Product } from '$lib//types/productTypes.ts';
 
 let initialWishlist: Product[] = [];
 

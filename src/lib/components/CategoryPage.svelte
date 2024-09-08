@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Product } from '$lib/productTypes';
+	import type { Product } from '$lib/types/productTypes';
 	import { debounce } from '$lib/helpers/functions';
 	import {
 		filterProducts,

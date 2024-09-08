@@ -1,4 +1,4 @@
-import type { Product } from '$lib/productTypes.ts';
+import type { Product } from '$lib//types/productTypes.ts';
 
 export function mapProducts(result: any): Product[] {
 	return result.rows.map((row: any) => ({

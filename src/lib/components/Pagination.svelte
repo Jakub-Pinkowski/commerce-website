@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, createEventDispatcher } from 'svelte';
-	import type { Product } from '$lib/productTypes.ts';
+	import type { Product } from '$lib/types/productTypes';
 
 	export let itemsPerPage = 8;
 	export let products: Product[] = [];

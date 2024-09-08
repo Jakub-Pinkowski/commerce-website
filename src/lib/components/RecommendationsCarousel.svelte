@@ -4,7 +4,7 @@
 	import 'swiper/css/bundle';
 
 	import { capitalizeWords } from '$lib/helpers/functions';
-	import type { Product } from '$lib/productTypes.ts';
+	import type { Product } from '$lib/types/productTypes';
 
 	export let products: Product[];
 	export let title: string = 'You may also like';

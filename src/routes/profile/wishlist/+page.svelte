@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	import type { PageData } from './$types';
-	import type { Product } from '$lib/productTypes.ts';
+	import type { Product } from '$lib/types/productTypes';
 	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';

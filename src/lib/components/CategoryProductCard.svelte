@@ -6,7 +6,7 @@
 	import { capitalizeWords } from '$lib/helpers/functions';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
-	import type { Product } from '$lib/productTypes';
+	import type { Product } from '$lib/types/productTypes';
 
 	export let product: Product;
 	let quantity: number = 1;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import type { Product } from '$lib/productTypes.ts';
+	import type { Product } from '$lib/types/productTypes';
 
 	import desert from '$lib/assets/images/desert.jpg';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';

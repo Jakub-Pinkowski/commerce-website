@@ -5,7 +5,7 @@
 	import { addToCart } from '$lib/stores/cart';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
-	import type { Product } from '$lib/productTypes';
+	import type { Product } from '$lib/types/productTypes';
 
 	import 'swiper/css/bundle';
 

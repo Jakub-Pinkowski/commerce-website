@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 
 	import type { PageData } from './$types';
-	import type { Product } from '$lib/productTypes.ts';
+	import type { Product } from '$lib/types/productTypes';
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 	import bikes from '$lib/assets/images/bikes.jpg';
 	import shoes from '$lib/assets/images/footwear.jpg';

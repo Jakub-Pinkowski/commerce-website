@@ -1,4 +1,4 @@
-import type { Product } from '$lib/productTypes.ts';
+import type { Product } from '$lib//types/productTypes.ts';
 
 export function sortProducts(products: Product[], sortOption: string | null): Product[] {
 	if (!sortOption) return products;
