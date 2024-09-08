@@ -7,14 +7,13 @@ export type Product = {
 	description: string;
 	price: number;
 	listPrice: number;
-    inStock: boolean;
-    inventoryLevel: number;
-    reviewCount?: number;
-    reviewRating?: number;
+	inStock: boolean;
+	inventoryLevel: number;
+	reviewCount?: number;
+	reviewRating?: number;
 	colors: string[];
 	label?: string;
 	url: string;
 	imageUrl: string;
 	alternateImages: string[];
 };
-
