@@ -187,21 +187,3 @@
 		</div>
 	</div>
 {/if}
-
-<style scoped>
-	.alert-add-to-cart {
-		--alert-bg: var(--primary);
-		color: var(--whiteish);
-		border-color: var(--primary);
-	}
-
-	.alert-wishlist {
-		--alert-bg: var(--light-accent);
-		color: var(--dark);
-		border-color: var(--light-accent);
-	}
-
-	.toast:where(.toast-top) {
-		top: 50px;
-	}
-</style>

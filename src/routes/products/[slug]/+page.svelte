@@ -38,7 +38,3 @@
 		</div>
 	</section>
 {/if}
-
-<style>
-	/* Swiper */
-</style>

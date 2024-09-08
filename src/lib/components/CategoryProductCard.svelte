@@ -3,7 +3,7 @@
 	import { derived } from 'svelte/store';
 
 	import { addToCart } from '$lib/stores/cart';
-    import { capitalizeWords } from '$lib/helpers/functions';
+	import { capitalizeWords } from '$lib/helpers/functions';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
 	import type { Product } from '$lib/productTypes';
@@ -11,13 +11,22 @@
 	export let product: Product;
 	let quantity: number = 1;
 
+	let toastCart: boolean = false;
+	let toastCartMessage: string = '';
 	let toastWishlist: boolean = false;
 	let toastMessage: string = '';
 
-	const handleAddToCart = () => {
+	function handleAddToCart() {
 		addToCart(product, quantity);
-		openMiniCart();
-	};
+		toastCart = true;
+		toastCartMessage = `<span class="font-bold">${product.name}</span> has been added to cart`;
+		setTimeout(() => {
+			toastCart = false;
+		}, 2000);
+		setTimeout(() => {
+			openMiniCart();
+		}, 400);
+	}
 
 	const isWishlisted = derived(wishlist, ($wishlist) =>
 		$wishlist.some((item) => item.id === product.id)
@@ -46,11 +55,11 @@
 						<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
 					{:else if product.label && product.label.trim() !== ''}
 						<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
-                            {capitalizeWords(product.label)}
+							{capitalizeWords(product.label)}
 						</div>
 					{/if}
 					<img
-                        src={product.imageUrl}
+						src={product.imageUrl}
 						alt={product.name}
 						class=" inset-0 block h-auto w-full object-cover opacity-100 md:group-hover:opacity-0"
 					/>
@@ -116,22 +125,19 @@
 	</div>
 </div>
 
+{#if toastCart}
+	<div class="toast toast-center toast-top z-10" transition:fade>
+		<div class="alert-add-to-cart alert">
+			<span> {@html toastCartMessage}</span>
+		</div>
+	</div>
+{/if}
+
 {#if toastWishlist}
-	<div class="toast toast-center toast-top" transition:fade>
-		<div class="alert alert-success">
+	<div class="toast toast-center toast-top z-20" transition:fade>
+		<div class="alert-wishlist alert">
 			<span> {@html toastMessage}</span>
 		</div>
 	</div>
 {/if}
 
-<style scoped>
-	.alert-success {
-		--alert-bg: var(--light-accent);
-		color: var(--fallback-ac, oklch(var(--ac) / var(--tw-text-opacity)));
-		border-color: var(--light-accent);
-	}
-
-	.toast:where(.toast-top) {
-		top: 50px;
-	}
-</style>
