@@ -6,8 +6,8 @@
 	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
-	import GallerySwiper from './GallerySwiper.svelte';
-	import ProductDetails from './ProductDetails.svelte';
+	import GallerySwiper from '$lib/components/GallerySwiper.svelte';
+	import ProductDetails from '$lib/components/ProductDetails.svelte';
 
 	export let data: PageData;
 	const product = data?.product as Product;
