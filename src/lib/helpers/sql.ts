@@ -27,23 +27,30 @@ export function mapProducts(result: any): Product[] {
 		return [];
 	}
 
-	return result.rows.map((row: SQLProductRow) => ({
-		id: row.id,
-		name: row.name,
-		handle: row.handle,
-		category: row.category,
-		brand: row.brand,
-		description: row.description,
-		price: Number(row.price),
-		listPrice: Number(row.list_price),
-		inStock: row.in_stock,
-		inventoryLevel: row.inventory_level,
-		reviewCount: row.review_count,
-		reviewRating: row.review_rating,
-		colors: row.colors,
-		label: row.label,
-		url: row.url,
-		imageUrl: row.imageurl,
-		alternateImages: row.alternate_images
-	}));
+	const isDev = process.env.NODE_ENV === 'development';
+
+	return result.rows.map((row: SQLProductRow) => {
+		const baseUrl = 'http://localhost:5173/products';
+		const url = isDev ? `${baseUrl}/${row.handle}` : row.url;
+
+		return {
+			id: row.id,
+			name: row.name,
+			handle: row.handle,
+			category: row.category,
+			brand: row.brand,
+			description: row.description,
+			price: Number(row.price),
+			listPrice: Number(row.list_price),
+			inStock: row.in_stock,
+			inventoryLevel: row.inventory_level,
+			reviewCount: row.review_count,
+			reviewRating: row.review_rating,
+			colors: row.colors,
+			label: row.label,
+			url: url,
+			imageUrl: row.imageurl,
+			alternateImages: row.alternate_images
+		};
+	});
 }
