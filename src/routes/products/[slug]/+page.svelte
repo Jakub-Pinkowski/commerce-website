@@ -2,20 +2,35 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
 
-	import desert from '$lib/assets/images/desert.jpg';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
-
 	import GallerySwiper from '$lib/components/Product/GallerySwiper.svelte';
 	import ProductDetails from '$lib/components/Product/ProductDetails.svelte';
+	import SkeletonGallerySwiper from '$lib/components/UI/skeletons/SkeletonGallerySwiper.svelte';
+	import SkeletonProductDetails from '$lib/components/UI/skeletons/SkeletonProductDetails.svelte';
+	import ProductNotFound from '$lib/components/Product/ProductNotFound.svelte';
 
 	export let data: PageData;
-	const product = data?.product as Product;
 
-	let breadcrumbs = ['Home', 'Products', product?.name ?? ''];
+	async function fetchProduct(data: PageData): Promise<Product> {
+		if (data?.product) {
+			return data.product as Product;
+		} else {
+			throw new Error('Product not found');
+		}
+	}
+
+	const productPromise = fetchProduct(data);
+
+	let breadcrumbs = ['Home', 'Products', data.product.name ];
 </script>
 
-{#if product}
+{#await productPromise}
+	<section class="flex flex-col md:flex-row">
+		<SkeletonGallerySwiper />
+		<SkeletonProductDetails />
+	</section>
+{:then product}
 	<Breadcrumbs {breadcrumbs} />
 	<section class="flex flex-col md:flex-row">
 		<GallerySwiper {product} />
@@ -23,18 +38,6 @@
 	</section>
 	<!-- FIXME: Products vs Product issue -->
 	<!-- <RecommendationsCarousel {products} /> -->
-{:else}
-	<section
-		class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
-		style="background-image: url({desert});"
-	>
-		<div class="hero-overlay bg-opacity-60"></div>
-		<div class="hero-content text-center text-neutral-content">
-			<div class="max-w-2xl">
-				<h1 class="mb-8 text-5xl">Error 404: Not Found</h1>
-				<p class="mb-8 text-4xl">Looks like this page doesn't exist</p>
-				<a href="/" class="btn btn-accent">Homepage</a>
-			</div>
-		</div>
-	</section>
-{/if}
+{:catch error}
+	<ProductNotFound />
+{/await}
