@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
-	import Google from '$lib/components/login_buttons/Google.svelte';
-	import Apple from '$lib/components/login_buttons/Apple.svelte';
-	import Facebook from '$lib/components/login_buttons/Facebook.svelte';
+	import Google from '$lib/components/UI/login_buttons/Google.svelte';
+	import Apple from '$lib/components/UI/login_buttons/Apple.svelte';
+	import Facebook from '$lib/components/UI/login_buttons/Facebook.svelte';
 
 	let breadcrumbs = ['Home', 'Profile', 'Register'];
 

@@ -10,11 +10,11 @@
 		getPossibleCategories,
 		toggleCategory
 	} from '$lib/helpers/filtering';
-	import CategoryProductCard from '$lib/components/CategoryProductCard.svelte';
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
-	import FilterSection from '$lib/components/FilterSection.svelte';
-	import Pagination from '$lib/components/Pagination.svelte';
-	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
+	import CategoryProductCard from '$lib/components/CategoryPages/CategoryProductCard.svelte';
+	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
+	import FilterSection from '$lib/components/CategoryPages/FilterSection.svelte';
+	import Pagination from '$lib/components/Common/Pagination.svelte';
+	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 
 	export let title: string;
 	export let products: Product[];

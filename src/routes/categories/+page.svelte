@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
-    import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
-	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
+    import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
+	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 
 	export let data: PageData;
     const products = data?.products as Product[];

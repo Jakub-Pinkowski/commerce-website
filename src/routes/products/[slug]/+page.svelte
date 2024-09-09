@@ -3,11 +3,11 @@
 	import type { Product } from '$lib/types/productTypes';
 
 	import desert from '$lib/assets/images/desert.jpg';
-	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
+	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
-	import GallerySwiper from '$lib/components/GallerySwiper.svelte';
-	import ProductDetails from '$lib/components/ProductDetails.svelte';
+	import GallerySwiper from '$lib/components/Product/GallerySwiper.svelte';
+	import ProductDetails from '$lib/components/Product/ProductDetails.svelte';
 
 	export let data: PageData;
 	const product = data?.product as Product;

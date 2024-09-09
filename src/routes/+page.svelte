@@ -3,7 +3,7 @@
 
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
-	import RecommendationsCarousel from '$lib/components/RecommendationsCarousel.svelte';
+	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import bikes from '$lib/assets/images/bikes.jpg';
 	import shoes from '$lib/assets/images/footwear.jpg';
 	import caps from '$lib/assets/images/caps.jpg';
