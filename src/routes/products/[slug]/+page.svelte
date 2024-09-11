@@ -6,8 +6,8 @@
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import GallerySwiper from '$lib/components/Product/GallerySwiper.svelte';
 	import ProductDetails from '$lib/components/Product/ProductDetails.svelte';
-	import SkeletonGallerySwiper from '$lib/components/UI/skeletons/SkeletonGallerySwiper.svelte';
-	import SkeletonProductDetails from '$lib/components/UI/skeletons/SkeletonProductDetails.svelte';
+	import SkeletonGallerySwiper from '$lib/components/Product/SkeletonGallerySwiper.svelte';
+	import SkeletonProductDetails from '$lib/components/Product/SkeletonProductDetails.svelte';
 	import ProductNotFound from '$lib/components/Product/ProductNotFound.svelte';
 
 	export let data: PageData;
