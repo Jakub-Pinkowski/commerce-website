@@ -38,6 +38,7 @@
 	</section>
 	<!-- FIXME: Products vs Product issue -->
 	<!-- <RecommendationsCarousel {products} /> -->
+     
 {:catch error}
 	<ProductNotFound />
 {/await}
