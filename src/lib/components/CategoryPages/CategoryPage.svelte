@@ -15,6 +15,7 @@
 	import FilterSection from '$lib/components/CategoryPages/FilterSection.svelte';
 	import Pagination from '$lib/components/Common/Pagination.svelte';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
+    import SkeletonCategoryPage from './SkeletonCategoryPage.svelte';
 
 	export let title: string;
 	export let products: Product[];
@@ -217,15 +218,16 @@
 			<div class="lg:hidden"></div>
 
 			<!-- Products -->
-			<div class="w-full">
+            <SkeletonCategoryPage />
+			<!-- <div class="w-full">
 				<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
 					{#each displayedProducts as product}
 						<CategoryProductCard {product} />
 					{/each}
-				</div>
+				</div> -->
 
 				<!-- TODO: Design a new Pagination compatible with Svelte 5 -->
-				{#if displayedProducts.length > itemsPerPage}
+				<!-- {#if displayedProducts.length > itemsPerPage}
 					<Pagination
 						{itemsPerPage}
 						{displayedProducts}
@@ -233,7 +235,7 @@
 						on:update={handleUpdatePagination}
 					/>
 				{/if}
-			</div>
+			</div> -->
 		</div>
 
 		<!-- TODO: Later on we need to use some recommendedProducts instead -->
