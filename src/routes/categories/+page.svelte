@@ -1,51 +1,52 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
-    import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
+	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
+	import SkeletonRecommendationsCarousel from '$lib/components/Common/SkeletonRecommendationsCarousel.svelte';
 
 	export let data: PageData;
-    const products = data?.products as Product[];
 
-    let breadcrumbs = ['Home', 'Categories'];
+	function delay(ms: number): Promise<void> {
+		return new Promise((resolve) => setTimeout(resolve, ms));
+	}
+
+	async function fetchProducts(data: PageData): Promise<Product[]> {
+		await delay(2000); // Simulate delay for testing
+		if (data?.products) {
+			return data.products as Product[];
+		} else {
+			throw new Error('Products not found');
+		}
+	}
+
+	const productsPromise = fetchProducts(data);
+
+	let breadcrumbs = ['Home', 'Categories'];
 	let productsPerCarousel = 8;
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 	let activeTabMainCategory: string = 'New';
 	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
 
+	function filterProductsByLabel(products: Product[], label: string): Product[] {
+		return products.filter((product) => product.label === label).slice(0, productsPerCarousel);
+	}
 
-	// Main categories
-	let newProducts = products
-		.filter((product) => product.label === 'new')
-		.slice(0, productsPerCarousel);
-	let saleProducts = products
-		.filter((product) => product.price < product.listPrice)
-		.slice(0, productsPerCarousel);
-	let bestSellerProducts = products
-		.filter((product) => product.label === 'best seller')
-		.slice(0, productsPerCarousel);
-
-	// Product categories
-	let shoesProducts = products
-		.filter((product) => product.category === 'shoes')
-		.slice(0, productsPerCarousel);
-	let backpackProducts = products
-		.filter((product) => product.category === 'backpacks')
-		.slice(0, productsPerCarousel);
-	let capsProducts = products
-		.filter((product) => product.category === 'caps')
-		.slice(0, productsPerCarousel);
-	let bikesProducts = products
-		.filter((product) => product.category === 'bikes')
-		.slice(0, productsPerCarousel);
+	function filterProductsByCategory(products: Product[], category: string): Product[] {
+		return products
+			.filter((product) => product.category === category)
+			.slice(0, productsPerCarousel);
+	}
 </script>
 
 <div>
-    <Breadcrumbs {breadcrumbs} />
-	{#if products}
+	<Breadcrumbs {breadcrumbs} />
+	{#await productsPromise}
+		<SkeletonRecommendationsCarousel />
+	{:then products}
 		<div class="mb-8">
-			<!-- TODO: Animate the buttons -->
+			<!-- Product Categories Tabs -->
 			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
 				{#each productCategories as category (category)}
 					<button
@@ -57,32 +58,20 @@
 				{/each}
 			</div>
 
-			{#if activeTabProductCategory === 'Shoes' && shoesProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={shoesProducts} title="Shoes" />
-				</div>
-			{/if}
-
-			{#if activeTabProductCategory === 'Backpacks' && backpackProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={backpackProducts} title="Backpacks" />
-				</div>
-			{/if}
-
-			{#if activeTabProductCategory === 'Caps' && capsProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={capsProducts} title="Caps" />
-				</div>
-			{/if}
-
-			{#if activeTabProductCategory === 'Bikes' && bikesProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={bikesProducts} title="Bikes" />
-				</div>
-			{/if}
+			{#each productCategories as category (category)}
+				{#if activeTabProductCategory === category && filterProductsByCategory(products, category.toLowerCase()).length}
+					<div class="mb-4">
+						<RecommendationsCarousel
+							products={filterProductsByCategory(products, category.toLowerCase())}
+							title={category}
+						/>
+					</div>
+				{/if}
+			{/each}
 		</div>
+
 		<div class="my-8">
-			<!-- TODO: Animate the buttons -->
+			<!-- Main Categories Tabs -->
 			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
 				{#each mainCategories as category (category)}
 					<button
@@ -94,26 +83,20 @@
 				{/each}
 			</div>
 
-			<!-- TODO: Possibly animate those as well, using svelte transitions -->
-			{#if activeTabMainCategory === 'New' && newProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={newProducts} title="New" />
-				</div>
-			{/if}
-
-			{#if activeTabMainCategory === 'Sale' && newProducts.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={saleProducts} title="Sale" />
-				</div>
-			{/if}
-
-			{#if activeTabMainCategory === 'Best Sellers' && products.length}
-				<div class="mb-4">
-					<RecommendationsCarousel products={bestSellerProducts} title="Best Sellers" />
-				</div>
-			{/if}
+			{#each mainCategories as category (category)}
+				{#if activeTabMainCategory === category && filterProductsByLabel(products, category.toLowerCase()).length}
+					<div class="mb-4">
+						<RecommendationsCarousel
+							products={filterProductsByLabel(products, category.toLowerCase())}
+							title={category}
+						/>
+					</div>
+				{/if}
+			{/each}
 		</div>
-	{:else}
 		<p>No products found</p>
-	{/if}
+	{:catch error}
+		<!-- Error state -->
+		<p class="text-red-500">Failed to load products: {error.message}</p>
+	{/await}
 </div>
