@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { capitalizeFirstWord } from '$lib/helpers/functions';
+	import { capitalizeFirstWord } from '$lib/helpers/utils';
     
 	export let title: string;
 	export let filters: Record<string, number>;

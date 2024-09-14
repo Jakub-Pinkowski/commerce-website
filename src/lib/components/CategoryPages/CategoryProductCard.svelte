@@ -3,7 +3,7 @@
 	import { derived } from 'svelte/store';
 
 	import { addToCart } from '$lib/stores/cart';
-	import { capitalizeWords } from '$lib/helpers/functions';
+	import { capitalizeWords } from '$lib/helpers/utils';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
 	import type { Product } from '$lib/types/productTypes';

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Product } from '$lib/types/productTypes';
-	import { debounce } from '$lib/helpers/functions';
+	import { debounce } from '$lib/helpers/utils';
 	import {
 		filterProducts,
 		getPossibleColors,

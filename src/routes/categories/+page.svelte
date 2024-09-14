@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
+
+	import { filterProductsByLabel, filterProductsByCategory } from '$lib/helpers/fetching';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import SkeletonRecommendationsCarousel from '$lib/components/Common/SkeletonRecommendationsCarousel.svelte';
@@ -12,7 +14,7 @@
 	}
 
 	async function fetchProducts(data: PageData): Promise<Product[]> {
-		await delay(2000); // Simulate delay for testing
+		await delay(500); // Simulate delay for testing
 		if (data?.products) {
 			return data.products as Product[];
 		} else {
@@ -30,20 +32,7 @@
 	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
 
-	function filterProductsByLabel(products: Product[], label: string): Product[] {
-		if (label === 'sale') {
-			return products
-				.filter((product) => product.price < product.listPrice)
-				.slice(0, productsPerCarousel);
-		}
-		return products.filter((product) => product.label === label).slice(0, productsPerCarousel);
-	}
-
-	function filterProductsByCategory(products: Product[], category: string): Product[] {
-		return products
-			.filter((product) => product.category === category)
-			.slice(0, productsPerCarousel);
-	}
+    
 </script>
 
 <div>
@@ -65,10 +54,14 @@
 			</div>
 
 			{#each mainCategories as category, index (category)}
-				{#if activeTabMainCategory === category && filterProductsByLabel(products, mainCategoriesLabels[index]).length}
+				{#if activeTabMainCategory === category && filterProductsByLabel(products, mainCategoriesLabels[index], productsPerCarousel).length}
 					<div class="mb-4">
 						<RecommendationsCarousel
-							products={filterProductsByLabel(products, mainCategoriesLabels[index])}
+							products={filterProductsByLabel(
+								products,
+								mainCategoriesLabels[index],
+								productsPerCarousel
+							)}
 							title={category}
 						/>
 					</div>
@@ -90,10 +83,14 @@
 			</div>
 
 			{#each productCategories as category (category)}
-				{#if activeTabProductCategory === category && filterProductsByCategory(products, category.toLowerCase()).length}
+				{#if activeTabProductCategory === category && filterProductsByCategory(products, category.toLowerCase(), productsPerCarousel).length}
 					<div class="mb-4">
 						<RecommendationsCarousel
-							products={filterProductsByCategory(products, category.toLowerCase())}
+							products={filterProductsByCategory(
+								products,
+								category.toLowerCase(),
+								productsPerCarousel
+							)}
 							title={category}
 						/>
 					</div>

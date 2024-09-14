@@ -1,8 +1,8 @@
 // Generic debounce function
-export function debounce<T extends (...args: any[]) => void>(
+export const debounce = <T extends (...args: any[]) => void>(
     func: T,
     wait: number
-): (...args: Parameters<T>) => void {
+): (...args: Parameters<T>) => void => {
     let timeout: ReturnType<typeof setTimeout>;
     return function (...args: Parameters<T>) {
         const later = () => {
@@ -12,7 +12,12 @@ export function debounce<T extends (...args: any[]) => void>(
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
-}
+};
+
+// Generic throttle function
+const delay = (ms: number): Promise<void> => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+};
 
 // Capitalize the first letter of each word in a string
 export const capitalizeWords = (str: string) => {

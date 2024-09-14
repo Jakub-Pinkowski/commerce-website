@@ -3,7 +3,7 @@
 	import Swiper from 'swiper/bundle';
 	import 'swiper/css/bundle';
 
-	import { capitalizeWords } from '$lib/helpers/functions';
+	import { capitalizeWords } from '$lib/helpers/utils';
 	import type { Product } from '$lib/types/productTypes';
 
 	export let products: Product[];

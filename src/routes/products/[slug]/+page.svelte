@@ -17,7 +17,7 @@
     }
 
     async function fetchProduct(data: PageData): Promise<Product> {
-        await delay(70000); // Simulate delay for testing
+        await delay(500); 
         if (data?.product) {
             return data.product as Product;
         } else {
