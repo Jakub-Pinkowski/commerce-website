@@ -31,6 +31,11 @@
 	let activeTabProductCategory: string = 'Shoes';
 
 	function filterProductsByLabel(products: Product[], label: string): Product[] {
+		if (label === 'sale') {
+			return products
+				.filter((product) => product.price < product.listPrice)
+				.slice(0, productsPerCarousel);
+		}
 		return products.filter((product) => product.label === label).slice(0, productsPerCarousel);
 	}
 
