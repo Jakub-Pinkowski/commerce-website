@@ -12,13 +12,18 @@
 
 	export let data: PageData;
 
-	async function fetchProduct(data: PageData): Promise<Product> {
-		if (data?.product) {
-			return data.product as Product;
-		} else {
-			throw new Error('Product not found');
-		}
-	}
+    function delay(ms: number): Promise<void> {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function fetchProduct(data: PageData): Promise<Product> {
+        await delay(70000); // Simulate delay for testing
+        if (data?.product) {
+            return data.product as Product;
+        } else {
+            throw new Error('Product not found');
+        }
+    }
 
 	const productPromise = fetchProduct(data);
 
