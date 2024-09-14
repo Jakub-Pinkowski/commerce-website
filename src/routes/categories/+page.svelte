@@ -2,27 +2,18 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
 
-	import { filterProductsByLabel, filterProductsByCategory } from '$lib/helpers/fetching';
+	import {
+		fetchProducts,
+		filterProductsByLabel,
+		filterProductsByCategory
+	} from '$lib/helpers/fetching';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import SkeletonRecommendationsCarousel from '$lib/components/Common/SkeletonRecommendationsCarousel.svelte';
 
 	export let data: PageData;
 
-	function delay(ms: number): Promise<void> {
-		return new Promise((resolve) => setTimeout(resolve, ms));
-	}
-
-	async function fetchProducts(data: PageData): Promise<Product[]> {
-		await delay(500); // Simulate delay for testing
-		if (data?.products) {
-			return data.products as Product[];
-		} else {
-			throw new Error('Products not found');
-		}
-	}
-
-	const productsPromise = fetchProducts(data);
+	const productsPromise = fetchProducts(data.products as Product[], 500); // 500ms delay to simulate network latency
 
 	let breadcrumbs = ['Home', 'Categories'];
 	let productsPerCarousel = 8;
@@ -31,8 +22,6 @@
 	let activeTabMainCategory: string = 'New';
 	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
-
-    
 </script>
 
 <div>

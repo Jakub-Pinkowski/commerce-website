@@ -14,11 +14,6 @@ export const debounce = <T extends (...args: any[]) => void>(
     };
 };
 
-// Generic throttle function
-const delay = (ms: number): Promise<void> => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-};
-
 // Capitalize the first letter of each word in a string
 export const capitalizeWords = (str: string) => {
 	return str.replace(/\b\w/g, (char) => char.toUpperCase());
