@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
 
-    import {fetchProduct} from '$lib/helpers/fetching';
+	import { fetchProduct } from '$lib/helpers/fetching';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import GallerySwiper from '$lib/components/Product/GallerySwiper.svelte';
@@ -12,8 +12,7 @@
 	import ProductNotFound from '$lib/components/Product/ProductNotFound.svelte';
 
 	export let data: PageData;
-
-    const productPromise = fetchProduct(data.product as Product, 500); // 500ms delay to simulate network latency
+	const productPromise = fetchProduct(data.product as Product, 500); // 500ms delay to simulate network latency
 
 	let breadcrumbs = ['Home', 'Products', data.product.name];
 </script>
