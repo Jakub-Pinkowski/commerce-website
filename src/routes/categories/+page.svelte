@@ -25,6 +25,7 @@
 	let breadcrumbs = ['Home', 'Categories'];
 	let productsPerCarousel = 8;
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
+	let mainCategoriesLabels = ['new', 'sale', 'best seller'];
 	let activeTabMainCategory: string = 'New';
 	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
@@ -46,6 +47,31 @@
 		<SkeletonRecommendationsCarousel />
 	{:then products}
 		<div class="mb-8">
+			<!-- Main Categories Tabs -->
+			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
+				{#each mainCategories as category (category)}
+					<button
+						class="tab flex-1 {activeTabMainCategory === category ? 'tab-active' : ''}"
+						on:click={() => (activeTabMainCategory = category)}
+					>
+						{category}
+					</button>
+				{/each}
+			</div>
+
+			{#each mainCategories as category, index (category)}
+				{#if activeTabMainCategory === category && filterProductsByLabel(products, mainCategoriesLabels[index]).length}
+					<div class="mb-4">
+						<RecommendationsCarousel
+							products={filterProductsByLabel(products, mainCategoriesLabels[index])}
+							title={category}
+						/>
+					</div>
+				{/if}
+			{/each}
+		</div>
+
+		<div class="my-8">
 			<!-- Product Categories Tabs -->
 			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
 				{#each productCategories as category (category)}
@@ -69,32 +95,6 @@
 				{/if}
 			{/each}
 		</div>
-
-		<div class="my-8">
-			<!-- Main Categories Tabs -->
-			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
-				{#each mainCategories as category (category)}
-					<button
-						class="tab flex-1 {activeTabMainCategory === category ? 'tab-active' : ''}"
-						on:click={() => (activeTabMainCategory = category)}
-					>
-						{category}
-					</button>
-				{/each}
-			</div>
-
-			{#each mainCategories as category (category)}
-				{#if activeTabMainCategory === category && filterProductsByLabel(products, category.toLowerCase()).length}
-					<div class="mb-4">
-						<RecommendationsCarousel
-							products={filterProductsByLabel(products, category.toLowerCase())}
-							title={category}
-						/>
-					</div>
-				{/if}
-			{/each}
-		</div>
-		<p>No products found</p>
 	{:catch error}
 		<!-- Error state -->
 		<p class="text-red-500">Failed to load products: {error.message}</p>
