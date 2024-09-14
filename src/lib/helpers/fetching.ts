@@ -5,12 +5,22 @@ export const delay = (ms: number): Promise<void> => {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
+// Fetch a single product with optional throttling
+export async function fetchProduct(product: Product, throttleMs: number = 500): Promise<Product> {
+	await delay(throttleMs); 
+	if (product) {
+		return product;
+	} else {
+		throw new Error('Product not found');
+	}
+}
+
 // Fetch products with optional throttling
 export async function fetchProducts(
 	products: Product[],
 	throttleMs: number = 500
 ): Promise<Product[]> {
-	await delay(throttleMs); // Simulate delay for testing
+	await delay(throttleMs); 
 	if (products) {
 		return products;
 	} else {

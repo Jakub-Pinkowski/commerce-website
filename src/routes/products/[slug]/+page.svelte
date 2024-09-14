@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
 
+    import {fetchProduct} from '$lib/helpers/fetching';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import GallerySwiper from '$lib/components/Product/GallerySwiper.svelte';
@@ -12,22 +13,9 @@
 
 	export let data: PageData;
 
-    function delay(ms: number): Promise<void> {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    const productPromise = fetchProduct(data.product as Product, 500); // 500ms delay to simulate network latency
 
-    async function fetchProduct(data: PageData): Promise<Product> {
-        await delay(500); 
-        if (data?.product) {
-            return data.product as Product;
-        } else {
-            throw new Error('Product not found');
-        }
-    }
-
-	const productPromise = fetchProduct(data);
-
-	let breadcrumbs = ['Home', 'Products', data.product.name ];
+	let breadcrumbs = ['Home', 'Products', data.product.name];
 </script>
 
 {#await productPromise}
@@ -43,7 +31,6 @@
 	</section>
 	<!-- FIXME: Products vs Product issue -->
 	<!-- <RecommendationsCarousel {products} /> -->
-     
 {:catch error}
 	<ProductNotFound />
 {/await}
