@@ -10,7 +10,7 @@
 	</div>
 	<div class="skeleton mt-4 h-6 w-full"></div>
 	<div class="join join-vertical mt-12 w-full text-justify">
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="">
 			<div class="skeleton h-8 w-full"></div>
 			<div class="skeleton mt-4 h-8 w-full"></div>
 		</div>
