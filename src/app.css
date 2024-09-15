@@ -24,6 +24,8 @@ a {
 	text-decoration: none;
 }
 
+/* Toast */
+
 .alert-add-to-cart {
 	--alert-bg: var(--primary);
 	color: var(--whiteish);
@@ -40,10 +42,20 @@ a {
 	top: 50px;
 }
 
+/* Swiper */
+
 .swiper-button-disabled {
-    opacity: 0.5;
+	opacity: 0.5;
 }
 
 .swiper-button-disabled button {
-    cursor: not-allowed;
+	cursor: not-allowed;
+}
+
+.swiper.thumb-image .swiper-slide {
+	opacity: 0.4;
+}
+
+.swiper.thumb-image .swiper-slide-thumb-active {
+	opacity: 1;
 }
