@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-    
-    import logo from '$lib/assets/images/logo.png';
+
+	import logo from '$lib/assets/images/logo.png';
 	import UserIcon from './icons/UserIcon.svelte';
 	import LanguageIcon from './icons/LanguageIcon.svelte';
 	import WishlistIcon from './icons/WishlistIcon.svelte';

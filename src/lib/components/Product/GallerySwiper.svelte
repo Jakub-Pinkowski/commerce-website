@@ -51,8 +51,8 @@
 	};
 
 	onMount(() => {
-		// FIXME: On safari mobile, all images on the carousels are way to high
-		// FIXME: On desktop when there are more than 7 images the whole carousel is way too high
+		// BUG: On safari mobile, all images on the carousels are way to high
+		// BUG: On desktop when there are more than 7 images the whole carousel is way too high
 		const thumbSwiper = initializeThumbSwiper();
 		initializeMainSwiper(thumbSwiper);
 	});

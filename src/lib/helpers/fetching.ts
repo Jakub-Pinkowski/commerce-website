@@ -1,5 +1,6 @@
 import type { Product } from '$lib/types/productTypes';
 
+// NOTE: Fetch function are not used for the time being
 // Generic delay function
 export const delay = (ms: number): Promise<void> => {
 	return new Promise((resolve) => setTimeout(resolve, ms));
