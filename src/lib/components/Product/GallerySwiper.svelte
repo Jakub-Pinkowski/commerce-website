@@ -10,22 +10,18 @@
 
 	let isModalOpen: boolean = false;
 	let selectedImage: string = '';
-	let mainSwiper: Swiper;
-	let thumbSwiper: Swiper;
 
-	function openModal(imageSrc: string) {
+	const openModal = (imageSrc: string) => {
 		selectedImage = imageSrc;
 		isModalOpen = true;
-	}
+	};
 
-	function closeModal() {
+	const closeModal = () => {
 		isModalOpen = false;
-	}
+	};
 
-	onMount(() => {
-		// FIXME: On safari mobile, all images on the carousels are way to high
-		// FIXME: On desktop when there are more than 7 images the whole carousel is way too high
-		thumbSwiper = new Swiper('.swiper.thumb-image', {
+	const initializeThumbSwiper = () => {
+		return new Swiper('.swiper.thumb-image', {
 			slidesPerView: 4.4,
 			spaceBetween: 10,
 			slideToClickedSlide: true,
@@ -37,8 +33,10 @@
 				}
 			}
 		});
+	};
 
-		mainSwiper = new Swiper('.swiper.main-image', {
+	const initializeMainSwiper = (thumbSwiper: Swiper) => {
+		new Swiper('.swiper.main-image', {
 			slidesPerView: 1,
 			loop: true,
 			thumbs: {
@@ -50,6 +48,13 @@
 				disabledClass: 'swiper-button-disabled'
 			}
 		});
+	};
+
+	onMount(() => {
+		// FIXME: On safari mobile, all images on the carousels are way to high
+		// FIXME: On desktop when there are more than 7 images the whole carousel is way too high
+		const thumbSwiper = initializeThumbSwiper();
+		initializeMainSwiper(thumbSwiper);
 	});
 </script>
 
