@@ -6,6 +6,8 @@
 	import Swiper from 'swiper/bundle';
 	import 'swiper/css/bundle';
 
+    import { getImgixUrl } from '$lib/helpers/fetching';
+
 	export let product;
 
 	let isModalOpen: boolean = false;
@@ -57,11 +59,21 @@
 	<div class="swiper thumb-image order-2 w-full md:order-1 md:max-w-[15%]">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<img src={product.imageUrl} alt={product.name} class="h-full object-cover" loading="lazy" />
+				<img
+					src={getImgixUrl(product.imageUrl, 100)}
+					alt={product.name}
+					class="h-full object-cover"
+					loading="lazy"
+				/>
 			</div>
 			{#each product.alternateImages as alternateImage}
 				<div class="swiper-slide">
-					<img src={alternateImage} alt={product.name} class="h-full object-cover" loading="lazy" />
+					<img
+						src={getImgixUrl(alternateImage, 100)}
+						alt={product.name}
+						class="h-full object-cover"
+						loading="lazy"
+					/>
 				</div>
 			{/each}
 		</div>
@@ -72,9 +84,14 @@
 				<button
 					type="button"
 					class="background-transparent cursor-zoom-in border-none p-0"
-					on:click={() => openModal(product.imageUrl)}
+					on:click={() => openModal(getImgixUrl(product.imageUrl, 800))}
 				>
-					<img src={product.imageUrl} alt={product.name} class="object-cover" loading="lazy" />
+					<img
+						src={getImgixUrl(product.imageUrl, 800)}
+						alt={product.name}
+						class="object-cover"
+						loading="lazy"
+					/>
 				</button>
 			</div>
 			{#each product.alternateImages as alternateImage}
@@ -82,9 +99,14 @@
 					<button
 						type="button"
 						class="background-transparent cursor-zoom-in border-none p-0"
-						on:click={() => openModal(alternateImage)}
+						on:click={() => openModal(getImgixUrl(alternateImage, 800))}
 					>
-						<img src={alternateImage} alt={product.name} class="object-cover" loading="lazy" />
+						<img
+							src={getImgixUrl(alternateImage, 800)}
+							alt={product.name}
+							class="object-cover"
+							loading="lazy"
+						/>
 					</button>
 				</div>
 			{/each}

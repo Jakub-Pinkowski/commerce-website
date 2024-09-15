@@ -5,6 +5,13 @@ export const delay = (ms: number): Promise<void> => {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
+// Images
+export const getImgixUrl = (url: string, width: number, format: string = 'webp') => {
+	const baseUrl = 'commercewebsite-633103942.imgix.net';
+    const path = new URL(url).pathname.substring(1); // Remove the leading '/'
+    return `https://${baseUrl}/${path}?w=${width}&fm=${format}`;
+};
+
 // Fetch a single product with optional throttling
 export async function fetchProduct(product: Product, throttleMs: number = 500): Promise<Product> {
 	await delay(throttleMs); 
