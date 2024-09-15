@@ -21,7 +21,7 @@ interface SQLProductRow {
 }
 
 // Map the result of a SQL query to a Product object
-export function mapProducts(result: any): Product[] {
+export const mapProducts = (result: any): Product[] => {
 	if (!result || !result.rows) {
 		console.error('Invalid result format', result);
 		return [];

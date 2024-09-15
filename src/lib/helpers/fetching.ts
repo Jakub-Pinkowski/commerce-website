@@ -6,27 +6,30 @@ export const delay = (ms: number): Promise<void> => {
 };
 
 // Fetch a single product with optional throttling
-export async function fetchProduct(product: Product, throttleMs: number = 500): Promise<Product> {
+export const fetchProduct = async (
+	product: Product,
+	throttleMs: number = 500
+): Promise<Product> => {
 	await delay(throttleMs);
 	if (product) {
 		return product;
 	} else {
 		throw new Error('Product not found');
 	}
-}
+};
 
 // Fetch products with optional throttling
-export async function fetchProducts(
+export const fetchProducts = async (
 	products: Product[],
 	throttleMs: number = 500
-): Promise<Product[]> {
+): Promise<Product[]> => {
 	await delay(throttleMs);
 	if (products) {
 		return products;
 	} else {
 		throw new Error('Products not found');
 	}
-}
+};
 
 // Filter products for carousel by label
 export const filterProductsByLabel = (

@@ -9,14 +9,14 @@
 	import type { Product } from '$lib/types/productTypes';
 
 	export let product: Product;
-    
+
 	let quantity: number = 1;
 	let toastCart: boolean = false;
 	let toastCartMessage: string = '';
 	let toastWishlist: boolean = false;
 	let toastMessage: string = '';
 
-	function handleAddToCart() {
+	const handleAddToCart = () => {
 		addToCart(product, quantity);
 		toastCart = true;
 		toastCartMessage = `<span class="font-bold">${product.name}</span> has been added to cart`;
@@ -26,8 +26,7 @@
 		setTimeout(() => {
 			openMiniCart();
 		}, 400);
-	}
-
+	};
 	const isWishlisted = derived(wishlist, ($wishlist) =>
 		$wishlist.some((item) => item.id === product.id)
 	);

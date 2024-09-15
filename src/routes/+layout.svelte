@@ -4,7 +4,7 @@
 	import '../app.css';
 
     // Disable Vercel Analytics on Safari
-	function isSafari() {
+    const isSafari = () => {
 		return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 	}
 
