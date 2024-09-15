@@ -6,8 +6,6 @@
 	import Swiper from 'swiper/bundle';
 	import 'swiper/css/bundle';
 
-	import { getImgixUrl, generateImgixSrcSet } from '$lib/helpers/fetching';
-
 	export let product;
 
 	let isModalOpen: boolean = false;
@@ -56,70 +54,42 @@
 </script>
 
 <div class="top-4 flex h-fit w-full flex-col md:sticky md:max-w-[55%] md:flex-row">
-    <div class="swiper thumb-image order-2 w-full md:order-1 md:max-w-[15%]">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img
-                    src={getImgixUrl(product.imageUrl, 100)}
-                    srcset={generateImgixSrcSet(product.imageUrl, [50, 100, 200])}
-                    sizes="(max-width: 768px) 100px, 200px"
-                    alt={product.name}
-                    class="h-full object-cover"
-                    loading="lazy"
-                />
-            </div>
-            {#each product.alternateImages as alternateImage}
-                <div class="swiper-slide">
-                    <img
-                        src={getImgixUrl(alternateImage, 100)}
-                        srcset={generateImgixSrcSet(alternateImage, [50, 100, 200])}
-                        sizes="(max-width: 768px) 100px, 200px"
-                        alt={product.name}
-                        class="h-full object-cover"
-                        loading="lazy"
-                    />
-                </div>
-            {/each}
-        </div>
-    </div>
-    <div class="swiper main-image order-1 w-full max-w-full md:order-2 md:max-w-[85%]">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <button
-                    type="button"
-                    class="background-transparent cursor-zoom-in border-none p-0"
-                    on:click={() => openModal(getImgixUrl(product.imageUrl, 800))}
-                >
-                    <img
-                        src={getImgixUrl(product.imageUrl, 800)}
-                        srcset={generateImgixSrcSet(product.imageUrl, [400, 600, 800, 1000, 1200])}
-                        sizes="(max-width: 768px) 400px, 800px"
-                        alt={product.name}
-                        class="object-cover"
-                        loading="lazy"
-                    />
-                </button>
-            </div>
-            {#each product.alternateImages as alternateImage}
-                <div class="swiper-slide">
-                    <button
-                        type="button"
-                        class="background-transparent cursor-zoom-in border-none p-0"
-                        on:click={() => openModal(getImgixUrl(alternateImage, 800))}
-                    >
-                        <img
-                            src={getImgixUrl(alternateImage, 800)}
-                            srcset={generateImgixSrcSet(alternateImage, [400, 600, 800, 1000, 1200])}
-                            sizes="(max-width: 768px) 400px, 800px"
-                            alt={product.name}
-                            class="object-cover"
-                            loading="lazy"
-                        />
-                    </button>
-                </div>
-            {/each}
-        </div>
-        <div class="swiper-pagination"></div>
+	<div class="swiper thumb-image order-2 w-full md:order-1 md:max-w-[15%]">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src={product.imageUrl} alt={product.name} class="h-full object-cover" loading="lazy" />
+			</div>
+			{#each product.alternateImages as alternateImage}
+				<div class="swiper-slide">
+					<img src={alternateImage} alt={product.name} class="h-full object-cover" loading="lazy" />
+				</div>
+			{/each}
+		</div>
+	</div>
+	<div class="swiper main-image order-1 w-full max-w-full md:order-2 md:max-w-[85%]">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<button
+					type="button"
+					class="background-transparent cursor-zoom-in border-none p-0"
+					on:click={() => openModal(product.imageUrl)}
+				>
+					<img src={product.imageUrl} alt={product.name} class="object-cover" loading="lazy" />
+				</button>
+			</div>
+			{#each product.alternateImages as alternateImage}
+				<div class="swiper-slide">
+					<button
+						type="button"
+						class="background-transparent cursor-zoom-in border-none p-0"
+						on:click={() => openModal(alternateImage)}
+					>
+						<img src={alternateImage} alt={product.name} class="object-cover" loading="lazy" />
+					</button>
+				</div>
+			{/each}
+		</div>
+		<div class="swiper-pagination"></div>
 
 		<div
 			class="button-prev absolute left-8 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
