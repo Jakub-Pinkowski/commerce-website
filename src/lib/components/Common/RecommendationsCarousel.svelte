@@ -11,10 +11,8 @@
 
 	const link = title.toLowerCase().replace(/\s+/g, '_');
 
-	let recommendationsSwiper: Swiper;
-
-	function initializeSwiper() {
-		recommendationsSwiper = new Swiper('.swiper.recommendations-carousel', {
+	const initializeSwiper = () => {
+		new Swiper('.swiper.recommendations-carousel', {
 			slidesPerView: 1.3,
 			spaceBetween: 15,
 			mousewheel: {
@@ -25,24 +23,16 @@
 					slidesPerView: 4,
 					navigation: {
 						nextEl: '.swiper.recommendations-carousel .button-next',
-						prevEl: '.swiper.recommendations-carousel  .button-prev',
+						prevEl: '.swiper.recommendations-carousel .button-prev',
 						disabledClass: 'swiper-button-disabled'
 					}
 				}
 			}
 		});
-	}
-
-	function checkProducts() {
-		if (products && products.length > 0) {
-			initializeSwiper();
-		} else {
-			setTimeout(checkProducts, 100);
-		}
-	}
+	};
 
 	onMount(() => {
-		checkProducts();
+		initializeSwiper();
 	});
 </script>
 
