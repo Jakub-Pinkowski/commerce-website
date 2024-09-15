@@ -4,10 +4,10 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
-	import bikes from '$lib/assets/images/bikes.jpg';
-	import shoes from '$lib/assets/images/footwear.jpg';
-	import caps from '$lib/assets/images/caps.jpg';
-	import newImage from '$lib/assets/images/newImage.jpg';
+	import bikes from '$lib/assets/images/bikes.webp';
+	import shoes from '$lib/assets/images/footwear.webp';
+	import caps from '$lib/assets/images/caps.webp';
+	import newImage from '$lib/assets/images/newImage.webp';
 
 	export let data: PageData;
 	const products = data?.products as Product[];

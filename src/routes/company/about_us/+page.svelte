@@ -1,5 +1,5 @@
 <script lang="ts">
-	import about_us from '$lib/assets/images/about_us.jpg';
+	import about_us from '$lib/assets/images/about_us.webp';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
 	let breadcrumbs = ['Home', 'Company', 'About Us'];

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import desert from '$lib/assets/images/desert.jpg';
+	import desert from '$lib/assets/images/desert.webp';
 </script>
 
 <section

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import construction from '$lib/assets/images/construction.jpg';
+	import construction from '$lib/assets/images/construction.webp';
 </script>
 
 <section

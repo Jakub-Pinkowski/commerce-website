@@ -1,5 +1,5 @@
 <script lang="ts">
-	import desert from '$lib/assets/images/desert.jpg';
+	import desert from '$lib/assets/images/desert.webp';
 </script>
 
 <section
