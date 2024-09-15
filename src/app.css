@@ -39,3 +39,11 @@ a {
 .toast:where(.toast-top) {
 	top: 50px;
 }
+
+.swiper-button-disabled {
+    opacity: 0.5;
+}
+
+.swiper-button-disabled button {
+    cursor: not-allowed;
+}
