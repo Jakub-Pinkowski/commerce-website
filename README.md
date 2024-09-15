@@ -39,6 +39,8 @@
 - Tailwind CSS
 - Vite
 - DaisyUI
+- Online CDN storage via Vercel's Blob Storage
+- PostgreSQL for product data storage
 
 ## Known Issues
 
