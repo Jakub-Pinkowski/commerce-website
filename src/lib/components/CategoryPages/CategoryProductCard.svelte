@@ -12,9 +12,9 @@
 
 	let quantity: number = 1;
 	let toastCart: boolean = false;
-	let toastCartMessage: string = '';
+	let toastCartMessage: string;
 	let toastWishlist: boolean = false;
-	let toastMessage: string = '';
+	let toastMessage: string;
 
 	const handleAddToCart = () => {
 		addToCart(product, quantity);
@@ -27,6 +27,7 @@
 			openMiniCart();
 		}, 400);
 	};
+
 	const isWishlisted = derived(wishlist, ($wishlist) =>
 		$wishlist.some((item) => item.id === product.id)
 	);

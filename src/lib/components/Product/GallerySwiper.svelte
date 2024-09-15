@@ -9,7 +9,7 @@
 	export let product;
 
 	let isModalOpen: boolean = false;
-	let selectedImage: string = '';
+	let selectedImage: string;
 
 	const openModal = (imageSrc: string) => {
 		selectedImage = imageSrc;
