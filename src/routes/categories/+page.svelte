@@ -2,18 +2,14 @@
 	import type { PageData } from './$types';
 	import type { Product } from '$lib/types/productTypes';
 
-	import {
-		fetchProducts,
-		filterProductsByLabel,
-		filterProductsByCategory
-	} from '$lib/helpers/fetching';
+	import { filterProductsByLabel, filterProductsByCategory } from '$lib/helpers/fetching';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import SkeletonRecommendationsCarousel from '$lib/components/Common/SkeletonRecommendationsCarousel.svelte';
+	import PageNotFound from '$lib/components/Common/PageNotFound.svelte';
 
 	export let data: PageData;
-
-	const productsPromise = fetchProducts(data.products as Product[], 500); // 500ms delay to simulate network latency
+	const products = data.products as Product[];
 
 	let breadcrumbs = ['Home', 'Categories'];
 	let productsPerCarousel = 8;
@@ -25,10 +21,9 @@
 </script>
 
 <div>
-	<Breadcrumbs {breadcrumbs} />
-	{#await productsPromise}
-		<SkeletonRecommendationsCarousel />
-	{:then products}
+	{#if products}
+		<Breadcrumbs {breadcrumbs} />
+
 		<div class="mb-8">
 			<!-- Main Categories Tabs -->
 			<div class="tabs-boxed tabs mb-4 flex w-full justify-between md:w-96" role="tablist">
@@ -86,8 +81,7 @@
 				{/if}
 			{/each}
 		</div>
-	{:catch error}
-		<!-- Error state -->
-		<p class="text-red-500">Failed to load products: {error.message}</p>
-	{/await}
+	{:else}
+		<PageNotFound />
+	{/if}
 </div>
