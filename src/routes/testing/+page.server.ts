@@ -7,7 +7,6 @@ import { productsTable } from '$lib/drizzle/testschema';
 export const load: PageServerLoad = async () => {
     const pool = createPool({ connectionString: POSTGRES_URL });
     const db = drizzle(pool);
-
     const result = await db.select().from(productsTable).execute();
     const products = result;
 
