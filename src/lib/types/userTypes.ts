@@ -2,7 +2,17 @@ export type User = {
 	id: number;
 	email: string;
     password: string;
-	createdAt: Date;
+    createdAt: Date;
+    firstName?: string;
+    lastName?: string;
+    phoneNumber?: string;
+    address?: {
+        street: string;
+        city: string;
+        state: string;
+        postalCode: string;
+        country: string;
+    };
 };
 
-// Implement User Auth with Clerk
+// TODO: Implement User Auth with Clerk
