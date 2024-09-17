@@ -1,12 +1,20 @@
 <script lang="ts">
-	const baseUrl = 'commercewebsite-633103942.imgix.net';
-	const bikeImage =
-		'assets/products/bikes/green-city-cruiser/green-city-cruiser_0-cGMsC9SiKeJYYYfVptX4ALjgd2v6lz.png';
-	const widths = [50, 100, 200, 400, 600, 800, 1000];
+	export let data: { products: any[] };
+    console.log("data", data);
+
+	let products = data.products;
 </script>
 
 <div>
-    {#each widths as width}
-        <img src={`https://${baseUrl}/${bikeImage}?w=${width}`} alt="random bike" />
-    {/each}
+	{#if products.length > 0}
+		<ul>
+			{#each products as product}
+				<li>
+					<strong>{product.name}</strong> - {product.description} - ${product.price}
+				</li>
+			{/each}
+		</ul>
+	{:else}
+		<p>Loading products...</p>
+	{/if}
 </div>
