@@ -18,6 +18,7 @@
 		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
 		"autoprefixer": "^10.4.20",
 		"daisyui": "^4.12.10",
+		"drizzle-kit": "^0.24.2",
 		"lucia": "^3.2.0",
 		"postcss": "^8.4.45",
 		"prettier": "^3.3.3",
@@ -38,6 +39,7 @@
 		"@vercel/blob": "^0.23.4",
 		"@vercel/postgres": "^0.10.0",
 		"axios": "^1.7.7",
+		"drizzle-orm": "^0.33.0",
 		"swiper": "^11.1.12"
 	}
 }
