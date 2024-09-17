@@ -1,7 +1,5 @@
 <script lang="ts">
 	export let data: { products: any[] };
-    console.log("data", data);
-
 	let products = data.products;
 </script>
 
