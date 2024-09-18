@@ -1,4 +1,3 @@
-import type { PageServerLoad } from './$types';
 import { createPool } from '@vercel/postgres';
 import { POSTGRES_URL } from '$env/static/private';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
@@ -9,8 +8,6 @@ import { fail, redirect } from '@sveltejs/kit';
 import { verify } from '@node-rs/argon2';
 
 import type { Actions } from './$types';
-
-export const load: PageServerLoad = async () => {};
 
 export const actions: Actions = {
 	default: async (event) => {
