@@ -2,7 +2,7 @@ import type { PageServerLoad } from './$types';
 import { createPool } from '@vercel/postgres';
 import { POSTGRES_URL } from '$env/static/private';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
-import { userTable, productsTable } from '$lib/drizzle/testschema';
+import { userTable, productsTable } from '$lib/drizzle/schema';
 import { lucia } from '$lib/server/auth';
 import { fail, redirect } from '@sveltejs/kit';
 import { generateIdFromEntropySize } from 'lucia';

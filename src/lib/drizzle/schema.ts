@@ -37,3 +37,9 @@ export const userTable = pgTable('user', {
 	username: text('username').notNull(),
 	password_hash: text('password_hash').notNull()
 });
+
+export const sessionTable = pgTable('session', {
+    id: text('id').primaryKey(),
+    data: jsonb('data').notNull(),
+    expires_at: timestamp('expires_at').notNull()
+});
