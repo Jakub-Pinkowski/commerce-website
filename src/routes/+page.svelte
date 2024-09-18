@@ -65,13 +65,13 @@
 							This project is still a work in progress, website is under constant development.
 						</h1>
 						<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
-						<p class="mb-1 text-sm">
+						<p class="mb-1 text-xs">
 							Disclaimer: This website is a demonstration project and not an actual e-commerce
 							store. You cannot make purchases here. All names or brands mentioned are purely
 							fictional and all products' images have been AI generated.
 						</p>
-						<p class=" text-sm">
-							Anonymous data is collected for analytics purposes only. <strong
+						<p class="text-xs">
+							Anonymous data is collected for analytics and performace purposes only. <strong
 								>No cookies are used.</strong
 							>
 							By using this website, you agree to this data collection. For more information, see the
@@ -79,8 +79,14 @@
 							<a
 								class="link"
 								href="https://vercel.com/docs/analytics/privacy-policy#data-point-information"
-								target="_blank">privacy policy</a
-							>.
+								target="_blank">Analytics</a
+							>
+							and
+							<a
+								class="link"
+								href="https://vercel.com/docs/speed-insights/privacy-policy#how-the-data-points-are-tracked"
+								target="_blank">Speed insights</a
+							> privacy policies.
 						</p>
 					</div>
 				</div>
