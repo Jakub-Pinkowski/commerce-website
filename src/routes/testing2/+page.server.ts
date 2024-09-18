@@ -49,8 +49,6 @@ export const actions: Actions = {
 			parallelism: 1
 		});
 
-        console.log("passwordHash: ", passwordHash);
-
 		await db.insert(userTable).values({
 			id: userId,
 			username: username,
