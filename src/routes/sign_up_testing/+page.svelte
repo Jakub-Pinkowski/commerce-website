@@ -1,8 +1,5 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-
-	export let data: { products: any[] };
-	let products = data.products;
 </script>
 
 <div>
