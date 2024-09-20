@@ -1,4 +1,5 @@
 <script lang="ts">
+    // TODO: Refactor the whole logic here, leave the design
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
 	import Google from '$lib/components/UI/login_buttons/Google.svelte';
