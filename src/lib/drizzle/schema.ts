@@ -48,3 +48,16 @@ export const sessionsTable = pgTable('sessions', {
 		mode: 'date'
 	}).notNull()
 });
+
+// Testing only
+export const userTable = pgTable('user', {
+	id: text('id').primaryKey(),
+	username: text('username').notNull(),
+	password_hash: text('password_hash').notNull()
+});
+
+export const sessionTable = pgTable('session', {
+	id: text('id').primaryKey(),
+	data: jsonb('data').notNull(),
+	expires_at: timestamp('expires_at').notNull()
+});
