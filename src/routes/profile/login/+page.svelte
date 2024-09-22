@@ -1,5 +1,5 @@
 <script lang="ts">
-    // TODO: Refactor the whole logic here, leave the design
+	// TODO: Refactor the whole logic here, leave the design
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
 	import Google from '$lib/components/UI/login_buttons/Google.svelte';
@@ -21,36 +21,6 @@
 	};
 
 	// TODO: Check if password matches the email
-	const isValidPassword = (value: string): boolean => {
-		return true;
-	};
-
-	const isFormValid = (): boolean => {
-		return Boolean(email && password);
-	};
-
-	const handleSubmit = async (event: Event) => {
-		event.preventDefault();
-		formSubmitted = true;
-
-		if (!email) {
-			emailError = 'Please enter your email';
-		} else if (!isValidEmail(email)) {
-			emailError = 'Please enter a valid email';
-		}
-
-		if (!password) {
-			passwordError = 'Please enter your password';
-		} else if (!isValidPassword(password)) {
-			passwordError = 'Please enter a valid password';
-		}
-
-		if (emailError || passwordError) {
-			return;
-		}
-
-		alert('Logged in');
-	};
 </script>
 
 <Breadcrumbs {breadcrumbs} />
@@ -61,7 +31,7 @@
 		<Apple />
 		<Facebook />
 	</div>
-	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
+	<form class="mb-8 flex flex-col items-center">
 		<span>Sign in with Email</span>
 		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
 			<input
@@ -92,11 +62,7 @@
 			</label>
 			<a href="/profile/forgot-password" class="text-blue-500">Forgot password?</a>
 		</div>
-		<button
-			class="btn btn-primary mt-8 w-full max-w-xl"
-			type="submit"
-			disabled={formSubmitted && !isFormValid()}>Login</button
-		>
+		<button class="btn btn-primary mt-8 w-full max-w-xl" type="submit">Login</button>
 		<div class="mt-7 text-lg">
 			<span
 				>Don't have an account? <a href="/profile/register" class="text-blue-500">Register</a> instead</span
