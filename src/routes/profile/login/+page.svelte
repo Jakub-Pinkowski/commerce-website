@@ -64,9 +64,11 @@
 		</div>
 		<button class="btn btn-primary mt-8 w-full max-w-xl" type="submit">Login</button>
 		<div class="mt-7 text-lg">
-			<span
-				>Don't have an account? <a href="/profile/register" class="text-blue-500">Register</a> instead</span
-			>
+			<span>
+				Don't have an account?
+				<a href="/profile/register" class="text-blue-500"> Register </a>
+				instead
+			</span>
 		</div>
 	</form>
 </div>
