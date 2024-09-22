@@ -11,12 +11,16 @@
 	let emailError: string;
 	let passwordError: string;
 	let repeatPasswordError: string;
+
+    const handleSubmit = async (event: Event) => {
+        
+    }
 </script>
 
 <Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
-	<form method="post" use:enhance class="mb-8 flex flex-col items-center">
+	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<label class="input input-bordered my-4 flex w-full items-center gap-2">
 			<input
 				bind:value={email}
