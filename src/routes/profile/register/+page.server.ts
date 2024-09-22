@@ -1,11 +1,13 @@
 import { createPool } from '@vercel/postgres';
-import { POSTGRES_URL } from '$env/static/private';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
-import { userTable, productsTable } from '$lib/drizzle/schema';
-import { lucia } from '$lib/server/auth';
 import { fail, redirect } from '@sveltejs/kit';
-import { generateIdFromEntropySize } from 'lucia';
+import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { hash } from '@node-rs/argon2';
+
+import { POSTGRES_URL } from '$env/static/private';
+import { generateIdFromEntropySize } from 'lucia';
+
+import { usersTable, productsTable } from '$lib/drizzle/schema';
+import { lucia } from '$lib/server/auth';
 
 import type { Actions } from './$types';
 
@@ -15,14 +17,14 @@ export const actions: Actions = {
 		const db = drizzle(pool);
 
 		const formData = await event.request.formData();
-		const username = formData.get('username');
+		const email = formData.get('email');
 		const password = formData.get('password');
 
 		if (
-			typeof username !== 'string' ||
-			username.length < 3 ||
-			username.length > 31 ||
-			!/^[a-z0-9_-]+$/.test(username)
+			typeof email !== 'string' ||
+			email.length < 3 ||
+			email.length > 31 ||
+			!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
 		) {
 			return fail(400, {
 				message: 'Invalid username'
@@ -44,14 +46,11 @@ export const actions: Actions = {
 			parallelism: 1
 		});
 
-		await db.insert(userTable).values({
+		await db.insert(usersTable).values({
 			id: userId,
-			username: username,
+			email: email,
 			password_hash: passwordHash
 		});
-
-		console.log('Generated User ID:', userId);
-		console.log('Password Hash:', passwordHash);
 
 		const session = await lucia.createSession(userId, {});
 		const sessionCookie = lucia.createSessionCookie(session.id);
@@ -60,6 +59,6 @@ export const actions: Actions = {
 			...sessionCookie.attributes
 		});
 
-		redirect(302, '/');
+		redirect(302, '/profile');
 	}
 };

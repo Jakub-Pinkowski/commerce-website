@@ -32,14 +32,32 @@ export const productsTable = pgTable('products', {
 	alternate_images: jsonb('alternate_images').notNull()
 });
 
-export const userTable = pgTable('user', {
+export const usersTable = pgTable('users', {
 	id: text('id').primaryKey(),
-	username: text('username').notNull(),
+	email: text('email').notNull(),
 	password_hash: text('password_hash').notNull()
 });
 
-export const sessionTable = pgTable('session', {
-    id: text('id').primaryKey(),
-    data: jsonb('data').notNull(),
-    expires_at: timestamp('expires_at').notNull()
+export const sessionsTable = pgTable('sessions', {
+	id: text('id').primaryKey(),
+	userId: text('user_id')
+		.notNull()
+		.references(() => usersTable.id),
+	expiresAt: timestamp('expires_at', {
+		withTimezone: true,
+		mode: 'date'
+	}).notNull()
 });
+
+// Testing only
+// export const userTable = pgTable('user', {
+// 	id: text('id').primaryKey(),
+// 	username: text('username').notNull(),
+// 	password_hash: text('password_hash').notNull()
+// });
+
+// export const sessionTable = pgTable('session', {
+// 	id: text('id').primaryKey(),
+// 	data: jsonb('data').notNull(),
+// 	expires_at: timestamp('expires_at').notNull()
+// });
