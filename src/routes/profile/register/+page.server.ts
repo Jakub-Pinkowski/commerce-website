@@ -1,6 +1,7 @@
 import { createPool } from '@vercel/postgres';
 import { fail, redirect } from '@sveltejs/kit';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
+import { eq } from 'drizzle-orm';
 import { hash } from '@node-rs/argon2';
 
 import { POSTGRES_URL } from '$env/static/private';
@@ -34,6 +35,14 @@ export const actions: Actions = {
 			console.log('password');
 			return fail(400, {
 				message: 'Invalid password'
+			});
+		}
+
+		const existingUser = await db.select().from(usersTable).where(eq(usersTable.email, email));
+
+		if (existingUser.length > 0) {
+			return fail(400, {
+				message: 'User already exists'
 			});
 		}
 

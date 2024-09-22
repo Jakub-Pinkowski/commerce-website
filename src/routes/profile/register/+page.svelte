@@ -11,10 +11,47 @@
 	let emailError: string;
 	let passwordError: string;
 	let repeatPasswordError: string;
+	let serverError: string;
 
-    const handleSubmit = async (event: Event) => {
-        
-    }
+	const handleSubmit = async (event: Event) => {
+		event.preventDefault();
+
+		emailError = '';
+		passwordError = '';
+		repeatPasswordError = '';
+		serverError = '';
+
+		if (!email) {
+			emailError = 'Email is required';
+		}
+
+		if (!password) {
+			passwordError = 'Password is required';
+		}
+
+		if (!repeatPassword) {
+			repeatPasswordError = 'Repeat password is required';
+		} else if (password !== repeatPassword) {
+			repeatPasswordError = 'Passwords do not match';
+		}
+
+		if (emailError || passwordError || repeatPasswordError) {
+			return;
+		}
+
+		const formData = new FormData();
+		formData.append('email', email);
+		formData.append('password', password);
+
+		const response = await fetch('/profile/register', {
+			method: 'POST',
+			body: formData
+		});
+
+		console.log('response', response);
+		const result = await response.json();
+		console.log('result', result);
+	};
 </script>
 
 <Breadcrumbs {breadcrumbs} />
@@ -29,6 +66,7 @@
 				type="email"
 				class="grow"
 				placeholder="Email*"
+                autocomplete="email"
 			/>
 		</label>
 		{#if emailError}<span class="text-xs text-red-500">{emailError}</span>{/if}
@@ -40,6 +78,7 @@
 				type="password"
 				class="grow"
 				placeholder="Password*"
+                autocomplete="new-password"
 			/>
 		</label>
 		{#if passwordError}<span class="text-xs text-red-500">{passwordError}</span>{/if}
@@ -51,6 +90,7 @@
 				type="password"
 				class="grow"
 				placeholder="Repeat password*"
+                autocomplete="new-password"
 			/>
 		</label>
 		{#if repeatPasswordError}<span class="text-xs text-red-500">{repeatPasswordError}</span>{/if}
