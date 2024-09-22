@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
@@ -51,6 +51,10 @@
 		console.log('response', response);
 		const result = await response.json();
 		console.log('result', result);
+
+		if (result.type === 'redirect') {
+			goto(result.location);
+		}
 	};
 </script>
 
@@ -66,7 +70,7 @@
 				type="email"
 				class="grow"
 				placeholder="Email*"
-                autocomplete="email"
+				autocomplete="email"
 			/>
 		</label>
 		{#if emailError}<span class="text-xs text-red-500">{emailError}</span>{/if}
@@ -78,7 +82,7 @@
 				type="password"
 				class="grow"
 				placeholder="Password*"
-                autocomplete="new-password"
+				autocomplete="new-password"
 			/>
 		</label>
 		{#if passwordError}<span class="text-xs text-red-500">{passwordError}</span>{/if}
@@ -90,7 +94,7 @@
 				type="password"
 				class="grow"
 				placeholder="Repeat password*"
-                autocomplete="new-password"
+				autocomplete="new-password"
 			/>
 		</label>
 		{#if repeatPasswordError}<span class="text-xs text-red-500">{repeatPasswordError}</span>{/if}
