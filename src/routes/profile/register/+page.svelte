@@ -48,12 +48,12 @@
 			body: formData
 		});
 
-		console.log('response', response);
 		const result = await response.json();
-		console.log('result', result);
 
 		if (result.type === 'redirect') {
 			goto(result.location);
+		} else if (result.type === 'failure') {
+			serverError = result.type;
 		}
 	};
 </script>
@@ -98,6 +98,10 @@
 			/>
 		</label>
 		{#if repeatPasswordError}<span class="text-xs text-red-500">{repeatPasswordError}</span>{/if}
+
+        <!-- TODO: Style this -->
+		{#if serverError}<span class="text-xs text-red-500">{serverError}</span>{/if}
+
 		<button class="btn btn-primary mt-8 w-full" type="submit">Register</button>
 		<div class="mt-7 text-lg">
 			<span>
