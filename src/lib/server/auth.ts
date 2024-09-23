@@ -16,16 +16,16 @@ const adapter = new DrizzlePostgreSQLAdapter(db, sessionsTable, usersTable);
 export const lucia = new Lucia(adapter, {
 	sessionCookie: {
 		attributes: {
-			// set to `true` when using HTTPS
+			// TODO: set to `true` when using HTTPS
 			secure: !dev
 		}
 	},
-	getUserAttributes: (attributes) => {
-		return {
-			// attributes has the type of DatabaseUserAttributes
-			username: attributes.username
-		};
-	}
+    getUserAttributes: (attributes) => {
+        return {
+            // attributes has the type of DatabaseUserAttributes
+            email: attributes.email
+        };
+    }
 });
 
 declare module 'lucia' {
@@ -36,5 +36,5 @@ declare module 'lucia' {
 }
 
 interface DatabaseUserAttributes {
-	username: string;
+    email: string;
 }
