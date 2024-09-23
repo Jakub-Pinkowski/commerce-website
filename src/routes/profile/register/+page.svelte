@@ -86,20 +86,25 @@
 			/>
 		</label>
 		{#if passwordError}<span class="text-xs text-red-500">{passwordError}</span>{/if}
-		<label class="input input-bordered my-4 flex w-full items-center gap-2">
-			<input
-				bind:value={repeatPassword}
-				id="repeatPassword"
-				name="repeatPassword"
-				type="password"
-				class="grow"
-				placeholder="Repeat password*"
-				autocomplete="new-password"
-			/>
-		</label>
-		{#if repeatPasswordError}<span class="text-xs text-red-500">{repeatPasswordError}</span>{/if}
+		<!-- TODO: Style the tooltip add cl -->
+		<div
+			class="tooltip tooltip-bottom tooltip-error w-full"
+			data-tip={repeatPasswordError}
+			class:tooltip-open={repeatPasswordError}
+		>
+			<label class="input input-bordered my-4 flex w-full items-center gap-2">
+				<input
+					bind:value={repeatPassword}
+					id="repeatPassword"
+					name="repeatPassword"
+					type="password"
+					class="grow"
+					placeholder="Repeat password*"
+					autocomplete="new-password"
+				/>
+			</label>
+		</div>
 
-        <!-- TODO: Style this -->
 		{#if serverError}<span class="text-xs text-red-500">{serverError}</span>{/if}
 
 		<button class="btn btn-primary mt-8 w-full" type="submit">Register</button>
@@ -110,3 +115,10 @@
 		</div>
 	</form>
 </div>
+
+<style>
+	.tooltip-error {
+		--tooltip-color: #e63946;
+		--tooltip-text-color: var(--fallback-erc, oklch(var(--erc) / 1));
+	}
+</style>
