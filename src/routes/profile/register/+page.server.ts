@@ -32,7 +32,7 @@ export const actions: Actions = {
 			});
 		}
 		if (typeof password !== 'string' || password.length < 6 || password.length > 255) {
-			console.log('password');
+            // TODO: Fix the response's format
 			return fail(400, {
 				message: 'Invalid password'
 			});
