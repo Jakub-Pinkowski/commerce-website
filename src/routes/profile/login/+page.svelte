@@ -1,7 +1,7 @@
 <script lang="ts">
-	// TODO: Refactor the whole logic here, leave the design
-	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
+	import { goto } from '$app/navigation';
 
+	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import Google from '$lib/components/UI/login_buttons/Google.svelte';
 	import Apple from '$lib/components/UI/login_buttons/Apple.svelte';
 	import Facebook from '$lib/components/UI/login_buttons/Facebook.svelte';
@@ -12,26 +12,57 @@
 	let password: string;
 	let emailError: string;
 	let passwordError: string;
+	let serverError: string;
 	let formSubmitted: boolean = false;
 
-	// TODO: Check if email is in the database
-	const isValidEmail = (value: string): boolean => {
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		return emailRegex.test(value);
-	};
+	const handleSubmit = async (event: Event) => {
+		event.preventDefault();
 
-	// TODO: Check if password matches the email
+		emailError = '';
+		passwordError = '';
+		serverError = '';
+
+		if (!email) {
+			emailError = 'Email is required';
+		}
+
+		if (!password) {
+			passwordError = 'Password is required';
+		}
+
+		if (emailError || passwordError) {
+			return;
+		}
+
+		const formData = new FormData();
+		formData.append('email', email);
+		formData.append('password', password);
+
+		const response = await fetch('/profile/login', {
+			method: 'POST',
+			body: formData
+		});
+
+		const result = await response.json();
+        console.log("result", result);
+
+        if (result.type === 'redirect') {
+            goto(result.location);
+        } else if (result.type === 'failure') {
+            serverError = result.type;
+        }
+	};
 </script>
 
 <Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Login</h1>
-	<div class="mb-8 flex flex-col items-center gap-4">
+	<!-- <div class="mb-8 flex flex-col items-center gap-4">
 		<Google />
 		<Apple />
 		<Facebook />
-	</div>
-	<form class="mb-8 flex flex-col items-center">
+	</div> -->
+	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<span>Sign in with Email</span>
 		<label class="input input-bordered my-4 flex w-full max-w-xl items-center gap-2">
 			<input
@@ -41,6 +72,7 @@
 				type="email"
 				class="grow"
 				placeholder="Email*"
+				autocomplete="email"
 			/>
 		</label>
 		{#if emailError}<span class="text-xs text-red-500">{emailError}</span>{/if}
@@ -52,6 +84,7 @@
 				type="password"
 				class="grow"
 				placeholder="Password*"
+				autocomplete="current-password"
 			/>
 		</label>
 		{#if passwordError}<span class="text-xs text-red-500">{passwordError}</span>{/if}

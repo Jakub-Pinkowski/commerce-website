@@ -2,10 +2,9 @@ import { createPool } from '@vercel/postgres';
 import { fail, redirect } from '@sveltejs/kit';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq } from 'drizzle-orm';
-import { hash } from '@node-rs/argon2';
+import { verify } from '@node-rs/argon2';
 
 import { POSTGRES_URL } from '$env/static/private';
-import { generateIdFromEntropySize } from 'lucia';
 
 import { usersTable, productsTable } from '$lib/drizzle/schema';
 import { lucia } from '$lib/server/auth';
@@ -32,36 +31,37 @@ export const actions: Actions = {
 			});
 		}
 		if (typeof password !== 'string' || password.length < 6 || password.length > 255) {
-            // TODO: Fix the response's format
+			// TODO: Fix the response's format
 			return fail(400, {
 				message: 'Invalid password'
 			});
 		}
 
-		const existingUser = await db.select().from(usersTable).where(eq(usersTable.email, email));
-
-		if (existingUser.length > 0) {
+		const existingUserQuery = await db
+			.select()
+			.from(usersTable)
+			.where(eq(usersTable.email, email))
+			.limit(1);
+		const existingUser = existingUserQuery[0];
+		if (!existingUser) {
 			return fail(400, {
-				message: 'User already exists'
+				message: 'Incorrect email or password'
 			});
 		}
 
-		const userId = generateIdFromEntropySize(10); // 16 characters long
-		const passwordHash = await hash(password, {
-			// recommended minimum parameters
+		const validPassword = await verify(existingUser.password_hash, password, {
 			memoryCost: 19456,
 			timeCost: 2,
 			outputLen: 32,
 			parallelism: 1
 		});
+		if (!validPassword) {
+			return fail(400, {
+				message: 'Incorrect username or password'
+			});
+		}
 
-		await db.insert(usersTable).values({
-			id: userId,
-			email: email,
-			password_hash: passwordHash
-		});
-
-		const session = await lucia.createSession(userId, {});
+		const session = await lucia.createSession(existingUser.id, {});
 		const sessionCookie = lucia.createSessionCookie(session.id);
 		event.cookies.set(sessionCookie.name, sessionCookie.value, {
 			path: '.',
