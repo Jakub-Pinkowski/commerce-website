@@ -6,7 +6,7 @@
 	import Apple from '$lib/components/UI/login_buttons/Apple.svelte';
 	import Facebook from '$lib/components/UI/login_buttons/Facebook.svelte';
 
-	let breadcrumbs = ['Home', 'Profile', 'Register'];
+	let breadcrumbs = ['Home', 'Profile', 'Login'];
 
 	let email: string;
 	let password: string;

@@ -44,6 +44,7 @@
 			>
 				<button
 					class="rounded-full0 btn btn-circle btn-ghost absolute right-2 top-2 z-10"
+					aria-label="Close banner"
 					on:click={hideBanner}
 				>
 					<svg
@@ -72,7 +73,7 @@
 						</p>
 						<p class="text-xs">
 							Anonymous data is collected for analytics and performace purposes only. <strong
-								>No cookies are used.</strong
+								>No cookies are used for this.</strong
 							>
 							By using this website, you agree to this data collection. For more information, see the
 							official Vercel's
