@@ -8,7 +8,11 @@
 <div class="relative flex border-b border-gray-300 py-6">
 	<div class="max-w-[35%]">
 		<div class="absolute -right-3 top-4">
-			<button class="btn btn-circle btn-ghost" on:click={() => removeFromCart(item)}>
+			<button
+				aria-label="Remove from cart"
+				class="btn btn-circle btn-ghost"
+				on:click={() => removeFromCart(item)}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					id="Layer_1"
@@ -24,7 +28,7 @@
 				</svg>
 			</button>
 		</div>
-		<a href={item.url}>
+		<a href={item.url} aria-label="Product image">
 			<img src={item.imageUrl} alt={item.name} />
 		</a>
 	</div>
