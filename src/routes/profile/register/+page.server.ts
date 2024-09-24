@@ -31,8 +31,13 @@ export const actions: Actions = {
 				message: 'Invalid email'
 			});
 		}
-		if (typeof password !== 'string' || password.length < 6 || password.length > 255) {
-            // TODO: Fix the response's format
+		if (
+			typeof password !== 'string' ||
+			password.length < 8 ||
+			password.length > 255 ||
+			!/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,255}$/.test(password)
+		) {
+			// TODO: Fix the response's format
 			return fail(400, {
 				message: 'Invalid password'
 			});

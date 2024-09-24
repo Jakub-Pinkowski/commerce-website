@@ -50,14 +50,35 @@
 	};
 
 	const validateFields = () => {
+		// Reset errors
+		emailError = '';
+		passwordError = '';
+		repeatPasswordError = '';
+
+		// Email validation
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (!email) {
 			emailError = 'Email is required';
+		} else if (!emailRegex.test(email)) {
+			emailError = 'Invalid email format';
 		}
+
+		// Password validation
+		const passwordMinLength = 8;
+		const passwordMaxLength = 255;
+		const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,255}$/;
 
 		if (!password) {
 			passwordError = 'Password is required';
+		} else if (password.length < passwordMinLength) {
+			passwordError = `Password must be at least ${passwordMinLength} characters long`;
+		} else if (password.length > passwordMaxLength) {
+			passwordError = `Password must be no more than ${passwordMaxLength} characters long`;
+		} else if (!passwordRegex.test(password)) {
+			passwordError = 'Password must contain at least one uppercase letter and one number';
 		}
 
+		// Repeat password validation
 		if (!repeatPassword) {
 			repeatPasswordError = 'Repeat password is required';
 		} else if (password !== repeatPassword) {
