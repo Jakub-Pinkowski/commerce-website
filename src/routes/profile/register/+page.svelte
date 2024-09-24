@@ -64,12 +64,22 @@
 			repeatPasswordError = 'Passwords do not match';
 		}
 	};
+
+	const handleInteraction = () => {
+		console.log('handleInteraction');
+		resetErrors();
+	};
 </script>
 
 <Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
-	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
+	<form
+		on:submit={handleSubmit}
+		on:focus={handleInteraction}
+		on:input={handleInteraction}
+		class="mb-8 flex flex-col items-center"
+	>
 		<InputWithTooltip
 			bind:value={email}
 			id="email"
