@@ -19,6 +19,7 @@
 </div>
 
 <style>
+	/* FIXME: Sometimes when removing errors the small tooltip without text remains for a split of a second */
 	.tooltip-error {
 		--tooltip-color: var(--main-red);
 		--tooltip-text-color: var(--whiteish);

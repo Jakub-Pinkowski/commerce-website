@@ -50,10 +50,7 @@
 	};
 
 	const validateFields = () => {
-		// Reset errors
-		emailError = '';
-		passwordError = '';
-		repeatPasswordError = '';
+		resetErrors();
 
 		// Email validation
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -87,7 +84,6 @@
 	};
 
 	const handleInteraction = () => {
-		console.log('handleInteraction');
 		resetErrors();
 	};
 </script>
