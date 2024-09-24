@@ -105,8 +105,6 @@
 			</label>
 		</div>
 
-		{#if serverError}<span class="text-xs text-red-500">{serverError}</span>{/if}
-
 		<button class="btn btn-primary mt-8 w-full" type="submit">Register</button>
 		<div class="mt-7 text-lg">
 			<span>
