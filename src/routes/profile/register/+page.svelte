@@ -84,6 +84,7 @@
 	};
 
 	const handleInteraction = () => {
+		console.log('handleInteraction');
 		resetErrors();
 	};
 </script>
@@ -93,7 +94,7 @@
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
 	<form
 		on:submit={handleSubmit}
-		on:focus={handleInteraction}
+		on:focusin={handleInteraction}
 		on:input={handleInteraction}
 		class="mb-8 flex flex-col items-center"
 	>

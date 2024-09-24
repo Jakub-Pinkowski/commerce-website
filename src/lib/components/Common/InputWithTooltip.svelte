@@ -25,10 +25,18 @@
 		--tooltip-text-color: var(--whiteish);
 	}
 
+    .tooltip:before,
+    .tooltip:after {
+        transition-delay: 0ms;
+        transition-duration: 0ms;
+    }
+
 	.tooltip:has(:focus-visible):before,
 	.tooltip:has(:focus-visible):after,
 	.tooltip:hover:before,
 	.tooltip:hover:after {
 		opacity: 0;
+        transition-delay: 0ms;
+        transition-duration: 20ms;
 	}
 </style>
