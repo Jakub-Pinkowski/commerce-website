@@ -24,8 +24,10 @@
 		--tooltip-text-color: var(--whiteish);
 	}
 
+	.tooltip:has(:focus-visible):before,
 	.tooltip:has(:focus-visible):after,
-	.tooltip:has(:focus-visible):before {
+	.tooltip:hover:before,
+	.tooltip:hover:after {
 		opacity: 0;
 	}
 </style>
