@@ -62,37 +62,46 @@
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
-		<label class="input input-bordered my-4 flex w-full items-center gap-2">
-			<input
-				bind:value={email}
-				id="email"
-				name="email"
-				type="email"
-				class="grow"
-				placeholder="Email*"
-				autocomplete="email"
-			/>
-		</label>
-		{#if emailError}<span class="text-xs text-red-500">{emailError}</span>{/if}
-		<label class="input input-bordered my-4 flex w-full items-center gap-2">
-			<input
-				bind:value={password}
-				id="password"
-				name="password"
-				type="password"
-				class="grow"
-				placeholder="Password*"
-				autocomplete="new-password"
-			/>
-		</label>
-		{#if passwordError}<span class="text-xs text-red-500">{passwordError}</span>{/if}
-		<!-- TODO: Style the tooltip add cl -->
 		<div
-			class="tooltip tooltip-bottom tooltip-error w-full"
+			class="tooltip tooltip-left tooltip-error my-4 w-full"
+			data-tip={emailError}
+			class:tooltip-open={emailError}
+		>
+			<label class="input input-bordered flex w-full items-center gap-2">
+				<input
+					bind:value={email}
+					id="email"
+					name="email"
+					type="email"
+					class="grow"
+					placeholder="Email*"
+					autocomplete="email"
+				/>
+			</label>
+		</div>
+		<div
+			class="tooltip tooltip-left tooltip-error my-4 w-full"
+			data-tip={passwordError}
+			class:tooltip-open={passwordError}
+		>
+			<label class="input input-bordered flex w-full items-center gap-2">
+				<input
+					bind:value={password}
+					id="password"
+					name="password"
+					type="password"
+					class="grow"
+					placeholder="Password*"
+					autocomplete="new-password"
+				/>
+			</label>
+		</div>
+		<div
+			class="tooltip tooltip-left tooltip-error my-4 w-full"
 			data-tip={repeatPasswordError}
 			class:tooltip-open={repeatPasswordError}
 		>
-			<label class="input input-bordered my-4 flex w-full items-center gap-2">
+			<label class="input input-bordered flex w-full items-center gap-2">
 				<input
 					bind:value={repeatPassword}
 					id="repeatPassword"
@@ -116,7 +125,12 @@
 
 <style>
 	.tooltip-error {
-		--tooltip-color: #e63946;
-		--tooltip-text-color: var(--fallback-erc, oklch(var(--erc) / 1));
+		--tooltip-color: var(--main-red);
+		--tooltip-text-color: var(--whiteish);
+	}
+
+	.tooltip:has(:focus-visible):after,
+	.tooltip:has(:focus-visible):before {
+		opacity: 0;
 	}
 </style>
