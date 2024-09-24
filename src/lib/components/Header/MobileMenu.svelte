@@ -31,7 +31,7 @@
 		class="fixed left-0 top-0 z-20 h-full w-64 bg-white transition-transform duration-200 ease-in-out"
 		transition:fly={{ x: -100, duration: 500, easing: quadOut }}
 	>
-		<a href="/" class="absolute right-2.5 top-2.5" on:click={closeMenu}>
+		<a href="/" aria-label="Home" class="absolute right-2.5 top-2.5" on:click={closeMenu}>
 			<img
 				src={logo}
 				alt="logo"

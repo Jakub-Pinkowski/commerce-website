@@ -25,7 +25,7 @@
 		<h6 class="footer-title">Social</h6>
 		<!-- TODO: Add real socials -->
 		<div class="grid grid-flow-col gap-4">
-			<a href="/">
+			<a href="/" aria-label="Facebook">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -39,7 +39,7 @@
 					</path>
 				</svg>
 			</a>
-			<a href="/">
+			<a href="/" aria-label="Instagram">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -53,7 +53,7 @@
 					</path>
 				</svg>
 			</a>
-			<a href="/">
+			<a href="/" aria-label="Twitter">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"

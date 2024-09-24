@@ -76,7 +76,9 @@
 		<a href="/products" class="btn btn-ghost">Shop All</a>
 	</div>
 	<div class="navbar-center">
-		<a href="/">
+		<a href="/"
+            aria-label="Home"
+        >
 			<img
 				src={logo}
 				alt="logo"

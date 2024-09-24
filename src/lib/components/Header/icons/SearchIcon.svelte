@@ -4,6 +4,7 @@
 </script>
 
 <a
+    aria-label="Search"
 	class={`btn btn-circle btn-ghost mx-1 flex items-center ${className}`}
 	href="/search"
 	on:click={closeMenu}
