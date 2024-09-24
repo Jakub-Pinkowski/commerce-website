@@ -17,24 +17,8 @@
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
 
-		emailError = '';
-		passwordError = '';
-		repeatPasswordError = '';
-		serverError = '';
-
-		if (!email) {
-			emailError = 'Email is required';
-		}
-
-		if (!password) {
-			passwordError = 'Password is required';
-		}
-
-		if (!repeatPassword) {
-			repeatPasswordError = 'Repeat password is required';
-		} else if (password !== repeatPassword) {
-			repeatPasswordError = 'Passwords do not match';
-		}
+		resetErrors();
+		validateFields();
 
 		if (emailError || passwordError || repeatPasswordError) {
 			return;
@@ -55,6 +39,29 @@
 			goto(result.location);
 		} else if (result.type === 'failure') {
 			serverError = result.type;
+		}
+	};
+
+	const resetErrors = () => {
+		emailError = '';
+		passwordError = '';
+		repeatPasswordError = '';
+		serverError = '';
+	};
+
+	const validateFields = () => {
+		if (!email) {
+			emailError = 'Email is required';
+		}
+
+		if (!password) {
+			passwordError = 'Password is required';
+		}
+
+		if (!repeatPassword) {
+			repeatPasswordError = 'Repeat password is required';
+		} else if (password !== repeatPassword) {
+			repeatPasswordError = 'Passwords do not match';
 		}
 	};
 </script>
@@ -99,4 +106,3 @@
 		</div>
 	</form>
 </div>
-
