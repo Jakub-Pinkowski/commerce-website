@@ -6,6 +6,8 @@
 	export let placeholder = '';
 	export let autocomplete = '';
 	export let error = '';
+	export let onFocus = () => {};
+	export let onInput = () => {};
 </script>
 
 <div
@@ -14,7 +16,17 @@
 	class:tooltip-open={error}
 >
 	<label class="input input-bordered flex w-full items-center gap-2">
-		<input bind:value {id} {name} {type} class="grow" {placeholder} {autocomplete} />
+		<input
+			bind:value
+			{id}
+			{name}
+			{type}
+			class="grow"
+			{placeholder}
+			{autocomplete}
+			on:focus={onFocus}
+			on:input={onInput}
+		/>
 	</label>
 </div>
 
@@ -25,18 +37,14 @@
 		--tooltip-text-color: var(--whiteish);
 	}
 
-    .tooltip:before,
-    .tooltip:after {
-        transition-delay: 0ms;
-        transition-duration: 0ms;
-    }
+	.tooltip:before,
+	.tooltip:after {
+	}
 
 	.tooltip:has(:focus-visible):before,
 	.tooltip:has(:focus-visible):after,
 	.tooltip:hover:before,
 	.tooltip:hover:after {
 		opacity: 0;
-        transition-delay: 0ms;
-        transition-duration: 20ms;
 	}
 </style>

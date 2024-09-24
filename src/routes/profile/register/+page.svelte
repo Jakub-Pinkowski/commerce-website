@@ -83,21 +83,23 @@
 		}
 	};
 
-	const handleInteraction = () => {
-		console.log('handleInteraction');
-		resetErrors();
+	const handleEmailInteraction = () => {
+		emailError = '';
+	};
+
+	const handlePasswordInteraction = () => {
+		passwordError = '';
+	};
+
+	const handleRepeatPasswordInteraction = () => {
+		repeatPasswordError = '';
 	};
 </script>
 
 <Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
-	<form
-		on:submit={handleSubmit}
-		on:focusin={handleInteraction}
-		on:input={handleInteraction}
-		class="mb-8 flex flex-col items-center"
-	>
+	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<InputWithTooltip
 			bind:value={email}
 			id="email"
@@ -106,6 +108,8 @@
 			placeholder="Email*"
 			autocomplete="email"
 			error={emailError}
+			onFocus={handleEmailInteraction}
+			onInput={handleEmailInteraction}
 		/>
 		<InputWithTooltip
 			bind:value={password}
@@ -115,7 +119,32 @@
 			placeholder="Password*"
 			autocomplete="new-password"
 			error={passwordError}
+			onFocus={handlePasswordInteraction}
+			onInput={handlePasswordInteraction}
 		/>
+		<div role="alert" class="alert">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				class="h-6 w-6 shrink-0 stroke-info"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+				></path>
+			</svg>
+			<span>Password requirements:</span>
+			<ul>
+				<li>At least 8 characters long</li>
+				<li>Maximum 255 characters</li>
+				<li>At least one uppercase letter</li>
+				<li>At least one number</li>
+				<li>Can include special characters @$!%*#?&</li>
+			</ul>
+		</div>
 		<InputWithTooltip
 			bind:value={repeatPassword}
 			id="repeatPassword"
@@ -124,6 +153,8 @@
 			placeholder="Repeat password*"
 			autocomplete="new-password"
 			error={repeatPasswordError}
+			onFocus={handleRepeatPasswordInteraction}
+			onInput={handleRepeatPasswordInteraction}
 		/>
 
 		<button class="btn btn-primary mt-8 w-full" type="submit">Register</button>
