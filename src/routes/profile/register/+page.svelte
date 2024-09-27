@@ -4,7 +4,6 @@
 	import { quadOut } from 'svelte/easing';
 
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
-	import InputWithTooltip from '$lib/components/Common/InputWithTooltip.svelte';
 	import FormInput from '$lib/components/Common/FormInput.svelte';
 
 	let breadcrumbs = ['Home', 'Profile', 'Register'];
