@@ -38,7 +38,7 @@
 	{#if error}
 		<div
 			role="alert"
-			class=" alert alert-warning absolute right-0 top-0 w-auto gap-2 rounded border-none p-3 text-sm"
+			class=" alert alert-warning absolute right-0 top-0 w-auto gap-2 rounded border-none p-3 text-sm text-whiteish"
 			transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
 		>
 			<svg
@@ -63,10 +63,10 @@
 
 <style>
 	.alert-warning {
-		--alert-bg: var(--accent);
+		--alert-bg: var(--main-red);
 	}
 
 	.input-warning {
-		border-color: var(--accent);
+		border-color: var(--main-red);
 	}
 </style>
