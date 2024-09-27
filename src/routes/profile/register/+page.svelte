@@ -70,16 +70,18 @@
 		// Password validation
 		const passwordMinLength = 8;
 		const passwordMaxLength = 255;
-		const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,255}$/;
-
+		const uppercaseRegex = /[A-Z]/;
+		const numberRegex = /\d/;
 		if (!password) {
 			passwordError = 'Password is required';
 		} else if (password.length < passwordMinLength) {
 			passwordError = `Password must be at least ${passwordMinLength} characters long`;
 		} else if (password.length > passwordMaxLength) {
 			passwordError = `Password must be no more than ${passwordMaxLength} characters long`;
-		} else if (!passwordRegex.test(password)) {
-			passwordError = 'Password not meeting the requirements';
+		} else if (!uppercaseRegex.test(password)) {
+			passwordError = 'Password must contain at least 1 uppercase letter';
+		} else if (!numberRegex.test(password)) {
+			passwordError = 'Password must contain at least 1 number';
 		}
 
 		// Repeat password validation
