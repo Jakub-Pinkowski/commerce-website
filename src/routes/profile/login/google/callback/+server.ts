@@ -19,14 +19,6 @@ export async function GET(event: RequestEvent): Promise<Response> {
 	const storedState = event.cookies.get('google_oauth_state') ?? null;
 	const storedCodeVerifier = event.cookies.get('google_oauth_code_verifier') ?? null;
 
-	console.log(
-		'code, state, storedState, storedCodeVerifier: ',
-		code,
-		state,
-		storedState,
-		storedCodeVerifier
-	);
-
 	if (!code || !state || !storedState || state !== storedState) {
 		return new Response(null, {
 			status: 400
@@ -43,8 +35,6 @@ export async function GET(event: RequestEvent): Promise<Response> {
 				}
 			});
 			const googleUser: GoogleUser = await googleUserResponse.json();
-
-			console.log('googleUser: ', googleUser);
 
 			const existingUserQuery = await db
 				.select()

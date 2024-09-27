@@ -11,6 +11,8 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		scopes: ['profile', 'email']
 	});
 
+    console.log("google", google);
+
 	event.cookies.set('google_oauth_state', state, {
 		secure: true, 
 		path: '/',
@@ -24,6 +26,8 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		httpOnly: true,
 		maxAge: 60 * 10 // 10 min
 	});
+
+    console.log("url", url.toString());
 
 	redirect(302, url.toString());
 }
