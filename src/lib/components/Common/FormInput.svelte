@@ -60,13 +60,3 @@
 		</div>
 	{/if}
 </div>
-
-<style>
-	.alert-warning {
-		--alert-bg: var(--main-red);
-	}
-
-	.input-warning {
-		border-color: var(--main-red);
-	}
-</style>

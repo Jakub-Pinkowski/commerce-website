@@ -59,3 +59,13 @@ a {
 .swiper.thumb-image .swiper-slide-thumb-active {
 	opacity: 1;
 }
+
+/* Alerts */
+
+.alert-warning {
+    --alert-bg: var(--main-red);
+}
+
+.input-warning {
+    border-color: var(--main-red);
+}

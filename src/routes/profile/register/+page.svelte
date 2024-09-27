@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { fade } from 'svelte/transition';
+	import { quadOut } from 'svelte/easing';
 
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import InputWithTooltip from '$lib/components/Common/InputWithTooltip.svelte';
@@ -41,9 +43,9 @@
 		if (result.type === 'redirect') {
 			goto(result.location);
 		} else if (result.type === 'failure') {
-            // NOTE: This is extremely wonky, hopefully when Svelte 5 releases it's going to be fixes
+			// NOTE: This is extremely wonky, hopefully when Svelte 5 releases it's going to be fixes
 			const data = JSON.parse(result.data);
-			const message = data[1]; 
+			const message = data[1];
 			serverError = message;
 		}
 	};
@@ -147,6 +149,31 @@
 			onFocus={handleRepeatPasswordInteraction}
 			onInput={handleRepeatPasswordInteraction}
 		/>
+
+		{#if serverError}
+			<div
+				role="alert"
+				class="alert alert-warning mt-4 text-whiteish"
+				transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6 shrink-0 stroke-current"
+					fill="none"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+					/>
+				</svg>
+				<span>
+					{serverError}
+				</span>
+			</div>
+		{/if}
 
 		<button class="btn btn-primary mt-8 w-full" type="submit">Register</button>
 		<div class="mt-7 text-lg">
