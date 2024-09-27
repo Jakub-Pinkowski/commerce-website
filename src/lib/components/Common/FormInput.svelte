@@ -28,7 +28,10 @@
 </script>
 
 <div class="relative my-4 w-full">
-	<label class="input input-bordered flex w-full items-center gap-2" class:input-warning={error}>
+	<label
+		class="input input-bordered flex w-full items-center gap-2 pr-0"
+		class:input-warning={error}
+	>
 		{#if type === 'email'}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +74,7 @@
 		{#if type === 'password'}
 			<button
 				type="button"
-				class="cursor-pointer opacity-70"
+				class="cursor-pointer opacity-70 mr-4"
 				on:click={togglePasswordVisibility}
 				aria-label={showPassword ? 'Hide password' : 'Show password'}
 			>
@@ -105,29 +108,29 @@
 				{/if}
 			</button>
 		{/if}
-	</label>
-	{#if error}
-		<div
-			role="alert"
-			class=" alert alert-warning absolute right-0 top-0 w-auto gap-2 rounded border-none p-3 text-sm text-whiteish"
-			transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 shrink-0 stroke-current"
-				fill="none"
-				viewBox="0 0 24 24"
+		{#if error}
+			<div
+				role="alert"
+				class=" alert alert-warning w-auto gap-2 rounded border-none p-3 text-sm text-whiteish"
+				transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
 			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-				/>
-			</svg>
-			<span>
-				{error}
-			</span>
-		</div>
-	{/if}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6 shrink-0 stroke-current"
+					fill="none"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+					/>
+				</svg>
+				<span>
+					{error}
+				</span>
+			</div>
+		{/if}
+	</label>
 </div>
