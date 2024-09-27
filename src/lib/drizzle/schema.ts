@@ -11,6 +11,7 @@ import {
 	integer,
 	jsonb
 } from 'drizzle-orm/pg-core';
+import { google } from '$lib/server/auth';
 
 export const productsTable = pgTable('products', {
 	id: serial('id').notNull(),
@@ -37,7 +38,9 @@ export const usersTable = pgTable('users', {
     email: text('email'),
     password_hash: text('password_hash'),
     github_id: integer('github_id'),
-    username: text('username') 
+    github_username: text('github_username'),
+    google_id: text('google_id'),
+    google_picture: text('google_picture'),
 });
 
 export const sessionsTable = pgTable('sessions', {
@@ -49,17 +52,4 @@ export const sessionsTable = pgTable('sessions', {
 		withTimezone: true,
 		mode: 'date'
 	}).notNull()
-});
-
-// Testing only
-export const userTable = pgTable('user', {
-	id: text('id').primaryKey(),
-	username: text('username').notNull(),
-	password_hash: text('password_hash').notNull()
-});
-
-export const sessionTable = pgTable('session', {
-	id: text('id').primaryKey(),
-	data: jsonb('data').notNull(),
-	expires_at: timestamp('expires_at').notNull()
 });

@@ -49,7 +49,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
             await db.insert(usersTable).values({
 				id: userId,
 				github_id: githubUser.id,
-				username: githubUser.login
+				github_username: githubUser.login
 			});
 
 			const session = await lucia.createSession(userId, {});
