@@ -94,11 +94,12 @@
 <Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Login</h1>
-	<!-- <div class="mb-8 flex flex-col items-center gap-4">
-		<Google />
+	<div class="mb-8 flex flex-col items-center gap-4">
+		<!-- <Google />
 		<Apple />
-		<Facebook />
-	</div> -->
+		<Facebook /> -->
+		<a class="btn" href="/profile/login/github">Login in with GitHub</a>
+	</div>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<span>Sign in with Email</span>
 		<FormInput
@@ -112,6 +113,7 @@
 			onFocus={handleEmailInteraction}
 			onInput={handleEmailInteraction}
 		/>
+        <!-- TODO: Let user see  -->
 		<FormInput
 			bind:value={password}
 			id="password"
