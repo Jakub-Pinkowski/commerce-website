@@ -11,8 +11,6 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		scopes: ['profile', 'email']
 	});
 
-    console.log("google", google);
-
 	event.cookies.set('google_oauth_state', state, {
 		secure: true, 
 		path: '/',
