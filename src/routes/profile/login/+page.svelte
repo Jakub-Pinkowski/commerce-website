@@ -77,7 +77,7 @@
 			passwordError = `Password must be at least ${passwordMinLength} characters long`;
 		} else if (password.length > passwordMaxLength) {
 			passwordError = `Password must be no more than ${passwordMaxLength} characters long`;
-		} 
+		}
 	};
 
 	const handleEmailInteraction = () => {
@@ -123,12 +123,8 @@
 			onFocus={handlePasswordInteraction}
 			onInput={handlePasswordInteraction}
 		/>
-		<div class="flex w-full max-w-xl justify-between">
-			<label class="inline-flex items-center">
-				<span class="ml-2">Remember me</span>
-				<input type="checkbox" class="form-checkbox mx-2" name="rememberMe" />
-			</label>
-			<a href="/profile/forgot-password" class="text-blue-500">Forgot password?</a>
+		<div class="flex w-full max-w-xl justify-between pl-1">
+			<a href="/profile/forgot-password" class="text-sm text-blue-500">Forgot password?</a>
 		</div>
 
 		{#if serverError}
