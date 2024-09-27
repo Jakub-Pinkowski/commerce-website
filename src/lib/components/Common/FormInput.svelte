@@ -18,7 +18,7 @@
 	export let onInput = () => {};
 </script>
 
-<div class="w-full my-4">
+<div class="relative my-4 w-full">
 	<label class="input input-bordered flex w-full items-center gap-2">
 		<input
 			class="grow"
@@ -33,7 +33,10 @@
 		/>
 	</label>
 	{#if error}
-		<div role="alert" class="alert alert-warning mt-2 p-3">
+		<div
+			role="alert"
+			class=" alert alert-warning absolute right-0 top-0 w-auto rounded border-none p-3"
+		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="h-6 w-6 shrink-0 stroke-current"
