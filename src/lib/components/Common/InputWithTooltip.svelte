@@ -4,7 +4,7 @@
 	export let name = '';
 	export let type = 'text';
 	export let placeholder = '';
-	export let autocomplete = '';
+    export let autocomplete: 'on' | 'off' | 'email' | 'username' | 'new-password' | 'current-password' | null | undefined = null;
 	export let error = '';
 	export let onFocus = () => {};
 	export let onInput = () => {};

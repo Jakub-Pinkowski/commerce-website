@@ -123,23 +123,8 @@
 			onInput={handlePasswordInteraction}
 		/>
 		<div role="alert" class="alert">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				class="h-6 w-6 shrink-0 stroke-info"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-				></path>
-			</svg>
-			<span>Password requirements:</span>
-			<ul>
+			<ul class="text-xs">
 				<li>At least 8 characters long</li>
-				<li>Maximum 255 characters</li>
 				<li>At least one uppercase letter</li>
 				<li>At least one number</li>
 				<li>Can include special characters @$!%*#?&</li>
