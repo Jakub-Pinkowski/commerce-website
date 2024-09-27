@@ -64,7 +64,9 @@ export async function GET(event: RequestEvent): Promise<Response> {
 
 				await db.insert(usersTable).values({
 					id: userId,
-					email: googleUser.email
+					email: googleUser.email,
+                    google_id: googleUser.id,
+                    google_picture: googleUser.picture
 				});
 
 				const session = await lucia.createSession(userId, {});
@@ -101,4 +103,5 @@ export async function GET(event: RequestEvent): Promise<Response> {
 interface GoogleUser {
 	id: string;
 	email: string;
+    picture: string;
 }
