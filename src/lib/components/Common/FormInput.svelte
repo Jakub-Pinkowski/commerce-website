@@ -74,7 +74,7 @@
 		{#if type === 'password'}
 			<button
 				type="button"
-				class="cursor-pointer opacity-70 mr-4"
+				class="mr-4 cursor-pointer opacity-70"
 				on:click={togglePasswordVisibility}
 				aria-label={showPassword ? 'Hide password' : 'Show password'}
 			>
@@ -111,7 +111,7 @@
 		{#if error}
 			<div
 				role="alert"
-				class=" alert alert-warning w-auto gap-2 rounded border-none p-3 text-sm text-whiteish"
+				class=" alert alert-warning w-auto shrink-0 gap-2 rounded-lg border-none p-3 text-sm text-whiteish"
 				transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
 			>
 				<svg

@@ -92,7 +92,7 @@
 </script>
 
 <Breadcrumbs {breadcrumbs} />
-<div class="mx-auto max-w-xl text-center">
+<div class="mx-auto max-w-2xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Login</h1>
 	<div class="mb-8 flex flex-col items-center gap-4">
 		<!-- <Google />
@@ -113,7 +113,7 @@
 			onFocus={handleEmailInteraction}
 			onInput={handleEmailInteraction}
 		/>
-        <!-- TODO: Let user see  -->
+		<!-- TODO: Let user see  -->
 		<FormInput
 			bind:value={password}
 			id="password"
@@ -125,7 +125,7 @@
 			onFocus={handlePasswordInteraction}
 			onInput={handlePasswordInteraction}
 		/>
-		<div class="flex w-full max-w-xl justify-between pl-1">
+		<div class="flex w-full justify-between pl-1">
 			<a href="/profile/forgot-password" class="text-sm text-blue-500">Forgot password?</a>
 		</div>
 
@@ -153,7 +153,7 @@
 				</span>
 			</div>
 		{/if}
-		<button class="btn btn-primary mt-8 w-full max-w-xl" type="submit">Login</button>
+		<button class="btn btn-primary mt-8 w-full" type="submit">Login</button>
 		<div class="mt-7 text-lg">
 			<span>
 				Don't have an account?
