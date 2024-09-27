@@ -39,7 +39,7 @@
 		<div
 			role="alert"
 			class=" alert alert-warning absolute right-0 top-0 w-auto gap-2 rounded border-none p-3 text-sm text-whiteish"
-			transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
+			transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
