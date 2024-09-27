@@ -73,7 +73,7 @@
 		} else if (password.length > passwordMaxLength) {
 			passwordError = `Password must be no more than ${passwordMaxLength} characters long`;
 		} else if (!passwordRegex.test(password)) {
-			passwordError = 'Password must contain at least one uppercase letter and one number';
+			passwordError = 'Password not meeting the requirements';
 		}
 
 		// Repeat password validation

@@ -22,7 +22,7 @@
 </script>
 
 <div class="relative my-4 w-full">
-	<label class="input input-bordered flex w-full items-center gap-2">
+	<label class="input input-bordered flex w-full items-center gap-2" class:input-warning={error}>
 		<input
 			class="grow"
 			bind:value
@@ -38,7 +38,7 @@
 	{#if error}
 		<div
 			role="alert"
-			class=" alert alert-warning absolute right-0 top-0 w-auto rounded border-none p-3"
+			class=" alert alert-warning absolute right-0 top-0 w-auto gap-2 rounded border-none p-3 text-sm"
 			transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
 		>
 			<svg
@@ -64,5 +64,9 @@
 <style>
 	.alert-warning {
 		--alert-bg: var(--accent);
+	}
+
+	.input-warning {
+		border-color: var(--accent);
 	}
 </style>
