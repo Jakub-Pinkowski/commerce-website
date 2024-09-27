@@ -3,7 +3,7 @@
 
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import InputWithTooltip from '$lib/components/Common/InputWithTooltip.svelte';
-    import FormInput from '$lib/components/Common/FormInput.svelte';
+	import FormInput from '$lib/components/Common/FormInput.svelte';
 
 	let breadcrumbs = ['Home', 'Profile', 'Register'];
 
@@ -101,47 +101,47 @@
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
-        <FormInput
-            bind:value={email}
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Email*"
-            autocomplete="email"
-            error={emailError}
-            onFocus={handleEmailInteraction}
-            onInput={handleEmailInteraction}
-        />
-        <FormInput
-            bind:value={password}
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Password*"
-            autocomplete="new-password"
-            error={passwordError}
-            onFocus={handlePasswordInteraction}
-            onInput={handlePasswordInteraction}
-        />
+		<FormInput
+			bind:value={email}
+			id="email"
+			name="email"
+			type="email"
+			placeholder="Email*"
+			autocomplete="email"
+			error={emailError}
+			onFocus={handleEmailInteraction}
+			onInput={handleEmailInteraction}
+		/>
+		<FormInput
+			bind:value={password}
+			id="password"
+			name="password"
+			type="password"
+			placeholder="Password*"
+			autocomplete="new-password"
+			error={passwordError}
+			onFocus={handlePasswordInteraction}
+			onInput={handlePasswordInteraction}
+		/>
 		<div role="alert" class="alert">
-			<ul class="text-xs">
+			<ul class="list-disc pl-2 text-sm">
 				<li>At least 8 characters long</li>
 				<li>At least one uppercase letter</li>
 				<li>At least one number</li>
 				<li>Can include special characters @$!%*#?&</li>
 			</ul>
 		</div>
-        <FormInput
-            bind:value={repeatPassword}
-            id="repeat-password"
-            name="repeat-password"
-            type="password"
-            placeholder="Repeat password*"
-            autocomplete="new-password"
-            error={repeatPasswordError}
-            onFocus={handleRepeatPasswordInteraction}
-            onInput={handleRepeatPasswordInteraction}
-        />
+		<FormInput
+			bind:value={repeatPassword}
+			id="repeat-password"
+			name="repeat-password"
+			type="password"
+			placeholder="Repeat password*"
+			autocomplete="new-password"
+			error={repeatPasswordError}
+			onFocus={handleRepeatPasswordInteraction}
+			onInput={handleRepeatPasswordInteraction}
+		/>
 
 		<button class="btn btn-primary mt-8 w-full" type="submit">Register</button>
 		<div class="mt-7 text-lg">
