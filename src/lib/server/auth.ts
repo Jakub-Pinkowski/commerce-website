@@ -1,11 +1,18 @@
 import { Lucia } from 'lucia';
-import { GitHub } from 'arctic';
+import { GitHub, Google } from 'arctic';
 import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
 import { createPool } from '@vercel/postgres';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 
 import { dev } from '$app/environment';
-import { POSTGRES_URL, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from '$env/static/private';
+import {
+	POSTGRES_URL,
+	GITHUB_CLIENT_ID,
+	GITHUB_CLIENT_SECRET,
+	GOOGLE_CLIENT_ID,
+	GOOGLE_CLIENT_SECRET,
+	GOOGLE_REDIRECT_URI
+} from '$env/static/private';
 
 import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 
@@ -31,6 +38,7 @@ export const lucia = new Lucia(adapter, {
 });
 
 export const github = new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET);
+export const google = new Google(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REDIRECT_URI);
 
 declare module 'lucia' {
 	interface Register {

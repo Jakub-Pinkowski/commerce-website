@@ -49,12 +49,15 @@ export const actions: Actions = {
 			});
 		}
 
-		const validPassword = await verify(existingUser.password_hash, password, {
-			memoryCost: 19456,
-			timeCost: 2,
-			outputLen: 32,
-			parallelism: 1
-		});
+		const validPassword = existingUser.password_hash
+			? await verify(existingUser.password_hash, password, {
+					memoryCost: 19456,
+					timeCost: 2,
+					outputLen: 32,
+					parallelism: 1
+				})
+			: false;
+
 		if (!validPassword) {
 			return fail(400, {
 				message: 'Incorrect username or password'
