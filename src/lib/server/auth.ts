@@ -1,10 +1,11 @@
 import { Lucia } from 'lucia';
+import { GitHub } from 'arctic';
 import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
 import { createPool } from '@vercel/postgres';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 
 import { dev } from '$app/environment';
-import { POSTGRES_URL } from '$env/static/private';
+import { POSTGRES_URL, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from '$env/static/private';
 
 import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 
@@ -20,13 +21,16 @@ export const lucia = new Lucia(adapter, {
 			secure: !dev
 		}
 	},
-    getUserAttributes: (attributes) => {
-        return {
-            // attributes has the type of DatabaseUserAttributes
-            email: attributes.email
-        };
-    }
+	getUserAttributes: (attributes) => {
+		return {
+			email: attributes.email,
+			githubId: attributes.github_id,
+			username: attributes.username
+		};
+	}
 });
+
+export const github = new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET);
 
 declare module 'lucia' {
 	interface Register {
@@ -36,5 +40,7 @@ declare module 'lucia' {
 }
 
 interface DatabaseUserAttributes {
-    email: string;
+	email?: string;
+	github_id?: number;
+	username?: string;
 }

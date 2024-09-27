@@ -33,9 +33,11 @@ export const productsTable = pgTable('products', {
 });
 
 export const usersTable = pgTable('users', {
-	id: text('id').primaryKey(),
-	email: text('email').notNull(),
-	password_hash: text('password_hash').notNull()
+    id: text('id').primaryKey(),
+    email: text('email'),
+    password_hash: text('password_hash'),
+    github_id: integer('github_id'),
+    username: text('username') 
 });
 
 export const sessionsTable = pgTable('sessions', {
