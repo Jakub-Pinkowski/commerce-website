@@ -12,14 +12,14 @@ export async function GET(event: RequestEvent): Promise<Response> {
 	});
 
 	event.cookies.set('google_oauth_state', state, {
-		secure: false, // TODO: set to false in localhost
+		secure: true, 
 		path: '/',
 		httpOnly: true,
 		maxAge: 60 * 10 // 10 min
 	});
 
 	event.cookies.set('google_oauth_code_verifier', codeVerifier, {
-		secure: false, // TODO: set to false in localhost
+		secure: true, 
 		path: '/',
 		httpOnly: true,
 		maxAge: 60 * 10 // 10 min
