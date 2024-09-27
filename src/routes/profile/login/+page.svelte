@@ -44,7 +44,6 @@
 		});
 
 		const result = await response.json();
-        console.log("result", result);
 
         if (result.type === 'redirect') {
             goto(result.location);
