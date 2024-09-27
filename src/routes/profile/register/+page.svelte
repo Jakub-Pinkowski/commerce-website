@@ -93,14 +93,17 @@
 
 	const handleEmailInteraction = () => {
 		emailError = '';
+		serverError = '';
 	};
 
 	const handlePasswordInteraction = () => {
 		passwordError = '';
+		serverError = '';
 	};
 
 	const handleRepeatPasswordInteraction = () => {
 		repeatPasswordError = '';
+		serverError = '';
 	};
 </script>
 
