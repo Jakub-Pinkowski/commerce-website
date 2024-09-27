@@ -107,7 +107,7 @@
 </script>
 
 <Breadcrumbs {breadcrumbs} />
-<div class="mx-auto max-w-xl text-center">
+<div class="mx-auto max-w-2xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<FormInput
