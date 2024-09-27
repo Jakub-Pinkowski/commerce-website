@@ -1,5 +1,3 @@
-import { drizzle } from 'drizzle-orm/vercel-postgres';
-import { sql } from '@vercel/postgres';
 import {
 	pgTable,
 	serial,
@@ -11,7 +9,6 @@ import {
 	integer,
 	jsonb
 } from 'drizzle-orm/pg-core';
-import { google } from '$lib/server/auth';
 
 export const productsTable = pgTable('products', {
 	id: serial('id').notNull(),
