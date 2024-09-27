@@ -1,4 +1,5 @@
 <script lang="ts">
+    // TODO: Fix styling on mobile
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
