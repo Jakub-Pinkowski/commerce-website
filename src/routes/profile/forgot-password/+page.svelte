@@ -1,10 +1,7 @@
 <script lang="ts">
-	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
-
-	let breadcrumbs = ['Home', 'Profile', 'Forgot password'];
+	import UnderConstruction from '$lib/components/Common/UnderConstruction.svelte';
 </script>
 
 <div>
-	<Breadcrumbs {breadcrumbs} />
-	<h1>Forgot password</h1>
+	<UnderConstruction />
 </div>
