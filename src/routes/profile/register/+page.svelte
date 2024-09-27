@@ -133,8 +133,8 @@
 		<div role="alert" class="alert">
 			<ul class="list-disc pl-2 text-sm">
 				<li>At least 8 characters long</li>
-				<li>At least one uppercase letter</li>
-				<li>At least one number</li>
+				<li>At least 1 uppercase letter</li>
+				<li>At least 1 number</li>
 				<li>Can include special characters @$!%*#?&</li>
 			</ul>
 		</div>
