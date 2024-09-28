@@ -48,8 +48,24 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		const existingUser = existingUserQuery[0];
 
 		if (existingUser) {
-			await createUserSession(existingUser.id, event);
+			if (existingUser.google_id) {
+				// User already signed in with Google before
+				await createUserSession(existingUser.id, event);
+			} else {
+				// TODO: Inform user that their account has been merged with Google
+				// User registered with email before, now signing in with Google
+				await db
+					.update(usersTable)
+					.set({
+						google_id: googleUser.id,
+						google_picture: googleUser.picture
+					})
+					.where(eq(usersTable.id, existingUser.id));
+
+				await createUserSession(existingUser.id, event);
+			}
 		} else {
+			// New user signing in with Google
 			const userId = generateIdFromEntropySize(10);
 
 			await db.insert(usersTable).values({
