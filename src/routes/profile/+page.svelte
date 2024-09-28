@@ -143,6 +143,10 @@
 								<th>Total</th>
 								<td>$150</td>
 							</tr>
+							<tr>
+								<th>Status</th>
+								<td>Order confirmed</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -187,7 +191,8 @@
 				</div>
 			</div>
 
-			<div class="card-actions mt-auto justify-end pt-2">
+			<div class="card-actions mt-auto justify-between pt-2">
+				<a href="profile/orders" class="btn btn-primary">See more details</a>
 				<a href="profile/orders" class="btn btn-accent">See all orders</a>
 			</div>
 		</div>
