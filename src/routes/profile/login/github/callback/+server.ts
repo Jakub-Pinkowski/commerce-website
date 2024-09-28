@@ -53,7 +53,8 @@ export async function GET(event: RequestEvent): Promise<Response> {
 			await db.insert(usersTable).values({
 				id: userId,
 				github_id: githubUser.id,
-				github_username: githubUser.login
+				github_username: githubUser.login,
+                created_at: new Date()
 			});
 
 			await createUserSession(userId, event);

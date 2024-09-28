@@ -37,7 +37,11 @@ export const usersTable = pgTable('users', {
 	github_id: integer('github_id'),
 	github_username: text('github_username'),
 	google_id: text('google_id'),
-	google_picture: text('google_picture')
+	google_picture: text('google_picture'),
+	created_at: timestamp('created_at', {
+		withTimezone: true,
+		mode: 'date'
+	}).notNull()
 });
 
 export const sessionsTable = pgTable('sessions', {

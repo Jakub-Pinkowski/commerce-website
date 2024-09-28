@@ -57,4 +57,5 @@ interface DatabaseUserAttributes {
 	github_username?: string;
 	google_id?: string;
 	google_picture?: string;
+    created_at: Date;
 }

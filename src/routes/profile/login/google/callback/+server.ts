@@ -72,7 +72,8 @@ export async function GET(event: RequestEvent): Promise<Response> {
 				id: userId,
 				email: googleUser.email,
 				google_id: googleUser.id,
-				google_picture: googleUser.picture
+				google_picture: googleUser.picture,
+                created_at: new Date()
 			});
 
 			await createUserSession(userId, event);

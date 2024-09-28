@@ -62,7 +62,8 @@ export const actions: Actions = {
 		await db.insert(usersTable).values({
 			id: userId,
 			email: email,
-			password_hash: passwordHash
+			password_hash: passwordHash,
+			created_at: new Date()
 		});
 
 		await createUserSession(userId, event);
