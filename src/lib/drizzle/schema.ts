@@ -31,13 +31,13 @@ export const productsTable = pgTable('products', {
 });
 
 export const usersTable = pgTable('users', {
-    id: text('id').primaryKey(),
-    email: text('email'),
-    password_hash: text('password_hash'),
-    github_id: integer('github_id'),
-    github_username: text('github_username'),
-    google_id: text('google_id'),
-    google_picture: text('google_picture'),
+	id: text('id').primaryKey(),
+	email: text('email'),
+	password_hash: text('password_hash'),
+	github_id: integer('github_id'),
+	github_username: text('github_username'),
+	google_id: text('google_id'),
+	google_picture: text('google_picture')
 });
 
 export const sessionsTable = pgTable('sessions', {
