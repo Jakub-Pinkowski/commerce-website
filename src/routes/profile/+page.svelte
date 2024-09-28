@@ -8,7 +8,8 @@
 	let breadcrumbs = ['Home', 'Profile'];
 
 	export let data;
-
+    const user: User = data.user
+    console.log("user", user)
 </script>
 
 <Breadcrumbs {breadcrumbs} />

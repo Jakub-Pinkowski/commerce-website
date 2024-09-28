@@ -34,7 +34,8 @@ export const lucia = new Lucia(adapter, {
 			githubId: attributes.github_id,
 			github_username: attributes.github_username,
 			googleId: attributes.google_id,
-			google_picture: attributes.google_picture
+			google_picture: attributes.google_picture,
+            created_at: attributes.created_at
 		};
 	}
 });
