@@ -114,22 +114,38 @@
 		<div class="card-body">
 			<div class="flex justify-between">
 				<h2 class="card-title">Most recent order</h2>
-				<ul class="steps">
-					<li class="step step-primary">Order placed</li>
-					<li class="step step-primary">Order confirmed</li>
-					<li class="step">Order in progress</li>
-					<li class="step">Order shipped</li>
-					<li class="step">Order delivered</li>
+				<ul class="steps gap-4">
+					<li class="step step-primary text-sm">Order placed</li>
+					<li class="step step-primary text-sm">Order confirmed</li>
+					<li class="step text-sm">Order in progress</li>
+					<li class="step text-sm">Order shipped</li>
+					<li class="step text-sm">Order delivered</li>
 				</ul>
 			</div>
 			<!-- TODO: Make it dynamic later -->
 			<div class="flex w-full justify-between">
-				<ul class="flex-none">
-					<li>26.09.2024</li>
-					<li>Order number: 123456</li>
-					<li>Items: 3</li>
-					<li>Total: $150</li>
-				</ul>
+				<div class="flex-none overflow-x-auto">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>Date</th>
+								<td>26.09.2024</td>
+							</tr>
+							<tr>
+								<th>Order number</th>
+								<td>1212412</td>
+							</tr>
+							<tr>
+								<th>Items</th>
+								<td>4</td>
+							</tr>
+							<tr>
+								<th>Total</th>
+								<td>$150</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 				<div class="flex max-h-40 max-w-2xl flex-grow justify-end gap-2">
 					<a
 						href="http://localhost:5173/products/hiking-backpack-20l"
