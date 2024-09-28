@@ -30,7 +30,7 @@
 		<div class="card w-full bg-base-100 shadow-xl">
 			<div class="card-body">
 				<h2 class="card-title">Account</h2>
-                <!-- TODO: Style later -->
+				<!-- TODO: Style later -->
 				<ul>
 					<li>
 						<strong>Name:</strong>
@@ -42,15 +42,15 @@
 					</li>
 					<li>
 						<strong>Phone:</strong>
-						{user.phoneNumber ? user.phoneNumber : 'missing'}
+						{user.phone_number ? user.phone_number : 'missing'}
 					</li>
-                    <li>
-                        <strong>Address:</strong>
-                        {user.address ? user.address : 'missing'}
-                    </li>
+					<li>
+						<strong>Address:</strong>
+						{user.address ? user.address : 'missing'}
+					</li>
 				</ul>
 				<div class="card-actions justify-end">
-					<button class="btn btn-primary">Settings</button>
+					<button class="btn btn-primary">Edit data</button>
 				</div>
 			</div>
 		</div>
