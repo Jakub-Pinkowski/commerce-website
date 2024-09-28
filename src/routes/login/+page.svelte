@@ -8,7 +8,7 @@
 	import GoogleButton from '$lib/components/UI/login_buttons/GoogleButton.svelte';
 	import GithubButton from '$lib/components/UI/login_buttons/GithubButton.svelte';
 
-	let breadcrumbs = ['Home', 'Profile', 'Login'];
+	let breadcrumbs = ['Home', 'Login'];
 
 	let email: string;
 	let password: string;
@@ -30,7 +30,7 @@
 		formData.append('email', email);
 		formData.append('password', password);
 
-		const response = await fetch('/profile/login', {
+		const response = await fetch('/login', {
 			method: 'POST',
 			body: formData
 		});
@@ -120,7 +120,7 @@
 			onInput={handlePasswordInteraction}
 		/>
 		<div class="flex w-full justify-between pl-1">
-			<a href="/profile/forgot-password" class="text-sm text-blue-500">Forgot password?</a>
+			<a href="/login/forgot-password" class="text-sm text-blue-500">Forgot password?</a>
 		</div>
 
 		{#if serverError}
@@ -151,7 +151,7 @@
 		<div class="mt-7 text-lg">
 			<span>
 				Don't have an account?
-				<a href="/profile/register" class="text-blue-500"> Register </a>
+				<a href="/register" class="text-blue-500"> Register </a>
 				instead
 			</span>
 		</div>

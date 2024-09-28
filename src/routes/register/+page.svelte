@@ -6,7 +6,7 @@
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import FormInput from '$lib/components/Common/FormInput.svelte';
 
-	let breadcrumbs = ['Home', 'Profile', 'Register'];
+	let breadcrumbs = ['Home', 'Register'];
 
 	let email: string;
 	let password: string;
@@ -30,7 +30,7 @@
 		formData.append('email', email);
 		formData.append('password', password);
 
-		const response = await fetch('/profile/register', {
+		const response = await fetch('/register', {
 			method: 'POST',
 			body: formData
 		});
@@ -180,7 +180,7 @@
 		<button class="btn btn-primary mt-8 w-full" type="submit">Register</button>
 		<div class="mt-7 text-lg">
 			<span>
-				Already have an account? <a href="/profile/login" class="text-blue-500">Login</a> instead
+				Already have an account? <a href="/login" class="text-blue-500">Login</a> instead
 			</span>
 		</div>
 	</form>

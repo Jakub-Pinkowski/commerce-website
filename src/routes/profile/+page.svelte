@@ -5,9 +5,9 @@
 
 	let breadcrumbs = ['Home', 'Profile'];
 
-	export let data;
-	const user: User = data.user;
-	console.log('user from +page', user);
+	// export let data;
+	// const user: User = data.user;
+	// console.log('user from +page', user);
 </script>
 
 <div class="grid flex-grow grid-cols-2 gap-4">
@@ -16,7 +16,7 @@
 			<h2 class="card-title">Account</h2>
 			<!-- TODO: Style later -->
 			<ul>
-				<li>
+				<!-- <li>
 					<strong>Name:</strong>
 					{user.name ? user.name : 'missing'}
 				</li>
@@ -31,7 +31,7 @@
 				<li>
 					<strong>Address:</strong>
 					{user.address ? user.address : 'missing'}
-				</li>
+				</li> -->
 			</ul>
 			<div class="card-actions justify-end">
 				<button class="btn btn-primary">Edit data</button>

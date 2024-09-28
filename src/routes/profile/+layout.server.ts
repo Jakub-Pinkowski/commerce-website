@@ -4,9 +4,12 @@ import { destroyUserSession } from '$lib/helpers/auth';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = (event) => {
-    if (!event.locals.user) redirect(302, '/profile/login');
+    console.log("event.locals.user: from +layout.server.ts ", event.locals.user);
+    // if (!event.locals.user) redirect(302, '/profile/login');
 
-    return {
-        user: event.locals.user
-    };
+    // return {
+    //     user: event.locals.user
+    // };
 };
+
+// TODO: Add loging out

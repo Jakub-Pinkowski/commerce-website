@@ -7,9 +7,6 @@
 
 	let breadcrumbs = ['Home', 'Profile'];
 
-    export let data
-    const user: User = data.user;
-    console.log('user from +layout', user);
 </script>
 
 <div class="flex gap-4">
@@ -20,7 +17,7 @@
 		<li><a href="/profile/settings">Settings</a></li>
 		<li><a href="/support">Help and FAQ</a></li>
 		<li>
-			<form method="post" action="/profile/logout" use:enhance>
+			<form method="post" use:enhance>
 				<button>Sign out</button>
 			</form>
 		</li>

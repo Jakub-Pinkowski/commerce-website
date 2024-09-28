@@ -1,4 +1,4 @@
-<a type="button" href="/profile/login/github" class="btn btn-neutral w-full">
+<a type="button" href="/login/github" class="btn btn-neutral w-full">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		width="20"
