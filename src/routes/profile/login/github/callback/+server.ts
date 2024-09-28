@@ -4,11 +4,17 @@ import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { createPool } from '@vercel/postgres';
 import { eq } from 'drizzle-orm';
 
-import { github, lucia } from '$lib/server/auth';
+import { github } from '$lib/server/auth';
 import { usersTable } from '$lib/drizzle/schema';
 import { POSTGRES_URL } from '$env/static/private';
+import { createUserSession } from '$lib/helpers/auth';
 
 import type { RequestEvent } from '@sveltejs/kit';
+
+interface GitHubUser {
+	id: number;
+	login: string;
+}
 
 export async function GET(event: RequestEvent): Promise<Response> {
 	const pool = createPool({ connectionString: POSTGRES_URL });
@@ -33,31 +39,24 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		});
 		const githubUser: GitHubUser = await githubUserResponse.json();
 
-        const existingUserQuery = await db.select().from(usersTable).where(eq(usersTable.github_id, githubUser.id));
-        const existingUser = existingUserQuery[0];
+		const existingUserQuery = await db
+			.select()
+			.from(usersTable)
+			.where(eq(usersTable.github_id, githubUser.id));
+		const existingUser = existingUserQuery[0];
 
 		if (existingUser) {
-			const session = await lucia.createSession(existingUser.id, {});
-			const sessionCookie = lucia.createSessionCookie(session.id);
-			event.cookies.set(sessionCookie.name, sessionCookie.value, {
-				path: '.',
-				...sessionCookie.attributes
-			});
+			await createUserSession(existingUser.id, event);
 		} else {
 			const userId = generateIdFromEntropySize(10);
 
-            await db.insert(usersTable).values({
+			await db.insert(usersTable).values({
 				id: userId,
 				github_id: githubUser.id,
 				github_username: githubUser.login
 			});
 
-			const session = await lucia.createSession(userId, {});
-			const sessionCookie = lucia.createSessionCookie(session.id);
-			event.cookies.set(sessionCookie.name, sessionCookie.value, {
-				path: '.',
-				...sessionCookie.attributes
-			});
+			await createUserSession(userId, event);
 		}
 		return new Response(null, {
 			status: 302,
@@ -77,9 +76,4 @@ export async function GET(event: RequestEvent): Promise<Response> {
 			status: 500
 		});
 	}
-}
-
-interface GitHubUser {
-	id: number;
-	login: string;
 }

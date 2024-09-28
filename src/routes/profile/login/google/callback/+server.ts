@@ -4,11 +4,18 @@ import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { createPool } from '@vercel/postgres';
 import { eq } from 'drizzle-orm';
 
-import { google, lucia } from '$lib/server/auth';
+import { google } from '$lib/server/auth';
 import { usersTable } from '$lib/drizzle/schema';
 import { POSTGRES_URL } from '$env/static/private';
+import { createUserSession } from '$lib/helpers/auth';
 
 import type { RequestEvent } from '@sveltejs/kit';
+
+interface GoogleUser {
+	id: string;
+	email: string;
+	picture: string;
+}
 
 export async function GET(event: RequestEvent): Promise<Response> {
 	const pool = createPool({ connectionString: POSTGRES_URL });
@@ -41,12 +48,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		const existingUser = existingUserQuery[0];
 
 		if (existingUser) {
-			const session = await lucia.createSession(existingUser.id, {});
-			const sessionCookie = lucia.createSessionCookie(session.id);
-			event.cookies.set(sessionCookie.name, sessionCookie.value, {
-				path: '.',
-				...sessionCookie.attributes
-			});
+			await createUserSession(existingUser.id, event);
 		} else {
 			const userId = generateIdFromEntropySize(10);
 
@@ -57,12 +59,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 				google_picture: googleUser.picture
 			});
 
-			const session = await lucia.createSession(userId, {});
-			const sessionCookie = lucia.createSessionCookie(session.id);
-			event.cookies.set(sessionCookie.name, sessionCookie.value, {
-				path: '.',
-				...sessionCookie.attributes
-			});
+			await createUserSession(userId, event);
 		}
 
 		return new Response(null, {
@@ -83,10 +80,4 @@ export async function GET(event: RequestEvent): Promise<Response> {
 			status: 500
 		});
 	}
-}
-
-interface GoogleUser {
-	id: string;
-	email: string;
-	picture: string;
 }
