@@ -133,7 +133,7 @@
 			onInput={handlePasswordInteraction}
 		/>
 		<div role="alert" class="alert">
-			<ul class="list-disc pl-2 text-sm">
+			<ul class="list-disc pl-2 text-left text-sm">
 				<li>At least 8 characters long</li>
 				<li>At least 1 uppercase letter</li>
 				<li>At least 1 number</li>

@@ -1,5 +1,5 @@
 <script lang="ts">
-    // TODO: Fix styling on mobile
+	// TODO: Fix styling on mobile
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
@@ -109,10 +109,11 @@
 				{/if}
 			</button>
 		{/if}
+		<!-- Desktop -->
 		{#if error}
 			<div
 				role="alert"
-				class=" alert alert-warning w-auto shrink-0 gap-2 rounded-lg border-none p-3 text-sm text-whiteish"
+				class="alert alert-warning hidden w-auto shrink-0 gap-2 rounded-lg border-none p-3 text-sm text-whiteish md:flex"
 				transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
 			>
 				<svg
@@ -134,4 +135,29 @@
 			</div>
 		{/if}
 	</label>
+	<!-- Mobile -->
+	{#if error}
+		<div
+			role="alert"
+			class="alert alert-warning mt-2 flex w-auto shrink-0 gap-2 rounded-lg border-none p-2 text-sm text-whiteish md:hidden"
+			transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6 shrink-0 stroke-current"
+				fill="none"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+				/>
+			</svg>
+			<span>
+				{error}
+			</span>
+		</div>
+	{/if}
 </div>
