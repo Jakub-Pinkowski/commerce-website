@@ -20,7 +20,6 @@ export const actions: Actions = {
 			path: '.',
 			...sessionCookie.attributes
 		});
-		console.log('User logged out, redirecting to /profile/login');
 
 		redirect(302, '/profile/login');
 	}
