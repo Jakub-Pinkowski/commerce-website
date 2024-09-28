@@ -10,7 +10,7 @@
 	console.log('user from +page', user);
 </script>
 
-<div class="grid flex-grow grid-cols-2 gap-4">
+<div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<div class="card w-full bg-base-100 shadow-xl">
 		<div class="card-body">
 			<h2 class="card-title">Account</h2>
@@ -114,7 +114,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="card col-span-2 w-full bg-base-100 shadow-xl">
+	<div class="card w-full bg-base-100 shadow-xl md:col-span-2">
 		<div class="card-body">
 			<div class="flex justify-between">
 				<h2 class="card-title">Most recent order</h2>
