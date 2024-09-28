@@ -15,40 +15,44 @@
 		<div class="card-body">
 			<h2 class="card-title">Account</h2>
 			<!-- TODO: Style later -->
-			<ul>
-				<li>
-					<strong>Name:</strong>
-					{#if user.name}
-						<span>{user.name}</span>
-					{:else}
-						<span class="text-dark-secondary-accent">missing</span>
-					{/if}
-				</li>
-				<li>
-					<strong>Email:</strong>
-					{#if user.email}
-						<span>{user.email}</span>
-					{:else}
-						<span class="text-dark-secondary-accent">missing</span>
-					{/if}
-				</li>
-				<li>
-					<strong>Phone:</strong>
-					{#if user.phone_number}
-						<span>{user.phone_number}</span>
-					{:else}
-						<span class="text-dark-secondary-accent">missing</span>
-					{/if}
-				</li>
-				<li>
-					<strong>Address:</strong>
-					{#if user.address}
-						<span>{user.address}</span>
-					{:else}
-						<span class="text-dark-secondary-accent">missing</span>
-					{/if}
-				</li>
-			</ul>
+			<div class="flex-none overflow-x-auto">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>Name</th>
+							{#if user.name}
+								<td>{user.name}</td>
+							{:else}
+								<td class="text-gray-400">No name</td>
+							{/if}
+						</tr>
+						<tr>
+							<th>Email</th>
+							{#if user.email}
+								<td>{user.email}</td>
+							{:else}
+								<td class="text-gray-400">No email</td>
+							{/if}
+						</tr>
+						<tr>
+							<th>Phone</th>
+							{#if user.phone_number}
+								<td>{user.phone_number}</td>
+							{:else}
+								<td class="text-gray-400">No phone</td>
+							{/if}
+						</tr>
+						<tr>
+							<th>Address</th>
+							{#if user.address}
+								<td>{user.address}</td>
+							{:else}
+								<td class="text-gray-400">No address</td>
+							{/if}
+						</tr>
+					</tbody>
+				</table>
+			</div>
 			<div class="card-actions mt-auto justify-end pt-2">
 				<a href="profile/settings" class="btn btn-accent">Edit your info</a>
 			</div>
