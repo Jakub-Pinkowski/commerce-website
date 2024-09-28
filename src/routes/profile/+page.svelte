@@ -1,13 +1,8 @@
 <script lang="ts">
-	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
-
 	import type { User } from '$lib/types/userTypes';
-
-	let breadcrumbs = ['Home', 'Profile'];
 
 	export let data;
 	const user: User = data.user;
-	console.log('user from +page', user);
 </script>
 
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
