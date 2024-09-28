@@ -7,7 +7,6 @@
 
 	export let data;
 	const user: User = data.user;
-	console.log('user', user);
 
 	let breadcrumbs = ['Home', 'Profile'];
 </script>
@@ -18,10 +17,9 @@
 		<li><a href="/profile">Dashboard</a></li>
 		<li><a href="/profile/orders">Your orders</a></li>
 		<li><a href="/profile/settings">Settings</a></li>
-		<li><a href="/support">Help and FAQ</a></li>
 		<li>
 			<a href="/profile/logout">
-				<button>Sign out</button>
+				<button>Logout</button>
 			</a>
 		</li>
 	</ul>

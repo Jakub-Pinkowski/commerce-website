@@ -12,7 +12,7 @@ export default {
 				accent: '#e9c46a', // Yellow
 				'light-accent': '#f7eaca', // Light Yellow
 				'secondary-accent': '#f4a261', // Orange
-				'dark--secondary-accent': '#e76f51', // Dark Orange
+				'dark-secondary-accent': '#e76f51', // Dark Orange
 				'main-red': '#e63946' // Red
 			}
 		}

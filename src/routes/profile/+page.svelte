@@ -5,9 +5,9 @@
 
 	let breadcrumbs = ['Home', 'Profile'];
 
-	// export let data;
-	// const user: User = data.user;
-	// console.log('user from +page', user);
+	export let data;
+	const user: User = data.user;
+	console.log('user from +page', user);
 </script>
 
 <div class="grid flex-grow grid-cols-2 gap-4">
@@ -16,26 +16,42 @@
 			<h2 class="card-title">Account</h2>
 			<!-- TODO: Style later -->
 			<ul>
-				<!-- <li>
+				<li>
 					<strong>Name:</strong>
-					{user.name ? user.name : 'missing'}
+					{#if user.name}
+						<span>{user.name}</span>
+					{:else}
+						<span class="text-dark-secondary-accent">missing</span>
+					{/if}
 				</li>
 				<li>
 					<strong>Email:</strong>
-					{user.email ? user.email : 'missing'}
+					{#if user.email}
+						<span>{user.email}</span>
+					{:else}
+						<span class="text-dark-secondary-accent">missing</span>
+					{/if}
 				</li>
 				<li>
 					<strong>Phone:</strong>
-					{user.phone_number ? user.phone_number : 'missing'}
+					{#if user.phone_number}
+						<span>{user.phone_number}</span>
+					{:else}
+						<span class="text-dark-secondary-accent">missing</span>
+					{/if}
 				</li>
 				<li>
 					<strong>Address:</strong>
-					{user.address ? user.address : 'missing'}
-				</li> -->
+					{#if user.address}
+						<span>{user.address}</span>
+					{:else}
+						<span class="text-dark-secondary-accent">missing</span>
+					{/if}
+				</li>
+				<div class="card-actions justify-end">
+					<button class="btn btn-primary">Edit data</button>
+				</div>
 			</ul>
-			<div class="card-actions justify-end">
-				<button class="btn btn-primary">Edit data</button>
-			</div>
 		</div>
 	</div>
 	<div class="card w-full bg-base-100 shadow-xl">
