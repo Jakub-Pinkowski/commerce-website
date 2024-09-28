@@ -4,6 +4,10 @@
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
 	let breadcrumbs = ['Home', 'Profile'];
+
+    export let data;
+    const user = data.user;
+    console.log("User", user);
 </script>
 
 <Breadcrumbs {breadcrumbs} />
@@ -24,7 +28,8 @@
 		<div class="card w-full bg-base-100 shadow-xl">
 			<div class="card-body">
 				<h2 class="card-title">Account</h2>
-				<p>If a dog chews shoes whose shoes does he choose?</p>
+				<ul>
+                </ul>
 				<div class="card-actions justify-end">
 					<button class="btn btn-primary">Settings</button>
 				</div>

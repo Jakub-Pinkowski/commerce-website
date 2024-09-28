@@ -5,6 +5,10 @@ import type { PageServerLoad, Actions } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) redirect(302, '/profile/login');
+
+	return {
+		user: event.locals.user
+	};
 };
 
 export const actions: Actions = {
