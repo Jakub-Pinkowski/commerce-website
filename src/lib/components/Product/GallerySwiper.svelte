@@ -78,6 +78,7 @@
 					type="button"
 					class="background-transparent cursor-zoom-in border-none p-0"
 					on:click={() => openModal(product.imageUrl)}
+					aria-label="Open image modal"
 				>
 					<img src={product.imageUrl} alt={product.name} class="object-cover" loading="lazy" />
 				</button>
@@ -88,6 +89,7 @@
 						type="button"
 						class="background-transparent cursor-zoom-in border-none p-0"
 						on:click={() => openModal(alternateImage)}
+						aria-label="Open image modal"
 					>
 						<img src={alternateImage} alt={product.name} class="object-cover" loading="lazy" />
 					</button>
@@ -99,7 +101,7 @@
 		<div
 			class="button-prev absolute left-8 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
 		>
-			<button class="btn btn-circle bg-white shadow-xl">
+			<button class="btn btn-circle bg-white shadow-xl" aria-label="Previous image">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					id="Outline"
@@ -115,7 +117,7 @@
 		<div
 			class="button-next absolute right-8 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
 		>
-			<button class="btn btn-circle bg-white shadow-xl">
+			<button class="btn btn-circle bg-white shadow-xl" aria-label="Next image">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					id="Outline"
