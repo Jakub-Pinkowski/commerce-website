@@ -44,7 +44,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 				...sessionCookie.attributes
 			});
 		} else {
-			const userId = generateIdFromEntropySize(10); // 16 characters long
+			const userId = generateIdFromEntropySize(10);
 
             await db.insert(usersTable).values({
 				id: userId,

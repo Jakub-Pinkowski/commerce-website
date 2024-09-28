@@ -19,63 +19,58 @@ export async function GET(event: RequestEvent): Promise<Response> {
 	const storedState = event.cookies.get('google_oauth_state') ?? null;
 	const storedCodeVerifier = event.cookies.get('google_oauth_code_verifier') ?? null;
 
-	if (!code || !state || !storedState || state !== storedState) {
+	if (!code || !state || !storedState || state !== storedState || !storedCodeVerifier) {
 		return new Response(null, {
 			status: 400
 		});
 	}
 
 	try {
-		if (state && storedCodeVerifier) {
-			const tokens = await google.validateAuthorizationCode(code, storedCodeVerifier);
-
-			const googleUserResponse = await fetch('https://www.googleapis.com/oauth2/v1/userinfo', {
-				headers: {
-					Authorization: `Bearer ${tokens.accessToken}`
-				}
-			});
-			const googleUser: GoogleUser = await googleUserResponse.json();
-
-			const existingUserQuery = await db
-				.select()
-				.from(usersTable)
-				.where(eq(usersTable.email, googleUser.email));
-			const existingUser = existingUserQuery[0];
-
-			if (existingUser) {
-				const session = await lucia.createSession(existingUser.id, {});
-				const sessionCookie = lucia.createSessionCookie(session.id);
-				event.cookies.set(sessionCookie.name, sessionCookie.value, {
-					path: '.',
-					...sessionCookie.attributes
-				});
-			} else {
-				const userId = generateIdFromEntropySize(10);
-
-				await db.insert(usersTable).values({
-					id: userId,
-					email: googleUser.email,
-                    google_id: googleUser.id,
-                    google_picture: googleUser.picture
-				});
-
-				const session = await lucia.createSession(userId, {});
-				const sessionCookie = lucia.createSessionCookie(session.id);
-				event.cookies.set(sessionCookie.name, sessionCookie.value, {
-					path: '.',
-					...sessionCookie.attributes
-				});
+		const tokens = await google.validateAuthorizationCode(code, storedCodeVerifier);
+		const googleUserResponse = await fetch('https://www.googleapis.com/oauth2/v1/userinfo', {
+			headers: {
+				Authorization: `Bearer ${tokens.accessToken}`
 			}
+		});
+		const googleUser: GoogleUser = await googleUserResponse.json();
 
-			return new Response(null, {
-				status: 302,
-				headers: {
-					Location: '/profile'
-				}
+		const existingUserQuery = await db
+			.select()
+			.from(usersTable)
+			.where(eq(usersTable.email, googleUser.email));
+		const existingUser = existingUserQuery[0];
+
+		if (existingUser) {
+			const session = await lucia.createSession(existingUser.id, {});
+			const sessionCookie = lucia.createSessionCookie(session.id);
+			event.cookies.set(sessionCookie.name, sessionCookie.value, {
+				path: '.',
+				...sessionCookie.attributes
 			});
 		} else {
-			throw new Error('State or Code Verifier is null');
+			const userId = generateIdFromEntropySize(10);
+
+			await db.insert(usersTable).values({
+				id: userId,
+				email: googleUser.email,
+				google_id: googleUser.id,
+				google_picture: googleUser.picture
+			});
+
+			const session = await lucia.createSession(userId, {});
+			const sessionCookie = lucia.createSessionCookie(session.id);
+			event.cookies.set(sessionCookie.name, sessionCookie.value, {
+				path: '.',
+				...sessionCookie.attributes
+			});
 		}
+
+		return new Response(null, {
+			status: 302,
+			headers: {
+				Location: '/profile'
+			}
+		});
 	} catch (e) {
 		// the specific error message depends on the provider
 		if (e instanceof OAuth2RequestError) {
@@ -93,5 +88,5 @@ export async function GET(event: RequestEvent): Promise<Response> {
 interface GoogleUser {
 	id: string;
 	email: string;
-    picture: string;
+	picture: string;
 }
