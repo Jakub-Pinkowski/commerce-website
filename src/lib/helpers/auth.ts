@@ -53,7 +53,7 @@ export const createUserSession = async (userId: string, event: any): Promise<voi
 export const destroyUserSession = async (event: any): Promise<void> => {
 	if (!event.locals.session) {
 		console.log('event.locals.session is undefined');
-		fail(401); 
+		fail(401);
 		return;
 	}
 	await lucia.invalidateSession(event.locals.session.id);

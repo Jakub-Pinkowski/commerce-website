@@ -20,9 +20,9 @@
 		<li><a href="/profile/settings">Settings</a></li>
 		<li><a href="/support">Help and FAQ</a></li>
 		<li>
-			<form method="post" action="/logout" use:enhance>
+			<a href="/profile/logout">
 				<button>Sign out</button>
-			</form>
+			</a>
 		</li>
 	</ul>
 	<slot />
