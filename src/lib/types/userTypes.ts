@@ -6,9 +6,9 @@ export type User = {
 	github_username?: string;
 	google_id?: string;
 	google_picture?: string;
-    created_at: Date;
-    name?: string;
-	phoneNumber?: string;
+	created_at: Date;
+	name?: string;
+	phone_number?: string;
 	address?: {
 		street: string;
 		city: string;

@@ -30,8 +30,24 @@
 		<div class="card w-full bg-base-100 shadow-xl">
 			<div class="card-body">
 				<h2 class="card-title">Account</h2>
+                <!-- TODO: Style later -->
 				<ul>
-
+					<li>
+						<strong>Name:</strong>
+						{user.name ? user.name : 'missing'}
+					</li>
+					<li>
+						<strong>Email:</strong>
+						{user.email ? user.email : 'missing'}
+					</li>
+					<li>
+						<strong>Phone:</strong>
+						{user.phoneNumber ? user.phoneNumber : 'missing'}
+					</li>
+                    <li>
+                        <strong>Address:</strong>
+                        {user.address ? user.address : 'missing'}
+                    </li>
 				</ul>
 				<div class="card-actions justify-end">
 					<button class="btn btn-primary">Settings</button>

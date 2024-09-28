@@ -17,6 +17,8 @@ import {
 
 import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 
+import type { User } from '$lib/types/userTypes';
+
 const pool = createPool({ connectionString: POSTGRES_URL });
 const db = drizzle(pool);
 
@@ -37,7 +39,7 @@ export const lucia = new Lucia(adapter, {
 			googleId: attributes.google_id,
 			google_picture: attributes.google_picture,
 			created_at: attributes.created_at,
-			phoneNumber: attributes.phoneNumber,
+			phoneNumber: attributes.phone_number,
 			address: attributes.address
 		};
 	}
@@ -51,26 +53,6 @@ export const google = new Google(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, googleR
 declare module 'lucia' {
 	interface Register {
 		Lucia: typeof lucia;
-		DatabaseUserAttributes: DatabaseUserAttributes;
+		DatabaseUserAttributes: User;
 	}
-}
-
-interface DatabaseUserAttributes {
-	id?: string;
-	email?: string;
-	name?: string;
-	password?: string;
-	github_id?: number;
-	github_username?: string;
-	google_id?: string;
-	google_picture?: string;
-	created_at: Date;
-	phoneNumber?: string;
-	address?: {
-		street: string;
-		city: string;
-		state: string;
-		postalCode: string;
-		country: string;
-	};
 }
