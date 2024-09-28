@@ -42,7 +42,7 @@ export const actions: Actions = {
 			.where(eq(usersTable.email, email))
 			.limit(1);
 		const existingUser = existingUserQuery[0];
-        
+
 		if (!existingUser) {
 			return fail(400, {
 				message: 'Incorrect email or password'
