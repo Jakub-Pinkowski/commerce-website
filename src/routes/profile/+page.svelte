@@ -50,7 +50,7 @@
 				</li>
 			</ul>
 			<div class="card-actions mt-auto justify-end pt-2">
-				<a href="profile/settings" class="btn btn-primary">Edit your info</a>
+				<a href="profile/settings" class="btn btn-accent">Edit your info</a>
 			</div>
 		</div>
 	</div>
@@ -106,16 +106,34 @@
 				</div>
 			</div>
 			<div class="card-actions mt-auto justify-end pt-2">
-				<a href="profile/points" class="btn btn-primary">See your Commerce points</a>
+				<a href="profile/points" class="btn btn-accent">See your Commerce points</a>
 			</div>
 		</div>
 	</div>
 	<div class="card col-span-2 w-full bg-base-100 shadow-xl">
 		<div class="card-body">
-			<h2 class="card-title">Recent order</h2>
-			<p>Some nice way to show recent order here</p>
-			<div class="card-actions justify-end">
-				<a href="profile/orders" class="btn btn-primary">See all orders</a>
+			<div class="flex justify-between">
+				<h2 class="card-title">Most recent order</h2>
+				<ul class="steps">
+					<li class="step step-primary">Order placed</li>
+					<li class="step step-primary">Order confirmed</li>
+					<li class="step">Order in progress</li>
+					<li class="step">Order shipped</li>
+					<li class="step">Order delivered</li>
+				</ul>
+			</div>
+			<!-- TODO: Make it dynamic later -->
+			<div class="flex flex-col">
+				<ul>
+					<li>26.09.2024</li>
+					<li>Order number: 123456</li>
+					<li>Items: 3</li>
+					<li>Total: $150</li>
+				</ul>
+			</div>
+
+			<div class="card-actions mt-auto justify-end pt-2">
+				<a href="profile/orders" class="btn btn-accent">See all orders</a>
 			</div>
 		</div>
 	</div>
