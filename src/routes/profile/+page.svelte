@@ -56,7 +56,8 @@
 	</div>
 	<div class="card w-full bg-base-100 shadow-xl">
 		<div class="card-body">
-			<h2 class="card-title">Commerce +</h2>
+			<!-- TODO: Make it dynamic later -->
+			<h2 class="card-title">Commerce points</h2>
 			<!-- 
              -->
 			<div class="stats shadow">
@@ -78,7 +79,8 @@
 					</div>
 					<div class="stat-title">Points</div>
 					<div class="stat-value text-primary">250</div>
-					<div class="stat-desc">21% more</div>
+
+					<div class="stat-desc">+30 in the last month</div>
 				</div>
 
 				<div class="stat">
@@ -94,16 +96,17 @@
 								stroke-linejoin="round"
 								stroke-width="2"
 								d="M13 10V3L4 14h7v7l9-11h-7z"
-							></path>
+							>
+							</path>
 						</svg>
 					</div>
 					<div class="stat-title">Status</div>
 					<div class="stat-value text-secondary">Bronze</div>
-					<div class="stat-desc">21% more</div>
+					<div class="stat-desc">60 points to Silver</div>
 				</div>
 			</div>
 			<div class="card-actions mt-auto justify-end pt-2">
-				<a href="profile/points" class="btn btn-primary">See your Commerce +</a>
+				<a href="profile/points" class="btn btn-primary">See your Commerce points</a>
 			</div>
 		</div>
 	</div>
