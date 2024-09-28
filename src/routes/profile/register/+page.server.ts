@@ -7,7 +7,7 @@ import { generateIdFromEntropySize } from 'lucia';
 
 import { POSTGRES_URL } from '$env/static/private';
 
-import { usersTable, productsTable } from '$lib/drizzle/schema';
+import { usersTable } from '$lib/drizzle/schema';
 import { lucia } from '$lib/server/auth';
 
 import type { Actions } from './$types';
