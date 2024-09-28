@@ -12,6 +12,26 @@ import { lucia } from '$lib/server/auth';
 
 import type { Actions } from './$types';
 
+// Function to hash the password
+async function hashPassword(password: string): Promise<string> {
+	return await hash(password, {
+		memoryCost: 19456,
+		timeCost: 2,
+		outputLen: 32,
+		parallelism: 1
+	});
+}
+
+// Function to create a user session and set the session cookie
+async function createUserSession(userId: string, event: any): Promise<void> {
+	const session = await lucia.createSession(userId, {});
+	const sessionCookie = lucia.createSessionCookie(session.id);
+	event.cookies.set(sessionCookie.name, sessionCookie.value, {
+		path: '.',
+		...sessionCookie.attributes
+	});
+}
+
 export const actions: Actions = {
 	default: async (event) => {
 		const pool = createPool({ connectionString: POSTGRES_URL });
@@ -47,29 +67,15 @@ export const actions: Actions = {
 
 		if (existingUser) {
 			if (existingUser.google_id !== null) {
-                // TODO: Inform user that their account has been merged with Google
-				console.log('User already registered with Google');
-				const passwordHash = await hash(password, {
-					memoryCost: 19456,
-					timeCost: 2,
-					outputLen: 32,
-					parallelism: 1
-				});
+				// TODO: Inform user that their account has been merged with Google
+				const passwordHash = await hashPassword(password);
+
 				await db
 					.update(usersTable)
 					.set({ password_hash: passwordHash })
 					.where(eq(usersTable.id, existingUser.id));
 
-				console.log('User updated with password');
-
-				const session = await lucia.createSession(existingUser.id, {});
-				const sessionCookie = lucia.createSessionCookie(session.id);
-				event.cookies.set(sessionCookie.name, sessionCookie.value, {
-					path: '.',
-					...sessionCookie.attributes
-				});
-
-				console.log('Session created');
+				await createUserSession(existingUser.id, event);
 
 				redirect(302, '/profile');
 			} else {
@@ -80,12 +86,7 @@ export const actions: Actions = {
 		}
 
 		const userId = generateIdFromEntropySize(10);
-		const passwordHash = await hash(password, {
-			memoryCost: 19456,
-			timeCost: 2,
-			outputLen: 32,
-			parallelism: 1
-		});
+		const passwordHash = await hashPassword(password);
 
 		await db.insert(usersTable).values({
 			id: userId,
@@ -93,12 +94,7 @@ export const actions: Actions = {
 			password_hash: passwordHash
 		});
 
-		const session = await lucia.createSession(userId, {});
-		const sessionCookie = lucia.createSessionCookie(session.id);
-		event.cookies.set(sessionCookie.name, sessionCookie.value, {
-			path: '.',
-			...sessionCookie.attributes
-		});
+		await createUserSession(userId, event);
 
 		redirect(302, '/profile');
 	}
