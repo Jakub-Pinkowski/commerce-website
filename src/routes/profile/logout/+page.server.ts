@@ -4,7 +4,6 @@ import { destroyUserSession } from '$lib/helpers/auth';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
-	console.log('event.locals.user: from logout ', event.locals.user);
 	if (!event.locals.user) redirect(302, '/login');
 
 	await destroyUserSession(event);
