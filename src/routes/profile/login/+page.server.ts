@@ -2,12 +2,11 @@ import { createPool } from '@vercel/postgres';
 import { fail, redirect } from '@sveltejs/kit';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq } from 'drizzle-orm';
-import { verify } from '@node-rs/argon2';
 
 import { POSTGRES_URL } from '$env/static/private';
 
 import { usersTable } from '$lib/drizzle/schema';
-import { lucia } from '$lib/server/auth';
+import { validateEmailAndPassword, verifyPassword, createUserSession } from '$lib/helpers/auth';
 
 import type { Actions } from './$types';
 
@@ -20,19 +19,16 @@ export const actions: Actions = {
 		const email = formData.get('email');
 		const password = formData.get('password');
 
-		if (
-			typeof email !== 'string' ||
-			email.length < 3 ||
-			email.length > 31 ||
-			!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
-		) {
+		if (typeof email !== 'string' || typeof password !== 'string') {
 			return fail(400, {
-				message: 'Invalid email'
+				message: 'Invalid form data'
 			});
 		}
-		if (typeof password !== 'string' || password.length < 6 || password.length > 255) {
+
+		const validation = validateEmailAndPassword(email, password);
+		if (!validation.valid) {
 			return fail(400, {
-				message: 'Invalid password'
+				message: validation.message
 			});
 		}
 
@@ -49,14 +45,12 @@ export const actions: Actions = {
 			});
 		}
 
-		const validPassword = existingUser.password_hash
-			? await verify(existingUser.password_hash, password, {
-					memoryCost: 19456,
-					timeCost: 2,
-					outputLen: 32,
-					parallelism: 1
-				})
-			: false;
+		const passwordHash = existingUser.password_hash;
+		if (passwordHash === null) {
+			throw new Error('Password missing from the database');
+		}
+
+		const validPassword = await verifyPassword(passwordHash, password);
 
 		if (!validPassword) {
 			return fail(400, {
@@ -64,12 +58,7 @@ export const actions: Actions = {
 			});
 		}
 
-		const session = await lucia.createSession(existingUser.id, {});
-		const sessionCookie = lucia.createSessionCookie(session.id);
-		event.cookies.set(sessionCookie.name, sessionCookie.value, {
-			path: '.',
-			...sessionCookie.attributes
-		});
+		await createUserSession(existingUser.id, event);
 
 		redirect(302, '/profile');
 	}
