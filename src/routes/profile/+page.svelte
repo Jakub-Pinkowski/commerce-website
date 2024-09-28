@@ -7,19 +7,20 @@
 </script>
 
 <Breadcrumbs {breadcrumbs} />
-<div>
-	<div>
-		<ul class="menu w-56 rounded-box bg-base-200">
-			<li class="menu-title">Your account</li>
-			<li><a href="/profile">Dashboard</a></li>
-			<li><a href="/profile/settings">Settings</a></li>
-			<li><a href="/profile/orders">Your orders</a></li>
-			<li><a href="/support">Help and FAQ</a></li>
-			<li>
-				<form method="post" use:enhance>
-					<button>Sign out</button>
-				</form>
-			</li>
-		</ul>
-	</div>
+<div class="flex">
+	<ul class="menu w-56 rounded-box bg-base-200">
+		<li class="menu-title">Your account</li>
+		<li><a href="/profile">Dashboard</a></li>
+		<li><a href="/profile/settings">Settings</a></li>
+		<li><a href="/profile/orders">Your orders</a></li>
+		<li><a href="/support">Help and FAQ</a></li>
+		<li>
+			<form method="post" use:enhance>
+				<button>Sign out</button>
+			</form>
+		</li>
+	</ul>
+	<div class="flex-grow">
+        
+    </div>
 </div>
