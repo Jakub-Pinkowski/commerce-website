@@ -7,8 +7,7 @@ export type User = {
 	google_id?: string;
 	google_picture?: string;
     created_at: Date;
-	firstName?: string;
-	lastName?: string;
+    name?: string;
 	phoneNumber?: string;
 	address?: {
 		street: string;

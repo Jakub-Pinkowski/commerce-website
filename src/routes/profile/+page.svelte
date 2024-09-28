@@ -3,13 +3,13 @@
 
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
-    import type { User } from '$lib/types/userTypes';
+	import type { User } from '$lib/types/userTypes';
 
 	let breadcrumbs = ['Home', 'Profile'];
 
 	export let data;
-    const user: User = data.user
-    console.log("user", user)
+	const user: User = data.user;
+	console.log('user', user);
 </script>
 
 <Breadcrumbs {breadcrumbs} />
@@ -31,7 +31,7 @@
 			<div class="card-body">
 				<h2 class="card-title">Account</h2>
 				<ul>
-					<li>Email</li>
+
 				</ul>
 				<div class="card-actions justify-end">
 					<button class="btn btn-primary">Settings</button>

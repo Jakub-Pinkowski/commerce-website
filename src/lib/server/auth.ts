@@ -31,11 +31,14 @@ export const lucia = new Lucia(adapter, {
 	getUserAttributes: (attributes) => {
 		return {
 			email: attributes.email,
+			name: attributes.name,
 			githubId: attributes.github_id,
 			github_username: attributes.github_username,
 			googleId: attributes.google_id,
 			google_picture: attributes.google_picture,
-            created_at: attributes.created_at
+			created_at: attributes.created_at,
+			phoneNumber: attributes.phoneNumber,
+			address: attributes.address
 		};
 	}
 });
@@ -53,10 +56,21 @@ declare module 'lucia' {
 }
 
 interface DatabaseUserAttributes {
+	id?: string;
 	email?: string;
+	name?: string;
+	password?: string;
 	github_id?: number;
 	github_username?: string;
 	google_id?: string;
 	google_picture?: string;
-    created_at: Date;
+	created_at: Date;
+	phoneNumber?: string;
+	address?: {
+		street: string;
+		city: string;
+		state: string;
+		postalCode: string;
+		country: string;
+	};
 }
