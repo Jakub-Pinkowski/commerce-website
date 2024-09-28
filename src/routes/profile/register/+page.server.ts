@@ -46,9 +46,37 @@ export const actions: Actions = {
 		const existingUser = existingUserQuery[0];
 
 		if (existingUser) {
-			return fail(400, {
-				message: 'User already exists'
-			});
+			if (existingUser.google_id !== null) {
+                // TODO: Inform user that their account has been merged with Google
+				console.log('User already registered with Google');
+				const passwordHash = await hash(password, {
+					memoryCost: 19456,
+					timeCost: 2,
+					outputLen: 32,
+					parallelism: 1
+				});
+				await db
+					.update(usersTable)
+					.set({ password_hash: passwordHash })
+					.where(eq(usersTable.id, existingUser.id));
+
+				console.log('User updated with password');
+
+				const session = await lucia.createSession(existingUser.id, {});
+				const sessionCookie = lucia.createSessionCookie(session.id);
+				event.cookies.set(sessionCookie.name, sessionCookie.value, {
+					path: '.',
+					...sessionCookie.attributes
+				});
+
+				console.log('Session created');
+
+				redirect(302, '/profile');
+			} else {
+				return fail(400, {
+					message: 'User already exists'
+				});
+			}
 		}
 
 		const userId = generateIdFromEntropySize(10);
