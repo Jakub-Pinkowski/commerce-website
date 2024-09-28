@@ -48,18 +48,62 @@
 						<span class="text-dark-secondary-accent">missing</span>
 					{/if}
 				</li>
-				<div class="card-actions justify-end">
-					<button class="btn btn-primary">Edit data</button>
-				</div>
 			</ul>
+			<div class="card-actions mt-auto justify-end pt-2">
+				<a href="profile/settings" class="btn btn-primary">Edit your info</a>
+			</div>
 		</div>
 	</div>
 	<div class="card w-full bg-base-100 shadow-xl">
 		<div class="card-body">
-			<h2 class="card-title">Something goes here, some extra points or stuff</h2>
-			<p>If a dog chews shoes whose shoes does he choose?</p>
-			<div class="card-actions justify-end">
-				<button class="btn btn-primary">Buy Now</button>
+			<h2 class="card-title">Commerce +</h2>
+			<!-- 
+             -->
+			<div class="stats shadow">
+				<div class="stat">
+					<div class="stat-figure text-primary">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							class="inline-block h-8 w-8 stroke-current"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+							></path>
+						</svg>
+					</div>
+					<div class="stat-title">Points</div>
+					<div class="stat-value text-primary">250</div>
+					<div class="stat-desc">21% more</div>
+				</div>
+
+				<div class="stat">
+					<div class="stat-figure text-secondary">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							class="inline-block h-8 w-8 stroke-current"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M13 10V3L4 14h7v7l9-11h-7z"
+							></path>
+						</svg>
+					</div>
+					<div class="stat-title">Status</div>
+					<div class="stat-value text-secondary">Bronze</div>
+					<div class="stat-desc">21% more</div>
+				</div>
+			</div>
+			<div class="card-actions mt-auto justify-end pt-2">
+				<a href="profile/points" class="btn btn-primary">See your Commerce +</a>
 			</div>
 		</div>
 	</div>
