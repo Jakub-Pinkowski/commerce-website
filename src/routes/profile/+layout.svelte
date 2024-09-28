@@ -6,7 +6,6 @@
 	import type { User } from '$lib/types/userTypes';
 
 	let breadcrumbs = ['Home', 'Profile'];
-
 </script>
 
 <div class="flex gap-4">

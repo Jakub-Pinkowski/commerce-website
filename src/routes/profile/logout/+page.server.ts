@@ -7,6 +7,6 @@ export const actions: Actions = {
 	default: async (event) => {
 		await destroyUserSession(event);
 
-		redirect(302, '/profile/login');
+		redirect(302, '/login');
 	}
 };
