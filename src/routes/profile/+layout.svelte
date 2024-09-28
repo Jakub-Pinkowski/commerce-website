@@ -5,6 +5,10 @@
 
 	import type { User } from '$lib/types/userTypes';
 
+	export let data;
+	const user: User = data.user;
+	console.log('user', user);
+
 	let breadcrumbs = ['Home', 'Profile'];
 </script>
 
@@ -16,7 +20,7 @@
 		<li><a href="/profile/settings">Settings</a></li>
 		<li><a href="/support">Help and FAQ</a></li>
 		<li>
-			<form method="post" use:enhance>
+			<form method="post" action="/logout" use:enhance>
 				<button>Sign out</button>
 			</form>
 		</li>

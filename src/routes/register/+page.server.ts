@@ -11,6 +11,8 @@ import { validateEmailAndPassword, hashPassword, createUserSession } from '$lib/
 
 import type { Actions } from './$types';
 
+// TODO: If already logged in, redirect to profile
+
 export const actions: Actions = {
 	default: async (event) => {
 		const pool = createPool({ connectionString: POSTGRES_URL });
