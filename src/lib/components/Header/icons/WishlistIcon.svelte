@@ -7,7 +7,7 @@
 
 <a
 	class={`btn btn-circle btn-ghost mx-1 flex items-center ${className}`}
-	href="/profile/wishlist"
+	href="/wishlist"
 	on:click={closeMenu}
 >
 	<div class="indicator">

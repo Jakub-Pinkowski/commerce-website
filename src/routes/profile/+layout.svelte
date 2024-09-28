@@ -12,12 +12,13 @@
 </script>
 
 <div class="flex gap-4">
-	<ul class="menu w-56 rounded-box bg-base-200">
+	<ul class="menu h-fit w-56 rounded-box bg-base-200">
 		<li class="menu-title">Your account</li>
 		<li><a href="/profile">Dashboard</a></li>
 		<li><a href="/profile/points">Your points</a></li>
 		<li><a href="/profile/orders">Your orders</a></li>
 		<li><a href="/profile/settings">Settings</a></li>
+        <li><a href="/wishlist">Wishlist</a></li>
 		<li>
 			<a href="/profile/logout">
 				<button>Logout</button>
