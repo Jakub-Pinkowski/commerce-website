@@ -43,7 +43,7 @@ export const actions: Actions = {
 		}
 
 		const existingUserQuery = await db.select().from(usersTable).where(eq(usersTable.email, email));
-        const existingUser = existingUserQuery[0];
+		const existingUser = existingUserQuery[0];
 
 		if (existingUser) {
 			return fail(400, {
@@ -51,7 +51,7 @@ export const actions: Actions = {
 			});
 		}
 
-		const userId = generateIdFromEntropySize(10); 
+		const userId = generateIdFromEntropySize(10);
 		const passwordHash = await hash(password, {
 			memoryCost: 19456,
 			timeCost: 2,
