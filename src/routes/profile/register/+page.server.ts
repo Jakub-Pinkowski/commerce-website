@@ -3,9 +3,9 @@ import { fail, redirect } from '@sveltejs/kit';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq } from 'drizzle-orm';
 import { hash } from '@node-rs/argon2';
+import { generateIdFromEntropySize } from 'lucia';
 
 import { POSTGRES_URL } from '$env/static/private';
-import { generateIdFromEntropySize } from 'lucia';
 
 import { usersTable, productsTable } from '$lib/drizzle/schema';
 import { lucia } from '$lib/server/auth';
@@ -37,23 +37,22 @@ export const actions: Actions = {
 			password.length > 255 ||
 			!/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,255}$/.test(password)
 		) {
-			// TODO: Fix the response's format
 			return fail(400, {
 				message: 'Invalid password'
 			});
 		}
 
-		const existingUser = await db.select().from(usersTable).where(eq(usersTable.email, email));
+		const existingUserQuery = await db.select().from(usersTable).where(eq(usersTable.email, email));
+        const existingUser = existingUserQuery[0];
 
-		if (existingUser.length > 0) {
+		if (existingUser) {
 			return fail(400, {
 				message: 'User already exists'
 			});
 		}
 
-		const userId = generateIdFromEntropySize(10); // 16 characters long
+		const userId = generateIdFromEntropySize(10); 
 		const passwordHash = await hash(password, {
-			// recommended minimum parameters
 			memoryCost: 19456,
 			timeCost: 2,
 			outputLen: 32,

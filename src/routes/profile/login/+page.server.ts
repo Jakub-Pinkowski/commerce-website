@@ -31,7 +31,6 @@ export const actions: Actions = {
 			});
 		}
 		if (typeof password !== 'string' || password.length < 6 || password.length > 255) {
-			// TODO: Fix the response's format
 			return fail(400, {
 				message: 'Invalid password'
 			});
@@ -43,6 +42,7 @@ export const actions: Actions = {
 			.where(eq(usersTable.email, email))
 			.limit(1);
 		const existingUser = existingUserQuery[0];
+        
 		if (!existingUser) {
 			return fail(400, {
 				message: 'Incorrect email or password'
