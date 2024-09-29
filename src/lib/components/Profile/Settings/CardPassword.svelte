@@ -33,8 +33,7 @@
 <div class="card flex w-full bg-base-100 shadow-xl">
 	<div class="card-body p-4 md:p-8">
 		<h2 class="card-title">Password</h2>
-		<!-- TODO: Style later -->
-		<div class="flex-none overflow-x-auto">
+		<div class="flex-none overflow-x-auto p-1">
 			<FormInput
 				bind:value={oldPassword}
 				id="password"
