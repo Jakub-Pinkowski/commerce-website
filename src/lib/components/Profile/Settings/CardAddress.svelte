@@ -199,7 +199,7 @@
 						<tr>
 							<th>{label}</th>
 							{#if isEditing}
-								<td class="pb-0 pt-0">
+								<td class="pb-0 pr-0 pt-0">
 									<FormInput
 										bind:value={address[key]}
 										id={key}
