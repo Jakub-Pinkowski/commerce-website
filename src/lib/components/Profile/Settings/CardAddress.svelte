@@ -138,7 +138,7 @@
 			serverError = message;
 		} else if (result.type === 'success') {
 			// TODO: Show toast/alert when address was succesfully changed
-			toggleEdit();
+			location.reload();
 		}
 	};
 
