@@ -5,7 +5,7 @@
 	export let user: User;
 	console.log('user', user);
 
-	let placeholderPoints = 290;
+	let placeholderPoints = 20;
 
 	let pointsThreshholds = {
 		bronze: 0,
@@ -41,15 +41,15 @@
 	const getStatusClass = (status: string) => {
 		switch (status) {
 			case 'bronze':
-				return 'text-yellow-700';
+				return 'text-tier-bronze';
 			case 'silver':
-				return 'text-gray-400';
+				return 'text-tier-silver';
 			case 'gold':
-				return 'text-yellow-500';
+				return 'text-tier-gold';
 			case 'platinum':
-				return 'text-gray-300';
+				return 'text-tier-platinum';
 			case 'diamond':
-				return 'text-blue-300';
+				return 'text-tier-diamond';
 			default:
 				return '';
 		}
@@ -67,19 +67,6 @@
 		<div class="stats grid-flow-row shadow md:grid-flow-col">
 			<div class="stat">
 				<div class="stat-figure text-primary">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						class="inline-block h-8 w-8 stroke-current"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-						></path>
-					</svg>
 				</div>
 				<div class="stat-title">Points</div>
 				<div class="stat-value text-primary">
@@ -89,21 +76,7 @@
 			</div>
 
 			<div class="!md:border-t-0 stat !border-l-0 !border-t-[1px] md:!border-l-[1px]">
-				<div class="stat-figure">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						class="inline-block h-8 w-8 stroke-current"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M13 10V3L4 14h7v7l9-11h-7z"
-						>
-						</path>
-					</svg>
+				<div class={`stat-figure ${statusClass}`}>
 				</div>
 				<div class="stat-title">Status</div>
 				<div class={`stat-value ${statusClass}`}>{capitalize(currentStatus)}</div>
