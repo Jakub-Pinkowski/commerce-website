@@ -14,6 +14,48 @@
 	let repeatNewPasswordError: string;
 	let serverError: string;
 
+	const resetErrors = () => {
+		oldPasswordError = '';
+		newPasswordError = '';
+		repeatNewPasswordError = '';
+		serverError = '';
+	};
+
+	const validateFields = () => {
+		resetErrors();
+
+		if (!oldPassword) {
+			oldPasswordError = 'Old password is required';
+		}
+
+		if (!newPassword) {
+			newPasswordError = 'New password is required';
+		}
+
+		if (!repeatNewPassword) {
+			repeatNewPasswordError = 'Repeat new password is required';
+		}
+
+		if (newPassword !== repeatNewPassword) {
+			repeatNewPasswordError = 'Passwords do not match';
+		}
+
+		const passwordMinLength = 8;
+		const passwordMaxLength = 255;
+		const uppercaseRegex = /[A-Z]/;
+		const numberRegex = /\d/;
+
+		if (newPassword.length < passwordMinLength) {
+			newPasswordError = `Password must be at least ${passwordMinLength} characters long`;
+		} else if (newPassword.length > passwordMaxLength) {
+			newPasswordError = `Password must be no more than ${passwordMaxLength} characters long`;
+		} else if (!uppercaseRegex.test(newPassword)) {
+			newPasswordError = 'Password must contain at least 1 uppercase letter';
+		} else if (!numberRegex.test(newPassword)) {
+			newPasswordError = 'Password must contain at least 1 number';
+		}
+	};
+
 	const handleOldPasswordInteraction = () => {
 		oldPasswordError = '';
 		serverError = '';
