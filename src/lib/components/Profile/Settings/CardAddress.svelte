@@ -248,14 +248,17 @@
 				</div>
 			{/if}
 		</div>
-		<div class="card-actions mt-auto justify-end pt-2">
-			{#if isEditing}
-				<button type="submit" class="btn btn-primary w-full md:w-auto"> Save your info </button>
-			{:else}
+		{#if isEditing}
+			<div class="card-actions mt-auto justify-between pt-2">
+				<button type="button" class="btn w-full md:w-auto" on:click={toggleEdit}> Cancel </button>
+				<button type="submit" class="btn btn-secondary w-full md:w-auto"> Save your info </button>
+			</div>
+		{:else}
+			<div class="card-actions mt-auto justify-end pt-2">
 				<button type="button" class="btn btn-accent w-full md:w-auto" on:click={toggleEdit}>
 					Edit your info
 				</button>
-			{/if}
-		</div>
+			</div>
+		{/if}
 	</form>
 </div>
