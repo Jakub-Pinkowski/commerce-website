@@ -7,7 +7,7 @@
 
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<div class="card w-full bg-base-100 shadow-xl">
-		<div class="card-body">
+		<div class="card-body p-4 md:p-8">
 			<h2 class="card-title">Your information</h2>
 			<!-- TODO: Style later -->
 			<div class="flex-none overflow-x-auto">
@@ -54,7 +54,7 @@
 		</div>
 	</div>
 	<div class="card w-full bg-base-100 shadow-xl">
-		<div class="card-body">
+		<div class="card-body p-4 md:p-8">
 			<!-- TODO: Make it dynamic later -->
 			<h2 class="card-title">Commerce points</h2>
 			<!-- 
@@ -110,7 +110,7 @@
 		</div>
 	</div>
 	<div class="card w-full bg-base-100 shadow-xl md:col-span-2">
-		<div class="card-body">
+		<div class="card-body p-4 md:p-8">
 			<div class="flex justify-between">
 				<h2 class="card-title">Most recent order</h2>
 				<ul class="steps gap-4">
