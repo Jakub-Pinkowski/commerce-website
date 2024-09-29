@@ -5,7 +5,7 @@
 	export let user: User;
 	console.log('user', user);
 
-	let placeholderPoints = 20;
+	let placeholderPoints = 50;
 
 	let pointsThreshholds = {
 		bronze: 0,

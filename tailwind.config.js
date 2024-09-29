@@ -14,11 +14,11 @@ export default {
 				'secondary-accent': '#f4a261', // Orange
 				'dark-secondary-accent': '#e76f51', // Dark Orange
 				'main-red': '#e63946', // Red
-                'tier-bronze': '#cd7f32', // Bronze
-                'tier-silver': '#c0c0c0', // Silver
-                'tier-gold': '#ffd700', // Gold
-                'tier-platinum': '#e5e4e2', // Platinum
-                'tier-diamond': '#b9f2ff', // Diamond
+                'tier-bronze': '#cd7f32', // Tier - Bronze
+                'tier-silver': '#adb5bd', // Tier - Silver
+                'tier-gold': '#ffd700', // Tier - Gold
+                'tier-platinum': '#415a77', // Tier - Platinum
+                'tier-diamond': '#48cae4', // Tier - Diamond
 			}
 		}
 	},
