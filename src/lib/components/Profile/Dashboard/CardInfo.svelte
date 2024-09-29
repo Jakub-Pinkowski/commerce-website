@@ -47,7 +47,7 @@
 			</table>
 		</div>
 		<div class="card-actions mt-auto justify-end pt-2">
-			<a href="/settings" class="btn btn-accent w-full md:w-auto">Edit your info</a>
+			<a href="/profile/settings" class="btn btn-accent w-full md:w-auto">Edit your info</a>
 		</div>
 	</div>
 </div>

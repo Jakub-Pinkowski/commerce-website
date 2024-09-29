@@ -16,6 +16,7 @@
 	let newPasswordError: string;
 	let repeatNewPasswordError: string;
 	let serverError: string;
+	let smallErrors: boolean = true;
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
@@ -45,7 +46,7 @@
 		const result = await response.json();
 		console.log('result: ', result);
 
-        if (result.type === 'failure') {
+		if (result.type === 'failure') {
 			// NOTE: This is extremely wonky, hopefully when Svelte 5 releases it's going to be fixes
 			const data = JSON.parse(result.data);
 			const message = data[1];
@@ -114,7 +115,7 @@
 	};
 </script>
 
-<div class="card w-full bg-base-100 shadow-xl md:col-span-2">
+<div class="card w-full bg-base-100 shadow-xl">
 	<form on:submit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Password</h2>
 		<div class="flex-none overflow-x-auto p-1">
@@ -128,6 +129,7 @@
 				error={oldPasswordError}
 				onFocus={handleOldPasswordInteraction}
 				onInput={handleOldPasswordInteraction}
+				{smallErrors}
 			/>
 
 			<FormInput
@@ -140,6 +142,7 @@
 				error={newPasswordError}
 				onFocus={handleNewPasswordInteraction}
 				onInput={handleNewPasswordInteraction}
+				{smallErrors}
 			/>
 			<div role="alert" class="alert">
 				<ul class="list-disc pl-2 text-left text-sm">
@@ -159,6 +162,7 @@
 				error={repeatNewPasswordError}
 				onFocus={handleRepeatNewPasswordInteraction}
 				onInput={handleRepeatNewPasswordInteraction}
+				{smallErrors}
 			/>
 			{#if serverError}
 				<div
