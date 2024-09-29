@@ -1,10 +1,12 @@
 <script lang="ts">
+	import PasswordCard from '$lib/components/Profile/Settings/CardPassword.svelte';
+
 	import type { User } from '$lib/types/userTypes';
 
 	export let data;
 	const user: User = data.user;
-
 	console.log('user: ', user);
+
 </script>
 
 <div class="w-full">
@@ -104,28 +106,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="card flex w-full bg-base-100 shadow-xl">
-			<div class="card-body p-4 md:p-8">
-				<h2 class="card-title">Password</h2>
-				<!-- TODO: Style later -->
-				<div class="flex-none overflow-x-auto">
-					<table class="table">
-						<tbody>
-							<tr>
-								<th>Street</th>
-								{#if user.address?.street}
-									<td>{user.address.street}</td>
-								{:else}
-									<td class="text-gray-400">No steet</td>
-								{/if}
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="card-actions mt-auto justify-end pt-2">
-					<a href="profile/settings" class="btn btn-accent w-full md:w-auto">Edit your info</a>
-				</div>
-			</div>
-		</div>
+		<PasswordCard {user} />
 	</div>
 </div>
