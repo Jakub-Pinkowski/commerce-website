@@ -40,7 +40,13 @@ export const lucia = new Lucia(adapter, {
 			google_picture: attributes.google_picture,
 			created_at: attributes.created_at,
 			phoneNumber: attributes.phone_number,
-			address: attributes.address
+			address: {
+				street: attributes.address_street,
+				city: attributes.address_city,
+				state: attributes.address_state,
+				postalCode: attributes.address_postalcode,
+				country: attributes.address_country
+			}
 		};
 	}
 });
@@ -53,6 +59,22 @@ export const google = new Google(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, googleR
 declare module 'lucia' {
 	interface Register {
 		Lucia: typeof lucia;
-		DatabaseUserAttributes: User;
+		DatabaseUserAttributes: DatabaseUserAttributes;
 	}
+}
+
+interface DatabaseUserAttributes {
+	email: string;
+	name: string;
+	github_id: number;
+	github_username: string;
+	google_id: string;
+	google_picture: string;
+	created_at: Date;
+	phone_number: string;
+	address_street: string;
+	address_city: string;
+	address_state: string;
+	address_postalcode: string;
+	address_country: string;
 }
