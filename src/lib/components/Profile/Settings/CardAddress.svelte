@@ -78,7 +78,7 @@
 			autocomplete: 'country'
 		}
 	];
-    
+
 	const toggleEdit = () => {
 		isEditing = !isEditing;
 	};
@@ -89,10 +89,52 @@
 		addressErrors[field] = '';
 		serverError = '';
 	};
+
+	const handleSubmit = async (event: Event) => {
+		event.preventDefault();
+
+		resetErrors();
+		validateFields();
+	};
+
+	const resetErrors = () => {
+		addressErrors = {
+			street: '',
+			city: '',
+			state: '',
+			postalCode: '',
+			country: ''
+		};
+		serverError = '';
+	};
+
+	const validateFields = () => {
+		resetErrors();
+
+		if (!address.street) {
+			addressErrors.street = 'Street is required';
+		}
+
+		if (!address.city) {
+			addressErrors.city = 'City is required';
+		}
+
+		if (!address.state) {
+			addressErrors.state = 'State is required';
+		}
+
+		if (!address.postalCode) {
+			addressErrors.postalCode = 'Postal code is required';
+		}
+
+		if (!address.country) {
+			addressErrors.country = 'Country is required';
+		}
+	};
 </script>
 
 <div class="card flex w-full bg-base-100 shadow-xl">
-	<div class="card-body p-4 md:p-8">
+	<form on:submit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Address</h2>
 		<!-- TODO: Style later -->
 		<div class="flex-none overflow-x-auto">
@@ -138,5 +180,5 @@
 				</button>
 			{/if}
 		</div>
-	</div>
+	</form>
 </div>
