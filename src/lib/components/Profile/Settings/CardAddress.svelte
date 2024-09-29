@@ -92,7 +92,6 @@
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
-
 		resetErrors();
 		validateFields();
 
@@ -132,6 +131,9 @@
 			const data = JSON.parse(result.data);
 			const message = data[1];
 			serverError = message;
+		} else if (result.type === 'success') {
+            // TODO: Show toast/alert when address was succesfully changed
+			toggleEdit();
 		}
 	};
 
@@ -209,9 +211,7 @@
 		</div>
 		<div class="card-actions mt-auto justify-end pt-2">
 			{#if isEditing}
-				<button type="submit" class="btn btn-primary w-full md:w-auto" on:click={toggleEdit}>
-					Save your info
-				</button>
+				<button type="submit" class="btn btn-primary w-full md:w-auto"> Save your info </button>
 			{:else}
 				<button type="button" class="btn btn-accent w-full md:w-auto" on:click={toggleEdit}>
 					Edit your info
