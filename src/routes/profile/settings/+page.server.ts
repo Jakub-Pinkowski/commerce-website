@@ -3,6 +3,7 @@ import { fail, redirect } from '@sveltejs/kit';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq } from 'drizzle-orm';
 import { generateIdFromEntropySize } from 'lucia';
+import { lucia } from '$lib/server/auth';
 
 import { POSTGRES_URL } from '$env/static/private';
 
@@ -77,6 +78,7 @@ export const actions: Actions = {
 			.where(eq(usersTable.id, userId));
 
 		console.log("Updated user's address");
+		console.log('event.locals.user: ', event.locals.user);
 
 		return {
 			status: 'success',
@@ -147,6 +149,9 @@ export const actions: Actions = {
 			.set({ password_hash: newPasswordHash })
 			.where(eq(usersTable.id, userId));
 
-		redirect(302, '/profile/settings');
+		return {
+			status: 'success',
+			message: 'Password channged successfully'
+		};
 	}
 };

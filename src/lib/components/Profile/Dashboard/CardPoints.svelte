@@ -5,7 +5,6 @@
 	import type { User } from '$lib/types/userTypes';
 
 	export let user: User;
-	console.log('user', user);
 
 	let placeholderPoints = 50;
 

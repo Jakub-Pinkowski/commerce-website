@@ -3,7 +3,6 @@
 
 	export let user: User;
 
-	console.log('user', user);
 </script>
 
 <a

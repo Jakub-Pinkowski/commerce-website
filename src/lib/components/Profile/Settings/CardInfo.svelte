@@ -2,7 +2,6 @@
 	import type { User } from '$lib/types/userTypes';
 
 	export let user: User;
-	console.log('user: ', user);
 </script>
 
 <div class="card flex w-full bg-base-100 shadow-xl">

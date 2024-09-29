@@ -138,7 +138,8 @@
 			serverError = message;
 		} else if (result.type === 'success') {
 			// TODO: Show toast/alert when address was succesfully changed
-			location.reload();
+			// TODO: Ideally I don't reload but pull the new instance of an user instead
+            location.reload();
 		}
 	};
 
