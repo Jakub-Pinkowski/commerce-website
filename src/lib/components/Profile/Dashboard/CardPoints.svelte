@@ -1,5 +1,7 @@
 <script lang="ts">
 	// TODO: Replace with user's points later
+	import { capitalizeFirstWord } from '$lib/helpers/utils';
+
 	import type { User } from '$lib/types/userTypes';
 
 	export let user: User;
@@ -36,8 +38,6 @@
 		return { status: 'diamond', threshold: pointsThreshholds.diamond };
 	};
 
-	const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
-
 	const getStatusClass = (status: string) => {
 		switch (status) {
 			case 'bronze':
@@ -66,8 +66,7 @@
 		<h2 class="card-title">Commerce points</h2>
 		<div class="stats grid-flow-row shadow md:grid-flow-col">
 			<div class="stat">
-				<div class="stat-figure text-primary">
-				</div>
+				<div class="stat-figure text-primary"></div>
 				<div class="stat-title">Points</div>
 				<div class="stat-value text-primary">
 					{placeholderPoints}
@@ -76,12 +75,11 @@
 			</div>
 
 			<div class="!md:border-t-0 stat !border-l-0 !border-t-[1px] md:!border-l-[1px]">
-				<div class={`stat-figure ${statusClass}`}>
-				</div>
+				<div class={`stat-figure ${statusClass}`}></div>
 				<div class="stat-title">Status</div>
-				<div class={`stat-value ${statusClass}`}>{capitalize(currentStatus)}</div>
+				<div class={`stat-value ${statusClass}`}>{capitalizeFirstWord(currentStatus)}</div>
 				<div class="stat-desc">
-					{#if pointsToNextThreshold > 0}{pointsToNextThreshold} points to {capitalize(nextStatus)}
+					{#if pointsToNextThreshold > 0}{pointsToNextThreshold} points to {capitalizeFirstWord(nextStatus)}
 					{:else}
 						Max status achieved
 					{/if}
