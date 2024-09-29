@@ -1,11 +1,14 @@
 <script lang="ts">
 	// TODO: Use real data
+	import ImageCard from './CardOrders/ImageCard.svelte';
+
 	import type { User } from '$lib/types/userTypes';
 
 	export let user: User;
 	console.log('user', user);
 
 	// Handle order statuses
+	// NOTE: It's a placeholder for now
 	let placeholderOrderStatus = 'Order in progress';
 	const orderStatuses = [
 		'Order placed',
@@ -16,6 +19,11 @@
 	];
 
 	let currentStatusIndex = orderStatuses.indexOf(placeholderOrderStatus);
+
+	// Order images
+	// NOTE: It's a placeholder for now
+	let orderImages = 10;
+	let images = Array(orderImages).fill({});
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">
@@ -59,92 +67,27 @@
 				</table>
 			</div>
 			<div class="flex max-w-2xl flex-grow flex-wrap items-center gap-2">
-				<a
-					href="http://localhost:5173/products/hiking-backpack-20l"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_0-6RdYmsQKes9PXdFe3g5bQeppap94Jx.webp"
-						alt=""
-						class="h-full w-full object-cover"
-					/>
-				</a>
-				<a
-					href="http://localhost:5173/products/lavender-dream-sneakers"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_0-yABKYSc3MQtDmiNrLnSqBAAe7byDzX.webp"
-						alt=""
-					/>
-				</a>
-				<a
-					href="http://localhost:5173/products/hiking-backpack-20l"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_0-6RdYmsQKes9PXdFe3g5bQeppap94Jx.webp"
-						alt=""
-						class="h-full w-full object-cover"
-					/>
-				</a>
-				<a
-					href="http://localhost:5173/products/lavender-dream-sneakers"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_0-yABKYSc3MQtDmiNrLnSqBAAe7byDzX.webp"
-						alt=""
-					/>
-				</a>
-				<a
-					href="http://localhost:5173/products/hiking-backpack-20l"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_0-6RdYmsQKes9PXdFe3g5bQeppap94Jx.webp"
-						alt=""
-						class="h-full w-full object-cover"
-					/>
-				</a>
-				<a
-					href="http://localhost:5173/products/lavender-dream-sneakers"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_0-yABKYSc3MQtDmiNrLnSqBAAe7byDzX.webp"
-						alt=""
-					/>
-				</a>
-				<a
-					href="http://localhost:5173/products/lavender-dream-sneakers"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/shoes/lavender-dream-sneakers/lavender-dream-sneakers_0-yABKYSc3MQtDmiNrLnSqBAAe7byDzX.webp"
-						alt=""
-					/>
-				</a>
-				<a
-					href="http://localhost:5173/products/hiking-backpack-20l"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_0-6RdYmsQKes9PXdFe3g5bQeppap94Jx.webp"
-						alt=""
-						class="h-full w-full object-cover"
-					/>
-				</a>
-				<a
-					href="http://localhost:5173/products/hiking-backpack-20l"
-					class="max-w-32 flex-grow overflow-hidden rounded-lg border border-gray-300"
-				>
-					<img
-						src="https://jfj98xnxolpszjbj.public.blob.vercel-storage.com/assets/products/backpacks/hiking-backpack-20l/hiking-backpack-20l_0-6RdYmsQKes9PXdFe3g5bQeppap94Jx.webp"
-						alt=""
-						class="h-full w-full object-cover"
-					/>
-				</a>
+				{#each images.slice(0, 9) as image}
+					<ImageCard {user} />
+				{/each}
+				{#if images.length > 9}
+					<div
+						class=" flex h-full max-h-32 max-w-32 flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							id="Layer_1"
+							data-name="Layer 1"
+							viewBox="0 0 24 24"
+							height="32"
+							width="32"
+						>
+							<path
+								d="m5,10c0-.552.448-1,1-1h3v-3c0-.552.448-1,1-1s1,.448,1,1v3h3c.552,0,1,.448,1,1s-.448,1-1,1h-3v3c0,.552-.448,1-1,1s-1-.448-1-1v-3h-3c-.552,0-1-.448-1-1Zm19-1v10c0,2.757-2.243,5-5,5h-10c-2.446,0-4.479-1.768-4.908-4.092-2.324-.429-4.092-2.462-4.092-4.908V5C0,2.243,2.243,0,5,0h10c2.446,0,4.479,1.768,4.908,4.092,2.324.429,4.092,2.462,4.092,4.908ZM5,18h10c1.654,0,3-1.346,3-3V5c0-1.654-1.346-3-3-3H5c-1.654,0-3,1.346-3,3v10c0,1.654,1.346,3,3,3Zm17-9c0-1.302-.839-2.402-2-2.816v8.816c0,2.757-2.243,5-5,5H6.184c.414,1.161,1.514,2,2.816,2h10c1.654,0,3-1.346,3-3v-10Z"
+							/>
+						</svg>
+					</div>
+				{/if}
 			</div>
 		</div>
 
