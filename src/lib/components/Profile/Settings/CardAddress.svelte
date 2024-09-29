@@ -24,6 +24,7 @@
 
 	let serverError: string;
 	let smallErrors: boolean = true;
+	let smallLabels: boolean = true;
 	let isEditing: boolean = false;
 
 	const toggleEdit = () => {
@@ -48,7 +49,7 @@
 					<tr>
 						<th>Street</th>
 						{#if isEditing}
-							<td>
+							<td class="pb-0 pt-0">
 								<FormInput
 									bind:value={address.street}
 									id="street"
@@ -60,6 +61,7 @@
 									onFocus={() => handleInteraction('street')}
 									onInput={() => handleInteraction('street')}
 									{smallErrors}
+									{smallLabels}
 								/>
 							</td>
 						{:else if user.address?.street}
@@ -71,7 +73,7 @@
 					<tr>
 						<th>City</th>
 						{#if isEditing}
-							<td>
+							<td class="pb-0 pt-0">
 								<FormInput
 									bind:value={address.city}
 									id="city"
@@ -83,6 +85,7 @@
 									onFocus={() => handleInteraction('city')}
 									onInput={() => handleInteraction('city')}
 									{smallErrors}
+									{smallLabels}
 								/>
 							</td>
 						{:else if user.address?.city}
@@ -94,7 +97,7 @@
 					<tr>
 						<th>State</th>
 						{#if isEditing}
-							<td>
+							<td class="pb-0 pt-0">
 								<FormInput
 									bind:value={address.state}
 									id="state"
@@ -106,6 +109,7 @@
 									onFocus={() => handleInteraction('state')}
 									onInput={() => handleInteraction('state')}
 									{smallErrors}
+									{smallLabels}
 								/>
 							</td>
 						{:else if user.address?.state}
@@ -117,7 +121,7 @@
 					<tr>
 						<th>Postal Code</th>
 						{#if isEditing}
-							<td>
+							<td class="pb-0 pt-0">
 								<FormInput
 									bind:value={address.postalCode}
 									id="postal-code"
@@ -129,6 +133,7 @@
 									onFocus={() => handleInteraction('postalCode')}
 									onInput={() => handleInteraction('postalCode')}
 									{smallErrors}
+									{smallLabels}
 								/>
 							</td>
 						{:else if user.address?.postalCode}
@@ -140,7 +145,7 @@
 					<tr>
 						<th>Country</th>
 						{#if isEditing}
-							<td>
+							<td class="pb-0 pt-0">
 								<FormInput
 									bind:value={address.country}
 									id="country"
@@ -152,6 +157,7 @@
 									onFocus={() => handleInteraction('country')}
 									onInput={() => handleInteraction('country')}
 									{smallErrors}
+									{smallLabels}
 								/>
 							</td>
 						{:else if user.address?.country}

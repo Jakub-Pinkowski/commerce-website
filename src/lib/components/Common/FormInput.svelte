@@ -15,18 +15,19 @@
 		| 'username'
 		| 'new-password'
 		| 'current-password'
-        | 'street-address'
-        | 'address-line1'
-        | 'address-line2'
-        | 'address-level1'
-        | 'postal-code'
-        | 'country'
+		| 'street-address'
+		| 'address-line1'
+		| 'address-line2'
+		| 'address-level1'
+		| 'postal-code'
+		| 'country'
 		| null
 		| undefined = null;
 	export let error = '';
 	export let onFocus = () => {};
 	export let onInput = () => {};
 	export let smallErrors: boolean = false;
+	export let smallLabels: boolean = false;
 	console.log('smallErrors: ', smallErrors);
 
 	let showPassword = false;
@@ -36,10 +37,11 @@
 	};
 </script>
 
-<div class="relative my-4 w-full">
+<div class={`relative w-full ${smallLabels ? 'my-2' : 'my-4'}`}>
 	<label
 		class="input input-bordered flex w-full items-center gap-2 pr-0"
 		class:input-warning={error}
+		class:h-8={smallLabels}
 	>
 		{#if type === 'email'}
 			<svg
