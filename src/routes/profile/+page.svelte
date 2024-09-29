@@ -59,7 +59,7 @@
 			<h2 class="card-title">Commerce points</h2>
 			<!-- 
              -->
-			<div class="md:grid-flow-col stats grid-flow-row shadow">
+			<div class="stats grid-flow-row shadow md:grid-flow-col">
 				<div class="stat">
 					<div class="stat-figure text-primary">
 						<svg
@@ -82,7 +82,7 @@
 					<div class="stat-desc">+30 in the last month</div>
 				</div>
 
-				<div class="stat">
+				<div class="!md:border-t-0 stat !border-l-0 !border-t-[1px] md:!border-l-[1px]">
 					<div class="stat-figure text-secondary">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
