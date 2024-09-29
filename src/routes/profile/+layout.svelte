@@ -79,5 +79,7 @@
 			</ul>
 		{/if}
 	</div>
-	<slot />
+	<div class="w-full">
+		<slot />
+	</div>
 </div>
