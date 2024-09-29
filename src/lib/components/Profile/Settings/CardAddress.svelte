@@ -2,25 +2,25 @@
 	import FormInput from '$lib/components/Common/FormInput.svelte';
 
 	import type { User } from '$lib/types/userTypes';
-    import type {Address} from '$lib/types/userTypes';
+	import type { Address } from '$lib/types/userTypes';
 
 	export let user: User;
 
-    let address: Address = {
-        street: '',
-        city: '',
-        state: '',
-        postalCode: '',
-        country: ''
-    };
+	let address: Address = {
+		street: '',
+		city: '',
+		state: '',
+		postalCode: '',
+		country: ''
+	};
 
-    let addressErrors: Address = {
-        street: '',
-        city: '',
-        state: '',
-        postalCode: '',
-        country: ''
-    };
+	let addressErrors: Address = {
+		street: '',
+		city: '',
+		state: '',
+		postalCode: '',
+		country: ''
+	};
 
 	let serverError: string;
 	let smallErrors: boolean = true;
@@ -30,28 +30,10 @@
 		isEditing = !isEditing;
 	};
 
-	const handleStreetInteraction = () => {
-		addressErrors.street = '';
-		serverError = '';
-	};
+	type AddressKey = keyof Address;
 
-	const handleCityInteraction = () => {
-		addressErrors.city = '';
-		serverError = '';
-	};
-
-	const handleStateInteraction = () => {
-		addressErrors.state = '';
-		serverError = '';
-	};
-
-	const handlePostalCodeInteraction = () => {
-		addressErrors.postalCode = '';
-		serverError = '';
-	};
-
-	const handleCountryInteraction = () => {
-		addressErrors.country = '';
+	const handleInteraction = (field: AddressKey) => {
+		addressErrors[field] = '';
 		serverError = '';
 	};
 </script>
@@ -75,8 +57,8 @@
 									placeholder={user.address?.street ?? ''}
 									autocomplete="street-address"
 									error={addressErrors.street}
-									onFocus={handleStreetInteraction}
-									onInput={handleStreetInteraction}
+									onFocus={() => handleInteraction('street')}
+									onInput={() => handleInteraction('street')}
 									{smallErrors}
 								/>
 							</td>
@@ -98,8 +80,8 @@
 									placeholder={user.address?.city ?? ''}
 									autocomplete="address-line2"
 									error={addressErrors.city}
-									onFocus={handleCityInteraction}
-									onInput={handleCityInteraction}
+									onFocus={() => handleInteraction('city')}
+									onInput={() => handleInteraction('city')}
 									{smallErrors}
 								/>
 							</td>
@@ -121,8 +103,8 @@
 									placeholder={user.address?.state ?? ''}
 									autocomplete="address-level1"
 									error={addressErrors.state}
-									onFocus={handleStateInteraction}
-									onInput={handleStateInteraction}
+									onFocus={() => handleInteraction('state')}
+									onInput={() => handleInteraction('state')}
 									{smallErrors}
 								/>
 							</td>
@@ -144,8 +126,8 @@
 									placeholder={user.address?.postalCode ?? ''}
 									autocomplete="postal-code"
 									error={addressErrors.postalCode}
-									onFocus={handlePostalCodeInteraction}
-									onInput={handlePostalCodeInteraction}
+									onFocus={() => handleInteraction('postalCode')}
+									onInput={() => handleInteraction('postalCode')}
 									{smallErrors}
 								/>
 							</td>
@@ -167,8 +149,8 @@
 									placeholder={user.address?.country ?? ''}
 									autocomplete="country"
 									error={addressErrors.country}
-									onFocus={handleCountryInteraction}
-									onInput={handleCountryInteraction}
+									onFocus={() => handleInteraction('country')}
+									onInput={() => handleInteraction('country')}
 									{smallErrors}
 								/>
 							</td>
