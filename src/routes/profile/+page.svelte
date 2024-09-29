@@ -59,7 +59,7 @@
 			<h2 class="card-title">Commerce points</h2>
 			<!-- 
              -->
-			<div class="stats shadow">
+			<div class="md:grid-flow-col stats grid-flow-row shadow">
 				<div class="stat">
 					<div class="stat-figure text-primary">
 						<svg
