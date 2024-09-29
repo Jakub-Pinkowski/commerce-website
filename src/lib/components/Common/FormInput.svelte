@@ -6,7 +6,7 @@
 	export let value: string;
 	export let id: string;
 	export let name: string;
-	export let type: 'email' | 'password';
+	export let type: 'email' | 'password' | 'text';
 	export let placeholder;
 	export let autocomplete:
 		| 'on'
@@ -15,6 +15,12 @@
 		| 'username'
 		| 'new-password'
 		| 'current-password'
+        | 'street-address'
+        | 'address-line1'
+        | 'address-line2'
+        | 'address-level1'
+        | 'postal-code'
+        | 'country'
 		| null
 		| undefined = null;
 	export let error = '';
