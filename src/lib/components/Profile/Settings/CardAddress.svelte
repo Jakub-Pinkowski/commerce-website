@@ -27,6 +27,57 @@
 	let smallLabels: boolean = true;
 	let isEditing: boolean = false;
 
+	const addressFields: {
+		key: AddressKey;
+		label: string;
+		placeholder: string;
+		autocomplete:
+			| 'on'
+			| 'off'
+			| 'email'
+			| 'username'
+			| 'new-password'
+			| 'current-password'
+			| 'street-address'
+			| 'address-line1'
+			| 'address-line2'
+			| 'address-level1'
+			| 'postal-code'
+			| 'country'
+			| null
+			| undefined;
+	}[] = [
+		{
+			key: 'street',
+			label: 'Street',
+			placeholder: user.address?.street ?? '',
+			autocomplete: 'street-address'
+		},
+		{
+			key: 'city',
+			label: 'City',
+			placeholder: user.address?.city ?? '',
+			autocomplete: 'address-line2'
+		},
+		{
+			key: 'state',
+			label: 'State',
+			placeholder: user.address?.state ?? '',
+			autocomplete: 'address-level1'
+		},
+		{
+			key: 'postalCode',
+			label: 'Postal Code',
+			placeholder: user.address?.postalCode ?? '',
+			autocomplete: 'postal-code'
+		},
+		{
+			key: 'country',
+			label: 'Country',
+			placeholder: user.address?.country ?? '',
+			autocomplete: 'country'
+		}
+	];
 	const toggleEdit = () => {
 		isEditing = !isEditing;
 	};
@@ -46,126 +97,32 @@
 		<div class="flex-none overflow-x-auto">
 			<table class="table">
 				<tbody>
-					<tr>
-						<th>Street</th>
-						{#if isEditing}
-							<td class="pb-0 pt-0">
-								<FormInput
-									bind:value={address.street}
-									id="street"
-									name="street"
-									type="text"
-									placeholder={user.address?.street ?? ''}
-									autocomplete="street-address"
-									error={addressErrors.street}
-									onFocus={() => handleInteraction('street')}
-									onInput={() => handleInteraction('street')}
-									{smallErrors}
-									{smallLabels}
-								/>
-							</td>
-						{:else if user.address?.street}
-							<td>{user.address.street}</td>
-						{:else}
-							<td class="text-gray-400">No street</td>
-						{/if}
-					</tr>
-					<tr>
-						<th>City</th>
-						{#if isEditing}
-							<td class="pb-0 pt-0">
-								<FormInput
-									bind:value={address.city}
-									id="city"
-									name="city"
-									type="text"
-									placeholder={user.address?.city ?? ''}
-									autocomplete="address-line2"
-									error={addressErrors.city}
-									onFocus={() => handleInteraction('city')}
-									onInput={() => handleInteraction('city')}
-									{smallErrors}
-									{smallLabels}
-								/>
-							</td>
-						{:else if user.address?.city}
-							<td>{user.address.city}</td>
-						{:else}
-							<td class="text-gray-400">No city</td>
-						{/if}
-					</tr>
-					<tr>
-						<th>State</th>
-						{#if isEditing}
-							<td class="pb-0 pt-0">
-								<FormInput
-									bind:value={address.state}
-									id="state"
-									name="state"
-									type="text"
-									placeholder={user.address?.state ?? ''}
-									autocomplete="address-level1"
-									error={addressErrors.state}
-									onFocus={() => handleInteraction('state')}
-									onInput={() => handleInteraction('state')}
-									{smallErrors}
-									{smallLabels}
-								/>
-							</td>
-						{:else if user.address?.state}
-							<td>{user.address.state}</td>
-						{:else}
-							<td class="text-gray-400">No state</td>
-						{/if}
-					</tr>
-					<tr>
-						<th>Postal Code</th>
-						{#if isEditing}
-							<td class="pb-0 pt-0">
-								<FormInput
-									bind:value={address.postalCode}
-									id="postal-code"
-									name="postal-code"
-									type="text"
-									placeholder={user.address?.postalCode ?? ''}
-									autocomplete="postal-code"
-									error={addressErrors.postalCode}
-									onFocus={() => handleInteraction('postalCode')}
-									onInput={() => handleInteraction('postalCode')}
-									{smallErrors}
-									{smallLabels}
-								/>
-							</td>
-						{:else if user.address?.postalCode}
-							<td>{user.address.postalCode}</td>
-						{:else}
-							<td class="text-gray-400">No postal code</td>
-						{/if}
-					</tr>
-					<tr>
-						<th>Country</th>
-						{#if isEditing}
-							<td class="pb-0 pt-0">
-								<FormInput
-									bind:value={address.country}
-									id="country"
-									name="country"
-									type="text"
-									placeholder={user.address?.country ?? ''}
-									autocomplete="country"
-									error={addressErrors.country}
-									onFocus={() => handleInteraction('country')}
-									onInput={() => handleInteraction('country')}
-									{smallErrors}
-									{smallLabels}
-								/>
-							</td>
-						{:else if user.address?.country}
-							<td>{user.address.country}</td>
-						{:else}
-							<td class="text-gray-400">No country</td>
-						{/if}
-					</tr>
+					{#each addressFields as { key, label, placeholder, autocomplete }}
+						<tr>
+							<th>{label}</th>
+							{#if isEditing}
+								<td class="pb-0 pt-0">
+									<FormInput
+										bind:value={address[key]}
+										id={key}
+										name={key}
+										type="text"
+										{placeholder}
+										{autocomplete}
+										error={addressErrors[key]}
+										onFocus={() => handleInteraction(key)}
+										onInput={() => handleInteraction(key)}
+										{smallErrors}
+										{smallLabels}
+									/>
+								</td>
+							{:else if user.address?.[key]}
+								<td>{user.address[key]}</td>
+							{:else}
+								<td class="text-gray-400">No {label.toLowerCase()}</td>
+							{/if}
+						</tr>
+					{/each}
 				</tbody>
 			</table>
 		</div>
