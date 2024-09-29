@@ -13,8 +13,8 @@ import type { Actions } from './$types';
 
 export const actions: Actions = {
 	changeInfo: async (event) => {
-        console.log("changeInfo");
-    },
+		console.log('changeInfo');
+	},
 
 	changeAddress: async (event) => {
 		const pool = createPool({ connectionString: POSTGRES_URL });
@@ -27,6 +27,8 @@ export const actions: Actions = {
 		const state = formData.get('state');
 		const postalCode = formData.get('postalCode');
 		const country = formData.get('country');
+
+		console.log('formData: ', formData);
 
 		if (
 			typeof userId !== 'string' ||
@@ -41,13 +43,45 @@ export const actions: Actions = {
 			});
 		}
 
-        // Check if the address is valid
+		// Check if the address is valid
 		const validation = validateAddress(street, city, state, postalCode, country);
-        if (!validation.valid) {
-            return fail(400, {
-                message: validation.message
-            });
-        }
+		if (!validation.valid) {
+			return fail(400, {
+				message: validation.message
+			});
+		}
+
+		// Get the user from the database
+		const userQuery = await db.select().from(usersTable).where(eq(usersTable.id, userId));
+		const user = userQuery[0];
+
+		// Check if the user exists
+		if (!user) {
+			return fail(400, {
+				message: 'User not found'
+			});
+		}
+
+		console.log('user: ', user);
+
+		// Update the user's address
+		await db
+			.update(usersTable)
+			.set({
+				address_street: street,
+				address_city: city,
+				address_state: state,
+				address_postalcode: postalCode,
+				address_country: country
+			})
+			.where(eq(usersTable.id, userId));
+
+		console.log("Updated user's address");
+
+		return {
+			status: 'success',
+			message: "User's address updated successfully"
+		};
 	},
 
 	changePassword: async (event) => {
