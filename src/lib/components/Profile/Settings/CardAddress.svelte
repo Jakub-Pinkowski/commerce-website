@@ -2,35 +2,25 @@
 	import FormInput from '$lib/components/Common/FormInput.svelte';
 
 	import type { User } from '$lib/types/userTypes';
+    import type {Address} from '$lib/types/userTypes';
 
 	export let user: User;
 
-	let address: {
-		street: string;
-		city: string;
-		state: string;
-		postalCode: string;
-		country: string;
-	} = {
-		street: '',
-		city: '',
-		state: '',
-		postalCode: '',
-		country: ''
-	};
-	let addressErrors: {
-		street: string;
-		city: string;
-		state: string;
-		postalCode: string;
-		country: string;
-	} = {
-		street: '',
-		city: '',
-		state: '',
-		postalCode: '',
-		country: ''
-	};
+    let address: Address = {
+        street: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        country: ''
+    };
+
+    let addressErrors: Address = {
+        street: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        country: ''
+    };
 
 	let serverError: string;
 	let smallErrors: boolean = true;
