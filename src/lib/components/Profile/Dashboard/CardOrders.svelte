@@ -30,7 +30,8 @@
 	<div class="card-body p-4 md:p-8">
 		<div class="flex justify-between">
 			<h2 class="card-title">Most recent order</h2>
-			<ul class="steps gap-4">
+			<!-- Desktop -->
+			<ul class="steps hidden gap-4 md:inline-grid">
 				{#each orderStatuses as status, index}
 					<li class="step text-sm {index <= currentStatusIndex ? 'step-primary' : ''}">
 						{status}
@@ -39,7 +40,7 @@
 			</ul>
 		</div>
 		<!-- TODO: Make it dynamic later -->
-		<div class="flex w-full justify-between">
+		<div class="flex w-full flex-col justify-between md:flex-row">
 			<div class="flex-none overflow-x-auto">
 				<table class="table">
 					<tbody>
@@ -66,7 +67,8 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="flex max-w-2xl flex-grow flex-wrap items-center gap-2">
+			<!-- Desktop -->
+			<div class="hidden max-w-2xl flex-grow flex-wrap items-center gap-2 md:flex">
 				{#each images.slice(0, 9) as image}
 					<ImageCard {user} />
 				{/each}
@@ -75,6 +77,33 @@
 					<a
 						href="profile/orders"
 						class=" flex h-full max-h-32 max-w-32 flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
+						aria-label="View the order"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							id="Layer_1"
+							data-name="Layer 1"
+							viewBox="0 0 24 24"
+							height="32"
+							width="32"
+						>
+							<path
+								d="m5,10c0-.552.448-1,1-1h3v-3c0-.552.448-1,1-1s1,.448,1,1v3h3c.552,0,1,.448,1,1s-.448,1-1,1h-3v3c0,.552-.448,1-1,1s-1-.448-1-1v-3h-3c-.552,0-1-.448-1-1Zm19-1v10c0,2.757-2.243,5-5,5h-10c-2.446,0-4.479-1.768-4.908-4.092-2.324-.429-4.092-2.462-4.092-4.908V5C0,2.243,2.243,0,5,0h10c2.446,0,4.479,1.768,4.908,4.092,2.324.429,4.092,2.462,4.092,4.908ZM5,18h10c1.654,0,3-1.346,3-3V5c0-1.654-1.346-3-3-3H5c-1.654,0-3,1.346-3,3v10c0,1.654,1.346,3,3,3Zm17-9c0-1.302-.839-2.402-2-2.816v8.816c0,2.757-2.243,5-5,5H6.184c.414,1.161,1.514,2,2.816,2h10c1.654,0,3-1.346,3-3v-10Z"
+							/>
+						</svg>
+					</a>
+				{/if}
+			</div>
+			<!-- Mobile -->
+			<div class="flex flex-grow flex-wrap items-center gap-2 md:hidden">
+				{#each images.slice(0, 5) as image}
+					<ImageCard {user} />
+				{/each}
+				{#if images.length > 5}
+					<!-- TODO: Replace with a link to this particular order -->
+					<a
+						href="profile/orders"
+						class="flex aspect-square max-w-[calc(50%-4px)] flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
 						aria-label="View the order"
 					>
 						<svg
