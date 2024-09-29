@@ -45,6 +45,13 @@
 		const result = await response.json();
 		console.log('result: ', result);
 
+        if (result.type === 'failure') {
+			// NOTE: This is extremely wonky, hopefully when Svelte 5 releases it's going to be fixes
+			const data = JSON.parse(result.data);
+			const message = data[1];
+			serverError = message;
+		}
+
 		// TODO: Show toast/aler when password was succesfully changed
 	};
 
