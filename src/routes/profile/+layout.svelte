@@ -1,8 +1,27 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+
 	import type { User } from '$lib/types/userTypes';
 
 	export let data;
 	const user: User = data.user;
+
+	let dropdown: HTMLDivElement;
+	let dropdownOpen: boolean = false;
+
+	function handleTouchStart(event: TouchEvent) {
+		if (dropdown && !dropdown.contains(event.target as Node)) {
+			dropdownOpen = false;
+		}
+	}
+
+	onMount(() => {
+		document.addEventListener('touchstart', handleTouchStart);
+		return () => {
+			document.removeEventListener('touchstart', handleTouchStart);
+		};
+	});
 </script>
 
 <div class="flex flex-col gap-4 md:flex-row">
@@ -21,8 +40,8 @@
 		</li>
 	</ul>
 	<!-- Mobile -->
-	<div class="dropdown md:hidden">
-		<div tabindex="0" role="button" class="btn m-1 w-full justify-between">
+	<div class="dropdown md:hidden" bind:this={dropdown}>
+		<button class="btn m-1 w-full justify-between" on:click={() => (dropdownOpen = !dropdownOpen)}>
 			Account
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -36,20 +55,25 @@
 					d="M0,4c0-.55,.45-1,1-1H18c.55,0,1,.45,1,1s-.45,1-1,1H1c-.55,0-1-.45-1-1Zm18,15H1c-.55,0-1,.45-1,1s.45,1,1,1H18c.55,0,1-.45,1-1s-.45-1-1-1Zm5-8H6c-.55,0-1,.45-1,1s.45,1,1,1H23c.55,0,1-.45,1-1s-.45-1-1-1Z"
 				/>
 			</svg>
-		</div>
+		</button>
 		<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-		<ul tabindex="0" class="menu dropdown-content z-[1] w-full rounded-box bg-base-100 p-2 shadow">
-			<li><a href="/profile">Dashboard</a></li>
-			<li><a href="/profile/points">Points</a></li>
-			<li><a href="/profile/orders">Orders</a></li>
-			<li><a href="/profile/settings">Settings</a></li>
-			<li><a href="/wishlist">Wishlist</a></li>
-			<li>
-				<a href="/profile/logout">
-					<button>Logout</button>
-				</a>
-			</li>
-		</ul>
+		{#if dropdownOpen}
+			<ul
+				class="menu absolute z-[1] w-full rounded-box bg-base-100 p-2 shadow"
+				transition:fly={{ y: 20, duration: 200 }}
+			>
+				<li><a href="/profile">Dashboard</a></li>
+				<li><a href="/profile/points">Points</a></li>
+				<li><a href="/profile/orders">Orders</a></li>
+				<li><a href="/profile/settings">Settings</a></li>
+				<li><a href="/wishlist">Wishlist</a></li>
+				<li>
+					<a href="/profile/logout">
+						<button>Logout</button>
+					</a>
+				</li>
+			</ul>
+		{/if}
 	</div>
 	<slot />
 </div>
