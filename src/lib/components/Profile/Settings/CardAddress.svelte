@@ -78,6 +78,7 @@
 			autocomplete: 'country'
 		}
 	];
+    
 	const toggleEdit = () => {
 		isEditing = !isEditing;
 	};
