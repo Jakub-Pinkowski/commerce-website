@@ -28,6 +28,12 @@
 		}
 
 		const formData = new FormData();
+		if (user.id) {
+			formData.append('userId', user.id);
+		} else {
+			console.error('User ID is undefined');
+			return;
+		}
 		formData.append('oldPassword', oldPassword);
 		formData.append('newPassword', newPassword);
 
@@ -101,7 +107,7 @@
 	};
 </script>
 
-<div class="card flex w-full bg-base-100 shadow-xl">
+<div class="card w-full bg-base-100 shadow-xl md:col-span-2">
 	<form on:submit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Password</h2>
 		<div class="flex-none overflow-x-auto p-1">

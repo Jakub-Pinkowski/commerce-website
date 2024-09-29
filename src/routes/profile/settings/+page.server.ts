@@ -21,6 +21,22 @@ export const actions: Actions = {
 	},
 
 	changePassword: async (event) => {
-		console.log('changePassword');
+		const pool = createPool({ connectionString: POSTGRES_URL });
+		const db = drizzle(pool);
+
+		const formData = await event.request.formData();
+		const userId = formData.get('userId');
+		const oldPassword = formData.get('oldPassword');
+		const newPassword = formData.get('newPassword');
+
+		if (
+			typeof userId !== 'string' ||
+			typeof oldPassword !== 'string' ||
+			typeof newPassword !== 'string'
+		) {
+			return fail(400, {
+				message: 'Invalid form data'
+			});
+		}
 	}
 };

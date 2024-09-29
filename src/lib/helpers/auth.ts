@@ -3,6 +3,19 @@ import { hash, verify } from '@node-rs/argon2';
 
 import { lucia } from '$lib/server/auth';
 
+export const validatePassword = (password: string): { valid: boolean; message?: string } => {
+	if (password.length < 8 || password.length > 255) {
+		return { valid: false, message: 'Password must be between 8 and 255 characters' };
+	}
+	if (!/[A-Z]/.test(password)) {
+		return { valid: false, message: 'Password must contain at least one uppercase letter' };
+	}
+	if (!/[0-9]/.test(password)) {
+		return { valid: false, message: 'Password must contain at least one number' };
+	}
+	return { valid: true };
+};
+
 export const validateEmailAndPassword = (
 	email: string,
 	password: string
@@ -15,7 +28,13 @@ export const validateEmailAndPassword = (
 		return { valid: false, message: 'Invalid email' };
 	}
 	if (password.length < 8 || password.length > 255) {
-		return { valid: false, message: 'Invalid password' };
+		return { valid: false, message: 'Password must be between 8 and 255 characters' };
+	}
+	if (!/[A-Z]/.test(password)) {
+		return { valid: false, message: 'Password must contain at least one uppercase letter' };
+	}
+	if (!/[0-9]/.test(password)) {
+		return { valid: false, message: 'Password must contain at least one number' };
 	}
 	return { valid: true };
 };
