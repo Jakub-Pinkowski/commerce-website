@@ -69,3 +69,9 @@ a {
 .input-warning {
     border-color: var(--main-red);
 }
+
+/* Table */
+
+.table :where(th) {
+    padding-left: 0;
+}

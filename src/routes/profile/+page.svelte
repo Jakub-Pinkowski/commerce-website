@@ -8,7 +8,7 @@
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<div class="card w-full bg-base-100 shadow-xl">
 		<div class="card-body">
-			<h2 class="card-title">Account</h2>
+			<h2 class="card-title">Your information</h2>
 			<!-- TODO: Style later -->
 			<div class="flex-none overflow-x-auto">
 				<table class="table">

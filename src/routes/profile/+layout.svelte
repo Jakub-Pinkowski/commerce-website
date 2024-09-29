@@ -1,23 +1,17 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-
-	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
-
 	import type { User } from '$lib/types/userTypes';
 
 	export let data;
 	const user: User = data.user;
-
-	let breadcrumbs = ['Home', 'Profile'];
 </script>
 
 <div class="flex flex-col gap-4 md:flex-row">
 	<!-- Desktop -->
 	<ul class="menu hidden h-fit w-56 rounded-box bg-base-200 md:block">
-		<li class="menu-title">Your account</li>
+		<li class="menu-title">Account</li>
 		<li><a href="/profile">Dashboard</a></li>
-		<li><a href="/profile/points">Your points</a></li>
-		<li><a href="/profile/orders">Your orders</a></li>
+		<li><a href="/profile/points">Points</a></li>
+		<li><a href="/profile/orders">Orders</a></li>
 		<li><a href="/profile/settings">Settings</a></li>
 		<li><a href="/wishlist">Wishlist</a></li>
 		<li>
@@ -29,7 +23,7 @@
 	<!-- Mobile -->
 	<div class="dropdown md:hidden">
 		<div tabindex="0" role="button" class="btn m-1 w-full justify-between">
-			Your account
+			Account
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				id="Layer_1"
@@ -46,8 +40,8 @@
 		<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 		<ul tabindex="0" class="menu dropdown-content z-[1] w-full rounded-box bg-base-100 p-2 shadow">
 			<li><a href="/profile">Dashboard</a></li>
-			<li><a href="/profile/points">Your points</a></li>
-			<li><a href="/profile/orders">Your orders</a></li>
+			<li><a href="/profile/points">Points</a></li>
+			<li><a href="/profile/orders">Orders</a></li>
 			<li><a href="/profile/settings">Settings</a></li>
 			<li><a href="/wishlist">Wishlist</a></li>
 			<li>
