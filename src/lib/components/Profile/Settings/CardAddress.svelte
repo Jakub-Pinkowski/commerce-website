@@ -209,11 +209,11 @@
 		</div>
 		<div class="card-actions mt-auto justify-end pt-2">
 			{#if isEditing}
-				<button class="btn btn-primary w-full md:w-auto" on:click={toggleEdit}>
+				<button type="submit" class="btn btn-primary w-full md:w-auto" on:click={toggleEdit}>
 					Save your info
 				</button>
 			{:else}
-				<button class="btn btn-accent w-full md:w-auto" on:click={toggleEdit}>
+				<button type="button" class="btn btn-accent w-full md:w-auto" on:click={toggleEdit}>
 					Edit your info
 				</button>
 			{/if}

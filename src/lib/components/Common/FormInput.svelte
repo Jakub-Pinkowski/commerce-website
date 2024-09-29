@@ -28,7 +28,6 @@
 	export let onInput = () => {};
 	export let smallErrors: boolean = false;
 	export let smallLabels: boolean = false;
-	console.log('smallErrors: ', smallErrors);
 
 	let showPassword = false;
 
