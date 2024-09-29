@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, fade, blur } from 'svelte/transition';
 
 	import type { User } from '$lib/types/userTypes';
 
@@ -10,11 +10,15 @@
 	let dropdown: HTMLDivElement;
 	let dropdownOpen: boolean = false;
 
-	function handleTouchStart(event: TouchEvent) {
+	const handleTouchStart = (event: TouchEvent) => {
 		if (dropdown && !dropdown.contains(event.target as Node)) {
 			dropdownOpen = false;
 		}
-	}
+	};
+
+	const handleClick = () => {
+		dropdownOpen = !dropdownOpen;
+	};
 
 	onMount(() => {
 		document.addEventListener('touchstart', handleTouchStart);
@@ -41,7 +45,7 @@
 	</ul>
 	<!-- Mobile -->
 	<div class="dropdown md:hidden" bind:this={dropdown}>
-		<button class="btn m-1 w-full justify-between" on:click={() => (dropdownOpen = !dropdownOpen)}>
+		<button class="btn m-1 w-full justify-between" on:click={handleClick}>
 			Account
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -62,11 +66,11 @@
 				class="menu absolute z-[1] w-full rounded-box bg-base-100 p-2 shadow"
 				transition:fly={{ y: 20, duration: 200 }}
 			>
-				<li><a href="/profile">Dashboard</a></li>
-				<li><a href="/profile/points">Points</a></li>
-				<li><a href="/profile/orders">Orders</a></li>
-				<li><a href="/profile/settings">Settings</a></li>
-				<li><a href="/wishlist">Wishlist</a></li>
+				<li><a href="/profile" on:click={handleClick}>Dashboard</a></li>
+				<li><a href="/profile/points" on:click={handleClick}>Points</a></li>
+				<li><a href="/profile/orders" on:click={handleClick}>Orders</a></li>
+				<li><a href="/profile/settings" on:click={handleClick}>Settings</a></li>
+				<li><a href="/wishlist" on:click={handleClick}>Wishlist</a></li>
 				<li>
 					<a href="/profile/logout">
 						<button>Logout</button>
