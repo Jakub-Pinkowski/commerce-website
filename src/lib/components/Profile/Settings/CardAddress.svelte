@@ -115,11 +115,13 @@
 			console.error('User ID is undefined');
 			return;
 		}
-		formData.append('street', address.street);
-		formData.append('city', address.city);
-		formData.append('state', address.state);
-		formData.append('postalCode', address.postalCode);
-		formData.append('country', address.country);
+
+		// Use existing values from user.address if fields are empty
+		formData.append('street', address.street || user.address?.street || '');
+		formData.append('city', address.city || user.address?.city || '');
+		formData.append('state', address.state || user.address?.state || '');
+		formData.append('postalCode', address.postalCode || user.address?.postalCode || '');
+		formData.append('country', address.country || user.address?.country || '');
 
 		const response = await fetch('?/changeAddress', {
 			method: 'POST',
@@ -154,33 +156,23 @@
 	const validateFields = () => {
 		resetErrors();
 
-		if (!address.street) {
-			addressErrors.street = 'Street is required';
-		} else if (address.street.length < 3 || address.street.length > 255) {
+		if (address.street && (address.street.length < 3 || address.street.length > 255)) {
 			addressErrors.street = 'Street must be between 3 and 255 characters';
 		}
 
-		if (!address.city) {
-			addressErrors.city = 'City is required';
-		} else if (address.city.length < 3 || address.city.length > 255) {
+		if (address.city && (address.city.length < 3 || address.city.length > 255)) {
 			addressErrors.city = 'City must be between 3 and 255 characters';
 		}
 
-		if (!address.state) {
-			addressErrors.state = 'State is required';
-		} else if (address.state.length < 3 || address.state.length > 255) {
+		if (address.state && (address.state.length < 3 || address.state.length > 255)) {
 			addressErrors.state = 'State must be between 3 and 255 characters';
 		}
 
-		if (!address.postalCode) {
-			addressErrors.postalCode = 'Postal code is required';
-		} else if (address.postalCode.length < 3 || address.postalCode.length > 255) {
+		if (address.postalCode && (address.postalCode.length < 3 || address.postalCode.length > 255)) {
 			addressErrors.postalCode = 'Postal code must be between 3 and 255 characters';
 		}
 
-		if (!address.country) {
-			addressErrors.country = 'Country is required';
-		} else if (address.country.length < 3 || address.country.length > 255) {
+		if (address.country && (address.country.length < 3 || address.country.length > 255)) {
 			addressErrors.country = 'Country must be between 3 and 255 characters';
 		}
 
