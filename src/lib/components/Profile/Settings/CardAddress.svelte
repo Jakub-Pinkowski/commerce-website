@@ -2,7 +2,26 @@
 	import type { User } from '$lib/types/userTypes';
 
 	export let user: User;
-	console.log('user: ', user);
+
+	let isEditing = false;
+
+	let address: {
+		street: string;
+		city: string;
+		state: string;
+		postalCode: string;
+		country: string;
+	} = {
+		street: '',
+		city: '',
+		state: '',
+		postalCode: '',
+		country: ''
+	};
+
+	const toggleEdit = () => {
+		isEditing = !isEditing;
+	};
 </script>
 
 <div class="card flex w-full bg-base-100 shadow-xl">
@@ -14,15 +33,27 @@
 				<tbody>
 					<tr>
 						<th>Street</th>
-						{#if user.address?.street}
+						{#if isEditing}
+							<td>
+								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
+									<input type="text" bind:value={address.street} />
+								</label>
+							</td>
+						{:else if user.address?.street}
 							<td>{user.address.street}</td>
 						{:else}
-							<td class="text-gray-400">No steet</td>
+							<td class="text-gray-400">No street</td>
 						{/if}
 					</tr>
 					<tr>
 						<th>City</th>
-						{#if user.address?.city}
+						{#if isEditing}
+							<td>
+								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
+									<input type="text" bind:value={address.city} />
+								</label>
+							</td>
+						{:else if user.address?.city}
 							<td>{user.address.city}</td>
 						{:else}
 							<td class="text-gray-400">No city</td>
@@ -30,7 +61,13 @@
 					</tr>
 					<tr>
 						<th>State</th>
-						{#if user.address?.state}
+						{#if isEditing}
+							<td>
+								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
+									<input type="text" bind:value={address.state} />
+								</label>
+							</td>
+						{:else if user.address?.state}
 							<td>{user.address.state}</td>
 						{:else}
 							<td class="text-gray-400">No state</td>
@@ -38,7 +75,13 @@
 					</tr>
 					<tr>
 						<th>Postal Code</th>
-						{#if user.address?.postalCode}
+						{#if isEditing}
+							<td>
+								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
+									<input type="text" bind:value={address.postalCode} />
+								</label>
+							</td>
+						{:else if user.address?.postalCode}
 							<td>{user.address.postalCode}</td>
 						{:else}
 							<td class="text-gray-400">No postal code</td>
@@ -46,7 +89,13 @@
 					</tr>
 					<tr>
 						<th>Country</th>
-						{#if user.address?.country}
+						{#if isEditing}
+							<td>
+								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
+									<input type="text" bind:value={address.country} />
+								</label>
+							</td>
+						{:else if user.address?.country}
 							<td>{user.address.country}</td>
 						{:else}
 							<td class="text-gray-400">No country</td>
@@ -56,7 +105,15 @@
 			</table>
 		</div>
 		<div class="card-actions mt-auto justify-end pt-2">
-			<a href="/settings" class="btn btn-accent w-full md:w-auto">Edit your info</a>
+			{#if isEditing}
+				<button class="btn btn-primary w-full md:w-auto" on:click={toggleEdit}>
+					Save your info
+				</button>
+			{:else}
+				<button class="btn btn-accent w-full md:w-auto" on:click={toggleEdit}>
+					Edit your info
+				</button>
+			{/if}
 		</div>
 	</div>
 </div>
