@@ -5,7 +5,7 @@
 	export let user: User;
 	console.log('user', user);
 
-	let placeholderPoints = 60;
+	let placeholderPoints = 290;
 
 	let pointsThreshholds = {
 		bronze: 0,
@@ -38,9 +38,27 @@
 
 	const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
+	const getStatusClass = (status: string) => {
+		switch (status) {
+			case 'bronze':
+				return 'text-yellow-700';
+			case 'silver':
+				return 'text-gray-400';
+			case 'gold':
+				return 'text-yellow-500';
+			case 'platinum':
+				return 'text-gray-300';
+			case 'diamond':
+				return 'text-blue-300';
+			default:
+				return '';
+		}
+	};
+
 	const currentStatus = getCurrentStatus(placeholderPoints);
 	const { status: nextStatus, threshold } = getNextThreshold(placeholderPoints);
 	const pointsToNextThreshold = threshold - placeholderPoints;
+	const statusClass = getStatusClass(currentStatus);
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl">
@@ -71,7 +89,7 @@
 			</div>
 
 			<div class="!md:border-t-0 stat !border-l-0 !border-t-[1px] md:!border-l-[1px]">
-				<div class="stat-figure text-secondary">
+				<div class="stat-figure">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -88,10 +106,9 @@
 					</svg>
 				</div>
 				<div class="stat-title">Status</div>
-				<div class="stat-value text-secondary">{capitalize(currentStatus)}</div>
+				<div class={`stat-value ${statusClass}`}>{capitalize(currentStatus)}</div>
 				<div class="stat-desc">
-					{#if pointsToNextThreshold > 0}
-						{pointsToNextThreshold} points to {capitalize(nextStatus)}
+					{#if pointsToNextThreshold > 0}{pointsToNextThreshold} points to {capitalize(nextStatus)}
 					{:else}
 						Max status achieved
 					{/if}
