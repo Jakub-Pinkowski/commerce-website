@@ -36,7 +36,12 @@
 						{#if isEditing}
 							<td>
 								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
-									<input type="text" bind:value={address.street} />
+									<input
+										type="text"
+										bind:value={address.street}
+										placeholder={user.address?.street ?? ''}
+										autocomplete="street-address"
+									/>
 								</label>
 							</td>
 						{:else if user.address?.street}
@@ -50,7 +55,12 @@
 						{#if isEditing}
 							<td>
 								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
-									<input type="text" bind:value={address.city} />
+									<input
+										type="text"
+										bind:value={address.city}
+										placeholder={user.address?.city ?? ''}
+										autocomplete="address-level2"
+									/>
 								</label>
 							</td>
 						{:else if user.address?.city}
@@ -64,7 +74,12 @@
 						{#if isEditing}
 							<td>
 								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
-									<input type="text" bind:value={address.state} />
+									<input
+										type="text"
+										bind:value={address.state}
+										placeholder={user.address?.state ?? ''}
+										autocomplete="address-level1"
+									/>
 								</label>
 							</td>
 						{:else if user.address?.state}
@@ -78,7 +93,12 @@
 						{#if isEditing}
 							<td>
 								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
-									<input type="text" bind:value={address.postalCode} />
+									<input
+										type="text"
+										bind:value={address.postalCode}
+										placeholder={user.address?.postalCode ?? ''}
+										autocomplete="postal-code"
+									/>
 								</label>
 							</td>
 						{:else if user.address?.postalCode}
@@ -92,7 +112,12 @@
 						{#if isEditing}
 							<td>
 								<label class="input input-bordered flex h-8 w-full items-center gap-2 pr-0">
-									<input type="text" bind:value={address.country} />
+									<input
+										type="text"
+										bind:value={address.country}
+										placeholder={user.address?.country ?? ''}
+										autocomplete="country"
+									/>
 								</label>
 							</td>
 						{:else if user.address?.country}
