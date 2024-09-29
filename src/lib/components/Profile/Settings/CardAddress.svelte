@@ -95,6 +95,44 @@
 
 		resetErrors();
 		validateFields();
+
+		if (
+			addressErrors.street ||
+			addressErrors.city ||
+			addressErrors.state ||
+			addressErrors.postalCode ||
+			addressErrors.country
+		) {
+			return;
+		}
+
+		const formData = new FormData();
+		if (user.id) {
+			formData.append('userId', user.id);
+		} else {
+			console.error('User ID is undefined');
+			return;
+		}
+		formData.append('street', address.street);
+		formData.append('city', address.city);
+		formData.append('state', address.state);
+		formData.append('postalCode', address.postalCode);
+		formData.append('country', address.country);
+
+		const response = await fetch('?/changeAddress', {
+			method: 'POST',
+			body: formData
+		});
+
+		const result = await response.json();
+		console.log('result: ', result);
+
+		if (result.type === 'failure') {
+			// NOTE: This is extremely wonky, hopefully when Svelte 5 releases it's going to be fixes
+			const data = JSON.parse(result.data);
+			const message = data[1];
+			serverError = message;
+		}
 	};
 
 	const resetErrors = () => {
