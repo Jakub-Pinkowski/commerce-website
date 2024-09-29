@@ -6,19 +6,26 @@
 	export let user: User;
 	console.log('user: ', user);
 
-	let password = '';
-	let repeatPassword = '';
-	let passwordError: string;
-	let repeatPasswordError: string;
+	let oldPassword: string = '';
+	let newPassword: string = '';
+	let repeatNewPassword: string = '';
+	let oldPasswordError: string;
+	let newPasswordError: string;
+	let repeatNewPasswordError: string;
 	let serverError: string;
 
-	const handlePasswordInteraction = () => {
-		passwordError = '';
+	const handleOldPasswordInteraction = () => {
+		oldPasswordError = '';
 		serverError = '';
 	};
 
-	const handleRepeatPasswordInteraction = () => {
-		repeatPasswordError = '';
+	const handleNewPasswordInteraction = () => {
+		newPasswordError = '';
+		serverError = '';
+	};
+
+	const handleRepeatNewPasswordInteraction = () => {
+		repeatNewPasswordError = '';
 		serverError = '';
 	};
 </script>
@@ -29,15 +36,46 @@
 		<!-- TODO: Style later -->
 		<div class="flex-none overflow-x-auto">
 			<FormInput
-				bind:value={password}
+				bind:value={oldPassword}
 				id="password"
 				name="password"
 				type="password"
-				placeholder="Password*"
+				placeholder="Old password*"
+				autocomplete="current-password"
+				error={oldPasswordError}
+				onFocus={handleOldPasswordInteraction}
+				onInput={handleOldPasswordInteraction}
+			/>
+
+			<FormInput
+				bind:value={newPassword}
+				id="new-password"
+				name="new-password"
+				type="password"
+				placeholder="New password*"
 				autocomplete="new-password"
-				error={passwordError}
-				onFocus={handlePasswordInteraction}
-				onInput={handlePasswordInteraction}
+				error={newPasswordError}
+				onFocus={handleNewPasswordInteraction}
+				onInput={handleNewPasswordInteraction}
+			/>
+			<div role="alert" class="alert">
+				<ul class="list-disc pl-2 text-left text-sm">
+					<li>At least 8 characters long</li>
+					<li>At least 1 uppercase letter</li>
+					<li>At least 1 number</li>
+					<li>Can include special characters @$!%*#?&</li>
+				</ul>
+			</div>
+			<FormInput
+				bind:value={repeatNewPassword}
+				id="repeat-new-password"
+				name="repeat-new-password"
+				type="password"
+				placeholder="Repeat new password*"
+				autocomplete="new-password"
+				error={repeatNewPasswordError}
+				onFocus={handleRepeatNewPasswordInteraction}
+				onInput={handleRepeatNewPasswordInteraction}
 			/>
 		</div>
 		<div class="card-actions mt-auto justify-end pt-2">
