@@ -29,8 +29,6 @@ export const actions: Actions = {
 		const oldPassword = formData.get('oldPassword');
 		const newPassword = formData.get('newPassword');
 
-        console.log("formData", formData);
-
 		if (
 			typeof userId !== 'string' ||
 			typeof oldPassword !== 'string' ||
@@ -53,8 +51,6 @@ export const actions: Actions = {
 		const userQuery = await db.select().from(usersTable).where(eq(usersTable.id, userId));
 		const user = userQuery[0];
 
-        console.log("user: ", user);
-
 		// Check if the user exists
 		if (!user) {
 			return fail(400, {
@@ -70,8 +66,6 @@ export const actions: Actions = {
 			});
 		}
 
-        console.log("user.password_hash: ", user.password_hash);
-
 		// Check if the old password is correct
 		const validPassword = await verifyPassword(user.password_hash, oldPassword);
 		if (!validPassword) {
@@ -83,15 +77,11 @@ export const actions: Actions = {
 		// Hash the new password
 		const newPasswordHash = await hashPassword(newPassword);
 
-        console.log("newPasswordHash: ", newPasswordHash);
-
 		// Update the user's password
 		await db
 			.update(usersTable)
 			.set({ password_hash: newPasswordHash })
 			.where(eq(usersTable.id, userId));
-
-        console.log("password updated");
 
 		redirect(302, '/profile/settings');
 	}
