@@ -124,8 +124,10 @@
 		</div>
 
 		<div class="card-actions mt-auto justify-between pt-2">
-			<a href="profile/orders" class="btn btn-primary">See more details</a>
-			<a href="profile/orders" class="btn btn-accent">See all orders</a>
+			<a href="profile/orders" class="btn btn-primary hidden md:inline-flex md:w-auto"
+				>See more details</a
+			>
+			<a href="profile/orders" class="btn btn-accent w-full md:w-auto">See all orders</a>
 		</div>
 	</div>
 </div>

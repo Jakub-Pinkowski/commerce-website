@@ -79,7 +79,9 @@
 				<div class="stat-title">Status</div>
 				<div class={`stat-value ${statusClass}`}>{capitalizeFirstWord(currentStatus)}</div>
 				<div class="stat-desc">
-					{#if pointsToNextThreshold > 0}{pointsToNextThreshold} points to {capitalizeFirstWord(nextStatus)}
+					{#if pointsToNextThreshold > 0}{pointsToNextThreshold} points to {capitalizeFirstWord(
+							nextStatus
+						)}
 					{:else}
 						Max status achieved
 					{/if}
@@ -87,7 +89,7 @@
 			</div>
 		</div>
 		<div class="card-actions mt-auto justify-end pt-2">
-			<a href="profile/points" class="btn btn-accent">See your Commerce points</a>
+			<a href="profile/points" class="btn btn-accent w-full md:w-auto">See your Commerce points</a>
 		</div>
 	</div>
 </div>
