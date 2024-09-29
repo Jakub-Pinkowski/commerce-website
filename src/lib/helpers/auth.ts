@@ -39,6 +39,30 @@ export const validateEmailAndPassword = (
 	return { valid: true };
 };
 
+export const validateAddress = (
+	street: string,
+	city: string,
+	state: string,
+	postalCode: string,
+	country: string
+): { valid: boolean; message?: string } => {
+	if (
+		street.length < 3 ||
+		street.length > 255 ||
+		city.length < 3 ||
+		city.length > 255 ||
+		state.length < 3 ||
+		state.length > 255 ||
+		postalCode.length < 3 ||
+		postalCode.length > 255 ||
+		country.length < 3 ||
+		country.length > 255
+	) {
+		return { valid: false, message: 'Invalid address' };
+	}
+	return { valid: true };
+};
+
 export const hashPassword = async (password: string): Promise<string> => {
 	return await hash(password, {
 		memoryCost: 19456,

@@ -7,17 +7,47 @@ import { generateIdFromEntropySize } from 'lucia';
 import { POSTGRES_URL } from '$env/static/private';
 
 import { usersTable } from '$lib/drizzle/schema';
-import { verifyPassword, validatePassword, hashPassword } from '$lib/helpers/auth';
+import { validateAddress, verifyPassword, validatePassword, hashPassword } from '$lib/helpers/auth';
 
 import type { Actions } from './$types';
 
 export const actions: Actions = {
 	changeInfo: async (event) => {
-		console.log('changeInfo');
-	},
+        console.log("changeInfo");
+    },
 
 	changeAddress: async (event) => {
-		console.log('changeAddress');
+		const pool = createPool({ connectionString: POSTGRES_URL });
+		const db = drizzle(pool);
+
+		const formData = await event.request.formData();
+		const userId = formData.get('userId');
+		const street = formData.get('street');
+		const city = formData.get('city');
+		const state = formData.get('state');
+		const postalCode = formData.get('postalCode');
+		const country = formData.get('country');
+
+		if (
+			typeof userId !== 'string' ||
+			typeof street !== 'string' ||
+			typeof city !== 'string' ||
+			typeof state !== 'string' ||
+			typeof postalCode !== 'string' ||
+			typeof country !== 'string'
+		) {
+			return fail(400, {
+				message: 'Invalid form data'
+			});
+		}
+
+        // Check if the address is valid
+		const validation = validateAddress(street, city, state, postalCode, country);
+        if (!validation.valid) {
+            return fail(400, {
+                message: validation.message
+            });
+        }
 	},
 
 	changePassword: async (event) => {

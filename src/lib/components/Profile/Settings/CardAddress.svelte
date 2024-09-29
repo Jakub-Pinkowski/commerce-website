@@ -156,22 +156,42 @@
 
 		if (!address.street) {
 			addressErrors.street = 'Street is required';
+		} else if (address.street.length < 3 || address.street.length > 255) {
+			addressErrors.street = 'Street must be between 3 and 255 characters';
 		}
 
 		if (!address.city) {
 			addressErrors.city = 'City is required';
+		} else if (address.city.length < 3 || address.city.length > 255) {
+			addressErrors.city = 'City must be between 3 and 255 characters';
 		}
 
 		if (!address.state) {
 			addressErrors.state = 'State is required';
+		} else if (address.state.length < 3 || address.state.length > 255) {
+			addressErrors.state = 'State must be between 3 and 255 characters';
 		}
 
 		if (!address.postalCode) {
 			addressErrors.postalCode = 'Postal code is required';
+		} else if (address.postalCode.length < 3 || address.postalCode.length > 255) {
+			addressErrors.postalCode = 'Postal code must be between 3 and 255 characters';
 		}
 
 		if (!address.country) {
 			addressErrors.country = 'Country is required';
+		} else if (address.country.length < 3 || address.country.length > 255) {
+			addressErrors.country = 'Country must be between 3 and 255 characters';
+		}
+
+		if (
+			address.street === user.address?.street &&
+			address.city === user.address?.city &&
+			address.state === user.address?.state &&
+			address.postalCode === user.address?.postalCode &&
+			address.country === user.address?.country
+		) {
+			serverError = 'No changes were made';
 		}
 	};
 </script>
