@@ -126,7 +126,7 @@
 									id="name"
 									name="name"
 									type="text"
-									placeholder="Enter your name"
+									placeholder={user.name || 'Name'}
 									autocomplete="name"
 									error={nameError}
 									onFocus={handleNameInteraction}
@@ -150,7 +150,7 @@
 									id="email"
 									name="email"
 									type="email"
-									placeholder="Enter your email"
+									placeholder={user.email || 'Email'}
 									autocomplete="email"
 									error={emailError}
 									onFocus={handleEmailInteraction}
@@ -174,7 +174,7 @@
 									id="phone"
 									name="phone"
 									type="tel"
-									placeholder="Enter your phone number"
+									placeholder={user.phone_number || 'Phone'}
 									autocomplete="tel"
 									error={phoneError}
 									onFocus={handlePhoneInteraction}
