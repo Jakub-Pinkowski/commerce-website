@@ -2,6 +2,5 @@
 
 </script>
 
-<div>
+<h1 class="p-2 text-3xl font-bold">Orders</h1>
 
-</div>
