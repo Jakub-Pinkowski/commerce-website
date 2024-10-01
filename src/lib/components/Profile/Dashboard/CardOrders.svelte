@@ -26,7 +26,7 @@
 	};
 
 	// Handle order statuses
-    // TODO: Update SQL to allow only certain values
+    // TODO: Handle returned and cancelled statuses. Consider using "completed" once delivered after a certain period.
 	const orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
 
 	if (order.status === 'returned') {
