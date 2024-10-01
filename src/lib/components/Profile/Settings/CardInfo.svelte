@@ -1,4 +1,9 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+	import { quadOut } from 'svelte/easing';
+
+	import FormInput from '$lib/components/Common/FormInput.svelte';
+
 	import type { User } from '$lib/types/userTypes';
 
 	export let user: User;
@@ -11,6 +16,8 @@
 	let phoneError: string;
 	let serverError: string;
 	let smallErrors: boolean = true;
+	let smallLabels: boolean = true;
+	let isEditing: boolean = false;
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
@@ -83,6 +90,10 @@
 		}
 	};
 
+	const toggleEdit = () => {
+		isEditing = !isEditing;
+	};
+
 	const handleNameInteraction = () => {
 		nameError = '';
 		serverError = '';
@@ -100,7 +111,7 @@
 </script>
 
 <div class="card flex w-full bg-base-100 shadow-xl">
-	<div class="card-body p-4 md:p-8">
+	<form on:submit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Your information</h2>
 		<!-- TODO: Style later -->
 		<div class="flex-none overflow-x-auto">
@@ -108,7 +119,23 @@
 				<tbody>
 					<tr>
 						<th>Name</th>
-						{#if user.name}
+						{#if isEditing}
+							<td class="pb-0 pr-0 pt-0">
+								<FormInput
+									bind:value={name}
+									id="name"
+									name="name"
+									type="text"
+									placeholder="Enter your name"
+									autocomplete="name"
+									error={nameError}
+									onFocus={handleNameInteraction}
+									onInput={handleNameInteraction}
+									{smallErrors}
+									{smallLabels}
+								/>
+							</td>
+						{:else if user.name}
 							<td>{user.name}</td>
 						{:else}
 							<td class="text-gray-400">No name</td>
@@ -116,7 +143,23 @@
 					</tr>
 					<tr>
 						<th>Email</th>
-						{#if user.email}
+						{#if isEditing}
+							<td class="pb-0 pr-0 pt-0">
+								<FormInput
+									bind:value={email}
+									id="email"
+									name="email"
+									type="email"
+									placeholder="Enter your email"
+									autocomplete="email"
+									error={emailError}
+									onFocus={handleEmailInteraction}
+									onInput={handleEmailInteraction}
+									{smallErrors}
+									{smallLabels}
+								/>
+							</td>
+						{:else if user.email}
 							<td>{user.email}</td>
 						{:else}
 							<td class="text-gray-400">No email</td>
@@ -124,7 +167,23 @@
 					</tr>
 					<tr>
 						<th>Phone</th>
-						{#if user.phone_number}
+						{#if isEditing}
+							<td class="pb-0 pr-0 pt-0">
+								<FormInput
+									bind:value={phone}
+									id="phone"
+									name="phone"
+									type="tel"
+									placeholder="Enter your phone number"
+									autocomplete="tel"
+									error={phoneError}
+									onFocus={handlePhoneInteraction}
+									onInput={handlePhoneInteraction}
+									{smallErrors}
+									{smallLabels}
+								/>
+							</td>
+						{:else if user.phone_number}
 							<td>{user.phone_number}</td>
 						{:else}
 							<td class="text-gray-400">No phone</td>
@@ -132,9 +191,42 @@
 					</tr>
 				</tbody>
 			</table>
+			{#if serverError}
+				<div
+					role="alert"
+					class="alert alert-warning mt-4 text-whiteish"
+					transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-6 w-6 shrink-0 stroke-current"
+						fill="none"
+						viewBox="0 0 24 24"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+						/>
+					</svg>
+					<span>
+						{serverError}
+					</span>
+				</div>
+			{/if}
 		</div>
-		<div class="card-actions mt-auto justify-end pt-2">
-			<a href="/profile/settings" class="btn btn-accent w-full md:w-auto">Edit your info</a>
-		</div>
-	</div>
+		{#if isEditing}
+			<div class="card-actions mt-auto justify-between pt-2">
+				<button type="button" class="btn w-full md:w-auto" on:click={toggleEdit}> Cancel </button>
+				<button type="submit" class="btn btn-secondary w-full md:w-auto"> Save your info </button>
+			</div>
+		{:else}
+			<div class="card-actions mt-auto justify-end pt-2">
+				<button type="button" class="btn btn-accent w-full md:w-auto" on:click={toggleEdit}>
+					Edit your info
+				</button>
+			</div>
+		{/if}
+	</form>
 </div>

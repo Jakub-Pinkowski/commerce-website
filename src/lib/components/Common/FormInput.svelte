@@ -6,15 +6,17 @@
 	export let value: string;
 	export let id: string;
 	export let name: string;
-	export let type: 'email' | 'password' | 'text';
+	export let type: 'email' | 'password' | 'text' | 'number' | 'tel' | 'url' | 'search' = 'text';
 	export let placeholder;
 	export let autocomplete:
 		| 'on'
 		| 'off'
 		| 'email'
+        | 'name'
 		| 'username'
 		| 'new-password'
 		| 'current-password'
+		| 'tel'
 		| 'street-address'
 		| 'address-line1'
 		| 'address-line2'
