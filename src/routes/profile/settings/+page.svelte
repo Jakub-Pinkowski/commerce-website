@@ -7,7 +7,6 @@
 
 	export let data;
 	const user: User = data.user;
-	console.log('user: ', user);
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Settings</h1>
