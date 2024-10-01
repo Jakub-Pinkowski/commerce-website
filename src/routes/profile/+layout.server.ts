@@ -6,7 +6,6 @@ import { eq, inArray } from 'drizzle-orm';
 
 import { ordersTable, orderItemsTable, productsTable } from '$lib/drizzle/schema';
 
-import type { Product } from '$lib/types/productTypes';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async (event) => {
@@ -15,6 +14,7 @@ export const load: LayoutServerLoad = async (event) => {
 	const db = drizzle(pool);
 
 	const user = event.locals.user;
+    const isDev = process.env.NODE_ENV === 'development';
 
 	// Fetch orders for the user
 	const orders = await db.select().from(ordersTable).where(eq(ordersTable.user_id, user.id));
@@ -44,6 +44,7 @@ export const load: LayoutServerLoad = async (event) => {
 		.from(productsTable)
 		.where(inArray(productsTable.id, productIds));
 	// Map products to match the Product type
+    const baseUrl = 'http://localhost:5173/products';
 	const formattedProducts = products.map((product) => ({
 		id: product.id,
 		name: product.name,
@@ -59,7 +60,7 @@ export const load: LayoutServerLoad = async (event) => {
 		reviewRating: parseFloat(product.review_rating ?? '0'), // Convert to number, default to '0' if null
 		colors: typeof product.colors === 'string' ? product.colors.split(',') : product.colors, // Convert to array of strings
 		label: product.label ?? undefined, // Convert null to undefined
-		url: product.url,
+        url: isDev ? `${baseUrl}/${product.handle}` : product.url, // Corrected property name
 		imageUrl: product.imageurl, // Corrected property name
 		alternateImages: Array.isArray(product.alternate_images) ? product.alternate_images : [] // Ensure it's an array of strings
 	}));
