@@ -73,7 +73,7 @@
 				<div class="stat-desc">+30 in the last month</div>
 			</div>
 
-			<div class="!md:border-t-0 stat !border-l-0 !border-t-[1px] md:!border-l-[1px]">
+			<div class="md:!border-t-0 stat !border-l-0 !border-t-[1px] md:!border-l-[1px]">
 				<div class={`stat-figure ${statusClass}`}></div>
 				<div class="stat-title">Status</div>
 				<div class={`stat-value ${statusClass}`}>{capitalizeFirstWord(currentStatus)}</div>
