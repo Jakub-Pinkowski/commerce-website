@@ -3,17 +3,21 @@
 	import ImageCard from './CardOrders/ImageCard.svelte';
 
 	import type { User } from '$lib/types/userTypes';
+    import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 	export let user: User;
 	export let order: Order;
 	export let orderItems: OrderItem[];
+    export let products: Product[];
 	console.group('User, Orders, and Order Items');
 	console.log('User:', user);
 	console.log('Orders:', order);
 	console.log('Order Items:', orderItems);
+    console.log('Products:', products);
 	console.groupEnd();
 
+	// Format date
 	const formatDate = (date: Date): string => {
 		const day = String(date.getDate()).padStart(2, '0');
 		const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
@@ -22,7 +26,6 @@
 	};
 
 	// Handle order statuses
-	// NOTE: It's a placeholder for now
 	const orderStatuses = [
 		'pending',
 		'in_shipment',
@@ -35,9 +38,6 @@
 	let currentStatusIndex = orderStatuses.indexOf(order.status);
 
 	// Order images
-	// NOTE: It's a placeholder for now
-	let orderImages = 10;
-	let images = Array(orderImages).fill({});
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">
@@ -83,10 +83,10 @@
 			</div>
 			<!-- Desktop -->
 			<div class="hidden max-w-2xl flex-grow flex-wrap items-center gap-2 md:flex">
-				{#each images.slice(0, 9) as image}
+				{#each orderItems.slice(0, 9) as item}
 					<ImageCard {user} />
 				{/each}
-				{#if images.length > 9}
+				{#if orderItems.length > 9}
 					<!-- TODO: Replace with a link to this particular order -->
 					<a
 						href="profile/orders"
@@ -110,10 +110,10 @@
 			</div>
 			<!-- Mobile -->
 			<div class="flex flex-grow flex-wrap items-center gap-2 md:hidden">
-				{#each images.slice(0, 5) as image}
+				{#each orderItems.slice(0, 5) as image}
 					<ImageCard {user} />
 				{/each}
-				{#if images.length > 5}
+				{#if orderItems.length > 5}
 					<!-- TODO: Replace with a link to this particular order -->
 					<a
 						href="profile/orders"
@@ -138,9 +138,9 @@
 		</div>
 
 		<div class="card-actions mt-auto justify-between pt-2">
-			<a href="profile/orders" class="btn btn-primary hidden md:inline-flex md:w-auto"
-				>See more details</a
-			>
+			<a href="profile/orders" class="btn btn-primary hidden md:inline-flex md:w-auto">
+				See more details
+			</a>
 			<a href="profile/orders" class="btn btn-accent w-full md:w-auto">See all orders</a>
 		</div>
 	</div>

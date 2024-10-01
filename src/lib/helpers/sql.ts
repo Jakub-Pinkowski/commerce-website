@@ -1,4 +1,5 @@
-import type { Product } from '$lib/types/productTypes.ts';
+import type { Product } from '$lib/types/productTypes';
+// TODO: Convert to Drizzle at some point
 
 interface SQLProductRow {
 	id: number; // integer, not nullable
