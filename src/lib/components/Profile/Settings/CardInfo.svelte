@@ -21,7 +21,6 @@
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
-
 		resetErrors();
 		validateFields();
 
@@ -69,15 +68,15 @@
 	};
 
 	const validateFields = () => {
-		if (!name) {
+		if (!name && !user.name) {
 			nameError = 'Name is required';
 		}
 
-		if (!email) {
+		if (!email && !user.email) {
 			emailError = 'Email is required';
 		}
 
-		if (!phone) {
+		if (!phone && !user.phone_number) {
 			phoneError = 'Phone is required';
 		}
 
