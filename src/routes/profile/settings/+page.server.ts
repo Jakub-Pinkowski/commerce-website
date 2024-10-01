@@ -1,20 +1,44 @@
 import { createPool } from '@vercel/postgres';
-import { fail, redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq } from 'drizzle-orm';
-import { generateIdFromEntropySize } from 'lucia';
-import { lucia } from '$lib/server/auth';
 
 import { POSTGRES_URL } from '$env/static/private';
 
 import { usersTable } from '$lib/drizzle/schema';
-import { validateAddress, verifyPassword, validatePassword, hashPassword } from '$lib/helpers/auth';
+import {
+	validateName,
+    validatePhone,
+    validateEmail,
+	validateAddress,
+	verifyPassword,
+	validatePassword,
+	hashPassword
+} from '$lib/helpers/auth';
 
 import type { Actions } from './$types';
 
 export const actions: Actions = {
 	changeInfo: async (event) => {
-		console.log('changeInfo');
+		const pool = createPool({ connectionString: POSTGRES_URL });
+		const db = drizzle(pool);
+
+		const formData = await event.request.formData();
+		const userId = formData.get('userId');
+		const name = formData.get('name');
+		const phone = formData.get('phone');
+		const email = formData.get('email');
+
+		if (
+			typeof userId !== 'string' ||
+			typeof name !== 'string' ||
+			typeof phone !== 'string' ||
+			typeof email !== 'string'
+		) {
+			return fail(400, {
+				message: 'Invalid form data'
+			});
+		}
 	},
 
 	changeAddress: async (event) => {
@@ -28,8 +52,6 @@ export const actions: Actions = {
 		const state = formData.get('state');
 		const postalCode = formData.get('postalCode');
 		const country = formData.get('country');
-
-		console.log('formData: ', formData);
 
 		if (
 			typeof userId !== 'string' ||
@@ -74,7 +96,6 @@ export const actions: Actions = {
 				address_country: country
 			})
 			.where(eq(usersTable.id, userId));
-
 
 		return {
 			status: 'success',

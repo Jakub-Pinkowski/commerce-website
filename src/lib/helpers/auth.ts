@@ -16,6 +16,31 @@ export const validatePassword = (password: string): { valid: boolean; message?: 
 	return { valid: true };
 };
 
+export const validateName = (name: string): { valid: boolean; message?: string } => {
+	if (name.length < 3 || name.length > 31) {
+		return { valid: false, message: 'Name must be between 3 and 31 characters' };
+	}
+	return { valid: true };
+};
+
+export const validatePhone = (phone: string): { valid: boolean; message?: string } => {
+	if (phone.length < 5 || phone.length > 15) {
+		return { valid: false, message: 'Phone number must be between 3 and 31 characters' };
+	}
+	return { valid: true };
+};
+
+export const validateEmail = (email: string): { valid: boolean; message?: string } => {
+	if (
+		email.length < 3 ||
+		email.length > 31 ||
+		!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
+	) {
+		return { valid: false, message: 'Invalid email' };
+	}
+	return { valid: true };
+};
+
 export const validateEmailAndPassword = (
 	email: string,
 	password: string

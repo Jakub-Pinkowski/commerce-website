@@ -9,11 +9,11 @@
 	export let user: User;
 
 	let name: string;
-	let email: string;
 	let phone: string;
+	let email: string;
 	let nameError: string;
-	let emailError: string;
 	let phoneError: string;
+	let emailError: string;
 	let serverError: string;
 	let smallErrors: boolean = true;
 	let smallLabels: boolean = true;
@@ -37,8 +37,8 @@
 		}
 
 		formData.append('name', name);
-		formData.append('email', email);
 		formData.append('phone', phone);
+		formData.append('email', email);
 
 		const response = await fetch('?/changeInfo', {
 			method: 'POST',
@@ -84,7 +84,7 @@
 			emailError = 'Invalid email';
 		}
 
-		if (phone && !/^\d{10}$/.test(phone)) {
+		if (phone && !/^\d{5,15}$/.test(phone)) {
 			phoneError = 'Invalid phone number';
 		}
 	};
@@ -98,13 +98,13 @@
 		serverError = '';
 	};
 
-	const handleEmailInteraction = () => {
-		emailError = '';
+	const handlePhoneInteraction = () => {
+		phoneError = '';
 		serverError = '';
 	};
 
-	const handlePhoneInteraction = () => {
-		phoneError = '';
+	const handleEmailInteraction = () => {
+		emailError = '';
 		serverError = '';
 	};
 </script>
@@ -141,30 +141,6 @@
 						{/if}
 					</tr>
 					<tr>
-						<th>Email</th>
-						{#if isEditing}
-							<td class="pb-0 pr-0 pt-0">
-								<FormInput
-									bind:value={email}
-									id="email"
-									name="email"
-									type="email"
-									placeholder={user.email || ''}
-									autocomplete="email"
-									error={emailError}
-									onFocus={handleEmailInteraction}
-									onInput={handleEmailInteraction}
-									{smallErrors}
-									{smallLabels}
-								/>
-							</td>
-						{:else if user.email}
-							<td>{user.email}</td>
-						{:else}
-							<td class="text-gray-400">No email</td>
-						{/if}
-					</tr>
-					<tr>
 						<th>Phone</th>
 						{#if isEditing}
 							<td class="pb-0 pr-0 pt-0">
@@ -186,6 +162,30 @@
 							<td>{user.phone_number}</td>
 						{:else}
 							<td class="text-gray-400">No phone</td>
+						{/if}
+					</tr>
+					<tr>
+						<th>Email</th>
+						{#if isEditing}
+							<td class="pb-0 pr-0 pt-0">
+								<FormInput
+									bind:value={email}
+									id="email"
+									name="email"
+									type="email"
+									placeholder={user.email || ''}
+									autocomplete="email"
+									error={emailError}
+									onFocus={handleEmailInteraction}
+									onInput={handleEmailInteraction}
+									{smallErrors}
+									{smallLabels}
+								/>
+							</td>
+						{:else if user.email}
+							<td>{user.email}</td>
+						{:else}
+							<td class="text-gray-400">No email</td>
 						{/if}
 					</tr>
 				</tbody>
