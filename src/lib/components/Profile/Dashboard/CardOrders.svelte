@@ -69,11 +69,11 @@
 						</tr>
 						<tr>
 							<th>Items</th>
-							<td>10</td>
+							<td>{orderItems.length}</td>
 						</tr>
 						<tr>
 							<th>Total</th>
-							<td>{order.total_price}</td>
+							<td>${order.total_price}</td>
 						</tr>
 						<tr>
 							<th>Status</th>
