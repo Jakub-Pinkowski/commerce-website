@@ -6,8 +6,6 @@
 
 	export let user: User;
 
-	let placeholderPoints = 50;
-
 	let pointsThreshholds = {
 		bronze: 0,
 		silver: 60,
@@ -54,9 +52,9 @@
 		}
 	};
 
-	const currentStatus = getCurrentStatus(placeholderPoints);
-	const { status: nextStatus, threshold } = getNextThreshold(placeholderPoints);
-	const pointsToNextThreshold = threshold - placeholderPoints;
+	const currentStatus = getCurrentStatus(user.points);
+	const { status: nextStatus, threshold } = getNextThreshold(user.points);
+	const pointsToNextThreshold = threshold - user.points;
 	const statusClass = getStatusClass(currentStatus);
 </script>
 
@@ -68,7 +66,7 @@
 				<div class="stat-figure text-primary"></div>
 				<div class="stat-title">Points</div>
 				<div class="stat-value text-primary">
-					{placeholderPoints}
+					{user.points}
 				</div>
 				<div class="stat-desc">+30 in the last month</div>
 			</div>
