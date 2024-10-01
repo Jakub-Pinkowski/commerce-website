@@ -54,7 +54,6 @@
 				{/each}
 			</ul>
 		</div>
-		<!-- TODO: Make it dynamic later -->
 		<div class="flex w-full flex-col justify-between md:flex-row">
 			<div class="flex-none overflow-x-auto">
 				<table class="table">
