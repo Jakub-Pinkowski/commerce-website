@@ -36,7 +36,6 @@
 		<li><a href="/profile/points">Points</a></li>
 		<li><a href="/profile/orders">Orders</a></li>
 		<li><a href="/profile/settings">Settings</a></li>
-		<li><a href="/wishlist">Wishlist</a></li>
 		<li>
 			<a href="/profile/logout">
 				<button>Logout</button>
