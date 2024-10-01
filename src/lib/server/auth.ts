@@ -17,8 +17,6 @@ import {
 
 import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 
-import type { User } from '$lib/types/userTypes';
-
 const pool = createPool({ connectionString: POSTGRES_URL });
 const db = drizzle(pool);
 
