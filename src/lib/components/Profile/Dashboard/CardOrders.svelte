@@ -6,17 +6,23 @@
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 	export let user: User;
-	export let orders: Order[];
+	export let order: Order;
 	export let orderItems: OrderItem[];
 	console.group('User, Orders, and Order Items');
 	console.log('User:', user);
-	console.log('Orders:', orders);
+	console.log('Orders:', order);
 	console.log('Order Items:', orderItems);
 	console.groupEnd();
 
+	const formatDate = (date: Date): string => {
+		const day = String(date.getDate()).padStart(2, '0');
+		const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+		const year = date.getFullYear();
+		return `${day}.${month}.${year}`;
+	};
+
 	// Handle order statuses
 	// NOTE: It's a placeholder for now
-	let placeholderOrderStatus = 'Order in progress';
 	const orderStatuses = [
 		'pending',
 		'in_shipment',
@@ -26,7 +32,7 @@
 		'returned'
 	];
 
-	let currentStatusIndex = orderStatuses.indexOf(placeholderOrderStatus);
+	let currentStatusIndex = orderStatuses.indexOf(order.status);
 
 	// Order images
 	// NOTE: It's a placeholder for now
@@ -39,6 +45,7 @@
 		<div class="flex justify-between">
 			<h2 class="card-title">Most recent order</h2>
 			<!-- Desktop -->
+			<!-- TODO: Make it work again -->
 			<ul class="steps hidden gap-4 md:inline-grid">
 				{#each orderStatuses as status, index}
 					<li class="step text-sm {index <= currentStatusIndex ? 'step-primary' : ''}">
@@ -54,11 +61,11 @@
 					<tbody>
 						<tr>
 							<th>Date</th>
-							<td>26.09.2024</td>
+							<td>{formatDate(order.created_at)}</td>
 						</tr>
 						<tr>
 							<th>Order number</th>
-							<td>1212412</td>
+							<td>{order.id}</td>
 						</tr>
 						<tr>
 							<th>Items</th>
@@ -66,11 +73,11 @@
 						</tr>
 						<tr>
 							<th>Total</th>
-							<td>$150</td>
+							<td>{order.total_price}</td>
 						</tr>
 						<tr>
 							<th>Status</th>
-							<td>Order in progress</td>
+							<td class="capitalize">{order.status}</td>
 						</tr>
 					</tbody>
 				</table>
