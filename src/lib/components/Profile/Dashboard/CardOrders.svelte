@@ -83,8 +83,8 @@
 			</div>
 			<!-- Desktop -->
 			<div class="hidden max-w-2xl flex-grow flex-wrap items-center gap-2 md:flex">
-				{#each orderItems.slice(0, 9) as item}
-					<ImageCard {user} />
+				{#each products.slice(0, 9) as product}
+					<ImageCard {product} />
 				{/each}
 				{#if orderItems.length > 9}
 					<!-- TODO: Replace with a link to this particular order -->
@@ -110,8 +110,8 @@
 			</div>
 			<!-- Mobile -->
 			<div class="flex flex-grow flex-wrap items-center gap-2 md:hidden">
-				{#each orderItems.slice(0, 5) as image}
-					<ImageCard {user} />
+				{#each products.slice(0, 5) as product}
+					<ImageCard {product} />
 				{/each}
 				{#if orderItems.length > 5}
 					<!-- TODO: Replace with a link to this particular order -->
