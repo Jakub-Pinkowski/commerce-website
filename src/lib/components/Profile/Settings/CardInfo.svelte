@@ -36,9 +36,9 @@
 			return;
 		}
 
-		formData.append('name', name);
-		formData.append('phone', phone);
-		formData.append('email', email);
+		formData.append('name', name || user.name || '');
+		formData.append('phone', phone || user.phone_number || '');
+		formData.append('email', email || user.email || '');
 
 		const response = await fetch('?/changeInfo', {
 			method: 'POST',

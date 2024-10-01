@@ -8,8 +8,8 @@ import { POSTGRES_URL } from '$env/static/private';
 import { usersTable } from '$lib/drizzle/schema';
 import {
 	validateName,
-    validatePhone,
-    validateEmail,
+	validatePhone,
+	validateEmail,
 	validateAddress,
 	verifyPassword,
 	validatePassword,
@@ -24,6 +24,7 @@ export const actions: Actions = {
 		const db = drizzle(pool);
 
 		const formData = await event.request.formData();
+        console.log("formData", formData);
 		const userId = formData.get('userId');
 		const name = formData.get('name');
 		const phone = formData.get('phone');
@@ -39,6 +40,56 @@ export const actions: Actions = {
 				message: 'Invalid form data'
 			});
 		}
+
+		// Check if the name is valid
+		const nameValidation = validateName(name);
+		if (!nameValidation.valid) {
+			return fail(400, {
+				message: nameValidation.message
+			});
+		}
+
+		// Check if the phone is valid
+		const phoneValidation = validatePhone(phone);
+		if (!phoneValidation.valid) {
+			return fail(400, {
+				message: phoneValidation.message
+			});
+		}
+
+		// Check if the email is valid
+		const emailValidation = validateEmail(email);
+		if (!emailValidation.valid) {
+			return fail(400, {
+				message: emailValidation.message
+			});
+		}
+
+		// Get the user from the database
+		const userQuery = await db.select().from(usersTable).where(eq(usersTable.id, userId));
+		const user = userQuery[0];
+
+		// Check if the user exists
+		if (!user) {
+			return fail(400, {
+				message: 'User not found'
+			});
+		}
+
+		// Update the user's info
+		await db
+			.update(usersTable)
+			.set({
+				name,
+				phone_number: phone,
+				email
+			})
+			.where(eq(usersTable.id, userId));
+
+		return {
+			status: 'success',
+			message: "User's info updated successfully"
+		};
 	},
 
 	changeAddress: async (event) => {
