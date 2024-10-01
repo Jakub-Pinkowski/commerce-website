@@ -3,37 +3,35 @@
 	import ImageCard from './CardOrders/ImageCard.svelte';
 
 	import type { User } from '$lib/types/userTypes';
-    import type { Product } from '$lib/types/productTypes';
+	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 	export let user: User;
 	export let order: Order;
 	export let orderItems: OrderItem[];
-    export let products: Product[];
+	export let products: Product[];
 	console.group('User, Orders, and Order Items');
 	console.log('User:', user);
 	console.log('Orders:', order);
 	console.log('Order Items:', orderItems);
-    console.log('Products:', products);
+	console.log('Products:', products);
 	console.groupEnd();
 
 	// Format date
 	const formatDate = (date: Date): string => {
 		const day = String(date.getDate()).padStart(2, '0');
-		const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+		const month = String(date.getMonth() + 1).padStart(2, '0');
 		const year = date.getFullYear();
 		return `${day}.${month}.${year}`;
 	};
 
 	// Handle order statuses
-	const orderStatuses = [
-		'pending',
-		'in_shipment',
-		'delivered',
-		'completed',
-		'cancelled',
-		'returned'
-	];
+    // TODO: Update SQL to allow only certain values
+	const orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
+
+	if (order.status === 'returned') {
+		orderStatuses[orderStatuses.length - 1] = 'returned';
+	}
 
 	let currentStatusIndex = orderStatuses.indexOf(order.status);
 
@@ -46,13 +44,15 @@
 			<h2 class="card-title">Most recent order</h2>
 			<!-- Desktop -->
 			<!-- TODO: Make it work again -->
-			<ul class="steps hidden gap-4 md:inline-grid">
-				{#each orderStatuses as status, index}
-					<li class="step text-sm {index <= currentStatusIndex ? 'step-primary' : ''}">
-						{status}
-					</li>
-				{/each}
-			</ul>
+			{#if order.status !== 'cancelled'}
+				<ul class="steps hidden gap-4 md:inline-grid">
+					{#each orderStatuses as status, index}
+						<li class="step text-sm {index <= currentStatusIndex ? 'step-primary' : ''}">
+							{status}
+						</li>
+					{/each}
+				</ul>
+			{/if}
 		</div>
 		<div class="flex w-full flex-col justify-between md:flex-row">
 			<div class="flex-none overflow-x-auto">
@@ -76,7 +76,9 @@
 						</tr>
 						<tr>
 							<th>Status</th>
-							<td class="capitalize">{order.status}</td>
+							<td class="capitalize {order.status === 'cancelled' ? 'text-main-red' : ''}">
+								{order.status}
+							</td>
 						</tr>
 					</tbody>
 				</table>
