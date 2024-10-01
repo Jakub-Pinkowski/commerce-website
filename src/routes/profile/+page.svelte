@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { User } from '$lib/types/userTypes';
-
 	import CardInfo from '$lib/components/Profile/Dashboard/CardInfo.svelte';
 	import CardPoints from '$lib/components/Profile/Dashboard/CardPoints.svelte';
 	import CardOrders from '$lib/components/Profile/Dashboard/CardOrders.svelte';
+
+	import type { User } from '$lib/types/userTypes';
 
 	export let data;
 	const user: User = data.user;
