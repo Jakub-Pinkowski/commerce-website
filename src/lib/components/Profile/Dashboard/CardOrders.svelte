@@ -3,9 +3,16 @@
 	import ImageCard from './CardOrders/ImageCard.svelte';
 
 	import type { User } from '$lib/types/userTypes';
+	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 	export let user: User;
-    console.log("user", user);
+	export let orders: Order[];
+	export let orderItems: OrderItem[];
+	console.group('User, Orders, and Order Items');
+	console.log('User:', user);
+	console.log('Orders:', orders);
+	console.log('Order Items:', orderItems);
+	console.groupEnd();
 
 	// Handle order statuses
 	// NOTE: It's a placeholder for now
@@ -16,7 +23,7 @@
 		'delivered',
 		'completed',
 		'cancelled',
-        'returned',
+		'returned'
 	];
 
 	let currentStatusIndex = orderStatuses.indexOf(placeholderOrderStatus);
