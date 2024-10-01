@@ -81,7 +81,7 @@ export const actions: Actions = {
 			.update(usersTable)
 			.set({
 				name,
-				phone_number: phone,
+				phone: phone,
 				email
 			})
 			.where(eq(usersTable.id, userId));

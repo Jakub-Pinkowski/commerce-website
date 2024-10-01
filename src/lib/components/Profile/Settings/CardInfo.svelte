@@ -37,7 +37,7 @@
 		}
 
 		formData.append('name', name || user.name || '');
-		formData.append('phone', phone || user.phone_number || '');
+		formData.append('phone', phone || user.phone || '');
 		formData.append('email', email || user.email || '');
 
 		const response = await fetch('?/changeInfo', {
@@ -76,7 +76,7 @@
 			emailError = 'Email is required';
 		}
 
-		if (!phone && !user.phone_number) {
+		if (!phone && !user.phone) {
 			phoneError = 'Phone is required';
 		}
 
@@ -149,7 +149,7 @@
 									id="phone"
 									name="phone"
 									type="tel"
-									placeholder={user.phone_number || ''}
+									placeholder={user.phone || ''}
 									autocomplete="tel"
 									error={phoneError}
 									onFocus={handlePhoneInteraction}
@@ -158,8 +158,8 @@
 									{smallLabels}
 								/>
 							</td>
-						{:else if user.phone_number}
-							<td>{user.phone_number}</td>
+						{:else if user.phone}
+							<td>{user.phone}</td>
 						{:else}
 							<td class="text-gray-400">No phone</td>
 						{/if}

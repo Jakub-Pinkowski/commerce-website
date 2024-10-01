@@ -29,8 +29,8 @@
 					</tr>
 					<tr>
 						<th>Phone</th>
-						{#if user.phone_number}
-							<td>{user.phone_number}</td>
+						{#if user.phone}
+							<td>{user.phone}</td>
 						{:else}
 							<td class="text-gray-400">No phone</td>
 						{/if}

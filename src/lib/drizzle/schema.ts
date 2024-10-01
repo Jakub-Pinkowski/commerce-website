@@ -43,7 +43,7 @@ export const usersTable = pgTable('users', {
         mode: 'date'
     }).notNull(),
     name: text('name'),
-    phone_number: text('phone_number'),
+    phone: text('phone'),
     address_street: text('address_street'),
     address_city: text('address_city'),
     address_state: text('address_state'),

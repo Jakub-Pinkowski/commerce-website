@@ -39,7 +39,7 @@ export const lucia = new Lucia(adapter, {
 			googleId: attributes.google_id,
 			google_picture: attributes.google_picture,
 			created_at: attributes.created_at,
-			phoneNumber: attributes.phone_number,
+			phone: attributes.phone,
 			address: {
 				street: attributes.address_street,
 				city: attributes.address_city,
@@ -71,7 +71,7 @@ interface DatabaseUserAttributes {
 	google_id: string;
 	google_picture: string;
 	created_at: Date;
-	phone_number: string;
+	phone: string;
 	address_street: string;
 	address_city: string;
 	address_state: string;
