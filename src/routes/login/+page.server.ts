@@ -8,9 +8,11 @@ import { POSTGRES_URL } from '$env/static/private';
 import { usersTable } from '$lib/drizzle/schema';
 import { validateEmailAndPassword, verifyPassword, createUserSession } from '$lib/helpers/auth';
 
-import type { Actions } from './$types';
+import type { PageServerLoad, Actions } from './$types';
 
-// TODO: If already logged in, redirect to profile
+export const load: PageServerLoad = async (event) => {
+	if (event.locals.user) redirect(302, '/profile');
+};
 
 export const actions: Actions = {
 	default: async (event) => {
