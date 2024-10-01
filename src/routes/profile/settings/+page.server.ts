@@ -63,8 +63,6 @@ export const actions: Actions = {
 			});
 		}
 
-		console.log('user: ', user);
-
 		// Update the user's address
 		await db
 			.update(usersTable)
@@ -77,8 +75,6 @@ export const actions: Actions = {
 			})
 			.where(eq(usersTable.id, userId));
 
-		console.log("Updated user's address");
-		console.log('event.locals.user: ', event.locals.user);
 
 		return {
 			status: 'success',
