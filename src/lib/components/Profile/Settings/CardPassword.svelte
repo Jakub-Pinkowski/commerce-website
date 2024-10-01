@@ -118,6 +118,15 @@
 	<form on:submit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Password</h2>
 		<div class="flex-none overflow-x-auto p-1">
+			<!-- Hidden username field for accessibility -->
+			<input
+				type="text"
+				name="username"
+				value="placeholder_username"
+				hidden
+				autocomplete="username"
+			/>
+
 			<FormInput
 				bind:value={oldPassword}
 				id="password"
