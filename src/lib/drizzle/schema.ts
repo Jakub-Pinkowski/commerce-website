@@ -64,16 +64,16 @@ export const sessionsTable = pgTable('sessions', {
 });
 
 export const ordersTable = pgTable('orders', {
-	id: serial('id').primaryKey(),
-	user_id: text('user_id')
-		.notNull()
-		.references(() => usersTable.id),
-	total_price: numeric('total_price').notNull(),
-	status: text('status').notNull(),
-	created_at: timestamp('created_at', {
-		withTimezone: true,
-		mode: 'date'
-	}).notNull()
+    id: serial('id').primaryKey(),
+    user_id: text('user_id')
+        .notNull()
+        .references(() => usersTable.id),
+    total_price: numeric('total_price').notNull(),
+    status: text('status').notNull(),
+    created_at: timestamp('created_at', {
+        withTimezone: true,
+        mode: 'date'
+    }).notNull()
 });
 
 export const orderItemsTable = pgTable('order_items', {
