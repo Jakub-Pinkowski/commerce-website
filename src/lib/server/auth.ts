@@ -46,7 +46,8 @@ export const lucia = new Lucia(adapter, {
 				state: attributes.address_state,
 				postalCode: attributes.address_postalcode,
 				country: attributes.address_country
-			}
+			},
+            points: attributes.points
 		};
 	}
 });
@@ -77,4 +78,5 @@ interface DatabaseUserAttributes {
 	address_state: string;
 	address_postalcode: string;
 	address_country: string;
+    points: number;
 }

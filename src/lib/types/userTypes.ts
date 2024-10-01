@@ -16,6 +16,7 @@ export type User = {
 		postalCode: string;
 		country: string;
 	};
+    points: number;
 };
 
 export type Address = {

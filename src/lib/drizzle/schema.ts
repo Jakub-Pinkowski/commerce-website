@@ -31,24 +31,25 @@ export const productsTable = pgTable('products', {
 });
 
 export const usersTable = pgTable('users', {
-    id: text('id').primaryKey(),
-    email: text('email'),
-    password_hash: text('password_hash'),
-    github_id: integer('github_id'),
-    github_username: text('github_username'),
-    google_id: text('google_id'),
-    google_picture: text('google_picture'),
-    created_at: timestamp('created_at', {
-        withTimezone: true,
-        mode: 'date'
-    }).notNull(),
-    name: text('name'),
-    phone: text('phone'),
-    address_street: text('address_street'),
-    address_city: text('address_city'),
-    address_state: text('address_state'),
-    address_postalcode: text('address_postalcode'),
-    address_country: text('address_country')
+	id: text('id').primaryKey(),
+	email: text('email'),
+	password_hash: text('password_hash'),
+	github_id: integer('github_id'),
+	github_username: text('github_username'),
+	google_id: text('google_id'),
+	google_picture: text('google_picture'),
+	created_at: timestamp('created_at', {
+		withTimezone: true,
+		mode: 'date'
+	}).notNull(),
+	name: text('name'),
+	phone: text('phone'),
+	address_street: text('address_street'),
+	address_city: text('address_city'),
+	address_state: text('address_state'),
+	address_postalcode: text('address_postalcode'),
+	address_country: text('address_country'),
+	points: integer('points').default(0).notNull()
 });
 
 export const sessionsTable = pgTable('sessions', {
