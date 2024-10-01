@@ -1,4 +1,5 @@
 <script lang="ts">
+    // TODO: Add dropdowns for country and state
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 

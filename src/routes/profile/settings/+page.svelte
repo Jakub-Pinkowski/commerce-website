@@ -15,3 +15,5 @@
 	<CardAddress {user} />
 	<CardPassword {user} />
 </div>
+
+<!-- BUG: User is sometimes logged out when entering a form -->
