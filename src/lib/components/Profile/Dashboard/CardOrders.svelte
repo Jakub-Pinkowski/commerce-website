@@ -11,11 +11,12 @@
 	// NOTE: It's a placeholder for now
 	let placeholderOrderStatus = 'Order in progress';
 	const orderStatuses = [
-		'Order placed',
-		'Order confirmed',
-		'Order in progress',
-		'Order shipped',
-		'Order delivered'
+		'pending',
+		'in_shipment',
+		'delivered',
+		'completed',
+		'cancelled',
+        'returned',
 	];
 
 	let currentStatusIndex = orderStatuses.indexOf(placeholderOrderStatus);
