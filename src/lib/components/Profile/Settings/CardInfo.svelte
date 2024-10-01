@@ -126,7 +126,7 @@
 									id="name"
 									name="name"
 									type="text"
-									placeholder={user.name || 'Name'}
+									placeholder={user.name || ''}
 									autocomplete="name"
 									error={nameError}
 									onFocus={handleNameInteraction}
@@ -150,7 +150,7 @@
 									id="email"
 									name="email"
 									type="email"
-									placeholder={user.email || 'Email'}
+									placeholder={user.email || ''}
 									autocomplete="email"
 									error={emailError}
 									onFocus={handleEmailInteraction}
@@ -174,7 +174,7 @@
 									id="phone"
 									name="phone"
 									type="tel"
-									placeholder={user.phone_number || 'Phone'}
+									placeholder={user.phone_number || ''}
 									autocomplete="tel"
 									error={phoneError}
 									onFocus={handlePhoneInteraction}
