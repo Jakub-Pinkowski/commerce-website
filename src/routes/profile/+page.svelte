@@ -13,6 +13,8 @@
 	const orderItems: OrderItem[] = data.orderItems;
 	const products: Product[] = data.products;
 
+	let title = 'Recent order';
+
 	// Get the first order
 	const firstOrder: Order = orders[0];
 
@@ -24,5 +26,5 @@
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<CardInfo {user} />
 	<CardPoints {user} />
-	<CardOrders order={firstOrder} orderItems={firstOrderItems} {products} />
+	<CardOrders {title} order={firstOrder} orderItems={firstOrderItems} {products} />
 </div>

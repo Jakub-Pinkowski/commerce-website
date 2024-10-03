@@ -5,6 +5,7 @@
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
+    export let title: string;
 	export let order: Order;
 	export let orderItems: OrderItem[];
 	export let products: Product[];
@@ -30,7 +31,7 @@
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">
 	<div class="card-body p-4 md:p-8">
 		<div class="flex justify-between">
-			<h2 class="card-title">Most recent order</h2>
+			<h2 class="card-title">{title}</h2>
 			<!-- Desktop -->
 			{#if order.status !== 'cancelled'}
 				<ul class="steps hidden gap-4 md:inline-grid">

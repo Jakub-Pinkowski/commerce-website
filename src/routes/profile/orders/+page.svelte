@@ -9,6 +9,9 @@
 	const orders: Order[] = data.orders;
 	const orderItems: OrderItem[] = data.orderItems;
 	const products: Product[] = data.products;
+
+    // TODO: Makes no sense update it 
+    let title = 'Orders';
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Orders</h1>
@@ -16,6 +19,6 @@
 <div class="grid flex-grow grid-cols-1 gap-4">
 	<!-- TODO: Make it dynamic -->
 	{#each orders as order}
-		<CardOrders {order} {orderItems} {products} />
+		<CardOrders {title} {order} {orderItems} {products} />
 	{/each}
 </div>
