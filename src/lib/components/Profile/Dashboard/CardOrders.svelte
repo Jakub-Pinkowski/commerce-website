@@ -26,6 +26,13 @@
 	}
 
 	let currentStatusIndex = orderStatuses.indexOf(order.status);
+
+	// Manage expanded state
+	let isExpanded = false;
+
+	const toggleExpand = () => {
+		isExpanded = !isExpanded;
+	};
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">
@@ -62,7 +69,7 @@
 							<td>{order.id}</td>
 						</tr>
 						<tr>
-							<th>Items</th>
+							<th>Products</th>
 							<td>{orderItems.length}</td>
 						</tr>
 						<tr>
@@ -75,6 +82,13 @@
 								{order.status}
 							</td>
 						</tr>
+						<!-- TODO: Here show somehow all the products, maybe transition nicelie the images from the right here -->
+						{#if isExpanded}
+							<tr>
+								<th>Total</th>
+								<td>${order.total_price}</td>
+							</tr>
+						{/if}
 					</tbody>
 				</table>
 			</div>
@@ -134,11 +148,20 @@
 			</div>
 		</div>
 
+		<!-- TODO: Design this part -->
+		{#if isExpanded}
+			<div>Delivery address</div>
+			<div>Invoice address</div>
+			<div>Payment method</div>
+		{/if}
+
 		<div class="card-actions mt-auto justify-between pt-2">
-			<a href="profile/orders" class="btn btn-primary hidden md:inline-flex md:w-auto">
-				See more details
-			</a>
-			<a href="profile/orders" class="btn btn-accent w-full md:w-auto">See all orders</a>
+			<button class="btn btn-primary hidden md:inline-flex md:w-auto" on:click={toggleExpand}>
+				{isExpanded ? 'Hide details' : 'See more details'}
+			</button>
+			{#if title === 'Latest order'}
+				<a href="profile/orders" class="btn btn-accent w-full md:w-auto">See all orders</a>
+			{/if}
 		</div>
 	</div>
 </div>
