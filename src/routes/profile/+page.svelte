@@ -13,18 +13,34 @@
 	const orderItems: OrderItem[] = data.orderItems;
 	const products: Product[] = data.products;
 
-	let title = 'Recent order';
+	let title = 'Latest order';
 
-	// Get the first order
-	const firstOrder: Order = orders[0];
+	// Get the latest order
+	const sortedOrders = orders.sort(
+		(a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+	);
+	const latestOrder: Order = sortedOrders[0];
 
-	// Filter order items to match the first order's ID
-	const firstOrderItems: OrderItem[] = orderItems.filter((item) => item.order_id === firstOrder.id);
+	// Filter order items to match the latest order's ID
+	const latestOrderItems: OrderItem[] = orderItems.filter(
+		(item) => item.order_id === latestOrder.id
+	);
+
+	// Get the latest order's products
+	const latestOrderProductIds = latestOrderItems.map((item) => item.product_id);
+	const latestOrderProducts: Product[] = products.filter((product) =>
+		latestOrderProductIds.includes(product.id)
+	);
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Dashboard</h1>
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<CardInfo {user} />
 	<CardPoints {user} />
-	<CardOrders {title} order={firstOrder} orderItems={firstOrderItems} {products} />
+	<CardOrders
+		{title}
+		order={latestOrder}
+		orderItems={latestOrderItems}
+		products={latestOrderProducts}
+	/>
 </div>
