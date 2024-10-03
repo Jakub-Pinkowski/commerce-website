@@ -10,12 +10,12 @@
 	export let order: Order;
 	export let orderItems: OrderItem[];
 	export let products: Product[];
-	console.group('User, Orders, and Order Items');
-	console.log('User:', user);
-	console.log('Orders:', order);
-	console.log('Order Items:', orderItems);
-	console.log('Products:', products);
-	console.groupEnd();
+	// console.group('User, Orders, and Order Items');
+	// console.log('User:', user);
+	// console.log('Orders:', order);
+	// console.log('Order Items:', orderItems);
+	// console.log('Products:', products);
+	// console.groupEnd();
 
 	// Format date
 	const formatDate = (date: Date): string => {
@@ -34,8 +34,6 @@
 	}
 
 	let currentStatusIndex = orderStatuses.indexOf(order.status);
-
-	// Order images
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">

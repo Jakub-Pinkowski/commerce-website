@@ -24,7 +24,6 @@ export const actions: Actions = {
 		const db = drizzle(pool);
 
 		const formData = await event.request.formData();
-        console.log("formData", formData);
 		const userId = formData.get('userId');
 		const name = formData.get('name');
 		const phone = formData.get('phone');

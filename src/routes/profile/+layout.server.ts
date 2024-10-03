@@ -65,8 +65,6 @@ export const load: LayoutServerLoad = async (event) => {
 		alternateImages: Array.isArray(product.alternate_images) ? product.alternate_images : [] // Ensure it's an array of strings
 	}));
 
-	console.log('formattedProducts', formattedProducts);
-
 	return {
 		user,
 		orders: formattedOrders,
