@@ -26,11 +26,11 @@
 	};
 
 	// Handle order statuses
-    // TODO: Handle returned and cancelled statuses. Consider using "completed" once delivered after a certain period.
-	const orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
+	// TODO: Handle returned and cancelled statuses. Consider using "completed" once delivered after a certain period.
+	let orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
 
 	if (order.status === 'returned') {
-		orderStatuses[orderStatuses.length - 1] = 'returned';
+		orderStatuses.push('returned');
 	}
 
 	let currentStatusIndex = orderStatuses.indexOf(order.status);
@@ -47,7 +47,7 @@
 			{#if order.status !== 'cancelled'}
 				<ul class="steps hidden gap-4 md:inline-grid">
 					{#each orderStatuses as status, index}
-						<li class="step text-sm {index <= currentStatusIndex ? 'step-primary' : ''}">
+						<li class="step text-sm capitalize {index <= currentStatusIndex ? 'step-primary' : ''}">
 							{status}
 						</li>
 					{/each}
