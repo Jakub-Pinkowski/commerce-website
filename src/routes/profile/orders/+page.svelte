@@ -1,7 +1,6 @@
 <script lang="ts">
 	import CardOrders from '$lib/components/Profile/Dashboard/CardOrders.svelte';
 
-	import type { User } from '$lib/types/userTypes';
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
@@ -10,15 +9,23 @@
 	const orderItems: OrderItem[] = data.orderItems;
 	const products: Product[] = data.products;
 
-    // TODO: Makes no sense update it 
-    let title = 'Orders';
+	// Function to filter order items and products for each order
+	const getOrderDetails = (order: Order) => {
+		const filteredOrderItems = orderItems.filter((item) => item.order_id === order.id);
+		const productIds = filteredOrderItems.map((item) => item.product_id);
+		const filteredProducts = products.filter((product) => productIds.includes(product.id));
+		return { order, orderItems: filteredOrderItems, products: filteredProducts };
+	};
+
+	const ordersWithDetails = orders.map(getOrderDetails);
+
+	let title = 'Orders';
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Orders</h1>
 
 <div class="grid flex-grow grid-cols-1 gap-4">
-	<!-- TODO: Make it dynamic -->
-	{#each orders as order}
+	{#each ordersWithDetails as { order, orderItems, products }}
 		<CardOrders {title} {order} {orderItems} {products} />
 	{/each}
 </div>
