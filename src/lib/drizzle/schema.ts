@@ -1,35 +1,37 @@
 import {
+	boolean,
+	decimal,
+	integer,
+	numeric,
 	pgTable,
 	serial,
 	text,
 	timestamp,
-	uniqueIndex,
-	boolean,
-	numeric,
-	integer,
-	jsonb
+	varchar
 } from 'drizzle-orm/pg-core';
 
 export const productsTable = pgTable('products', {
-	id: serial('id').notNull(),
-	name: text('name').notNull(),
-	handle: text('handle').notNull(),
-	category: text('category').notNull(),
-	brand: text('brand').notNull(),
+	id: serial('id').primaryKey(),
+	name: varchar('name', { length: 255 }).notNull(),
+	handle: varchar('handle', { length: 255 }).notNull(),
+	category: varchar('category', { length: 255 }).notNull(),
+	brand: varchar('brand', { length: 255 }).notNull(),
 	description: text('description').notNull(),
-	price: numeric('price').notNull(),
-	list_price: numeric('list_price').notNull(),
+	price: decimal('price', { precision: 10, scale: 2 }).notNull(),
+	list_price: decimal('list_price', { precision: 10, scale: 2 }).notNull(),
 	in_stock: boolean('in_stock').notNull(),
 	inventory_level: integer('inventory_level').notNull(),
 	review_count: integer('review_count'),
-	review_rating: numeric('review_rating'),
-	colors: text('colors').notNull(),
-	label: text('label'),
-	url: text('url').notNull(),
-	imageurl: text('imageurl').notNull(),
-	alternate_images: jsonb('alternate_images').notNull()
+	review_rating: decimal('review_rating', { precision: 3, scale: 2 }),
+	colors: text('colors').array().notNull(),
+	label: varchar('label', { length: 255 }),
+	url: varchar('url', { length: 255 }).notNull(),
+	imageurl: varchar('imageurl', { length: 255 }).notNull(),
+	alternate_images: text('alternate_images').array().notNull(),
+	created_at: timestamp('created_at').defaultNow()
 });
 
+// TODO: Add better types later on varchar etc.
 export const usersTable = pgTable('users', {
 	id: text('id').primaryKey(),
 	email: text('email'),
@@ -52,6 +54,7 @@ export const usersTable = pgTable('users', {
 	points: integer('points').default(0).notNull()
 });
 
+// TODO: Add better types later on
 export const sessionsTable = pgTable('sessions', {
 	id: text('id').primaryKey(),
 	userId: text('user_id')
@@ -63,19 +66,21 @@ export const sessionsTable = pgTable('sessions', {
 	}).notNull()
 });
 
+// TODO: Add better types later on
 export const ordersTable = pgTable('orders', {
-    id: serial('id').primaryKey(),
-    user_id: text('user_id')
-        .notNull()
-        .references(() => usersTable.id),
-    total_price: numeric('total_price').notNull(),
-    status: text('status').notNull(),
-    created_at: timestamp('created_at', {
-        withTimezone: true,
-        mode: 'date'
-    }).notNull()
+	id: serial('id').primaryKey(),
+	user_id: text('user_id')
+		.notNull()
+		.references(() => usersTable.id),
+	total_price: numeric('total_price').notNull(),
+	status: text('status').notNull(),
+	created_at: timestamp('created_at', {
+		withTimezone: true,
+		mode: 'date'
+	}).notNull()
 });
 
+// TODO: Add better types later on
 export const orderItemsTable = pgTable('order_items', {
 	id: serial('id').primaryKey(),
 	order_id: integer('order_id')
