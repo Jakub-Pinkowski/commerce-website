@@ -1,4 +1,5 @@
 import type { Product } from '$lib/types/productTypes';
+import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 interface DrizzleProductRow {
 	id: number; // integer, not nullable
@@ -18,12 +19,24 @@ interface DrizzleProductRow {
 	url: string; // character varying, not nullable
 	imageurl: string; // character varying, not nullable
 	alternate_images: string[]; // array, not nullable
-	created_at: Date | null; // timestamp, nullable
+	created_at: Date; // timestamp, nullable
 }
 
-interface DrizzleOrdersProductRow {}
+interface DrizzleOrdersRow {
+	id: number; // integer, not nullable
+	user_id: string; // character varying, not nullable
+	total_price: string; // decimal, not nullable
+	status: string; // character varying, not nullable
+	created_at: Date; // timestamp, nullable
+}
 
-interface DrizzleOrderItemsRow {}
+interface DrizzleOrderItemsRow {
+    id: number; // integer, not nullable
+    order_id: number; // integer, not nullable
+    product_id: number; // integer, not nullable
+    quantity: number; // integer, not nullable
+    price: string; // decimal, not nullable
+}
 
 export const mapProducts = (result: DrizzleProductRow[]): Product[] => {
 	if (!result || !Array.isArray(result)) {
@@ -59,3 +72,34 @@ export const mapProducts = (result: DrizzleProductRow[]): Product[] => {
 		};
 	});
 };
+
+export const mapOrders = (result: DrizzleOrdersRow[]): Order[] => {
+    if (!result || !Array.isArray(result)) {
+        console.error('Invalid result format', result);
+        return [];
+    }
+
+    return result.map((row: DrizzleOrdersRow) => ({
+        id: row.id,
+        user_id: row.user_id,
+        total_price: parseFloat(row.total_price),
+        status: row.status,
+        created_at: row.created_at
+    }));
+
+};
+
+export const mapOrderItems = (result: DrizzleOrderItemsRow[]): OrderItem[] => {
+    if (!result || !Array.isArray(result)) {
+        console.error('Invalid result format', result);
+        return [];
+    }
+
+    return result.map((row: DrizzleOrderItemsRow) => ({
+        id: row.id,
+        order_id: row.order_id,
+        product_id: row.product_id,
+        quantity: row.quantity,
+        price: parseFloat(row.price)
+    }));
+}

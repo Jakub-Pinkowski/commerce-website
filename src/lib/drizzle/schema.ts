@@ -28,7 +28,7 @@ export const productsTable = pgTable('products', {
 	url: varchar('url', { length: 255 }).notNull(),
 	imageurl: varchar('imageurl', { length: 255 }).notNull(),
 	alternate_images: text('alternate_images').array().notNull(),
-	created_at: timestamp('created_at').defaultNow()
+    created_at: timestamp('created_at').defaultNow().notNull()
 });
 
 // TODO: Add better types later on varchar etc.
@@ -66,21 +66,16 @@ export const sessionsTable = pgTable('sessions', {
 	}).notNull()
 });
 
-// TODO: Add better types later on
 export const ordersTable = pgTable('orders', {
 	id: serial('id').primaryKey(),
-	user_id: text('user_id')
+	user_id: varchar('user_id')
 		.notNull()
 		.references(() => usersTable.id),
-	total_price: numeric('total_price').notNull(),
-	status: text('status').notNull(),
-	created_at: timestamp('created_at', {
-		withTimezone: true,
-		mode: 'date'
-	}).notNull()
+	total_price: decimal('total_price').notNull(),
+	status: varchar('status').notNull(),
+    created_at: timestamp('created_at').defaultNow().notNull()
 });
 
-// TODO: Add better types later on
 export const orderItemsTable = pgTable('order_items', {
 	id: serial('id').primaryKey(),
 	order_id: integer('order_id')
@@ -90,5 +85,5 @@ export const orderItemsTable = pgTable('order_items', {
 		.notNull()
 		.references(() => productsTable.id),
 	quantity: integer('quantity').notNull(),
-	price: numeric('price').notNull()
+	price: decimal('price').notNull()
 });

@@ -5,7 +5,7 @@ import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq, inArray } from 'drizzle-orm';
 
 import { ordersTable, orderItemsTable, productsTable } from '$lib/drizzle/schema';
-import { mapProducts } from '$lib/helpers/drizzle';
+import { mapProducts, mapOrders, mapOrderItems } from '$lib/helpers/drizzle';
 
 import type { LayoutServerLoad } from './$types';
 
@@ -16,40 +16,27 @@ export const load: LayoutServerLoad = async (event) => {
 
 	const user = event.locals.user;
 
-	// Fetch orders for the user
-	const orders = await db.select().from(ordersTable).where(eq(ordersTable.user_id, user.id));
-	const formattedOrders = orders.map((order) => ({
-		...order,
-		total_price: parseFloat(order.total_price)
-	}));
+	// Fetch and format orders for the user
+	const orders = mapOrders(
+		await db.select().from(ordersTable).where(eq(ordersTable.user_id, user.id))
+	);
 
-	// Extract order IDs
+	// Extract order IDs and fetch order items
 	const orderIds = orders.map((order) => order.id);
+	const orderItems = mapOrderItems(
+		await db.select().from(orderItemsTable).where(inArray(orderItemsTable.order_id, orderIds))
+	);
 
-	// Fetch order items for the user's orders
-	const orderItems = await db
-		.select()
-		.from(orderItemsTable)
-		.where(inArray(orderItemsTable.order_id, orderIds));
-	const formattedOrderItems = orderItems.map((item) => ({
-		...item,
-		price: parseFloat(item.price)
-	}));
-
-	// Fetch all the products for the order items
+	// Extract product IDs and fetch products
 	const productIds = orderItems.map((item) => item.product_id);
-
-	const products = await db
-		.select()
-		.from(productsTable)
-		.where(inArray(productsTable.id, productIds));
-
-    const formattedProducts = mapProducts(products);
+	const products = mapProducts(
+		await db.select().from(productsTable).where(inArray(productsTable.id, productIds))
+	);
 
 	return {
 		user,
-		orders: formattedOrders,
-		orderItems: formattedOrderItems,
-		products: formattedProducts
+		orders,
+		orderItems,
+		products
 	};
 };
