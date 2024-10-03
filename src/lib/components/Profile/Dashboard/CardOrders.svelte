@@ -2,20 +2,12 @@
 	// TODO: Use real data
 	import ImageCard from './CardOrders/ImageCard.svelte';
 
-	import type { User } from '$lib/types/userTypes';
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
-	export let user: User;
 	export let order: Order;
 	export let orderItems: OrderItem[];
 	export let products: Product[];
-	// console.group('User, Orders, and Order Items');
-	// console.log('User:', user);
-	// console.log('Orders:', order);
-	// console.log('Order Items:', orderItems);
-	// console.log('Products:', products);
-	// console.groupEnd();
 
 	// Format date
 	const formatDate = (date: Date): string => {
@@ -26,7 +18,6 @@
 	};
 
 	// Handle order statuses
-	// TODO: Handle returned and cancelled statuses. Consider using "completed" once delivered after a certain period.
 	let orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
 
 	if (order.status === 'returned') {
@@ -41,7 +32,6 @@
 		<div class="flex justify-between">
 			<h2 class="card-title">Most recent order</h2>
 			<!-- Desktop -->
-			<!-- TODO: Make it work again -->
 			{#if order.status !== 'cancelled'}
 				<ul class="steps hidden gap-4 md:inline-grid">
 					{#each orderStatuses as status, index}
@@ -82,7 +72,7 @@
 				</table>
 			</div>
 			<!-- Desktop -->
-			<div class="hidden max-w-2xl flex-grow flex-wrap items-center gap-2 md:flex">
+			<div class="hidden max-w-2xl flex-grow flex-wrap items-start justify-end gap-2 md:flex">
 				{#each products.slice(0, 9) as product}
 					<ImageCard {product} />
 				{/each}

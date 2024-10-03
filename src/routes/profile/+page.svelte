@@ -24,5 +24,5 @@
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<CardInfo {user} />
 	<CardPoints {user} />
-	<CardOrders {user} order={firstOrder} orderItems={firstOrderItems} {products} />
+	<CardOrders order={firstOrder} orderItems={firstOrderItems} {products} />
 </div>
