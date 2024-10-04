@@ -57,7 +57,7 @@
 		<div class="flex w-full flex-col justify-between md:flex-row">
 			<div class="flex-none overflow-x-auto">
 				<!-- Desktop -->
-				<table class="hidden md:table">
+				<table class="table hidden md:table">
 					<tbody>
 						<tr>
 							{#if recentOrder}

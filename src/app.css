@@ -73,6 +73,6 @@ a {
 /* Table */
 
 .table :where(th, td) {
-	padding-left: 0;
-    padding-right: 2rem;
+	padding-left: 0 !important;
+    padding-right: 2rem !important;
 }
