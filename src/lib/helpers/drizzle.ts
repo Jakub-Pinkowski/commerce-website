@@ -20,6 +20,7 @@ interface DrizzleProductRow {
 	imageurl: string; // character varying, not nullable
 	alternate_images: string[]; // array, not nullable
 	created_at: Date; // timestamp, nullable
+    updated_at: Date; // timestamp, nullable
 }
 
 interface DrizzleOrdersRow {
@@ -68,7 +69,8 @@ export const mapProducts = (result: DrizzleProductRow[]): Product[] => {
 			url,
 			imageUrl: row.imageurl,
 			alternateImages: row.alternate_images,
-			createdAt: row.created_at
+			createdAt: row.created_at,
+            updatedAt: row.created_at
 		};
 	});
 };
