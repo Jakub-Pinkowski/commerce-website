@@ -13,7 +13,7 @@
 	const orderItems: OrderItem[] = data.orderItems;
 	const products: Product[] = data.products;
 
-	let title = 'Latest order';
+	let recentOrder: boolean = true;
 
 	// Get the latest order
 	const sortedOrders = orders.sort(
@@ -38,7 +38,7 @@
 	<CardInfo {user} />
 	<CardPoints {user} />
 	<CardOrders
-		{title}
+        {recentOrder}
 		order={latestOrder}
 		orderItems={latestOrderItems}
 		products={latestOrderProducts}

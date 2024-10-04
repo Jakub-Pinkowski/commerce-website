@@ -18,14 +18,12 @@
 	};
 
 	const ordersWithDetails = orders.map(getOrderDetails);
-
-	let title = 'Orders';
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Orders</h1>
 
 <div class="grid flex-grow grid-cols-1 gap-4">
 	{#each ordersWithDetails as { order, orderItems, products }}
-		<CardOrders {title} {order} {orderItems} {products} />
+		<CardOrders {order} {orderItems} {products} />
 	{/each}
 </div>

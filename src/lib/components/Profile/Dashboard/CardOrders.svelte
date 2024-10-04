@@ -5,10 +5,10 @@
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
-	export let title: string;
 	export let order: Order;
 	export let orderItems: OrderItem[];
 	export let products: Product[];
+	export let recentOrder: boolean = false;
 
 	// Format date
 	const formatDate = (date: Date): string => {
@@ -38,8 +38,8 @@
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">
 	<div class="card-body p-4 md:p-8">
 		<div class="flex justify-between">
-			{#if title === 'Latest order'}
-				<h2 class="card-title">{title}</h2>
+			{#if recentOrder}
+				<h2 class="card-title">Latest order</h2>
 			{:else}
 				<h2 class="card-title">{formatDate(order.created_at)}</h2>
 			{/if}
@@ -56,18 +56,21 @@
 		</div>
 		<div class="flex w-full flex-col justify-between md:flex-row">
 			<div class="flex-none overflow-x-auto">
-
 				<!-- Desktop -->
 				<table class="hidden md:table">
 					<tbody>
 						<tr>
-							<th>Date</th>
+							{#if recentOrder}
+								<th>Date</th>
+							{/if}
 							<th>Order number</th>
 							<th>Products</th>
 							<th>Total</th>
 						</tr>
 						<tr>
-							<td>{formatDate(order.created_at)}</td>
+							{#if recentOrder}
+								<td>{formatDate(order.created_at)}</td>
+							{/if}
 							<td>{order.id}</td>
 							<td>{orderItems.length}</td>
 							<td>${order.total_price}</td>
@@ -95,7 +98,7 @@
 				<!-- Mobile -->
 				<table class="table md:hidden">
 					<tbody>
-						{#if title === 'Latest order'}
+						{#if recentOrder}
 							<tr>
 								<th>Date</th>
 								<td>{formatDate(order.created_at)}</td>
@@ -192,7 +195,7 @@
 			<button class="btn btn-primary hidden md:inline-flex md:w-auto" on:click={toggleExpand}>
 				{isExpanded ? 'Hide details' : 'See more details'}
 			</button>
-			{#if title === 'Latest order'}
+			{#if recentOrder}
 				<a href="profile/orders" class="btn btn-accent w-full md:w-auto">See all orders</a>
 			{/if}
 		</div>
