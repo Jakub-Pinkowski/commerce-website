@@ -33,19 +33,19 @@ export const lucia = new Lucia(adapter, {
 			email: attributes.email,
 			name: attributes.name,
 			githubId: attributes.github_id,
-			github_username: attributes.github_username,
+			githubUsername: attributes.github_username,
 			googleId: attributes.google_id,
-			google_picture: attributes.google_picture,
-			created_at: attributes.created_at,
+			googlePicture: attributes.google_picture,
+			createdAt: attributes.created_at,
 			phone: attributes.phone,
 			address: {
 				street: attributes.address_street,
 				city: attributes.address_city,
 				state: attributes.address_state,
-				postal_code: attributes.address_postalcode,
+				postalCode: attributes.address_postalcode,
 				country: attributes.address_country
 			},
-            points: attributes.points
+			points: attributes.points
 		};
 	}
 });
@@ -76,5 +76,5 @@ interface DatabaseUserAttributes {
 	address_state: string;
 	address_postalcode: string;
 	address_country: string;
-    points: number;
+	points: number;
 }

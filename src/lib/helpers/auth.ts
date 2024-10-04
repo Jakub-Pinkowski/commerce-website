@@ -68,7 +68,7 @@ export const validateAddress = (
 	street: string,
 	city: string,
 	state: string,
-	postal_code: string,
+	postalCode: string,
 	country: string
 ): { valid: boolean; message?: string } => {
 	if (
@@ -78,8 +78,8 @@ export const validateAddress = (
 		city.length > 255 ||
 		state.length < 3 ||
 		state.length > 255 ||
-		postal_code.length < 3 ||
-		postal_code.length > 255 ||
+		postalCode.length < 3 ||
+		postalCode.length > 255 ||
 		country.length < 3 ||
 		country.length > 255
 	) {
