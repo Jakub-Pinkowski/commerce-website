@@ -14,7 +14,7 @@
 		street: '',
 		city: '',
 		state: '',
-		postalCode: '',
+		postal_code: '',
 		country: ''
 	};
 
@@ -22,7 +22,7 @@
 		street: '',
 		city: '',
 		state: '',
-		postalCode: '',
+		postal_code: '',
 		country: ''
 	};
 
@@ -70,9 +70,9 @@
 			autocomplete: 'address-level1'
 		},
 		{
-			key: 'postalCode',
+			key: 'postal_code',
 			label: 'Postal Code',
-			placeholder: user.address?.postalCode ?? '',
+			placeholder: user.address?.postal_code ?? '',
 			autocomplete: 'postal-code'
 		},
 		{
@@ -103,7 +103,7 @@
 			addressErrors.street ||
 			addressErrors.city ||
 			addressErrors.state ||
-			addressErrors.postalCode ||
+			addressErrors.postal_code ||
 			addressErrors.country
 		) {
 			return;
@@ -121,7 +121,7 @@
 		formData.append('street', address.street || user.address?.street || '');
 		formData.append('city', address.city || user.address?.city || '');
 		formData.append('state', address.state || user.address?.state || '');
-		formData.append('postalCode', address.postalCode || user.address?.postalCode || '');
+		formData.append('postal_code', address.postal_code || user.address?.postal_code || '');
 		formData.append('country', address.country || user.address?.country || '');
 
 		const response = await fetch('?/changeAddress', {
@@ -149,7 +149,7 @@
 			street: '',
 			city: '',
 			state: '',
-			postalCode: '',
+			postal_code: '',
 			country: ''
 		};
 		serverError = '';
@@ -170,8 +170,8 @@
 			addressErrors.state = 'State must be between 3 and 255 characters';
 		}
 
-		if (address.postalCode && (address.postalCode.length < 3 || address.postalCode.length > 255)) {
-			addressErrors.postalCode = 'Postal code must be between 3 and 255 characters';
+		if (address.postal_code && (address.postal_code.length < 3 || address.postal_code.length > 255)) {
+			addressErrors.postal_code = 'Postal code must be between 3 and 255 characters';
 		}
 
 		if (address.country && (address.country.length < 3 || address.country.length > 255)) {
@@ -182,7 +182,7 @@
 			address.street === user.address?.street &&
 			address.city === user.address?.city &&
 			address.state === user.address?.state &&
-			address.postalCode === user.address?.postalCode &&
+			address.postal_code === user.address?.postal_code &&
 			address.country === user.address?.country
 		) {
 			serverError = 'No changes were made';

@@ -13,7 +13,7 @@ export type User = {
 		street: string;
 		city: string;
 		state: string;
-		postalCode: string;
+		postal_code: string;
 		country: string;
 	};
     points: number;
@@ -23,6 +23,6 @@ export type Address = {
 	street: string;
 	city: string;
 	state: string;
-	postalCode: string;
+	postal_code: string;
 	country: string;
 };

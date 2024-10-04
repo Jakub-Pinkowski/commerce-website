@@ -100,7 +100,7 @@ export const actions: Actions = {
 		const street = formData.get('street');
 		const city = formData.get('city');
 		const state = formData.get('state');
-		const postalCode = formData.get('postalCode');
+		const postal_code = formData.get('postal_code');
 		const country = formData.get('country');
 
 		if (
@@ -108,7 +108,7 @@ export const actions: Actions = {
 			typeof street !== 'string' ||
 			typeof city !== 'string' ||
 			typeof state !== 'string' ||
-			typeof postalCode !== 'string' ||
+			typeof postal_code !== 'string' ||
 			typeof country !== 'string'
 		) {
 			return fail(400, {
@@ -117,7 +117,7 @@ export const actions: Actions = {
 		}
 
 		// Check if the address is valid
-		const validation = validateAddress(street, city, state, postalCode, country);
+		const validation = validateAddress(street, city, state, postal_code, country);
 		if (!validation.valid) {
 			return fail(400, {
 				message: validation.message
@@ -142,7 +142,7 @@ export const actions: Actions = {
 				address_street: street,
 				address_city: city,
 				address_state: state,
-				address_postalcode: postalCode,
+				address_postalcode: postal_code,
 				address_country: country
 			})
 			.where(eq(usersTable.id, userId));

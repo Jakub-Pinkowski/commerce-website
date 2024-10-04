@@ -42,7 +42,7 @@ export const lucia = new Lucia(adapter, {
 				street: attributes.address_street,
 				city: attributes.address_city,
 				state: attributes.address_state,
-				postalCode: attributes.address_postalcode,
+				postal_code: attributes.address_postalcode,
 				country: attributes.address_country
 			},
             points: attributes.points

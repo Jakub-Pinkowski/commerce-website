@@ -37,11 +37,11 @@
 					</tr>
 					<tr>
 						<th>Address</th>
-						{#if user.address && user.address.street && user.address.city && user.address.state && user.address.postalCode && user.address.country}
+						{#if user.address && user.address.street && user.address.city && user.address.state && user.address.postal_code && user.address.country}
 							<td>
 								{user.address.street}, {user.address.city}<br />
 								{user.address.state}
-								{user.address.postalCode}, {user.address.country}
+								{user.address.postal_code}, {user.address.country}
 							</td>
 						{:else}
 							<td class="text-gray-400">No address</td>
