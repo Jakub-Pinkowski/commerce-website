@@ -22,12 +22,24 @@
 		(a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
 	);
 	const ordersWithDetails = sortedOrders.map(getOrderDetails);
+
+	// Load more orders
+	let visibleOrdersCount = 1;
+
+	function loadMoreOrders() {
+		visibleOrdersCount += 4;
+	}
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Orders</h1>
 
 <div class="grid flex-grow grid-cols-1 gap-4">
-	{#each ordersWithDetails as { order, orderItems, products }}
+	{#each ordersWithDetails.slice(0, visibleOrdersCount) as { order, orderItems, products }}
 		<CardOrders {order} {orderItems} {products} />
 	{/each}
+	{#if visibleOrdersCount < ordersWithDetails.length}
+		<button class=" btn btn-accent w-full md:mx-auto md:w-40" on:click={loadMoreOrders}>
+			Load More
+		</button>
+	{/if}
 </div>
