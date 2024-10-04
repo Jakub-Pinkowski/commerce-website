@@ -86,14 +86,28 @@
 						<h2 class="card-title">Products</h2>
 						<table class="table">
 							<tbody>
-								<tr>
-									<th>Products</th>
-									<td>{orderItems.length}</td>
-								</tr>
-								<tr>
-									<th>Total</th>
-									<td>${order.total_price}</td>
-								</tr>
+								{#each orderItems as item}
+									{#each products as product (product.id)}
+										{#if product.id === item.product_id}
+											<tr>
+												<td class="flex items-center">
+													<div class="flex-none">
+														<img
+															src={product.imageUrl}
+															alt={product.name}
+															class="h-24 w-24 object-cover"
+														/>
+													</div>
+													<div class="flex flex-1 flex-col gap-2 pl-4">
+														<p class="font-bold">{product.name}</p>
+														<p>Quantity: {item.quantity}</p>
+														<p>Price: ${product.price}</p>
+													</div>
+												</td>
+											</tr>
+										{/if}
+									{/each}
+								{/each}
 							</tbody>
 						</table>
 					</div>
