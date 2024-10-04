@@ -19,5 +19,3 @@ export type Product = {
     createdAt: Date;
     updatedAt: Date;
 };
-
-// TODO: Change create_at to mandatory
