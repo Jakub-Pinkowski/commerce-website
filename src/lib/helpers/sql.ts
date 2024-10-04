@@ -1,5 +1,6 @@
 import type { Product } from '$lib/types/productTypes';
 // TODO: Convert to Drizzle at some point
+// NOTE: Nulls are allowed here, but not in the Drizzle version
 
 interface SQLProductRow {
 	id: number; // integer, not nullable
@@ -19,6 +20,8 @@ interface SQLProductRow {
 	url: string; // character varying, not nullable
 	imageurl: string; // character varying, not nullable
 	alternate_images: any[]; // jsonb, not nullable
+    created_at: Date; // timestamp, nullable
+    updated_at: Date; // timestamp, nullable
 }
 
 // Map the result of a SQL query to a Product object
@@ -51,7 +54,9 @@ export const mapProducts = (result: any): Product[] => {
 			label: row.label,
 			url: url,
 			imageUrl: row.imageurl,
-			alternateImages: row.alternate_images
+			alternateImages: row.alternate_images,
+            createdAt: row.created_at,
+            updatedAt: row.updated_at
 		};
 	});
 }
