@@ -1,5 +1,5 @@
 export const pointsThreshholds = {
-	bronze: { points: 0, bonus: 'Basic membership benefits' },
+	bronze: { points: 0, bonus: 'Access to member-only content and newsletters' },
 	silver: { points: 60, bonus: '5% discount on all purchases' },
 	gold: { points: 120, bonus: '10% discount on all purchases' },
 	platinum: { points: 180, bonus: '15% discount on all purchases + free shipping' },

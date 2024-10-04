@@ -17,10 +17,10 @@
 			<p class="text-gray-600">Advance to unlock more rewards!</p>
 			<ul class="mt-2 list-inside list-disc space-y-2">
 				{#each Object.entries(pointsThreshholds) as [status, { points, bonus }]}
-					<li class={getStatusClass(status)}>
+					<li class={`pt-2 ${getStatusClass(status)}`}>
 						<strong class="capitalize">{status}:</strong>
 						{points} points
-						<p class="ml-4 text-sm text-gray-500">Bonus: {bonus}</p>
+						<p class="ml-4 text-sm text-gray-500">{bonus}</p>
 					</li>
 				{/each}
 			</ul>
