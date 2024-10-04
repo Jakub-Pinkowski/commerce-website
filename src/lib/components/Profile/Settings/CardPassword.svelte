@@ -16,6 +16,10 @@
 	let repeatNewPasswordError: string;
 	let serverError: string;
 	let smallErrors: boolean = true;
+	let toastSuccess: boolean = false;
+	let toastSuccessMessage: string = '';
+	let toastError: boolean = false;
+	let toastErrorMessage: string = '';
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
@@ -50,12 +54,15 @@
 			const data = JSON.parse(result.data);
 			const message = data[1];
 			serverError = message;
+		} else if (result.type === 'success') {
+			toastSuccess = true;
+			toastSuccessMessage = 'Your password has been updated';
+			setTimeout(() => {
+				toastSuccess = false;
+			}, 2000);
 		}
-
-		// TODO: Show toast/aler when password was succesfully changed
 	};
 
-	// TODO: Make errors look good
 	const resetErrors = () => {
 		oldPasswordError = '';
 		newPasswordError = '';
@@ -202,3 +209,18 @@
 		</div>
 	</form>
 </div>
+{#if toastSuccess}
+	<div class="toast toast-center toast-top z-10" transition:fade>
+		<div class="alert-add-to-cart alert">
+			<span> {@html toastSuccessMessage}</span>
+		</div>
+	</div>
+{/if}
+
+{#if toastError}
+	<div class="toast toast-center toast-top z-10" transition:fade>
+		<div class="alert-wishlist alert">
+			<span> {@html toastErrorMessage}</span>
+		</div>
+	</div>
+{/if}

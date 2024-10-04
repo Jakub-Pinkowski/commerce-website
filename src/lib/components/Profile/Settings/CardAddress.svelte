@@ -1,6 +1,6 @@
 <script lang="ts">
 	// TODO: Add dropdowns for country and state
-    // TODO: Add google maps integration for address
+	// TODO: Add google maps integration for address
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
@@ -31,6 +31,10 @@
 	let smallErrors: boolean = true;
 	let smallLabels: boolean = true;
 	let isEditing: boolean = false;
+	let toastSuccess: boolean = false;
+	let toastSuccessMessage: string = '';
+	let toastError: boolean = false;
+	let toastErrorMessage: string = '';
 
 	const addressFields: {
 		key: AddressKey;
@@ -139,9 +143,22 @@
 			const message = data[1];
 			serverError = message;
 		} else if (result.type === 'success') {
-			// TODO: Show toast/alert when address was succesfully changed
-			// TODO: Ideally I don't reload but pull the new instance of an user instead
-			location.reload();
+			toastSuccess = true;
+			toastSuccessMessage = 'Your information has been updated';
+			setTimeout(() => {
+				toastSuccess = false;
+			}, 2000);
+
+			// Update the user object with the new values
+			user.address = {
+				street: address.street || user.address?.street || '',
+				city: address.city || user.address?.city || '',
+				state: address.state || user.address?.state || '',
+				postalCode: address.postalCode || user.address?.postalCode || '',
+				country: address.country || user.address?.country || ''
+			};
+
+			toggleEdit();
 		}
 	};
 
@@ -171,10 +188,7 @@
 			addressErrors.state = 'State must be between 3 and 255 characters';
 		}
 
-		if (
-			address.postalCode &&
-			(address.postalCode.length < 3 || address.postalCode.length > 255)
-		) {
+		if (address.postalCode && (address.postalCode.length < 3 || address.postalCode.length > 255)) {
 			addressErrors.postalCode = 'Postal code must be between 3 and 255 characters';
 		}
 
@@ -268,3 +282,19 @@
 		{/if}
 	</form>
 </div>
+
+{#if toastSuccess}
+	<div class="toast toast-center toast-top z-10" transition:fade>
+		<div class="alert-add-to-cart alert">
+			<span> {@html toastSuccessMessage}</span>
+		</div>
+	</div>
+{/if}
+
+{#if toastError}
+	<div class="toast toast-center toast-top z-10" transition:fade>
+		<div class="alert-wishlist alert">
+			<span> {@html toastErrorMessage}</span>
+		</div>
+	</div>
+{/if}
