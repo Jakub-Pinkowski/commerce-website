@@ -25,6 +25,6 @@ export const capitalizeFirstWord = (str: string) => {
 };
 
 // Capitalize the firt letter and remove underscores from a string
-export const formatString = (str: string) => {
+export const capitalizeFirstWordAndRemoveUnderscode = (str: string) => {
     return capitalizeFirstWord(str.replace(/_/g, ' '));
 };

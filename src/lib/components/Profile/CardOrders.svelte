@@ -1,7 +1,7 @@
 <script lang="ts">
 	// TODO: Use real data
 	import ImageCard from './Dashboard/CardOrders/ImageCard.svelte';
-	import { formatString } from '$lib/helpers/utils';
+	import { capitalizeFirstWordAndRemoveUnderscode } from '$lib/helpers/utils';
 
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
@@ -249,6 +249,10 @@
 								<th>Total cost</th>
 								<td>${order.totalCost}</td>
 							</tr>
+							<tr>
+								<th>Points earned</th>
+								<td>{order.points}</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -263,16 +267,20 @@
 							</tr>
 							<tr>
 								<td>
-									{order.deliveryAddressStreet}, {order.deliveryAddressCity}<br />
-									{order.deliveryAddressState}
-									{order.deliveryAddressPostalcode}, {order.deliveryAddressCountry}
+									{order.deliveryAddressStreet}, {order.deliveryAddressCity}
+									<br />
+									{order.deliveryAddressState}, {order.deliveryAddressPostalcode}
+									<br />
+									{order.deliveryAddressCountry}
 								</td>
 								<td>
-									{order.invoiceAddressStreet}, {order.invoiceAddressCity}<br />
-									{order.invoiceAddressState}
-									{order.invoiceAddressPostalcode}, {order.invoiceAddressCountry}
+									{order.invoiceAddressStreet}, {order.invoiceAddressCity}
+									<br />
+									{order.invoiceAddressState}, {order.invoiceAddressPostalcode}
+									<br />
+									{order.invoiceAddressCountry}
 								</td>
-								<td> {formatString(order.paymentMethod)}</td>
+								<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
 							</tr>
 						</tbody>
 					</table>
