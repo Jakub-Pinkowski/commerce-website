@@ -247,12 +247,11 @@
 							{/if}
 							<tr>
 								<th>Total cost</th>
-								<td>${order.totalCost}</td>
+								<td class="font-bold">${order.totalCost}</td>
 							</tr>
-							<!-- TODO: Style this a bit later -->
 							<tr>
 								<th>Points earned</th>
-								<td>{order.points}</td>
+								<td class="font-bold text-primary">{order.points}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -288,7 +287,7 @@
 							</tr>
 							<tr>
 								<td>
-                                    {capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
+									{capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
 								</td>
 								<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
 							</tr>
