@@ -16,7 +16,7 @@ export const load: LayoutServerLoad = async (event) => {
 
 	const user = event.locals.user;
 
-	// Fetch and format orders for the user
+	// Fetch, format and sort orders for the user
     const orders = mapOrders(
         await db.select().from(ordersTable).where(eq(ordersTable.user_id, user.id))
     ).sort(
