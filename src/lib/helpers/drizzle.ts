@@ -54,6 +54,7 @@ interface DrizzleOrderItemsRow {
 	product_id: number; // integer, not nullable
 	quantity: number; // integer, not nullable
 	price: string; // decimal, not nullable
+    list_price: string; // decimal, not nullable
 }
 
 export const mapProducts = (result: DrizzleProductRow[]): Product[] => {
@@ -132,9 +133,10 @@ export const mapOrderItems = (result: DrizzleOrderItemsRow[]): OrderItem[] => {
 
 	return result.map((row: DrizzleOrderItemsRow) => ({
 		id: row.id,
-		order_id: row.order_id,
-		product_id: row.product_id,
+		orderId: row.order_id,
+		productId: row.product_id,
 		quantity: row.quantity,
-		price: parseFloat(row.price)
+		price: parseFloat(row.price),
+        listPrice: parseFloat(row.price)
 	}));
 };

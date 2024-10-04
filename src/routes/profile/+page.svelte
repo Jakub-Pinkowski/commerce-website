@@ -23,11 +23,11 @@
 
 	// Filter order items to match the latest order's ID
 	const latestOrderItems: OrderItem[] = orderItems.filter(
-		(item) => item.order_id === latestOrder.id
+		(item) => item.orderId === latestOrder.id
 	);
 
 	// Get the latest order's products
-	const latestOrderProductIds = latestOrderItems.map((item) => item.product_id);
+	const latestOrderProductIds = latestOrderItems.map((item) => item.productId);
 	const latestOrderProducts: Product[] = products.filter((product) =>
 		latestOrderProductIds.includes(product.id)
 	);

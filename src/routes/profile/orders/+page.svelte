@@ -11,8 +11,8 @@
 
 	// Function to filter order items and products for each order
 	const getOrderDetails = (order: Order) => {
-		const filteredOrderItems = orderItems.filter((item) => item.order_id === order.id);
-		const productIds = filteredOrderItems.map((item) => item.product_id);
+		const filteredOrderItems = orderItems.filter((item) => item.orderId === order.id);
+		const productIds = filteredOrderItems.map((item) => item.productId);
 		const filteredProducts = products.filter((product) => productIds.includes(product.id));
 		return { order, orderItems: filteredOrderItems, products: filteredProducts };
 	};

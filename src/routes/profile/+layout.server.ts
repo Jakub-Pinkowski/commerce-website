@@ -28,7 +28,7 @@ export const load: LayoutServerLoad = async (event) => {
 	);
 
 	// Extract product IDs and fetch products
-	const productIds = orderItems.map((item) => item.product_id);
+	const productIds = orderItems.map((item) => item.productId);
 	const products = mapProducts(
 		await db.select().from(productsTable).where(inArray(productsTable.id, productIds))
 	);

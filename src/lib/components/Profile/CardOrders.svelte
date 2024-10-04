@@ -88,7 +88,7 @@
 							<tbody>
 								{#each orderItems as item}
 									{#each products as product (product.id)}
-										{#if product.id === item.product_id}
+										{#if product.id === item.productId}
 											<tr>
 												<td class="flex items-center">
 													<div class="flex-none">

@@ -103,5 +103,6 @@ export const orderItemsTable = pgTable('order_items', {
 		.notNull()
 		.references(() => productsTable.id),
 	quantity: integer('quantity').notNull(),
-	price: decimal('price').notNull()
+	price: decimal('price').notNull(),
+    list_price: decimal('list_price').notNull()
 });
