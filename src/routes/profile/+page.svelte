@@ -29,6 +29,8 @@
 	const latestOrderProducts: Product[] = products.filter((product) =>
 		latestOrderProductIds.includes(product.id)
 	);
+
+	// BUG: User is sometimes logged out when entering a form
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Dashboard</h1>

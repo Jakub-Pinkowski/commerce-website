@@ -1,11 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fly, fade, blur } from 'svelte/transition';
-
-	import type { User } from '$lib/types/userTypes';
-
-	export let data;
-	const user: User = data.user;
+	import { fly } from 'svelte/transition';
 
 	let dropdown: HTMLDivElement;
 	let dropdownOpen: boolean = false;
