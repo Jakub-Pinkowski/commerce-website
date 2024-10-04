@@ -1,5 +1,5 @@
 <script lang="ts">
-    // TODO: Add dropdowns for country and state
+	// TODO: Add dropdowns for country and state
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
@@ -140,7 +140,7 @@
 		} else if (result.type === 'success') {
 			// TODO: Show toast/alert when address was succesfully changed
 			// TODO: Ideally I don't reload but pull the new instance of an user instead
-            location.reload();
+			location.reload();
 		}
 	};
 
@@ -170,7 +170,10 @@
 			addressErrors.state = 'State must be between 3 and 255 characters';
 		}
 
-		if (address.postal_code && (address.postal_code.length < 3 || address.postal_code.length > 255)) {
+		if (
+			address.postal_code &&
+			(address.postal_code.length < 3 || address.postal_code.length > 255)
+		) {
 			addressErrors.postal_code = 'Postal code must be between 3 and 255 characters';
 		}
 

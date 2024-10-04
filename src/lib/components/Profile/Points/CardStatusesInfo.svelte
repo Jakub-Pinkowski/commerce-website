@@ -1,8 +1,5 @@
 <script lang="ts">
-	import {
-		pointsThreshholds,
-		getStatusClass
-	} from '$lib/helpers/points';
+	import { pointsThreshholds, getStatusClass } from '$lib/helpers/points';
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl">
