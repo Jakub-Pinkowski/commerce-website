@@ -1,5 +1,4 @@
 <script lang="ts">
-	// TODO: Replace with user's points later
 	import { capitalizeFirstWord } from '$lib/helpers/utils';
 	import {
 		pointsThreshholds,
