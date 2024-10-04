@@ -29,6 +29,16 @@
   - Navigate through categories using breadcrumbs
 - Responsive Design
   - Mobile and desktop support
+- User Authentication
+  - Register and login with email
+  - OAuth login with GitHub and Google
+- User Profile
+  - View and update user profile information
+  - Manage addresses
+  - View order history
+- Points System
+  - Earn points for purchases
+  - Redeem points for discounts
 - New features coming soon!
 
 ## Technologies Used
