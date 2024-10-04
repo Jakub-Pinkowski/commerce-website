@@ -123,7 +123,6 @@
 				</table>
 			</div>
 
-			<!-- Desktop -->
 			<div
 				class="flex flex-grow flex-wrap items-center gap-2 md:max-w-xl md:items-start md:justify-end"
 			>
