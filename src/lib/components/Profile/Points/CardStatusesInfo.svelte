@@ -9,7 +9,7 @@
 
 <div class="card w-full bg-base-100 shadow-xl">
 	<div class="card-body p-4 md:p-8">
-		<h2 class="card-title mb-4 text-2xl font-bold text-gray-800">Status 101</h2>
+		<h2 class="card-title">Status 101</h2>
 		<div>
 			<p class="mb-2 text-gray-600">
 				Your status is determined by the number of points you have accumulated over time.
@@ -20,7 +20,7 @@
 					<li class={`pt-2 ${getStatusClass(status)}`}>
 						<strong class="capitalize">{status}:</strong>
 						{points} points
-						<p class="ml-4 text-sm text-gray-500">{bonus}</p>
+						<p class="ml-6 text-sm text-gray-500">{bonus}</p>
 					</li>
 				{/each}
 			</ul>
