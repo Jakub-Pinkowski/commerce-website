@@ -1,4 +1,5 @@
 <script lang="ts">
+    // FIXME: When there are no orders, orderItems or products the page crashes
 	import CardInfo from '$lib/components/Profile/Dashboard/CardInfo.svelte';
 	import CardPoints from '$lib/components/Profile/CardPoints.svelte';
 	import CardOrders from '$lib/components/Profile/CardOrders.svelte';
@@ -8,10 +9,12 @@
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 	export let data;
+	console.log('data', data);
 	const user: User = data.user;
-	const orders: Order[] = data.orders;
-	const orderItems: OrderItem[] = data.orderItems;
-	const products: Product[] = data.products;
+	const orders: Order[] = data.orders ?? [];
+	console.log('orders', orders);
+	const orderItems: OrderItem[] = data.orderItems ?? [];
+	const products: Product[] = data.products ?? [];
 
 	let recentOrder: boolean = true;
 	let dashboardView: boolean = true;

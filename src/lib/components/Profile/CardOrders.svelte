@@ -10,6 +10,7 @@
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 	export let order: Order;
+    console.log("order", order);
 	export let orderItems: OrderItem[];
 	export let products: Product[];
 	export let recentOrder: boolean = false;

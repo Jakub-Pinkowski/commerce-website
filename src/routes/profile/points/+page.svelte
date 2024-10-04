@@ -16,7 +16,7 @@
 
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<CardPoints {user} {orders} />
-	<CardPointsInfo {user} {orders} />
+	<CardPointsInfo />
 	<CardStatusesInfo />
 	<CardPointsHistory {orders} />
 </div>
