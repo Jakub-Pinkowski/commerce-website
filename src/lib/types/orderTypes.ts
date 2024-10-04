@@ -2,10 +2,27 @@
 // TODO: Change all of them to camelCase
 export type Order = {
 	id: number;
-	user_id: string;
-	total_price: number;
+	userId: string;
+	totalPrice: number;
 	status: string;
-	created_at: Date;
+	createdAt: Date;
+	updatedAt: Date;
+	deliveryAddressStreet: string;
+	deliveryAddressCity: string;
+	deliveryAddressState: string;
+	deliveryAddressPostalcode: string;
+	deliveryAddressCountry: string;
+	invoiceAddressStreet: string;
+	invoiceAddressCity: string;
+	invoiceAddressState: string;
+	invoiceAddressPostalcode: string;
+	invoiceAddressCountry: string;
+	paymentMethod: string;
+	paymentStatus: string;
+	shippingMethod: string;
+	trackingNumber?: string;
+	points: number;
+	customerNotes?: string;
 };
 
 export type OrderItem = {

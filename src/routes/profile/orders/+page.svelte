@@ -19,7 +19,7 @@
 
 	// Sort orders by date in descending order
 	const sortedOrders = orders.sort(
-		(a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+		(a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
 	);
 	const ordersWithDetails = sortedOrders.map(getOrderDetails);
 </script>

@@ -41,7 +41,7 @@
 			{#if recentOrder}
 				<h2 class="card-title">Latest order</h2>
 			{:else}
-				<h2 class="card-title">{formatDate(order.created_at)}</h2>
+				<h2 class="card-title">{formatDate(order.createdAt)}</h2>
 			{/if}
 			<!-- Desktop -->
 			{#if order.status !== 'cancelled'}
@@ -70,11 +70,11 @@
 						</tr>
 						<tr>
 							{#if recentOrder}
-								<td>{formatDate(order.created_at)}</td>
+								<td>{formatDate(order.createdAt)}</td>
 							{/if}
 							<td>{order.id}</td>
 							<td>{orderItems.length}</td>
-							<td>${order.total_price}</td>
+							<td>${order.totalPrice}</td>
 							<td class="capitalize {order.status === 'cancelled' ? 'text-main-red' : ''}">
 								{order.status}
 							</td>
@@ -119,7 +119,7 @@
 						{#if recentOrder}
 							<tr>
 								<th>Date</th>
-								<td>{formatDate(order.created_at)}</td>
+								<td>{formatDate(order.createdAt)}</td>
 							</tr>
 						{/if}
 						<tr>
@@ -132,7 +132,7 @@
 						</tr>
 						<tr>
 							<th>Total</th>
-							<td>${order.total_price}</td>
+							<td>${order.totalPrice}</td>
 						</tr>
 						<tr>
 							<th>Status</th>
@@ -153,7 +153,7 @@
 								</tr>
 								<tr>
 									<th>Total</th>
-									<td>${order.total_price}</td>
+									<td>${order.totalPrice}</td>
 								</tr>
 							</tbody>
 						</table>

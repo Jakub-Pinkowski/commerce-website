@@ -20,23 +20,40 @@ interface DrizzleProductRow {
 	imageurl: string; // character varying, not nullable
 	alternate_images: string[]; // array, not nullable
 	created_at: Date; // timestamp, nullable
-    updated_at: Date; // timestamp, nullable
+	updated_at: Date; // timestamp, nullable
 }
 
 interface DrizzleOrdersRow {
 	id: number; // integer, not nullable
 	user_id: string; // character varying, not nullable
 	total_price: string; // decimal, not nullable
-	status: string; // character varying, not nullable
-	created_at: Date; // timestamp, nullable
+	status: string; // character varying, not nullable, CONSTRAINS: 'placed', 'processed', 'dispatched', 'delivered', 'returned', 'cancelled'
+	created_at: Date; // timestamp, not nullable
+	updated_at: Date; // timestamp, not nullable
+	delivery_address_street: string; // character varying, not nullable
+	delivery_address_city: string; // character varying, not nullable
+	delivery_address_state: string; // character varying, not nullable
+	delivery_address_postalcode: string; // character varying, not nullable
+	delivery_address_country: string; // character varying, not nullable
+	invoice_address_street: string; // character varying, not nullable
+	invoice_address_city: string; // character varying, not nullable
+	invoice_address_state: string; // character varying, not nullable
+	invoice_address_postalcode: string; // character varying, not nullable
+	invoice_address_country: string; // character varying, not nullable
+	payment_method: string; // character varying, not nullable, CONSTRAINS: 'debit_card', 'credit_card', 'paypal', 'cash_on_delivery'
+	payment_status: string; // character varying, not nullable, CONSTRAINS: 'pending', 'completed', 'failed'
+	shipping_method: string; // character varying, not nullable, CONSTRAINS: 'standard', 'express', 'overnight'
+	tracking_number?: string; // character varying, nullable
+	points: number; // integer, not nullable
+	customer_notes?: string; // text, nullable
 }
 
 interface DrizzleOrderItemsRow {
-    id: number; // integer, not nullable
-    order_id: number; // integer, not nullable
-    product_id: number; // integer, not nullable
-    quantity: number; // integer, not nullable
-    price: string; // decimal, not nullable
+	id: number; // integer, not nullable
+	order_id: number; // integer, not nullable
+	product_id: number; // integer, not nullable
+	quantity: number; // integer, not nullable
+	price: string; // decimal, not nullable
 }
 
 export const mapProducts = (result: DrizzleProductRow[]): Product[] => {
@@ -70,38 +87,54 @@ export const mapProducts = (result: DrizzleProductRow[]): Product[] => {
 			imageUrl: row.imageurl,
 			alternateImages: row.alternate_images,
 			createdAt: row.created_at,
-            updatedAt: row.created_at
+			updatedAt: row.created_at
 		};
 	});
 };
 
 export const mapOrders = (result: DrizzleOrdersRow[]): Order[] => {
-    if (!result || !Array.isArray(result)) {
-        console.error('Invalid result format', result);
-        return [];
-    }
+	if (!result || !Array.isArray(result)) {
+		console.error('Invalid result format', result);
+		return [];
+	}
 
-    return result.map((row: DrizzleOrdersRow) => ({
-        id: row.id,
-        user_id: row.user_id,
-        total_price: parseFloat(row.total_price),
-        status: row.status,
-        created_at: row.created_at
-    }));
-
+	return result.map((row: DrizzleOrdersRow) => ({
+		id: row.id,
+		userId: row.user_id,
+		totalPrice: parseFloat(row.total_price),
+		status: row.status,
+		createdAt: row.created_at,
+        updatedAt: row.updated_at,
+        deliveryAddressStreet: row.delivery_address_street,
+        deliveryAddressCity: row.delivery_address_city,
+        deliveryAddressState: row.delivery_address_state,
+        deliveryAddressPostalcode: row.delivery_address_postalcode,
+        deliveryAddressCountry: row.delivery_address_country,
+        invoiceAddressStreet: row.invoice_address_street,
+        invoiceAddressCity: row.invoice_address_city,
+        invoiceAddressState: row.invoice_address_state,
+        invoiceAddressPostalcode: row.invoice_address_postalcode,
+        invoiceAddressCountry: row.invoice_address_country,
+        paymentMethod: row.payment_method,
+        paymentStatus: row.payment_status,
+        shippingMethod: row.shipping_method,
+        trackingNumber: row.tracking_number ?? undefined,
+        points: row.points,
+        customerNotes: row.customer_notes ?? undefined
+	}));
 };
 
 export const mapOrderItems = (result: DrizzleOrderItemsRow[]): OrderItem[] => {
-    if (!result || !Array.isArray(result)) {
-        console.error('Invalid result format', result);
-        return [];
-    }
+	if (!result || !Array.isArray(result)) {
+		console.error('Invalid result format', result);
+		return [];
+	}
 
-    return result.map((row: DrizzleOrderItemsRow) => ({
-        id: row.id,
-        order_id: row.order_id,
-        product_id: row.product_id,
-        quantity: row.quantity,
-        price: parseFloat(row.price)
-    }));
-}
+	return result.map((row: DrizzleOrderItemsRow) => ({
+		id: row.id,
+		order_id: row.order_id,
+		product_id: row.product_id,
+		quantity: row.quantity,
+		price: parseFloat(row.price)
+	}));
+};
