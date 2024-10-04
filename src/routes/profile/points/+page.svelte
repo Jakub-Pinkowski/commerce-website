@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CardPointsInfo from '$lib/components/Profile/Points/CardPointsInfo.svelte';
 	import CardStatusesInfo from '$lib/components/Profile/Points/CardStatusesInfo.svelte';
-	import CardPoints from '$lib/components/Profile/Dashboard/CardPoints.svelte';
+	import CardPoints from '$lib/components/Profile/CardPoints.svelte';
     import CardPointsHistory from '$lib/components/Profile/Points/CardPointsHistory.svelte';
 
 	import type { User } from '$lib/types/userTypes';

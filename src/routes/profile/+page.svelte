@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CardInfo from '$lib/components/Profile/Dashboard/CardInfo.svelte';
-	import CardPoints from '$lib/components/Profile/Dashboard/CardPoints.svelte';
+	import CardPoints from '$lib/components/Profile/CardPoints.svelte';
 	import CardOrders from '$lib/components/Profile/CardOrders.svelte';
 
 	import type { User } from '$lib/types/userTypes';
