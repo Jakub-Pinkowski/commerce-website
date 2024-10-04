@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CardOrders from '$lib/components/Profile/Dashboard/CardOrders.svelte';
+	import CardOrders from '$lib/components/Profile/CardOrders.svelte';
 
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
@@ -17,7 +17,11 @@
 		return { order, orderItems: filteredOrderItems, products: filteredProducts };
 	};
 
-	const ordersWithDetails = orders.map(getOrderDetails);
+	// Sort orders by date in descending order
+	const sortedOrders = orders.sort(
+		(a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+	);
+	const ordersWithDetails = sortedOrders.map(getOrderDetails);
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Orders</h1>

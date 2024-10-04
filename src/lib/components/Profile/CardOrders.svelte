@@ -1,6 +1,6 @@
 <script lang="ts">
 	// TODO: Use real data
-	import ImageCard from './CardOrders/ImageCard.svelte';
+	import ImageCard from './Dashboard/CardOrders/ImageCard.svelte';
 
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';

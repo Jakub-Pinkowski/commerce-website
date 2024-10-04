@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CardInfo from '$lib/components/Profile/Dashboard/CardInfo.svelte';
 	import CardPoints from '$lib/components/Profile/Dashboard/CardPoints.svelte';
-	import CardOrders from '$lib/components/Profile/Dashboard/CardOrders.svelte';
+	import CardOrders from '$lib/components/Profile/CardOrders.svelte';
 
 	import type { User } from '$lib/types/userTypes';
 	import type { Product } from '$lib/types/productTypes';
