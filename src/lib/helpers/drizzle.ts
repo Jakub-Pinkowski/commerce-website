@@ -137,6 +137,6 @@ export const mapOrderItems = (result: DrizzleOrderItemsRow[]): OrderItem[] => {
 		productId: row.product_id,
 		quantity: row.quantity,
 		price: parseFloat(row.price),
-        listPrice: parseFloat(row.price)
+        listPrice: parseFloat(row.list_price)
 	}));
 };

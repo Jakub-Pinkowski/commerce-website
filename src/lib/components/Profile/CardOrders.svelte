@@ -92,16 +92,26 @@
 											<tr>
 												<td class="flex items-center">
 													<div class="flex-none">
-														<img
-															src={product.imageUrl}
-															alt={product.name}
-															class="h-24 w-24 object-cover"
-														/>
+														<a href={product.url}>
+															<img
+																src={product.imageUrl}
+																alt={product.name}
+																class="h-24 w-24 object-cover"
+															/>
+														</a>
 													</div>
 													<div class="flex flex-1 flex-col gap-2 pl-4">
 														<p class="font-bold">{product.name}</p>
 														<p>Quantity: {item.quantity}</p>
-														<p>Price: ${product.price}</p>
+														{#if item.price < item.listPrice}
+															<p>
+																Price:
+																<span class="text-main-red">${item.price}</span>
+																<span class="text-gray-500 line-through">${item.listPrice}</span>
+															</p>
+														{:else}
+															<p>Price: ${item.price}</p>
+														{/if}
 													</div>
 												</td>
 											</tr>
