@@ -1,30 +1,4 @@
 <script lang="ts">
-	import { capitalizeFirstWord } from '$lib/helpers/utils';
-	import {
-		pointsThreshholds,
-		getCurrentStatus,
-		getNextThreshold,
-		getStatusClass,
-		getLastMonthOrders
-	} from '$lib/helpers/points';
-
-	import type { User } from '$lib/types/userTypes';
-	import type { Order } from '$lib/types/orderTypes';
-	import type { Status } from '$lib/helpers/points';
-
-	export let user: User;
-	export let orders: Order[];
-
-	// Get the current status and the next threshold
-	const currentStatus: Status = getCurrentStatus(user.points) as Status;
-	const { status: nextStatus, threshold } = getNextThreshold(user.points);
-	const pointsToNextThreshold = threshold - user.points;
-	const statusClass = getStatusClass(currentStatus);
-	const currentBonus = pointsThreshholds[currentStatus].bonus;
-
-	// Calculate total points earned in the last month
-	const lastMonthOrders = getLastMonthOrders(orders);
-	const pointsLastMonth = lastMonthOrders.reduce((total, order) => total + order.points, 0);
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl">
