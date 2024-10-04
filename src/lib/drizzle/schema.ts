@@ -28,7 +28,7 @@ export const productsTable = pgTable('products', {
 	imageurl: varchar('imageurl', { length: 255 }).notNull(),
 	alternate_images: text('alternate_images').array().notNull(),
 	created_at: timestamp('created_at').defaultNow().notNull(),
-    updated_at: timestamp('updated_at').defaultNow().notNull()
+	updated_at: timestamp('updated_at').defaultNow().notNull()
 });
 
 // TODO: Add better types later on varchar etc.
@@ -89,8 +89,11 @@ export const ordersTable = pgTable('orders', {
 	payment_method: varchar('payment_method').notNull(), // CONSTRAINS: 'debit_card, 'credit_card', 'paypal', 'cash_on_delivery'
 	payment_status: varchar('payment_status').notNull(), // CONSTRAINS: 'pending', 'completed', 'failed'
 	shipping_method: varchar('shipping_method').notNull(), // CONSTRAINS: 'standard', 'express', 'overnight'
+	shipping_cost: decimal('shipping_cost').default('0').notNull(),
 	tracking_number: varchar('tracking_number'),
-	points: integer('points').notNull(),
+	discount: decimal('discount').default('0').notNull(),
+	points: integer('points').default(0).notNull(),
+    total_cost: decimal('total_cost').notNull(),
 	customer_notes: text('customer_notes')
 });
 
@@ -104,5 +107,5 @@ export const orderItemsTable = pgTable('order_items', {
 		.references(() => productsTable.id),
 	quantity: integer('quantity').notNull(),
 	price: decimal('price').notNull(),
-    list_price: decimal('list_price').notNull()
+	list_price: decimal('list_price').notNull()
 });

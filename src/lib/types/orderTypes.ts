@@ -20,8 +20,11 @@ export type Order = {
 	paymentMethod: string;
 	paymentStatus: string;
 	shippingMethod: string;
+    shippingCost: number;
 	trackingNumber?: string;
+    discount: number;
 	points: number;
+    totalCost: number;
 	customerNotes?: string;
 };
 

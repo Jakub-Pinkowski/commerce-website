@@ -43,8 +43,11 @@ interface DrizzleOrdersRow {
 	payment_method: string; // character varying, not nullable, CONSTRAINS: 'debit_card', 'credit_card', 'paypal', 'cash_on_delivery'
 	payment_status: string; // character varying, not nullable, CONSTRAINS: 'pending', 'completed', 'failed'
 	shipping_method: string; // character varying, not nullable, CONSTRAINS: 'standard', 'express', 'overnight'
+    shipping_cost: string; // decimal, not nullable
 	tracking_number?: string | null; // character varying, nullable
+    discount: string; // decimal, not nullable
 	points: number; // integer, not nullable
+    total_cost: string; // decimal, not nullable
 	customer_notes?: string | null; // text, nullable
 }
 
@@ -119,8 +122,11 @@ export const mapOrders = (result: DrizzleOrdersRow[]): Order[] => {
         paymentMethod: row.payment_method,
         paymentStatus: row.payment_status,
         shippingMethod: row.shipping_method,
+        shippingCost: parseFloat(row.shipping_cost),
         trackingNumber: row.tracking_number ?? undefined,
+        discount: parseFloat(row.discount),
         points: row.points,
+        totalCost: parseFloat(row.total_cost),
         customerNotes: row.customer_notes ?? undefined
 	}));
 };
