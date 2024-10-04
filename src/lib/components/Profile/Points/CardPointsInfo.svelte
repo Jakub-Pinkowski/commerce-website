@@ -15,16 +15,17 @@
 				Get rewarded for every purchase you make. Earn points for every dollar spent and use them to
 				get discounts on your next order!
 			</p>
-			<p>
-				<strong>1 point</strong> for every <strong>$1</strong> spent
-			</p>
+			<ul>
+				<li><strong>1 point</strong> for every <strong>$1</strong> spent</li>
+				<li>Earn points during special events</li>
+			</ul>
 		</div>
 		<div>
-			<h3>Statuses and Points Required:</h3>
-			<ul>
+			<h3 class="mb-3 text-xl font-semibold">Statuses</h3>
+			<ul class="list-inside list-disc space-y-2">
 				{#each Object.entries(pointsThreshholds) as [status, points]}
-					<li>
-						<strong>{status.charAt(0).toUpperCase() + status.slice(1)}:</strong>
+					<li class={getStatusClass(status)}>
+						<strong class="capitalize">{status}:</strong>
 						{points} points
 					</li>
 				{/each}

@@ -86,7 +86,7 @@ export const ordersTable = pgTable('orders', {
 	invoice_address_state: varchar('invoice_address_state').notNull(),
 	invoice_address_postalcode: varchar('invoice_address_postalcode').notNull(),
 	invoice_address_country: varchar('invoice_address_country').notNull(),
-	payment_method: varchar('payment_method').notNull(), // CONSTRAINS: 'debit_card, 'credit_card', 'paypal', 'cash_on_delivery'
+	payment_method: varchar('payment_method').notNull(), // CONSTRAINS: 'debit_card, 'credit_card', 'paypal', 'bank transfer'
 	payment_status: varchar('payment_status').notNull(), // CONSTRAINS: 'pending', 'completed', 'failed'
 	shipping_method: varchar('shipping_method').notNull(), // CONSTRAINS: 'standard', 'express', 'overnight'
 	shipping_cost: decimal('shipping_cost').default('0').notNull(),
