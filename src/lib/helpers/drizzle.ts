@@ -43,9 +43,9 @@ interface DrizzleOrdersRow {
 	payment_method: string; // character varying, not nullable, CONSTRAINS: 'debit_card', 'credit_card', 'paypal', 'cash_on_delivery'
 	payment_status: string; // character varying, not nullable, CONSTRAINS: 'pending', 'completed', 'failed'
 	shipping_method: string; // character varying, not nullable, CONSTRAINS: 'standard', 'express', 'overnight'
-	tracking_number?: string; // character varying, nullable
+	tracking_number?: string | null; // character varying, nullable
 	points: number; // integer, not nullable
-	customer_notes?: string; // text, nullable
+	customer_notes?: string | null; // text, nullable
 }
 
 interface DrizzleOrderItemsRow {

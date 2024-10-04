@@ -13,8 +13,6 @@
 	const orderItems: OrderItem[] = data.orderItems;
 	const products: Product[] = data.products;
 
-    console.log("products", products);
-
 	let recentOrder: boolean = true;
 
 	// Get the latest order
