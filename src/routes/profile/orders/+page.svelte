@@ -24,11 +24,11 @@
 	const ordersWithDetails = sortedOrders.map(getOrderDetails);
 
 	// Load more orders
-	let visibleOrdersCount = 1;
+	let visibleOrdersCount = 4;
 
-	function loadMoreOrders() {
-		visibleOrdersCount += 4;
-	}
+	const loadMoreOrders = () => {
+		visibleOrdersCount += visibleOrdersCount;
+	};
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Orders</h1>
