@@ -112,23 +112,6 @@
 						</tr>
 					</tbody>
 				</table>
-				{#if isExpanded}
-					<div class="mt-4 block md:hidden">
-						<h2 class="card-title">Products</h2>
-						<table class="table">
-							<tbody>
-								<tr>
-									<th>Products</th>
-									<td>{orderItems.length}</td>
-								</tr>
-								<tr>
-									<th>Total</th>
-									<td>${order.totalCost}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				{/if}
 			</div>
 
 			<!-- Desktop -->
@@ -188,7 +171,7 @@
 			</div>
 		</div>
 		{#if isExpanded}
-			<div class="mt-4 hidden md:block">
+			<div class="mt-4">
 				<h2 class="card-title">Products</h2>
 				<table class="table">
 					<tbody>
@@ -227,8 +210,8 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="mt-4 flex gap-8">
-				<div class="w-1/3">
+			<div class="mt-4 flex flex-col gap-8 md:flex-row">
+				<div class=" w-full md:w-1/3">
 					<table class="table">
 						<tbody>
 							<tr>
@@ -256,9 +239,10 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="divider divider-horizontal"></div>
-				<div class="w-2/3">
-					<table class="table">
+				<div class=" divider divider-horizontal hidden md:flex"></div>
+				<div class="w-full md:w-2/3">
+					<!-- Desktop -->
+					<table class="table hidden md:table">
 						<tbody>
 							<tr>
 								<th class="pt-0">Delivery address</th>
@@ -289,6 +273,43 @@
 								<td>
 									{capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
 								</td>
+								<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- Mobile -->
+					<table class=" table md:hidden">
+						<tbody>
+							<tr>
+								<th>Delivery address</th>
+								<td class="text-xs">
+									{order.deliveryAddressStreet}, {order.deliveryAddressCity}
+									<br />
+									{order.deliveryAddressState}, {order.deliveryAddressPostalcode}
+									<br />
+									{order.deliveryAddressCountry}
+								</td>
+							</tr>
+							<tr> </tr>
+							<tr>
+								<th>Invoice address</th>
+								<td class="text-xs">
+									{order.invoiceAddressStreet}, {order.invoiceAddressCity}
+									<br />
+									{order.invoiceAddressState}, {order.invoiceAddressPostalcode}
+									<br />
+									{order.invoiceAddressCountry}
+								</td>
+							</tr>
+							<tr> </tr>
+							<tr>
+								<th>Shipping method</th>
+								<td>
+									{capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
+								</td>
+							</tr>
+							<tr>
+								<th>Payment method</th>
 								<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
 							</tr>
 						</tbody>
