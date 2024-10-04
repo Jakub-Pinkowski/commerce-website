@@ -1,3 +1,4 @@
+import type { Order } from '$lib/types/orderTypes';
 export type Status = 'bronze' | 'silver' | 'gold' | 'platinum' | 'diamond';
 
 interface Threshold {
@@ -52,4 +53,10 @@ export const getStatusClass = (status: string) => {
 		default:
 			return '';
 	}
+};
+
+export const getLastMonthOrders = (orders: Order[]): Order[] => {
+	const oneMonthAgo = new Date();
+	oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+	return orders.filter((order) => new Date(order.createdAt) > oneMonthAgo);
 };

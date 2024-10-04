@@ -37,7 +37,7 @@
 <h1 class="p-2 text-3xl font-bold">Dashboard</h1>
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<CardInfo {user} />
-	<CardPoints {user} {dashboardView} />
+	<CardPoints {user} {orders} {dashboardView} />
 	<CardOrders
 		{recentOrder}
 		order={latestOrder}

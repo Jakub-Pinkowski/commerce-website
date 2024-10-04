@@ -4,7 +4,8 @@
 		pointsThreshholds,
 		getCurrentStatus,
 		getNextThreshold,
-		getStatusClass
+		getStatusClass,
+		getLastMonthOrders
 	} from '$lib/helpers/points';
 
 	import type { User } from '$lib/types/userTypes';
@@ -14,11 +15,16 @@
 	export let user: User;
 	export let orders: Order[];
 
+	// Get the current status and the next threshold
 	const currentStatus: Status = getCurrentStatus(user.points) as Status;
 	const { status: nextStatus, threshold } = getNextThreshold(user.points);
 	const pointsToNextThreshold = threshold - user.points;
 	const statusClass = getStatusClass(currentStatus);
 	const currentBonus = pointsThreshholds[currentStatus].bonus;
+
+	// Calculate total points earned in the last month
+	const lastMonthOrders = getLastMonthOrders(orders);
+	const pointsLastMonth = lastMonthOrders.reduce((total, order) => total + order.points, 0);
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl">
@@ -45,7 +51,7 @@
 				<div class="stat-value text-primary">
 					{user.points}
 				</div>
-				<div class="stat-desc">+30 in the last month</div>
+				<div class="stat-desc">+{pointsLastMonth} in the last month</div>
 			</div>
 
 			<div class="stat !border-l-0 !border-t-[1px] md:!border-l-[1px] md:!border-t-0">
