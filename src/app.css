@@ -63,15 +63,16 @@ a {
 /* Alerts */
 
 .alert-warning {
-    --alert-bg: var(--main-red);
+	--alert-bg: var(--main-red);
 }
 
 .input-warning {
-    border-color: var(--main-red);
+	border-color: var(--main-red);
 }
 
 /* Table */
 
-.table :where(th) {
-    padding-left: 0;
+.table :where(th, td) {
+	padding-left: 0;
+    padding-right: 2rem;
 }

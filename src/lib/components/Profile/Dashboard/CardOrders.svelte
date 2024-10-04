@@ -56,7 +56,44 @@
 		</div>
 		<div class="flex w-full flex-col justify-between md:flex-row">
 			<div class="flex-none overflow-x-auto">
-				<table class="table">
+
+				<!-- Desktop -->
+				<table class="hidden md:table">
+					<tbody>
+						<tr>
+							<th>Date</th>
+							<th>Order number</th>
+							<th>Products</th>
+							<th>Total</th>
+						</tr>
+						<tr>
+							<td>{formatDate(order.created_at)}</td>
+							<td>{order.id}</td>
+							<td>{orderItems.length}</td>
+							<td>${order.total_price}</td>
+						</tr>
+					</tbody>
+				</table>
+				{#if isExpanded}
+					<div class="mt-4">
+						<h2 class="card-title">Products</h2>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th>Products</th>
+									<td>{orderItems.length}</td>
+								</tr>
+								<tr>
+									<th>Total</th>
+									<td>${order.total_price}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				{/if}
+
+				<!-- Mobile -->
+				<table class="table md:hidden">
 					<tbody>
 						{#if title === 'Latest order'}
 							<tr>
@@ -82,22 +119,16 @@
 								{order.status}
 							</td>
 						</tr>
-						<!-- TODO: Here show somehow all the products, maybe transition nicelie the images from the right here -->
-						{#if isExpanded}
-							<tr>
-								<th>Total</th>
-								<td>${order.total_price}</td>
-							</tr>
-						{/if}
 					</tbody>
 				</table>
 			</div>
+
 			<!-- Desktop -->
-			<div class="hidden max-w-2xl flex-grow flex-wrap items-start justify-end gap-2 md:flex">
-				{#each products.slice(0, 9) as product}
+			<div class="hidden max-w-xl flex-grow flex-wrap items-start justify-end gap-2 md:flex">
+				{#each products.slice(0, 3) as product}
 					<ImageCard {product} />
 				{/each}
-				{#if orderItems.length > 9}
+				{#if orderItems.length > 3}
 					<!-- TODO: Replace with a link to this particular order -->
 					<a
 						href="profile/orders"
@@ -119,12 +150,13 @@
 					</a>
 				{/if}
 			</div>
+
 			<!-- Mobile -->
 			<div class="flex flex-grow flex-wrap items-center gap-2 md:hidden">
-				{#each products.slice(0, 5) as product}
+				{#each products.slice(0, 3) as product}
 					<ImageCard {product} />
 				{/each}
-				{#if orderItems.length > 5}
+				{#if orderItems.length > 3}
 					<!-- TODO: Replace with a link to this particular order -->
 					<a
 						href="profile/orders"
@@ -149,6 +181,7 @@
 		</div>
 
 		<!-- TODO: Design this part -->
+		<!-- TODO: Apply transitions -->
 		{#if isExpanded}
 			<div>Delivery address</div>
 			<div>Invoice address</div>
