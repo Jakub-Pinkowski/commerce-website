@@ -1,6 +1,7 @@
 <script lang="ts">
 	// TODO: Use real data
 	import ImageCard from './Dashboard/CardOrders/ImageCard.svelte';
+	import { formatString } from '$lib/helpers/utils';
 
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
@@ -226,62 +227,55 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="mt-4 flex">
-				<div class="w-1/2">
+			<div class="mt-4 flex gap-8">
+				<div class="w-1/3">
 					<table class="table">
 						<tbody>
 							<tr>
-								<th>Products </th>
-								<td>
-									${order.totalPrice}
-								</td>
+								<th>Products</th>
+								<td>${order.totalPrice}</td>
 							</tr>
 							<tr>
-								<th> Shipping cost </th>
-								<td>
-									${order.shippingCost}
-								</td>
+								<th>Shipping cost</th>
+								<td>${order.shippingCost}</td>
 							</tr>
 							{#if order.discount}
 								<tr>
-									<th> Discount </th>
-									<td>
-										{order.discount}%
-									</td>
+									<th>Discount</th>
+									<td>{order.discount}%</td>
 								</tr>
 							{/if}
 							<tr>
-								<th> Total cost </th>
-								<td>
-									${order.totalCost}
-								</td>
+								<th>Total cost</th>
+								<td>${order.totalCost}</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				<div class="w-1/2">
-					<div>
-						<h2 class="text-lg">Delivery address</h2>
-						<div>
-							{order.deliveryAddressStreet}, {order.deliveryAddressCity}<br />
-							{order.deliveryAddressState}
-							{order.deliveryAddressPostalcode}, {order.deliveryAddressCountry}
-						</div>
-					</div>
-					<div>
-						<h2 class="text-lg">Invoice address</h2>
-						<div>
-							{order.deliveryAddressStreet}, {order.deliveryAddressCity}<br />
-							{order.deliveryAddressState}
-							{order.deliveryAddressPostalcode}, {order.deliveryAddressCountry}
-						</div>
-					</div>
-					<div>
-						<h2 class="text-lg">Payment method</h2>
-						<div>
-							{order.paymentMethod}
-						</div>
-					</div>
+				<div class="divider divider-horizontal"></div>
+				<div class="w-2/3">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th class="pt-0">Delivery address</th>
+								<th class="pt-0">Invoice address</th>
+								<th class="pt-0">Payment method</th>
+							</tr>
+							<tr>
+								<td>
+									{order.deliveryAddressStreet}, {order.deliveryAddressCity}<br />
+									{order.deliveryAddressState}
+									{order.deliveryAddressPostalcode}, {order.deliveryAddressCountry}
+								</td>
+								<td>
+									{order.invoiceAddressStreet}, {order.invoiceAddressCity}<br />
+									{order.invoiceAddressState}
+									{order.invoiceAddressPostalcode}, {order.invoiceAddressCountry}
+								</td>
+								<td> {formatString(order.paymentMethod)}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		{/if}

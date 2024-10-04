@@ -23,3 +23,8 @@ export const capitalizeWords = (str: string) => {
 export const capitalizeFirstWord = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
+// Capitalize the firt letter and remove underscores from a string
+export const formatString = (str: string) => {
+    return capitalizeFirstWord(str.replace(/_/g, ' '));
+};
