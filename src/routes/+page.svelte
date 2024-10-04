@@ -71,9 +71,9 @@
 							store. You cannot make purchases here. All names or brands mentioned are purely
 							fictional and all products' images have been AI generated.
 						</p>
-						<p class="text-xs">
+						<p class="mb-1 text-xs">
 							Anonymous data is collected for analytics and performace purposes only. <strong
-								>No cookies are used for this.</strong
+								>No cookies are used for these purposes.</strong
 							>
 							By using this website, you agree to this data collection. For more information, see the
 							official Vercel's
@@ -88,6 +88,10 @@
 								href="https://vercel.com/docs/speed-insights/privacy-policy#how-the-data-points-are-tracked"
 								target="_blank">Speed insights</a
 							> privacy policies.
+						</p>
+						<p class="text-xs">
+							The website uses cookies for user authentication, user profiles, managing orders, and
+							OAuth. By creating an account, you agree to the use of those cookies.
 						</p>
 					</div>
 				</div>
