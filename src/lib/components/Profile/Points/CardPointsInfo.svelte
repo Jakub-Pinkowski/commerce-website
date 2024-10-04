@@ -1,15 +1,22 @@
 <script lang="ts">
 	import { capitalizeFirstWord } from '$lib/helpers/utils';
-	import { getCurrentStatus, getNextThreshold, getStatusClass } from '$lib/helpers/points';
+	import {
+		pointsThreshholds,
+		getCurrentStatus,
+		getNextThreshold,
+		getStatusClass
+	} from '$lib/helpers/points';
 
 	import type { User } from '$lib/types/userTypes';
+	import type { Status } from '$lib/helpers/points';
 
 	export let user: User;
 
-	const currentStatus = getCurrentStatus(user.points);
+	const currentStatus: Status = getCurrentStatus(user.points) as Status;
 	const { status: nextStatus, threshold } = getNextThreshold(user.points);
 	const pointsToNextThreshold = threshold - user.points;
 	const statusClass = getStatusClass(currentStatus);
+	const currentBonus = pointsThreshholds[currentStatus].bonus;
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl">
@@ -53,5 +60,9 @@
 				</div>
 			</div>
 		</div>
+		<p class="font-semibold">Current Bonus:</p>
+		<p>
+			{currentBonus}
+		</p>
 	</div>
 </div>

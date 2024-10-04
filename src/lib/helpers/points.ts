@@ -1,4 +1,11 @@
-export const pointsThreshholds = {
+export type Status = 'bronze' | 'silver' | 'gold' | 'platinum' | 'diamond';
+
+interface Threshold {
+	points: number;
+	bonus: string;
+}
+
+export const pointsThreshholds: Record<Status, Threshold> = {
 	bronze: { points: 0, bonus: 'Access to member-only content and newsletters' },
 	silver: { points: 60, bonus: '5% discount on all purchases' },
 	gold: { points: 120, bonus: '10% discount on all purchases' },
