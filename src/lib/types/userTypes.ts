@@ -1,3 +1,4 @@
+// TODO: Change all of them to camelCase
 export type User = {
 	id?: string;
 	email?: string;

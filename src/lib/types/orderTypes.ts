@@ -1,4 +1,5 @@
 // TODO: Add delivery address, invoice address, payment method, payment status etc.
+// TODO: Change all of them to camelCase
 export type Order = {
 	id: number;
 	user_id: string;
