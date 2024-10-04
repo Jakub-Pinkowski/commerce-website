@@ -28,7 +28,7 @@
 	let currentStatusIndex = orderStatuses.indexOf(order.status);
 
 	// Manage expanded state
-	let isExpanded = false;
+	let isExpanded = true;
 
 	const toggleExpand = () => {
 		isExpanded = !isExpanded;
@@ -81,47 +81,6 @@
 						</tr>
 					</tbody>
 				</table>
-				{#if isExpanded}
-					<div class="mt-4 hidden md:block">
-						<h2 class="card-title">Products</h2>
-						<table class="table">
-							<tbody>
-								{#each orderItems as item}
-									{#each products as product (product.id)}
-										{#if product.id === item.productId}
-											<tr>
-												<td class="flex items-center">
-													<div class="flex-none">
-														<a href={product.url}>
-															<img
-																src={product.imageUrl}
-																alt={product.name}
-																class="h-24 w-24 object-cover"
-															/>
-														</a>
-													</div>
-													<div class="flex flex-1 flex-col gap-2 pl-4">
-														<p class="font-bold">{product.name}</p>
-														<p>Quantity: {item.quantity}</p>
-														{#if item.price < item.listPrice}
-															<p>
-																Price:
-																<span class="text-main-red">${item.price}</span>
-																<span class="text-gray-500 line-through">${item.listPrice}</span>
-															</p>
-														{:else}
-															<p>Price: ${item.price}</p>
-														{/if}
-													</div>
-												</td>
-											</tr>
-										{/if}
-									{/each}
-								{/each}
-							</tbody>
-						</table>
-					</div>
-				{/if}
 
 				<!-- Mobile -->
 				<table class="table md:hidden">
@@ -227,13 +186,73 @@
 				{/if}
 			</div>
 		</div>
-
-		<!-- TODO: Design this part -->
-		<!-- TODO: Apply transitions -->
 		{#if isExpanded}
-			<div>Delivery address</div>
-			<div>Invoice address</div>
-			<div>Payment method</div>
+			<div class="mt-4 hidden md:block">
+				<h2 class="card-title">Products</h2>
+				<table class="table">
+					<tbody>
+						{#each orderItems as item}
+							{#each products as product (product.id)}
+								{#if product.id === item.productId}
+									<tr>
+										<td class="flex items-center">
+											<div class="flex-none">
+												<a href={product.url}>
+													<img
+														src={product.imageUrl}
+														alt={product.name}
+														class="h-24 w-24 object-cover"
+													/>
+												</a>
+											</div>
+											<div class="flex flex-1 flex-col gap-2 pl-4">
+												<p class="font-bold">{product.name}</p>
+												<p>Quantity: {item.quantity}</p>
+												{#if item.price < item.listPrice}
+													<p>
+														Price:
+														<span class="text-main-red">${item.price}</span>
+														<span class="text-gray-500 line-through">${item.listPrice}</span>
+													</p>
+												{:else}
+													<p>Price: ${item.price}</p>
+												{/if}
+											</div>
+										</td>
+									</tr>
+								{/if}
+							{/each}
+						{/each}
+					</tbody>
+				</table>
+			</div>
+			<div class="mt-4 flex">
+				<div class="w-1/2"></div>
+				<div class="w-1/2">
+					<div>
+						<h2 class="text-lg">Delivery address</h2>
+						<div>
+							{order.deliveryAddressStreet}, {order.deliveryAddressCity}<br />
+							{order.deliveryAddressState}
+							{order.deliveryAddressPostalcode}, {order.deliveryAddressCountry}
+						</div>
+					</div>
+					<div>
+						<h2 class="text-lg">Invoice address</h2>
+						<div>
+							{order.deliveryAddressStreet}, {order.deliveryAddressCity}<br />
+							{order.deliveryAddressState}
+							{order.deliveryAddressPostalcode}, {order.deliveryAddressCountry}
+						</div>
+					</div>
+					<div>
+						<h2 class="text-lg">Payment method</h2>
+						<div>
+							{order.paymentMethod}
+						</div>
+					</div>
+				</div>
+			</div>
 		{/if}
 
 		<div class="card-actions mt-auto justify-between pt-2">
