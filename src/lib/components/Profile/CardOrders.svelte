@@ -66,6 +66,7 @@
 							<th>Order number</th>
 							<th>Products</th>
 							<th>Total</th>
+							<th>Status</th>
 						</tr>
 						<tr>
 							{#if recentOrder}
@@ -74,6 +75,9 @@
 							<td>{order.id}</td>
 							<td>{orderItems.length}</td>
 							<td>${order.total_price}</td>
+							<td class="capitalize {order.status === 'cancelled' ? 'text-main-red' : ''}">
+								{order.status}
+							</td>
 						</tr>
 					</tbody>
 				</table>
