@@ -1,20 +1,10 @@
 <script lang="ts">
 	import { formatDate } from '$lib/helpers/utils';
+	import { getPointsStatus } from '$lib/helpers/points';
 
-	import type { User } from '$lib/types/userTypes';
 	import type { Order } from '$lib/types/orderTypes';
 
-	export let user: User;
 	export let orders: Order[];
-
-	// Function to get points status
-	const getPointsStatus = (createdAt: Date): string => {
-		const orderDate = createdAt;
-		const currentDate = new Date();
-		const diffTime = Math.abs(currentDate.getTime() - orderDate.getTime());
-		const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-		return diffDays >= 30 ? 'Active' : 'Pending';
-	};
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">
@@ -44,7 +34,7 @@
 		<table class="table md:hidden">
 			<tbody>
 				<tr>
-					<th class="!pl-4">Date</th>
+					<th>Date</th>
 					<th>Order</th>
 					<th>Status</th>
 					<th>Points</th>

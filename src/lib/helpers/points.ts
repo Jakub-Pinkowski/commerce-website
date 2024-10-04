@@ -60,3 +60,11 @@ export const getLastMonthOrders = (orders: Order[]): Order[] => {
 	oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
 	return orders.filter((order) => new Date(order.createdAt) > oneMonthAgo);
 };
+
+export const getPointsStatus = (createdAt: Date): string => {
+	const orderDate = createdAt;
+	const currentDate = new Date();
+	const diffTime = Math.abs(currentDate.getTime() - orderDate.getTime());
+	const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+	return diffDays >= 30 ? 'Active' : 'Pending';
+};

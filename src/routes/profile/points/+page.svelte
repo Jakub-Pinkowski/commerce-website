@@ -2,7 +2,7 @@
 	import CardPointsInfo from '$lib/components/Profile/Points/CardPointsInfo.svelte';
 	import CardStatusesInfo from '$lib/components/Profile/Points/CardStatusesInfo.svelte';
 	import CardPoints from '$lib/components/Profile/CardPoints.svelte';
-    import CardPointsHistory from '$lib/components/Profile/Points/CardPointsHistory.svelte';
+	import CardPointsHistory from '$lib/components/Profile/Points/CardPointsHistory.svelte';
 
 	import type { User } from '$lib/types/userTypes';
 	import type { Order } from '$lib/types/orderTypes';
@@ -18,5 +18,5 @@
 	<CardPoints {user} {orders} />
 	<CardPointsInfo {user} {orders} />
 	<CardStatusesInfo />
-    <CardPointsHistory {user} {orders} />
+	<CardPointsHistory {orders} />
 </div>
