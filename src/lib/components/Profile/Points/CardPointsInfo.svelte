@@ -43,34 +43,5 @@
 				<li>Points expire after 12 months of inactivity</li>
 			</ul>
 		</div>
-		<h3 class="mt-4 text-lg font-semibold text-primary">Your current points and status</h3>
-		<div class="stats grid-flow-row shadow md:grid-flow-col">
-			<div class="stat">
-				<div class="stat-figure text-primary"></div>
-				<div class="stat-title">Points</div>
-				<div class="stat-value text-primary">
-					{user.points}
-				</div>
-				<div class="stat-desc">+{pointsLastMonth} in the last month</div>
-			</div>
-
-			<div class="stat !border-l-0 !border-t-[1px] md:!border-l-[1px] md:!border-t-0">
-				<div class={`stat-figure ${statusClass}`}></div>
-				<div class="stat-title">Status</div>
-				<div class={`stat-value ${statusClass}`}>{capitalizeFirstWord(currentStatus)}</div>
-				<div class="stat-desc">
-					{#if pointsToNextThreshold > 0}{pointsToNextThreshold} points to {capitalizeFirstWord(
-							nextStatus
-						)}
-					{:else}
-						Max status achieved
-					{/if}
-				</div>
-			</div>
-		</div>
-		<p class="font-semibold">Current Bonus:</p>
-		<p>
-			{currentBonus}
-		</p>
 	</div>
 </div>
