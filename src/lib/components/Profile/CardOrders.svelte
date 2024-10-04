@@ -1,5 +1,7 @@
 <script lang="ts">
-	// TODO: Use real data
+	import { fade } from 'svelte/transition';
+	import { quadOut } from 'svelte/easing';
+
 	import ImageCard from './Dashboard/CardOrders/ImageCard.svelte';
 	import { capitalizeFirstWordAndRemoveUnderscode } from '$lib/helpers/utils';
 
@@ -171,184 +173,173 @@
 			</div>
 		</div>
 		{#if isExpanded}
-			<div class="mt-4">
-				<h2 class="card-title">Products</h2>
-				<table class="table">
-					<tbody>
-						{#each orderItems as item}
-							{#each products as product (product.id)}
-								{#if product.id === item.productId}
-									<tr>
-										<td class="flex items-center">
-											<div class="flex-none">
-												<a href={product.url}>
-													<img
-														src={product.imageUrl}
-														alt={product.name}
-														class="h-24 w-24 object-cover"
-													/>
-												</a>
-											</div>
-											<div class="flex flex-1 flex-col gap-2 pl-4">
-												<p class="font-bold">{product.name}</p>
-												<p>Quantity: {item.quantity}</p>
-												{#if item.price < item.listPrice}
-													<p>
-														Price:
-														<span class="text-main-red">${item.price}</span>
-														<span class="text-gray-500 line-through">${item.listPrice}</span>
-													</p>
-												{:else}
-													<p>Price: ${item.price}</p>
-												{/if}
-											</div>
-										</td>
-									</tr>
-								{/if}
-							{/each}
-						{/each}
-					</tbody>
-				</table>
-			</div>
-			<div class="mt-4 flex flex-col gap-8 md:flex-row">
-				<div class=" w-full md:w-1/3">
+			<div transition:fade={{ delay: 0, duration: 200, easing: quadOut }}>
+				<div class="mt-4">
+					<h2 class="card-title">Products</h2>
 					<table class="table">
 						<tbody>
-							<tr>
-								<th>Products</th>
-								<td>${order.totalPrice}</td>
-							</tr>
-							<tr>
-								<th>Shipping cost</th>
-								<td>${order.shippingCost}</td>
-							</tr>
-							{#if order.discount}
-								<tr>
-									<th>Discount</th>
-									<td>{order.discount}%</td>
-								</tr>
-							{/if}
-							<tr>
-								<th>Total cost</th>
-								<td class="font-bold">${order.totalCost}</td>
-							</tr>
-							<tr>
-								<th>Points earned</th>
-								<td class="font-bold text-primary">{order.points}</td>
-							</tr>
+							{#each orderItems as item}
+								{#each products as product (product.id)}
+									{#if product.id === item.productId}
+										<tr>
+											<td class="flex items-center">
+												<div class="flex-none">
+													<a href={product.url}>
+														<img
+															src={product.imageUrl}
+															alt={product.name}
+															class="h-24 w-24 object-cover"
+														/>
+													</a>
+												</div>
+												<div class="flex flex-1 flex-col gap-2 pl-4">
+													<p class="font-bold">{product.name}</p>
+													<p>Quantity: {item.quantity}</p>
+													{#if item.price < item.listPrice}
+														<p>
+															Price:
+															<span class="text-main-red">${item.price}</span>
+															<span class="text-gray-500 line-through">${item.listPrice}</span>
+														</p>
+													{:else}
+														<p>Price: ${item.price}</p>
+													{/if}
+												</div>
+											</td>
+										</tr>
+									{/if}
+								{/each}
+							{/each}
 						</tbody>
 					</table>
 				</div>
-				<div class=" divider divider-horizontal hidden md:flex"></div>
-				<div class="w-full md:w-2/3">
-					<!-- Desktop -->
-					<table class="table hidden md:table">
-						<tbody>
-							<tr>
-								<th class="pt-0">Delivery address</th>
-								<th class="pt-0">Invoice address</th>
-							</tr>
+				<div class="mt-4 flex flex-col gap-8 md:flex-row">
+					<div class=" w-full md:w-1/3">
+						<table class="table">
+							<tbody>
+								<tr>
+									<th>Products</th>
+									<td>${order.totalPrice}</td>
+								</tr>
+								<tr>
+									<th>Shipping cost</th>
+									<td>${order.shippingCost}</td>
+								</tr>
+								{#if order.discount}
+									<tr>
+										<th>Discount</th>
+										<td>{order.discount}%</td>
+									</tr>
+								{/if}
+								<tr>
+									<th>Total cost</th>
+									<td class="font-bold">${order.totalCost}</td>
+								</tr>
+								<tr>
+									<th>Points earned</th>
+									<td class="font-bold text-primary">{order.points}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class=" divider divider-horizontal hidden md:flex"></div>
+					<div class="w-full md:w-2/3">
+						<!-- Desktop -->
+						<table class="table hidden md:table">
+							<tbody>
+								<tr>
+									<th class="pt-0">Delivery address</th>
+									<th class="pt-0">Invoice address</th>
+								</tr>
 
-							<tr class="border-none">
-								<td>
-									{order.deliveryAddressStreet}, {order.deliveryAddressCity}
-									<br />
-									{order.deliveryAddressState}, {order.deliveryAddressPostalcode}
-									<br />
-									{order.deliveryAddressCountry}
-								</td>
-								<td>
-									{order.invoiceAddressStreet}, {order.invoiceAddressCity}
-									<br />
-									{order.invoiceAddressState}, {order.invoiceAddressPostalcode}
-									<br />
-									{order.invoiceAddressCountry}
-								</td>
-							</tr>
-							<tr>
-								<th>Shipping method</th>
-								<th>Payment method</th>
-							</tr>
-							<tr>
-								<td>
-									{capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
-								</td>
-								<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
-							</tr>
-						</tbody>
-					</table>
-					<!-- Mobile -->
-					<table class=" table md:hidden">
-						<tbody>
-							<tr>
-								<th>Delivery address</th>
-								<td class="text-xs">
-									{order.deliveryAddressStreet}, {order.deliveryAddressCity}
-									<br />
-									{order.deliveryAddressState}, {order.deliveryAddressPostalcode}
-									<br />
-									{order.deliveryAddressCountry}
-								</td>
-							</tr>
-							<tr> </tr>
-							<tr>
-								<th>Invoice address</th>
-								<td class="text-xs">
-									{order.invoiceAddressStreet}, {order.invoiceAddressCity}
-									<br />
-									{order.invoiceAddressState}, {order.invoiceAddressPostalcode}
-									<br />
-									{order.invoiceAddressCountry}
-								</td>
-							</tr>
-							<tr> </tr>
-							<tr>
-								<th>Shipping method</th>
-								<td>
-									{capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
-								</td>
-							</tr>
-							<tr>
-								<th>Payment method</th>
-								<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
-							</tr>
-						</tbody>
-					</table>
+								<tr class="border-none">
+									<td>
+										{order.deliveryAddressStreet}, {order.deliveryAddressCity}
+										<br />
+										{order.deliveryAddressState}, {order.deliveryAddressPostalcode}
+										<br />
+										{order.deliveryAddressCountry}
+									</td>
+									<td>
+										{order.invoiceAddressStreet}, {order.invoiceAddressCity}
+										<br />
+										{order.invoiceAddressState}, {order.invoiceAddressPostalcode}
+										<br />
+										{order.invoiceAddressCountry}
+									</td>
+								</tr>
+								<tr>
+									<th>Shipping method</th>
+									<th>Payment method</th>
+								</tr>
+								<tr>
+									<td>
+										{capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
+									</td>
+									<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- Mobile -->
+						<table class=" table md:hidden">
+							<tbody>
+								<tr>
+									<th>Delivery address</th>
+									<td class="text-xs">
+										{order.deliveryAddressStreet}, {order.deliveryAddressCity}
+										<br />
+										{order.deliveryAddressState}, {order.deliveryAddressPostalcode}
+										<br />
+										{order.deliveryAddressCountry}
+									</td>
+								</tr>
+								<tr> </tr>
+								<tr>
+									<th>Invoice address</th>
+									<td class="text-xs">
+										{order.invoiceAddressStreet}, {order.invoiceAddressCity}
+										<br />
+										{order.invoiceAddressState}, {order.invoiceAddressPostalcode}
+										<br />
+										{order.invoiceAddressCountry}
+									</td>
+								</tr>
+								<tr> </tr>
+								<tr>
+									<th>Shipping method</th>
+									<td>
+										{capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
+									</td>
+								</tr>
+								<tr>
+									<th>Payment method</th>
+									<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		{/if}
 
 		<div class="card-actions mt-auto justify-between pt-2">
-			<!-- TODO: Change the look of this button -->
-			<button class="btn btn-primary w-full md:w-auto" on:click={toggleExpand}>
+			<button class="btn btn-primary flex w-full items-center md:w-auto" on:click={toggleExpand}>
 				{isExpanded ? 'Hide details' : 'See more details'}
-				{#if isExpanded}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						id="Outline"
-						viewBox="0 0 24 24"
-						width="24"
-						height="24"
-						fill="#eaeaea"
-					>
-						<path
-							d="M18,15.5a1,1,0,0,1-.71-.29l-4.58-4.59a1,1,0,0,0-1.42,0L6.71,15.21a1,1,0,0,1-1.42-1.42L9.88,9.21a3.06,3.06,0,0,1,4.24,0l4.59,4.58a1,1,0,0,1,0,1.42A1,1,0,0,1,18,15.5Z"
-						/>
-					</svg>
-				{:else}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						id="Outline"
-						viewBox="0 0 24 24"
-						width="24"
-						height="24"
-						fill="#eaeaea"
-					>
-						<path
-							d="M18.71,8.21a1,1,0,0,0-1.42,0l-4.58,4.58a1,1,0,0,1-1.42,0L6.71,8.21a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41l4.59,4.59a3,3,0,0,0,4.24,0l4.59-4.59A1,1,0,0,0,18.71,8.21Z"
-						/>
-					</svg>
-				{/if}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					id="Outline"
+					viewBox="0 0 24 24"
+					width="24"
+					height="24"
+					fill="#eaeaea"
+					class="ml-2 transform transition-transform duration-500 ease-in-out {isExpanded
+						? 'rotate-180'
+						: ''}"
+				>
+					<path
+						d="M18.71,8.21a1,1,0,0,0-1.42,0l-4.58,4.58a1,1,0,0,1-1.42,0L6.71,8.21a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41l4.59,4.59a3,3,0,0,0,4.24,0l4.59-4.59A1,1,0,0,0,18.71,8.21Z"
+					/>
+				</svg>
 			</button>
 			{#if recentOrder}
 				<a href="profile/orders" class="btn btn-accent w-full md:w-auto">See all orders</a>
