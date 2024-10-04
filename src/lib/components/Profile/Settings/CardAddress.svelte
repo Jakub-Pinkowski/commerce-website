@@ -1,5 +1,6 @@
 <script lang="ts">
 	// TODO: Add dropdowns for country and state
+    // TODO: Add google maps integration for address
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
