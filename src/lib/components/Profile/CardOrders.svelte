@@ -124,13 +124,15 @@
 			</div>
 
 			<!-- Desktop -->
-			<div class="hidden max-w-xl flex-grow flex-wrap items-start justify-end gap-2 md:flex">
+			<div
+				class="flex flex-grow flex-wrap items-center gap-2 md:max-w-xl md:items-start md:justify-end"
+			>
 				{#each showAll ? products : products.slice(0, 3) as product}
 					<ImageCard {product} />
 				{/each}
 				{#if orderItems.length > 3 && !showAll}
 					<button
-						class="flex h-full max-h-32 max-w-32 flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
+						class="flex aspect-square max-w-[calc(50%-4px)] flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80 md:h-full md:max-h-32 md:max-w-32"
 						aria-label="View the order"
 						on:click={toggleShowAll}
 					>
@@ -148,34 +150,6 @@
 						</svg>
 					</button>
 				{/if}
-			</div>
-
-			<!-- Mobile -->
-			<div class="flex flex-grow flex-wrap items-center gap-2 md:hidden">
-				{#each showAll ? products : products.slice(0, 3) as product}
-					<ImageCard {product} />
-				{/each}
-				{#if orderItems.length > 3 && !showAll}
-					<button
-						class="flex aspect-square max-w-[calc(50%-4px)] flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
-						aria-label="View the order"
-						on:click={toggleShowAll}
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							id="Layer_1"
-							data-name="Layer 1"
-							viewBox="0 0 24 24"
-							height="32"
-							width="32"
-						>
-							<path
-								d="m5,10c0-.552.448-1,1-1h3v-3c0-.552.448-1,1-1s1,.448,1,1v3h3c.552,0,1,.448,1,1s-.448,1-1,1h-3v3c0,.552-.448,1-1,1s-1-.448-1-1v-3h-3c-.552,0-1-.448-1-1Zm19-1v10c0,2.757-2.243,5-5,5h-10c-2.446,0-4.479-1.768-4.908-4.092-2.324-.429-4.092-2.462-4.092-4.908V5C0,2.243,2.243,0,5,0h10c2.446,0,4.479,1.768,4.908,4.092,2.324.429,4.092,2.462,4.092,4.908ZM5,18h10c1.654,0,3-1.346,3-3V5c0-1.654-1.346-3-3-3H5c-1.654,0-3,1.346-3,3v10c0,1.654,1.346,3,3,3Zm17-9c0-1.302-.839-2.402-2-2.816v8.816c0,2.757-2.243,5-5,5H6.184c.414,1.161,1.514,2,2.816,2h10c1.654,0,3-1.346,3-3v-10Z"
-							/>
-						</svg>
-					</button>
-				{/if}
-				<!-- TODO: Show all the remaining images -->
 			</div>
 		</div>
 		{#if isExpanded}
