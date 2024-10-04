@@ -1,8 +1,6 @@
 <script lang="ts">
 	import {
 		pointsThreshholds,
-		getCurrentStatus,
-		getNextThreshold,
 		getStatusClass
 	} from '$lib/helpers/points';
 </script>
