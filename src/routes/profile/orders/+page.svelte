@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CardOrders from '$lib/components/Profile/CardOrders.svelte';
+	import CartOrdersEmpty from '$lib/components/Profile/CartOrdersEmpty.svelte';
 
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
@@ -29,14 +30,17 @@
 </script>
 
 <h1 class="p-2 text-3xl font-bold">Orders</h1>
-
-<div class="grid flex-grow grid-cols-1 gap-4">
-	{#each ordersWithDetails.slice(0, visibleOrdersCount) as { order, orderItems, products }}
-		<CardOrders {order} {orderItems} {products} />
-	{/each}
-	{#if visibleOrdersCount < ordersWithDetails.length}
-		<button class=" btn btn-accent w-full md:mx-auto md:w-40" on:click={loadMoreOrders}>
-			Load More
-		</button>
-	{/if}
-</div>
+{#if ordersWithDetails.length > 0}
+	<div class="grid flex-grow grid-cols-1 gap-4">
+		{#each ordersWithDetails.slice(0, visibleOrdersCount) as { order, orderItems, products }}
+			<CardOrders {order} {orderItems} {products} />
+		{/each}
+		{#if visibleOrdersCount < ordersWithDetails.length}
+			<button class=" btn btn-accent w-full md:mx-auto md:w-40" on:click={loadMoreOrders}>
+				Load More
+			</button>
+		{/if}
+	</div>
+{:else}
+	<CartOrdersEmpty />
+{/if}

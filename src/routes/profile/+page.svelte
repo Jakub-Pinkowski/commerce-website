@@ -1,18 +1,17 @@
 <script lang="ts">
-    // FIXME: When there are no orders, orderItems or products the page crashes
+	// FIXME: When there are no orders, orderItems or products the page crashes
 	import CardInfo from '$lib/components/Profile/Dashboard/CardInfo.svelte';
 	import CardPoints from '$lib/components/Profile/CardPoints.svelte';
 	import CardOrders from '$lib/components/Profile/CardOrders.svelte';
+	import CartOrdersEmpty from '$lib/components/Profile/CartOrdersEmpty.svelte';
 
 	import type { User } from '$lib/types/userTypes';
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 	export let data;
-	console.log('data', data);
 	const user: User = data.user;
 	const orders: Order[] = data.orders ?? [];
-	console.log('orders', orders);
 	const orderItems: OrderItem[] = data.orderItems ?? [];
 	const products: Product[] = data.products ?? [];
 
@@ -40,10 +39,14 @@
 <div class="grid flex-grow grid-cols-1 gap-4 md:grid-cols-2">
 	<CardInfo {user} />
 	<CardPoints {user} {orders} {dashboardView} />
-	<CardOrders
-		{recentOrder}
-		order={latestOrder}
-		orderItems={latestOrderItems}
-		products={latestOrderProducts}
-	/>
+	{#if orders.length > 0}
+		<CardOrders
+			{recentOrder}
+			order={latestOrder}
+			orderItems={latestOrderItems}
+			products={latestOrderProducts}
+		/>
+	{:else}
+		<CartOrdersEmpty />
+	{/if}
 </div>

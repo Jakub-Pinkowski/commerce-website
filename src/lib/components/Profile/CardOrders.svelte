@@ -4,13 +4,12 @@
 
 	import ImageCard from './Dashboard/CardOrders/ImageCard.svelte';
 	import { capitalizeFirstWordAndRemoveUnderscode } from '$lib/helpers/utils';
-    import {formatDate} from '$lib/helpers/utils';
+	import { formatDate } from '$lib/helpers/utils';
 
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 	export let order: Order;
-    console.log("order", order);
 	export let orderItems: OrderItem[];
 	export let products: Product[];
 	export let recentOrder: boolean = false;
