@@ -82,7 +82,7 @@
 					</tbody>
 				</table>
 				{#if isExpanded}
-					<div class="mt-4">
+					<div class="mt-4 hidden md:block">
 						<h2 class="card-title">Products</h2>
 						<table class="table">
 							<tbody>
@@ -128,6 +128,23 @@
 						</tr>
 					</tbody>
 				</table>
+				{#if isExpanded}
+					<div class="mt-4 block md:hidden">
+						<h2 class="card-title">Products</h2>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th>Products</th>
+									<td>{orderItems.length}</td>
+								</tr>
+								<tr>
+									<th>Total</th>
+									<td>${order.total_price}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				{/if}
 			</div>
 
 			<!-- Desktop -->
@@ -196,7 +213,8 @@
 		{/if}
 
 		<div class="card-actions mt-auto justify-between pt-2">
-			<button class="btn btn-primary hidden md:inline-flex md:w-auto" on:click={toggleExpand}>
+			<!-- TODO: Change the look of this button -->
+			<button class="btn btn-primary w-full md:w-auto" on:click={toggleExpand}>
 				{isExpanded ? 'Hide details' : 'See more details'}
 			</button>
 			{#if recentOrder}
