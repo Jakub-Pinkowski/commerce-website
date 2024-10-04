@@ -8,9 +8,11 @@
 	} from '$lib/helpers/points';
 
 	import type { User } from '$lib/types/userTypes';
+	import type { Order } from '$lib/types/orderTypes';
 	import type { Status } from '$lib/helpers/points';
 
 	export let user: User;
+	export let orders: Order[];
 
 	const currentStatus: Status = getCurrentStatus(user.points) as Status;
 	const { status: nextStatus, threshold } = getNextThreshold(user.points);
