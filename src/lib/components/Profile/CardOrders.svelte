@@ -74,7 +74,7 @@
 							{/if}
 							<td>{order.id}</td>
 							<td>{orderItems.length}</td>
-							<td>${order.totalPrice}</td>
+							<td>${order.totalCost}</td>
 							<td class="capitalize {order.status === 'cancelled' ? 'text-main-red' : ''}">
 								{order.status}
 							</td>
@@ -101,7 +101,7 @@
 						</tr>
 						<tr>
 							<th>Total</th>
-							<td>${order.totalPrice}</td>
+							<td>${order.totalCost}</td>
 						</tr>
 						<tr>
 							<th>Status</th>
@@ -122,7 +122,7 @@
 								</tr>
 								<tr>
 									<th>Total</th>
-									<td>${order.totalPrice}</td>
+									<td>${order.totalCost}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -227,7 +227,38 @@
 				</table>
 			</div>
 			<div class="mt-4 flex">
-				<div class="w-1/2"></div>
+				<div class="w-1/2">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>Products </th>
+								<td>
+									${order.totalPrice}
+								</td>
+							</tr>
+							<tr>
+								<th> Shipping cost </th>
+								<td>
+									${order.shippingCost}
+								</td>
+							</tr>
+							{#if order.discount}
+								<tr>
+									<th> Discount </th>
+									<td>
+										{order.discount}%
+									</td>
+								</tr>
+							{/if}
+							<tr>
+								<th> Total cost </th>
+								<td>
+									${order.totalCost}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 				<div class="w-1/2">
 					<div>
 						<h2 class="text-lg">Delivery address</h2>
