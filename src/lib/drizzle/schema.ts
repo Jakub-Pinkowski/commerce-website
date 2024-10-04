@@ -65,6 +65,7 @@ export const sessionsTable = pgTable('sessions', {
 	}).notNull()
 });
 
+// TODO: Add delivery address, invoice address, payment method, payment status etc.
 export const ordersTable = pgTable('orders', {
 	id: serial('id').primaryKey(),
 	user_id: varchar('user_id')
