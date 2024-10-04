@@ -249,6 +249,7 @@
 								<th>Total cost</th>
 								<td>${order.totalCost}</td>
 							</tr>
+							<!-- TODO: Style this a bit later -->
 							<tr>
 								<th>Points earned</th>
 								<td>{order.points}</td>
@@ -263,9 +264,9 @@
 							<tr>
 								<th class="pt-0">Delivery address</th>
 								<th class="pt-0">Invoice address</th>
-								<th class="pt-0">Payment method</th>
 							</tr>
-							<tr>
+
+							<tr class="border-none">
 								<td>
 									{order.deliveryAddressStreet}, {order.deliveryAddressCity}
 									<br />
@@ -279,6 +280,15 @@
 									{order.invoiceAddressState}, {order.invoiceAddressPostalcode}
 									<br />
 									{order.invoiceAddressCountry}
+								</td>
+							</tr>
+							<tr>
+								<th>Shipping method</th>
+								<th>Payment method</th>
+							</tr>
+							<tr>
+								<td>
+                                    {capitalizeFirstWordAndRemoveUnderscode(order.shippingMethod)}
 								</td>
 								<td> {capitalizeFirstWordAndRemoveUnderscode(order.paymentMethod)}</td>
 							</tr>
