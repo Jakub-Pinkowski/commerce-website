@@ -16,7 +16,8 @@ export type Product = {
 	url: string;
 	imageUrl: string;
 	alternateImages: string[];
-    created_at?: Date;
+    createdAt: Date;
+    updatedAt: Date;
 };
 
 // TODO: Change create_at to mandatory

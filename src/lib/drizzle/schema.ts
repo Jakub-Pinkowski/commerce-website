@@ -27,7 +27,8 @@ export const productsTable = pgTable('products', {
 	url: varchar('url', { length: 255 }).notNull(),
 	imageurl: varchar('imageurl', { length: 255 }).notNull(),
 	alternate_images: text('alternate_images').array().notNull(),
-	created_at: timestamp('created_at').defaultNow().notNull()
+	created_at: timestamp('created_at').defaultNow().notNull(),
+    updated_at: timestamp('updated_at').defaultNow().notNull()
 });
 
 // TODO: Add better types later on varchar etc.
