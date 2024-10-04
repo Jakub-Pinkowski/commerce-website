@@ -17,10 +17,7 @@
 	let dashboardView: boolean = true;
 
 	// Get the latest order
-	const sortedOrders = orders.sort(
-		(a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-	);
-	const latestOrder: Order = sortedOrders[0];
+	const latestOrder: Order = orders[0];
 
 	// Filter order items to match the latest order's ID
 	const latestOrderItems: OrderItem[] = orderItems.filter(

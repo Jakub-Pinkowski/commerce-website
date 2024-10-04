@@ -18,10 +18,7 @@
 	};
 
 	// Sort orders by date in descending order
-	const sortedOrders = orders.sort(
-		(a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-	);
-	const ordersWithDetails = sortedOrders.map(getOrderDetails);
+	const ordersWithDetails = orders.map(getOrderDetails);
 
 	// Load more orders
 	let visibleOrdersCount = 4;
