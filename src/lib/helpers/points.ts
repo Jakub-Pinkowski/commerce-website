@@ -1,15 +1,18 @@
 export const pointsThreshholds = {
-	bronze: 0,
-	silver: 60,
-	gold: 120,
-	platinum: 180,
-	diamond: 240
+	bronze: { points: 0, bonus: 'Basic membership benefits' },
+	silver: { points: 60, bonus: '5% discount on all purchases' },
+	gold: { points: 120, bonus: '10% discount on all purchases' },
+	platinum: { points: 180, bonus: '15% discount on all purchases + free shipping' },
+	diamond: {
+		points: 240,
+		bonus: '20% discount on all purchases + free shipping + exclusive offers'
+	}
 };
 
 export const getCurrentStatus = (points: number) => {
 	let currentStatus = 'bronze';
-	for (const [status, threshold] of Object.entries(pointsThreshholds)) {
-		if (points >= threshold) {
+	for (const [status, { points: thresholdPoints }] of Object.entries(pointsThreshholds)) {
+		if (points >= thresholdPoints) {
 			currentStatus = status;
 		} else {
 			break;
@@ -19,12 +22,12 @@ export const getCurrentStatus = (points: number) => {
 };
 
 export const getNextThreshold = (points: number) => {
-	for (const [status, threshold] of Object.entries(pointsThreshholds)) {
-		if (points < threshold) {
-			return { status, threshold };
+	for (const [status, { points: thresholdPoints }] of Object.entries(pointsThreshholds)) {
+		if (points < thresholdPoints) {
+			return { status, threshold: thresholdPoints };
 		}
 	}
-	return { status: 'diamond', threshold: pointsThreshholds.diamond };
+	return { status: 'diamond', threshold: pointsThreshholds.diamond.points };
 };
 
 export const getStatusClass = (status: string) => {
