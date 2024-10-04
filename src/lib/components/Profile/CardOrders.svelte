@@ -31,7 +31,7 @@
 	let currentStatusIndex = orderStatuses.indexOf(order.status);
 
 	// Manage expanded state
-	let isExpanded = true;
+	let isExpanded = false;
 
 	const toggleExpand = () => {
 		isExpanded = !isExpanded;
@@ -122,9 +122,8 @@
 					<ImageCard {product} />
 				{/each}
 				{#if orderItems.length > 3}
-					<!-- TODO: Replace with a link to this particular order -->
-					<a
-						href="profile/orders"
+					<!-- TODO: Show all the remaining images -->
+					<button
 						class=" flex h-full max-h-32 max-w-32 flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
 						aria-label="View the order"
 					>
@@ -140,7 +139,7 @@
 								d="m5,10c0-.552.448-1,1-1h3v-3c0-.552.448-1,1-1s1,.448,1,1v3h3c.552,0,1,.448,1,1s-.448,1-1,1h-3v3c0,.552-.448,1-1,1s-1-.448-1-1v-3h-3c-.552,0-1-.448-1-1Zm19-1v10c0,2.757-2.243,5-5,5h-10c-2.446,0-4.479-1.768-4.908-4.092-2.324-.429-4.092-2.462-4.092-4.908V5C0,2.243,2.243,0,5,0h10c2.446,0,4.479,1.768,4.908,4.092,2.324.429,4.092,2.462,4.092,4.908ZM5,18h10c1.654,0,3-1.346,3-3V5c0-1.654-1.346-3-3-3H5c-1.654,0-3,1.346-3,3v10c0,1.654,1.346,3,3,3Zm17-9c0-1.302-.839-2.402-2-2.816v8.816c0,2.757-2.243,5-5,5H6.184c.414,1.161,1.514,2,2.816,2h10c1.654,0,3-1.346,3-3v-10Z"
 							/>
 						</svg>
-					</a>
+					</button>
 				{/if}
 			</div>
 
@@ -150,9 +149,7 @@
 					<ImageCard {product} />
 				{/each}
 				{#if orderItems.length > 3}
-					<!-- TODO: Replace with a link to this particular order -->
-					<a
-						href="profile/orders"
+					<button
 						class="flex aspect-square max-w-[calc(50%-4px)] flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
 						aria-label="View the order"
 					>
@@ -168,13 +165,14 @@
 								d="m5,10c0-.552.448-1,1-1h3v-3c0-.552.448-1,1-1s1,.448,1,1v3h3c.552,0,1,.448,1,1s-.448,1-1,1h-3v3c0,.552-.448,1-1,1s-1-.448-1-1v-3h-3c-.552,0-1-.448-1-1Zm19-1v10c0,2.757-2.243,5-5,5h-10c-2.446,0-4.479-1.768-4.908-4.092-2.324-.429-4.092-2.462-4.092-4.908V5C0,2.243,2.243,0,5,0h10c2.446,0,4.479,1.768,4.908,4.092,2.324.429,4.092,2.462,4.092,4.908ZM5,18h10c1.654,0,3-1.346,3-3V5c0-1.654-1.346-3-3-3H5c-1.654,0-3,1.346-3,3v10c0,1.654,1.346,3,3,3Zm17-9c0-1.302-.839-2.402-2-2.816v8.816c0,2.757-2.243,5-5,5H6.184c.414,1.161,1.514,2,2.816,2h10c1.654,0,3-1.346,3-3v-10Z"
 							/>
 						</svg>
-					</a>
+					</button>
 				{/if}
+				<!-- TODO: Show all the remaining images -->
 			</div>
 		</div>
 		{#if isExpanded}
 			<div transition:fade={{ delay: 0, duration: 200, easing: quadOut }}>
-				<div class="mt-4">
+				<div class="mt-4 md:mt-0">
 					<h2 class="card-title">Products</h2>
 					<table class="table">
 						<tbody>
@@ -248,8 +246,8 @@
 						<table class="table hidden md:table">
 							<tbody>
 								<tr>
-									<th class="pt-0">Delivery address</th>
-									<th class="pt-0">Invoice address</th>
+									<th>Delivery address</th>
+									<th>Invoice address</th>
 								</tr>
 
 								<tr class="border-none">
