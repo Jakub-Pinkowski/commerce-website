@@ -36,6 +36,13 @@
 	const toggleExpand = () => {
 		isExpanded = !isExpanded;
 	};
+
+	// Manage show all images state
+	let showAll = false;
+
+	const toggleShowAll = () => {
+		showAll = !showAll;
+	};
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">
@@ -118,14 +125,14 @@
 
 			<!-- Desktop -->
 			<div class="hidden max-w-xl flex-grow flex-wrap items-start justify-end gap-2 md:flex">
-				{#each products.slice(0, 3) as product}
+				{#each showAll ? products : products.slice(0, 3) as product}
 					<ImageCard {product} />
 				{/each}
-				{#if orderItems.length > 3}
-					<!-- TODO: Show all the remaining images -->
+				{#if orderItems.length > 3 && !showAll}
 					<button
-						class=" flex h-full max-h-32 max-w-32 flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
+						class="flex h-full max-h-32 max-w-32 flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
 						aria-label="View the order"
+						on:click={toggleShowAll}
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -145,13 +152,14 @@
 
 			<!-- Mobile -->
 			<div class="flex flex-grow flex-wrap items-center gap-2 md:hidden">
-				{#each products.slice(0, 3) as product}
+				{#each showAll ? products : products.slice(0, 3) as product}
 					<ImageCard {product} />
 				{/each}
-				{#if orderItems.length > 3}
+				{#if orderItems.length > 3 && !showAll}
 					<button
 						class="flex aspect-square max-w-[calc(50%-4px)] flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80"
 						aria-label="View the order"
+						on:click={toggleShowAll}
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
