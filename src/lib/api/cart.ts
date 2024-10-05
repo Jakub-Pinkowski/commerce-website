@@ -14,9 +14,9 @@ export const syncCartWithDatabase = async (userId: string, localCart: CartItem[]
 };
 
 export const fetchCartFromDatabase = async (userId: string): Promise<CartItem[]> => {
-	// const response = await fetch(`/api/cart?userId=${userId}`);
-	// if (!response.ok) {
-	// 	throw new Error('Failed to fetch cart from database');
-	// }
-	// return response.json();
+	const response = await fetch(`/api/cart?userId=${userId}`);
+	if (!response.ok) {
+		throw new Error('Failed to fetch cart from database');
+	}
+	return response.json();
 };

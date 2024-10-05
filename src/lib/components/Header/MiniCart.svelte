@@ -22,15 +22,8 @@
 	};
 
 	const toggleBodyScroll = (isOpen: boolean) => {
-		if (typeof window !== 'undefined') {
-			if (typeof document !== 'undefined') {
-				const body = document.body;
-				if (isOpen) {
-					body.classList.add('overflow-hidden');
-				} else {
-					body.classList.remove('overflow-hidden');
-				}
-			}
+		if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+			document.body.classList.toggle('overflow-hidden', isOpen);
 		}
 	};
 
