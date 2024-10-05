@@ -81,3 +81,10 @@ a {
 	padding-left: 0 !important;
 	padding-right: 2rem !important;
 }
+
+@media (max-width: 768px) {
+    .table :where(th, td) {
+        padding-right: 1rem !important;
+    }
+    
+}
