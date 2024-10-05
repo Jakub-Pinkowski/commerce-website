@@ -25,6 +25,9 @@ a {
 }
 
 /* Toast */
+.toast:where(.toast-top) {
+	top: 50px;
+}
 
 .alert-add-to-cart {
 	--alert-bg: var(--primary);
@@ -38,8 +41,10 @@ a {
 	border-color: var(--light-accent);
 }
 
-.toast:where(.toast-top) {
-	top: 50px;
+.alert-error {
+    --alert-bg: var(--main-red);
+    color: var(--whiteish);
+    border-color: var(--main-red);
 }
 
 /* Swiper */
@@ -74,5 +79,5 @@ a {
 
 .table :where(th, td) {
 	padding-left: 0 !important;
-    padding-right: 2rem !important;
+	padding-right: 2rem !important;
 }

@@ -20,8 +20,6 @@
 	let isEditing: boolean = false;
 	let toastSuccess: boolean = false;
 	let toastSuccessMessage: string = '';
-	let toastError: boolean = false;
-	let toastErrorMessage: string = '';
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
@@ -57,11 +55,6 @@
 			const data = JSON.parse(result.data);
 			const message = data[1];
 			serverError = message;
-			toastError = true;
-			toastErrorMessage = message;
-			setTimeout(() => {
-				toastError = false;
-			}, 2000);
 		} else if (result.type === 'success') {
 			toastSuccess = true;
 			toastSuccessMessage = 'Your information has been updated';
@@ -252,14 +245,6 @@
 	<div class="toast toast-center toast-top z-10" transition:fade>
 		<div class="alert-add-to-cart alert">
 			<span> {@html toastSuccessMessage}</span>
-		</div>
-	</div>
-{/if}
-
-{#if toastError}
-	<div class="toast toast-center toast-top z-10" transition:fade>
-		<div class="alert-wishlist alert">
-			<span> {@html toastErrorMessage}</span>
 		</div>
 	</div>
 {/if}
