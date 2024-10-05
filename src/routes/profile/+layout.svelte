@@ -64,7 +64,6 @@
 				<li><a href="/profile/points" on:click={handleClick}>Points</a></li>
 				<li><a href="/profile/orders" on:click={handleClick}>Orders</a></li>
 				<li><a href="/profile/settings" on:click={handleClick}>Settings</a></li>
-				<li><a href="/wishlist" on:click={handleClick}>Wishlist</a></li>
 				<li>
 					<a href="/profile/logout">
 						<button>Logout</button>
