@@ -54,6 +54,19 @@ export const usersTable = pgTable('users', {
 	points: integer('points').default(0).notNull()
 });
 
+export const cartTable = pgTable('cart', {
+	id: serial('id').primaryKey(),
+	userId: text('user_id')
+		.notNull()
+		.references(() => usersTable.id),
+	productId: integer('product_id')
+		.notNull()
+		.references(() => productsTable.id),
+	quantity: integer('quantity').notNull(),
+	created_at: timestamp('created_at').defaultNow().notNull(),
+	updated_at: timestamp('updated_at').defaultNow().notNull()
+});
+
 // TODO: Add better types later on
 export const sessionsTable = pgTable('sessions', {
 	id: text('id').primaryKey(),
@@ -66,7 +79,6 @@ export const sessionsTable = pgTable('sessions', {
 	}).notNull()
 });
 
-// TODO: Add delivery address, invoice address, payment method, payment status etc.
 export const ordersTable = pgTable('orders', {
 	id: serial('id').primaryKey(),
 	user_id: varchar('user_id')
@@ -93,7 +105,7 @@ export const ordersTable = pgTable('orders', {
 	tracking_number: varchar('tracking_number'),
 	discount: decimal('discount').default('0').notNull(),
 	points: integer('points').default(0).notNull(),
-    total_cost: decimal('total_cost').notNull(),
+	total_cost: decimal('total_cost').notNull(),
 	customer_notes: text('customer_notes')
 });
 
