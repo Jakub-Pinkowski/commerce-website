@@ -64,6 +64,16 @@ export const actions: Actions = {
 			});
 		}
 
+		// Check if the email already exists in the database
+		const emailQuery = await db.select().from(usersTable).where(eq(usersTable.email, email));
+		const existingUser = emailQuery[0];
+
+		if (existingUser && existingUser.id !== userId) {
+			return fail(400, {
+				message: 'Email already in use'
+			});
+		}
+
 		// Get the user from the database
 		const userQuery = await db.select().from(usersTable).where(eq(usersTable.id, userId));
 		const user = userQuery[0];
