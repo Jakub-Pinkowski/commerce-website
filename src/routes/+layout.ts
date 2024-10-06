@@ -24,13 +24,13 @@ export const load: LayoutLoad = async ({ data, fetch }) => {
 			const response = await fetch('/api/cart', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ userId: user.id, localCart })
+				body: JSON.stringify({ localCart })
 			});
 
 			const result = await response.json();
 			if (result.localCart) {
 				localStorage.setItem('cart', JSON.stringify(result.localCart));
-				cart.set(result.localCart);
+				// cart.set(result.localCart);
 			}
 		} catch (error) {
 			console.error('Error updating cart:', error);

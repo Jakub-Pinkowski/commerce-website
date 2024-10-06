@@ -8,6 +8,26 @@ export interface CartItem extends Product {
 
 let initialCart: CartItem[] = [];
 
+const updateCartInDatabase = async (localCart: CartItem[]) => {
+	try {
+		const response = await fetch('/api/cart', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ localCart })
+		});
+
+		const result = await response.json();
+		console.log('result from cart.ts store', result);
+		if (!response.ok) {
+			console.error('Failed to update cart in database');
+		}
+	} catch (error) {
+		console.error('Failed to update cart in database', error);
+	}
+};
+
 if (typeof window !== 'undefined') {
 	try {
 		const storedCart = localStorage.getItem('cart');
@@ -27,6 +47,8 @@ if (typeof window !== 'undefined') {
 	cart.subscribe((items) => {
 		try {
 			localStorage.setItem('cart', JSON.stringify(items));
+			updateCartInDatabase(items);
+			console.log('items inside cart.ts', items);
 		} catch (error) {
 			console.error('Failed to save cart to localStorage', error);
 		}
