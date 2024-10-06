@@ -123,7 +123,6 @@
 <div class="card flex w-full bg-base-100 shadow-xl">
 	<form on:submit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Your information</h2>
-		<!-- TODO: Style later -->
 		<div class="flex-none overflow-x-auto">
 			<table class="table">
 				<tbody>

@@ -17,7 +17,6 @@
 </script>
 
 <svelte:head>
-	<!-- TODO: Fix android icons issue -->
 	<title>E-commerce website</title>
 	<meta name="description" content="E-commerce website" />
 	<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png" />

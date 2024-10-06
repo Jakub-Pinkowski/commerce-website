@@ -63,9 +63,7 @@ export const actions: Actions = {
 		}
 
 		await createUserSession(existingUser.id, event);
-
-        // TODO:Merge cart items here
-
+        
 		redirect(302, '/profile');
 	}
 };
