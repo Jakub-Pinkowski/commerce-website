@@ -68,23 +68,23 @@ export const POST: RequestHandler = async ({ request }) => {
 						updatedAt: product.updated_at
 					});
 
-					console.log('Adding product to localCart', product);
+					console.log('Adding product to localCart');
 				}
 			}
 		}
 
-		console.log('localCart', localCart);
-
 		for (const item of localCart) {
 			const existingItem = dbCartItems.find((i) => i.productId === item.id);
 			if (existingItem) {
-				// Step 2: Update items in the database that are in both localCart and dbCartItems
-				await db
-					.update(cartTable)
-					.set({ quantity: item.quantity })
-					.where(and(eq(cartTable.userId, userId), eq(cartTable.productId, item.id)));
+				// Step 2: Update quantity of items in the database that are in both localCart and dbCartItems
+				if (existingItem.quantity !== item.quantity) {
+					await db
+						.update(cartTable)
+						.set({ quantity: item.quantity })
+						.where(and(eq(cartTable.userId, userId), eq(cartTable.productId, item.id)));
 
-				console.log('Updating product in database', item);
+					console.log('Updating product in database');
+				}
 			} else {
 				// Step 3: Add items to the database that are in localCart but not in dbCartItems
 				await db.insert(cartTable).values({
@@ -93,7 +93,7 @@ export const POST: RequestHandler = async ({ request }) => {
 					quantity: item.quantity
 				});
 
-				console.log('Adding product to database', item);
+				console.log('Adding product to database');
 			}
 		}
 

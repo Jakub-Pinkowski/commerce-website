@@ -10,7 +10,6 @@ export const load: LayoutLoad = async ({ data, fetch }) => {
 		if (cartItem) {
 			try {
 				cart = JSON.parse(cartItem);
-				console.log('cart from localStorage on the initial load', cart);
 			} catch (error) {
 				console.error('Error parsing cart JSON:', error);
 			}
@@ -31,7 +30,6 @@ export const load: LayoutLoad = async ({ data, fetch }) => {
 		console.log('result', result);
 
 		if (result.localCart) {
-			console.log('result.localCart', result.localCart);
 			localStorage.setItem('cart', JSON.stringify(result.localCart));
 			cart = result.localCart;
 		}

@@ -20,6 +20,7 @@ if (typeof window !== 'undefined') {
 	console.log('Running in server environment');
 }
 
+// TODO: Make sure it's subscribed to the localStorage
 export const cart = writable<CartItem[]>(initialCart);
 
 if (typeof window !== 'undefined') {
