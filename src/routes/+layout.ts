@@ -20,24 +20,22 @@ export const load: LayoutLoad = async ({ data, fetch }) => {
 	}
 
 	if (user && localCart) {
-		const userId = user.id;
-		const response = await fetch('/api/cart', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ userId, localCart })
-		});
+		try {
+			const response = await fetch('/api/cart', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ userId: user.id, localCart })
+			});
 
-		const result = await response.json();
-		console.log('result', result);
-
-		if (result.localCart) {
-			localStorage.setItem('cart', JSON.stringify(result.localCart));
-			localCart = result.localCart;
-            cart.set(localCart);
+			const result = await response.json();
+			if (result.localCart) {
+				localStorage.setItem('cart', JSON.stringify(result.localCart));
+				cart.set(result.localCart);
+			}
+		} catch (error) {
+			console.error('Error updating cart:', error);
 		}
-		console.log('localCart', localCart);
 	}
+
 	return {};
 };
