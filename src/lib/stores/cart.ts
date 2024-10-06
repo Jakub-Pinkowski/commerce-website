@@ -1,6 +1,4 @@
-import { writable, derived, get } from 'svelte/store';
-
-import { syncCartWithDatabase, fetchCartFromDatabase } from '$lib/api/cart';
+import { writable, derived } from 'svelte/store';
 
 import type { Product } from '$lib//types/productTypes.ts';
 
@@ -14,7 +12,6 @@ if (typeof window !== 'undefined') {
 	try {
 		const storedCart = localStorage.getItem('cart');
 		initialCart = storedCart ? JSON.parse(storedCart) : [];
-		console.log('Initial cart from localStorage:', initialCart);
 	} catch (error) {
 		console.error('Failed to parse cart from localStorage', error);
 		initialCart = [];
@@ -34,7 +31,7 @@ if (typeof window !== 'undefined') {
 		}
 	});
 } else {
-    console.log('Running in server environment');
+	console.log('Running in server environment');
 }
 
 export const addToCart = (item: Product, quantity: number) => {
@@ -82,17 +79,3 @@ export const decreaseQuantity = (item: CartItem, quantity: number) => {
 export const totalQuantity = derived(cart, ($cart) =>
 	$cart.reduce((total, item) => total + item.quantity, 0)
 );
-
-export const syncLocalCartWithDatabase = async (userId: string) => {
-	const localCart = get(cart);
-	// if (localCart.length > 0) {
-	// 	await syncCartWithDatabase(userId, localCart);
-	// 	localStorage.removeItem('cart');
-	// }
-	// const updatedCart = await fetchCartFromDatabase(userId);
-	// cart.set(updatedCart);
-
-	// console.log('localCart: ', localCart);
-	// console.log('cart: ', cart);
-	// console.log('syncLocalCartWithDatabase');
-};
