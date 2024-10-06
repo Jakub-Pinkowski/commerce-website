@@ -5,6 +5,7 @@ export const load: LayoutLoad = async ({ data, fetch }) => {
 	const user = data?.user;
 	let cart = null;
 
+    // FIXME: Currently it updates only on page refresh, ideally it works after user logs in
 	if (typeof window !== 'undefined') {
 		const cartItem = localStorage.getItem('cart');
 		if (cartItem) {
