@@ -1,4 +1,5 @@
-import { writable, derived } from 'svelte/store';
+import { writable, derived, get } from 'svelte/store';
+import { user } from '$lib/stores/user';
 
 import type { Product } from '$lib//types/productTypes.ts';
 
@@ -35,7 +36,7 @@ if (typeof window !== 'undefined') {
 		console.error('Failed to parse cart from localStorage', error);
 		initialCart = [];
 	}
-} 
+}
 
 export const cart = writable<CartItem[]>(initialCart);
 
@@ -43,13 +44,16 @@ if (typeof window !== 'undefined') {
 	cart.subscribe((items) => {
 		try {
 			localStorage.setItem('cart', JSON.stringify(items));
-			// TODO: Ideally I make that call only when the user is logged in. For now the server will simply reject it
-			updateCartInDatabase(items);
+            const userStore = get(user);
+            console.log("User store in cart.ts: ", userStore);
+			if (userStore) {
+				updateCartInDatabase(items);
+			}
 		} catch (error) {
 			console.error('Failed to save cart to localStorage', error);
 		}
 	});
-} 
+}
 
 export const addToCart = (item: Product, quantity: number) => {
 	cart.update((items) => {

@@ -1,4 +1,5 @@
 import { cart } from '$lib/stores/cart';
+import { user as userStore } from '$lib/stores/user';
 
 import type { LayoutLoad } from './$types';
 
@@ -6,6 +7,9 @@ export const load: LayoutLoad = async ({ data, fetch }) => {
 	// I'm getting this user from +layout.server.ts
 	const user = data?.user;
 	let localCart = null;
+
+	userStore.set(user);
+	console.log('User store in +layout.ts: ', user);
 
 	// FIXME: Currently it updates only on page refresh, ideally it works after user logs in
 	if (typeof window !== 'undefined') {
@@ -37,9 +41,9 @@ export const load: LayoutLoad = async ({ data, fetch }) => {
 		}
 	}
 
-    const orders = data?.orders;
-    const orderItems = data?.orderItems;
-    const products = data?.products;
+	const orders = data?.orders;
+	const orderItems = data?.orderItems;
+	const products = data?.products;
 
 	return {
 		user,

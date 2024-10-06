@@ -64,6 +64,7 @@
 				<li><a href="/profile/points" on:click={handleClick}>Points</a></li>
 				<li><a href="/profile/orders" on:click={handleClick}>Orders</a></li>
 				<li><a href="/profile/settings" on:click={handleClick}>Settings</a></li>
+                <!-- FIXME: This runs when I only hover on the button -->
 				<li>
 					<a href="/profile/logout">
 						<button>Logout</button>
