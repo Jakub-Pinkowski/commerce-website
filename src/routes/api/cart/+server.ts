@@ -1,9 +1,10 @@
 import { createPool } from '@vercel/postgres';
 import { POSTGRES_URL } from '$env/static/private';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
-import { eq, and, inArray, desc } from 'drizzle-orm';
+import { eq, and, inArray } from 'drizzle-orm';
 
 import { usersTable, cartTable, productsTable } from '$lib/drizzle/schema';
+import { addProductToLocalCart } from '$lib/helpers/cart';
 
 import type { RequestHandler } from '@sveltejs/kit';
 import type { CartItem } from '$lib/stores/cart';
@@ -35,43 +36,9 @@ export const POST: RequestHandler = async ({ request }) => {
 			.from(productsTable)
 			.where(inArray(productsTable.id, productIds));
 
-		// Create a map of productId to product details
-		const productMap = new Map(products.map((product) => [product.id, product]));
-
 		// Merge localCart with database
 		// Step 1: Add items to the localCart that are in CartItems but not in localCart
-		for (const dbCartItem of dbCartItems) {
-			const localItem = localCart.find((item) => item.id === dbCartItem.productId);
-			if (!localItem) {
-				const product = productMap.get(dbCartItem.productId);
-				if (product) {
-					localCart.push({
-						id: dbCartItem.productId,
-						quantity: dbCartItem.quantity,
-						name: product.name,
-						handle: product.handle,
-						category: product.category,
-						brand: product.brand,
-						description: product.description,
-						price: parseFloat(product.price),
-						listPrice: parseFloat(product.list_price),
-						inStock: product.in_stock,
-						inventoryLevel: product.inventory_level,
-						reviewCount: product.review_count ?? undefined,
-						reviewRating: product.review_rating ? parseFloat(product.review_rating) : undefined,
-						colors: product.colors,
-						label: product.label ?? undefined,
-						url: product.url,
-						imageUrl: product.imageurl,
-						alternateImages: product.alternate_images,
-						createdAt: product.created_at,
-						updatedAt: product.updated_at
-					});
-
-					console.log('Adding product to localCart');
-				}
-			}
-		}
+		addProductToLocalCart(localCart, dbCartItems, products);
 
 		for (const item of localCart) {
 			const existingItem = dbCartItems.find((i) => i.productId === item.id);
