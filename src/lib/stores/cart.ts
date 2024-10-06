@@ -9,6 +9,7 @@ export interface CartItem extends Product {
 let initialCart: CartItem[] = [];
 
 const updateCartInDatabase = async (localCart: CartItem[]) => {
+    console.log("Running updateCartInDatabase");
 	try {
 		const response = await fetch('/api/cart', {
 			method: 'POST',

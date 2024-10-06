@@ -21,7 +21,7 @@ export const load: LayoutLoad = async ({ data, fetch }) => {
 
 	if (user && localCart) {
 		try {
-			const response = await fetch('/api/cart', {
+			const response = await fetch('/api/cart/sync', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ localCart })

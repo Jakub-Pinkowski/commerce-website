@@ -87,7 +87,7 @@ export const addProductToLocalCart = (
 					updatedAt: product.updated_at
 				});
 
-				console.log('Adding product to localCart');
+				console.log('Adding product to localCart in SYNC');
 			}
 		}
 	}
