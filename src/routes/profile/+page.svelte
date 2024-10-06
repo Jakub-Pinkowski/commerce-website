@@ -1,5 +1,4 @@
 <script lang="ts">
-	// FIXME: When there are no orders, orderItems or products the page crashes
 	import CardInfo from '$lib/components/Profile/Dashboard/CardInfo.svelte';
 	import CardPoints from '$lib/components/Profile/CardPoints.svelte';
 	import CardOrders from '$lib/components/Profile/CardOrders.svelte';

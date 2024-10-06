@@ -11,7 +11,8 @@ import type { CartItem } from '$lib/stores/cart';
 
 export const POST: RequestHandler = async ({ request, locals }) => {
 	try {
-        console.log("POST /api/cart");
+		console.log('POST /api/cart');
+		// NOTE: Not ideal for now, ideally we don't send the whole cart to the server when there is no user
 		const userId = locals?.user?.id;
 		if (!userId) {
 			return new Response(JSON.stringify({ error: 'User not logged in' }), { status: 404 });
@@ -51,7 +52,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			}
 		}
 
-        // TODO: Make this one below work
+		// TODO: Make this one below work
 		// Add items to the localCart that are in CartItems but not in localCart
 		// addProductToLocalCart(localCart, dbCartItems, products);
 
