@@ -9,7 +9,6 @@ export interface CartItem extends Product {
 let initialCart: CartItem[] = [];
 
 const updateCartInDatabase = async (localCart: CartItem[]) => {
-    console.log("Running updateCartInDatabase");
 	try {
 		const response = await fetch('/api/cart', {
 			method: 'POST',
@@ -20,7 +19,6 @@ const updateCartInDatabase = async (localCart: CartItem[]) => {
 		});
 
 		const result = await response.json();
-		console.log('result from cart.ts store', result);
 		if (!response.ok) {
 			console.error('Failed to update cart in database');
 		}
@@ -37,26 +35,21 @@ if (typeof window !== 'undefined') {
 		console.error('Failed to parse cart from localStorage', error);
 		initialCart = [];
 	}
-} else {
-	console.log('Running in server environment');
-}
+} 
 
-// TODO: Make sure it's subscribed to the localStorage
 export const cart = writable<CartItem[]>(initialCart);
 
 if (typeof window !== 'undefined') {
 	cart.subscribe((items) => {
 		try {
 			localStorage.setItem('cart', JSON.stringify(items));
+			// TODO: Ideally I make that call only when the user is logged in. For now the server will simply reject it
 			updateCartInDatabase(items);
-			console.log('items inside cart.ts', items);
 		} catch (error) {
 			console.error('Failed to save cart to localStorage', error);
 		}
 	});
-} else {
-	console.log('Running in server environment');
-}
+} 
 
 export const addToCart = (item: Product, quantity: number) => {
 	cart.update((items) => {
