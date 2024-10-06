@@ -13,7 +13,6 @@ export const POST: RequestHandler = async ({ request }) => {
 	try {
 		const { userId, localCart }: { userId: string; localCart: CartItem[] } = await request.json();
 
-		console.log('userId', userId);
 		const pool = createPool({ connectionString: POSTGRES_URL });
 		const db = drizzle(pool);
 
