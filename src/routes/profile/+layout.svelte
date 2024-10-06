@@ -66,7 +66,7 @@
 				<li><a href="/profile/settings" on:click={handleClick}>Settings</a></li>
                 <!-- FIXME: This runs when I only hover on the button -->
 				<li>
-					<a href="/profile/logout">
+					<a data-sveltekit-preload-data="tap" href="/profile/logout">
 						<button>Logout</button>
 					</a>
 				</li>

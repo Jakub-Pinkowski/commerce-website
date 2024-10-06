@@ -10,6 +10,7 @@ export const load: PageServerLoad = async (event) => {
 
 	await destroyUserSession(event);
 
+    console.log("destroyed session");
 	return {
 		user: event.locals.user
 	};
