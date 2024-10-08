@@ -11,6 +11,8 @@
 
 	const link = title.toLowerCase().replace(/\s+/g, '_');
 
+    // TODO: Prepare some kind of way to push random products to the recommendations
+
 	const initializeSwiper = () => {
 		new Swiper('.swiper.recommendations-carousel', {
 			slidesPerView: 1.3,
