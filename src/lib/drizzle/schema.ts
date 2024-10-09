@@ -9,6 +9,8 @@ import {
 	varchar
 } from 'drizzle-orm/pg-core';
 
+import { type InferSelectModel, type InferInsertModel } from 'drizzle-orm';
+
 export const productsTable = pgTable('products', {
 	id: serial('id').primaryKey(),
 	name: varchar('name', { length: 255 }).notNull(),
@@ -30,6 +32,8 @@ export const productsTable = pgTable('products', {
 	created_at: timestamp('created_at').defaultNow().notNull(),
 	updated_at: timestamp('updated_at').defaultNow().notNull()
 });
+
+export type DrizzleProduct = InferSelectModel<typeof productsTable>;
 
 // TODO: Add better types later on varchar etc.
 export const usersTable = pgTable('users', {
@@ -54,6 +58,8 @@ export const usersTable = pgTable('users', {
 	points: integer('points').default(0).notNull()
 });
 
+export type DrizzleUser = InferSelectModel<typeof usersTable>;
+
 export const cartTable = pgTable('cart', {
 	id: serial('id').primaryKey(),
 	userId: text('user_id')
@@ -67,6 +73,8 @@ export const cartTable = pgTable('cart', {
 	updated_at: timestamp('updated_at').defaultNow().notNull()
 });
 
+export type DrizzleCart = InferSelectModel<typeof cartTable>;
+
 // TODO: Add better types later on
 export const sessionsTable = pgTable('sessions', {
 	id: text('id').primaryKey(),
@@ -78,6 +86,8 @@ export const sessionsTable = pgTable('sessions', {
 		mode: 'date'
 	}).notNull()
 });
+
+export type DrizzleSession = InferSelectModel<typeof sessionsTable>;
 
 export const ordersTable = pgTable('orders', {
 	id: serial('id').primaryKey(),
@@ -109,6 +119,8 @@ export const ordersTable = pgTable('orders', {
 	customer_notes: text('customer_notes')
 });
 
+export type DrizzleOrder = InferSelectModel<typeof ordersTable>;
+
 export const orderItemsTable = pgTable('order_items', {
 	id: serial('id').primaryKey(),
 	order_id: integer('order_id')
@@ -121,3 +133,5 @@ export const orderItemsTable = pgTable('order_items', {
 	price: decimal('price').notNull(),
 	list_price: decimal('list_price').notNull()
 });
+
+export type DrizzleOrderItem = InferSelectModel<typeof orderItemsTable>;
