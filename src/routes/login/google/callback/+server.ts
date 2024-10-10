@@ -1,12 +1,10 @@
 import { OAuth2RequestError } from 'arctic';
 import { generateIdFromEntropySize } from 'lucia';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
-import { createPool } from '@vercel/postgres';
 import { eq } from 'drizzle-orm';
 
+import { db } from '$lib/helpers/drizzle';
 import { google } from '$lib/server/auth';
 import { usersTable } from '$lib/drizzle/schema';
-import { POSTGRES_URL } from '$env/static/private';
 import { createUserSession } from '$lib/helpers/auth';
 
 import type { RequestEvent } from '@sveltejs/kit';
@@ -18,9 +16,6 @@ interface GoogleUser {
 }
 
 export async function GET(event: RequestEvent): Promise<Response> {
-	const pool = createPool({ connectionString: POSTGRES_URL });
-	const db = drizzle(pool);
-
 	const code = event.url.searchParams.get('code');
 	const state = event.url.searchParams.get('state');
 	const storedState = event.cookies.get('google_oauth_state') ?? null;

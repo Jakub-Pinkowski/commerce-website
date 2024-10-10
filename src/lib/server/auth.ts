@@ -1,10 +1,9 @@
 import { Lucia } from 'lucia';
 import { GitHub, Google } from 'arctic';
 import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
-import { createPool } from '@vercel/postgres';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
 
 import { dev } from '$app/environment';
+import { db } from '$lib/helpers/drizzle';
 import {
 	POSTGRES_URL,
 	GITHUB_CLIENT_ID,
@@ -16,10 +15,6 @@ import {
 } from '$env/static/private';
 
 import { usersTable, sessionsTable } from '$lib/drizzle/schema';
-
-const pool = createPool({ connectionString: POSTGRES_URL });
-const db = drizzle(pool);
-
 const adapter = new DrizzlePostgreSQLAdapter(db, sessionsTable, usersTable);
 
 export const lucia = new Lucia(adapter, {

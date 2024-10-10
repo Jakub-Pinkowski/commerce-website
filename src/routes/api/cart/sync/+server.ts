@@ -1,8 +1,6 @@
-import { createPool } from '@vercel/postgres';
-import { POSTGRES_URL } from '$env/static/private';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq, and, inArray } from 'drizzle-orm';
 
+import { db } from '$lib/helpers/drizzle';
 import { usersTable, cartTable, productsTable } from '$lib/drizzle/schema';
 import { addProductToLocalCart } from '$lib/helpers/cart';
 
@@ -16,8 +14,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			return new Response(JSON.stringify({ error: 'User not logged in' }), { status: 404 });
 		}
 		const { localCart }: { localCart: CartItem[] } = await request.json();
-		const pool = createPool({ connectionString: POSTGRES_URL });
-		const db = drizzle(pool);
+
 
 		// Get the user from the database
 		const userQuery = await db.select().from(usersTable).where(eq(usersTable.id, userId));

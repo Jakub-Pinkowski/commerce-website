@@ -1,17 +1,10 @@
 import { encodeBase32LowerCaseNoPadding, encodeBase32, encodeHexLowerCase } from '@oslojs/encoding';
 import { sha256 } from '@oslojs/crypto/sha2';
-import { eq } from 'drizzle-orm';
-import { createPool } from '@vercel/postgres';
-import { POSTGRES_URL } from '$env/static/private';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
 
+import { db } from '$lib/helpers/drizzle';
 import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 
 import type { DrizzleUser, DrizzleSession } from '$lib/drizzle/schema';
-
-// TODO: Maybe let's put the entire db in separate file?
-const pool = createPool({ connectionString: POSTGRES_URL });
-const db = drizzle(pool);
 
 export function generateSessionToken(): string {
 	const bytes = new Uint8Array(20);
