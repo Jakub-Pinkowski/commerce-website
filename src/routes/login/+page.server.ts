@@ -1,9 +1,6 @@
-import { createPool } from '@vercel/postgres';
 import { fail, redirect } from '@sveltejs/kit';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq } from 'drizzle-orm';
-
-import { POSTGRES_URL } from '$env/static/private';
+import { db } from '$lib/helpers/drizzle';
 
 import { usersTable } from '$lib/drizzle/schema';
 import { validateEmailAndPassword, verifyPassword, createUserSession } from '$lib/helpers/auth';
@@ -16,8 +13,6 @@ export const load: PageServerLoad = async (event) => {
 
 export const actions: Actions = {
 	default: async (event) => {
-		const pool = createPool({ connectionString: POSTGRES_URL });
-		const db = drizzle(pool);
 
 		const formData = await event.request.formData();
 		const email = formData.get('email');

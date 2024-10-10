@@ -9,7 +9,6 @@ import type { Order, OrderItem } from '$lib/types/orderTypes';
 const pool = createPool({ connectionString: POSTGRES_URL });
 export const db = drizzle(pool);
 
-
 export const mapProducts = (result: DrizzleProduct[]): Product[] => {
 	if (!result || !Array.isArray(result)) {
 		console.error('Invalid result format', result);
