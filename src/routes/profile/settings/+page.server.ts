@@ -1,10 +1,7 @@
-import { createPool } from '@vercel/postgres';
 import { fail } from '@sveltejs/kit';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq } from 'drizzle-orm';
 
-import { POSTGRES_URL } from '$env/static/private';
-
+import { db } from '$lib/helpers/drizzle';
 import { usersTable } from '$lib/drizzle/schema';
 import {
 	validateName,
@@ -20,9 +17,6 @@ import type { Actions } from './$types';
 
 export const actions: Actions = {
 	changeInfo: async (event) => {
-		const pool = createPool({ connectionString: POSTGRES_URL });
-		const db = drizzle(pool);
-
 		const formData = await event.request.formData();
 		const userId = formData.get('userId');
 		const name = formData.get('name');
@@ -102,9 +96,6 @@ export const actions: Actions = {
 	},
 
 	changeAddress: async (event) => {
-		const pool = createPool({ connectionString: POSTGRES_URL });
-		const db = drizzle(pool);
-
 		const formData = await event.request.formData();
 		const userId = formData.get('userId');
 		const street = formData.get('street');
@@ -164,9 +155,6 @@ export const actions: Actions = {
 	},
 
 	changePassword: async (event) => {
-		const pool = createPool({ connectionString: POSTGRES_URL });
-		const db = drizzle(pool);
-
 		const formData = await event.request.formData();
 		const userId = formData.get('userId');
 		const oldPassword = formData.get('oldPassword');
