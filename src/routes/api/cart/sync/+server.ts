@@ -11,7 +11,6 @@ import type { CartItem } from '$lib/stores/cart';
 
 export const POST: RequestHandler = async ({ request, locals }) => {
 	try {
-        console.log("POST /api/cart/sync");
 		const userId = locals?.user?.id;
 		if (!userId) {
 			return new Response(JSON.stringify({ error: 'User not logged in' }), { status: 404 });
