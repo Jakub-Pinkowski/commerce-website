@@ -1,7 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
-import { db } from '$lib/helpers/drizzle';
 
+import { db } from '$lib/helpers/drizzle';
 import { usersTable } from '$lib/drizzle/schema';
 import { validateEmailAndPassword, verifyPassword, createUserSession } from '$lib/helpers/auth';
 

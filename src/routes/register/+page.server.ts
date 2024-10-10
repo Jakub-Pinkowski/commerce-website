@@ -3,7 +3,6 @@ import { eq } from 'drizzle-orm';
 import { generateIdFromEntropySize } from 'lucia';
 
 import { db } from '$lib/helpers/drizzle';
-
 import { usersTable } from '$lib/drizzle/schema';
 import { validateEmailAndPassword, hashPassword, createUserSession } from '$lib/helpers/auth';
 

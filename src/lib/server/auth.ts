@@ -4,6 +4,7 @@ import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
 
 import { dev } from '$app/environment';
 import { db } from '$lib/helpers/drizzle';
+import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 import {
 	GITHUB_CLIENT_ID,
 	GITHUB_CLIENT_SECRET,
@@ -13,7 +14,6 @@ import {
 	GOOGLE_REDIRECT_URI_PROD
 } from '$env/static/private';
 
-import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 const adapter = new DrizzlePostgreSQLAdapter(db, sessionsTable, usersTable);
 
 export const lucia = new Lucia(adapter, {

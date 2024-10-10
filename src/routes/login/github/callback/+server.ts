@@ -2,10 +2,11 @@ import { OAuth2RequestError } from 'arctic';
 import { generateIdFromEntropySize } from 'lucia';
 import { eq } from 'drizzle-orm';
 
-import { db } from '$lib/helpers/drizzle';
-import { github } from '$lib/server/auth';
-import { usersTable } from '$lib/drizzle/schema';
 import { createUserSession } from '$lib/helpers/auth';
+import { db } from '$lib/helpers/drizzle';
+import { usersTable } from '$lib/drizzle/schema';
+import { github } from '$lib/server/auth';
+
 
 import type { RequestEvent } from '@sveltejs/kit';
 
