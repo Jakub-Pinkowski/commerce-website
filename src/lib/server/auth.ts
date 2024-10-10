@@ -5,7 +5,6 @@ import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
 import { dev } from '$app/environment';
 import { db } from '$lib/helpers/drizzle';
 import {
-	POSTGRES_URL,
 	GITHUB_CLIENT_ID,
 	GITHUB_CLIENT_SECRET,
 	GOOGLE_CLIENT_ID,
