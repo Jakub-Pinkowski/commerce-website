@@ -1,13 +1,16 @@
-import type { PageServerLoad } from './$types';
-import { createPool } from '@vercel/postgres';
-import { POSTGRES_URL } from '$env/static/private';
-import { mapProducts } from '$lib/helpers/sql';
+import { eq } from 'drizzle-orm';
 
+import { productsTable } from '$lib/drizzle/schema';
+import { db, mapProducts } from '$lib/helpers/drizzle';
+
+import type { PageServerLoad } from './$types';
 export const load: PageServerLoad = async ({ params }) => {
-	const pool = createPool({ connectionString: POSTGRES_URL });
-	const result = await pool.sql`SELECT * FROM products WHERE handle = ${params.slug}`;
-	const products = mapProducts(result);
-	const product = products[0];
+	const productQuery = mapProducts(
+		await db.select().from(productsTable).where(eq(productsTable.handle, params.slug))
+	);
+	const product = productQuery[0];
+
+	console.log('product', product);
 
 	return {
 		product
