@@ -1,18 +1,13 @@
 import { redirect } from '@sveltejs/kit';
-import { createPool } from '@vercel/postgres';
-import { POSTGRES_URL } from '$env/static/private';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { eq, inArray } from 'drizzle-orm';
 
 import { ordersTable, orderItemsTable, productsTable } from '$lib/drizzle/schema';
-import { mapProducts, mapOrders, mapOrderItems } from '$lib/helpers/drizzle';
+import { db, mapProducts, mapOrders, mapOrderItems } from '$lib/helpers/drizzle';
 
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async (event) => {
 	if (!event.locals.user) redirect(302, '/login');
-	const pool = createPool({ connectionString: POSTGRES_URL });
-	const db = drizzle(pool);
 
 	const user = event.locals.user;
 

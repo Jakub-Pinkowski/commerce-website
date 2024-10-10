@@ -1,3 +1,4 @@
+<!-- TODO: Add a demo account with orders etc. -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { fade } from 'svelte/transition';

@@ -45,7 +45,6 @@ if (typeof window !== 'undefined') {
 		try {
 			localStorage.setItem('cart', JSON.stringify(items));
             const userStore = get(user);
-            console.log("User store in cart.ts: ", userStore);
 			if (userStore) {
 				updateCartInDatabase(items);
 			}
