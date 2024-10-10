@@ -1,12 +1,14 @@
+import { lt } from 'drizzle-orm';
+
+import { productsTable } from '$lib/drizzle/schema';
+import { db, mapProducts } from '$lib/helpers/drizzle';
+
 import type { PageServerLoad } from './$types';
-import { createPool } from '@vercel/postgres';
-import { POSTGRES_URL } from '$env/static/private';
-import { mapProducts } from '$lib/helpers/sql';
 
 export const load: PageServerLoad = async () => {
-	const pool = createPool({ connectionString: POSTGRES_URL });
-	const result = await pool.sql`SELECT * FROM products WHERE price < list_price`;
-    const products = mapProducts(result);
+	const products = mapProducts(
+		await db.select().from(productsTable).where(lt(productsTable.price, productsTable.list_price))
+	);
 
 	return {
 		products
