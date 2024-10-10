@@ -5,7 +5,7 @@ import { google } from '$lib/server/auth';
 
 import type { RequestEvent } from '@sveltejs/kit';
 
-export async function GET(event: RequestEvent): Promise<Response> {
+export const GET = async (event: RequestEvent): Promise<Response> => {
 	const state = generateState();
 	const codeVerifier = generateCodeVerifier();
 	const url = await google.createAuthorizationURL(state, codeVerifier, {

@@ -14,7 +14,7 @@ interface GitHubUser {
 	login: string;
 }
 
-export async function GET(event: RequestEvent): Promise<Response> {
+export const GET = async (event: RequestEvent): Promise<Response> => {
 	const code = event.url.searchParams.get('code');
 	const state = event.url.searchParams.get('state');
 	const storedState = event.cookies.get('github_oauth_state') ?? null;
@@ -49,7 +49,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 				id: userId,
 				github_id: githubUser.id,
 				github_username: githubUser.login,
-                created_at: new Date()
+				created_at: new Date()
 			});
 
 			await createUserSession(userId, event);
@@ -72,4 +72,4 @@ export async function GET(event: RequestEvent): Promise<Response> {
 			status: 500
 		});
 	}
-}
+};

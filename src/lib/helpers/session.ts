@@ -6,15 +6,15 @@ import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 
 import type { DrizzleUser, DrizzleSession } from '$lib/drizzle/schema';
 
-export function generateSessionToken(): string {
+export const generateSessionToken = (): string => {
 	const bytes = new Uint8Array(20);
 	crypto.getRandomValues(bytes);
 	const token = encodeBase32LowerCaseNoPadding(bytes);
 	return token;
-}
+};
 
 // FIXME: Should the userId be a number or a string? String probably
-export async function createSession(token: string, userId: string): Promise<DrizzleSession> {
+export const createSession = async (token: string, userId: string): Promise<DrizzleSession> => {
 	const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
 	const session: DrizzleSession = {
 		id: sessionId,
@@ -23,4 +23,4 @@ export async function createSession(token: string, userId: string): Promise<Driz
 	};
 	await db.insert(sessionsTable).values(session);
 	return session;
-}
+};

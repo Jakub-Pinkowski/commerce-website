@@ -15,7 +15,7 @@ interface GoogleUser {
 	picture: string;
 }
 
-export async function GET(event: RequestEvent): Promise<Response> {
+export const GET = async (event: RequestEvent): Promise<Response> => {
 	const code = event.url.searchParams.get('code');
 	const state = event.url.searchParams.get('state');
 	const storedState = event.cookies.get('google_oauth_state') ?? null;
@@ -68,7 +68,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 				email: googleUser.email,
 				google_id: googleUser.id,
 				google_picture: googleUser.picture,
-                created_at: new Date()
+				created_at: new Date()
 			});
 
 			await createUserSession(userId, event);
@@ -92,4 +92,4 @@ export async function GET(event: RequestEvent): Promise<Response> {
 			status: 500
 		});
 	}
-}
+};
