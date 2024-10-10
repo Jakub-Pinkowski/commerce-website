@@ -1,5 +1,5 @@
 // Define types
-// TODO: Change to drizzle 
+// TODO: Change to drizzle
 interface LocalCartItem {
 	id: number;
 	quantity: number;
