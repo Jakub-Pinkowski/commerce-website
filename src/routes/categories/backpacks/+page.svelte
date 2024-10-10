@@ -4,7 +4,6 @@
 	import CategoryPage from '$lib/components/CategoryPages/CategoryPage.svelte';
 
 	export let data: PageData;
-    console.log("data", data);
 	const products = data?.products as Product[];
 
 	let title = 'Backpacks';
