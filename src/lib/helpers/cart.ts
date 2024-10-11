@@ -1,5 +1,3 @@
-// TODO: Change to drizzle
-// TODO: Infer the types using the schema
 import type { CartItem } from '$lib/stores/cart';
 import type { DrizzleCart, DrizzleProduct } from '$lib/drizzle/schema';
 
