@@ -19,7 +19,7 @@ export const createSession = async (token: string, userId: string): Promise<Driz
 	const session: DrizzleSession = {
 		id: sessionId,
 		userId,
-		expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)
+		expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30) // 30 days
 	};
 	await db.insert(sessionsTable).values(session);
 	return session;

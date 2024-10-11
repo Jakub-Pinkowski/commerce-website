@@ -15,7 +15,6 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		}
 		const { localCart }: { localCart: CartItem[] } = await request.json();
 
-
 		// Get the user from the database
 		const userQuery = await db.select().from(usersTable).where(eq(usersTable.id, userId));
 		const user = userQuery[0];
@@ -47,8 +46,6 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 						.update(cartTable)
 						.set({ quantity: item.quantity })
 						.where(and(eq(cartTable.userId, userId), eq(cartTable.productId, item.id)));
-
-					console.log('Updating product in database in SYNC');
 				}
 			} else {
 				// Add items to the database that are in localCart but not in dbCartItems
@@ -57,8 +54,6 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 					productId: item.id,
 					quantity: item.quantity
 				});
-
-				console.log('Adding product to database in SYNC');
 			}
 		}
 
