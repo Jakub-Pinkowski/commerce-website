@@ -1,5 +1,4 @@
-import { fail, redirect } from '@sveltejs/kit';
-import { destroyUserSession } from '$lib/helpers/auth';
+import { redirect } from '@sveltejs/kit';
 import { deleteSessionTokenCookie, invalidateSession } from '$lib/server/session';
 
 import type { PageServerLoad } from './$types';
@@ -12,7 +11,6 @@ export const load: PageServerLoad = async (event) => {
 	invalidateSession(event.locals.session.id);
 	deleteSessionTokenCookie(event);
 
-	console.log('destroyed session');
 	return {
 		user: event.locals.user
 	};

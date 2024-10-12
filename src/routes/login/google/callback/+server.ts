@@ -5,7 +5,7 @@ import { eq } from 'drizzle-orm';
 import { db } from '$lib/helpers/drizzle';
 import { google } from '$lib/server/auth';
 import { usersTable } from '$lib/drizzle/schema';
-import { createUserSession } from '$lib/helpers/auth';
+import { createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
 
 import type { RequestEvent } from '@sveltejs/kit';
 
@@ -45,7 +45,9 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 		if (existingUser) {
 			if (existingUser.google_id) {
 				// User already signed in with Google before
-				await createUserSession(existingUser.id, event);
+				const sessionToken = generateSessionToken();
+				const session = await createSession(sessionToken, existingUser.id);
+				setSessionTokenCookie(event, sessionToken, session.expiresAt);
 			} else {
 				// TODO: Inform user that their account has been merged with Google
 				// User registered with email before, now signing in with Google
@@ -57,7 +59,9 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 					})
 					.where(eq(usersTable.id, existingUser.id));
 
-				await createUserSession(existingUser.id, event);
+				const sessionToken = generateSessionToken();
+				const session = await createSession(sessionToken, existingUser.id);
+				setSessionTokenCookie(event, sessionToken, session.expiresAt);
 			}
 		} else {
 			// New user signing in with Google
@@ -71,7 +75,9 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 				created_at: new Date()
 			});
 
-			await createUserSession(userId, event);
+			const sessionToken = generateSessionToken();
+			const session = await createSession(sessionToken, userId);
+			setSessionTokenCookie(event, sessionToken, session.expiresAt);
 		}
 
 		return new Response(null, {

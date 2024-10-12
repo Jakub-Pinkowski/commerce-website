@@ -4,7 +4,7 @@ import { generateIdFromEntropySize } from 'lucia';
 
 import { db } from '$lib/helpers/drizzle';
 import { usersTable } from '$lib/drizzle/schema';
-import { validateEmailAndPassword, hashPassword, createUserSession } from '$lib/helpers/auth';
+import { validateEmailAndPassword, hashPassword } from '$lib/helpers/auth';
 import { createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
 
 import type { Actions } from './$types';

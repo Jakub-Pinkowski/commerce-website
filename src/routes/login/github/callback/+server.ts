@@ -2,11 +2,11 @@ import { OAuth2RequestError } from 'arctic';
 import { generateIdFromEntropySize } from 'lucia';
 import { eq } from 'drizzle-orm';
 
-import { createUserSession } from '$lib/helpers/auth';
 import { db } from '$lib/helpers/drizzle';
-import { usersTable } from '$lib/drizzle/schema';
 import { github } from '$lib/server/auth';
+import { usersTable } from '$lib/drizzle/schema';
 
+import { createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
 
 import type { RequestEvent } from '@sveltejs/kit';
 
@@ -42,7 +42,9 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 		const existingUser = existingUserQuery[0];
 
 		if (existingUser) {
-			await createUserSession(existingUser.id, event);
+			const sessionToken = generateSessionToken();
+			const session = await createSession(sessionToken, existingUser.id);
+			setSessionTokenCookie(event, sessionToken, session.expiresAt);
 		} else {
 			const userId = generateIdFromEntropySize(10);
 
@@ -53,7 +55,9 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 				created_at: new Date()
 			});
 
-			await createUserSession(userId, event);
+			const sessionToken = generateSessionToken();
+			const session = await createSession(sessionToken, userId);
+			setSessionTokenCookie(event, sessionToken, session.expiresAt);
 		}
 		return new Response(null, {
 			status: 302,
