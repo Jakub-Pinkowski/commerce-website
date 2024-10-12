@@ -1,5 +1,5 @@
 import { GitHub, Google } from 'arctic';
-import { encodeBase32LowerCaseNoPadding, encodeBase32, encodeHexLowerCase } from '@oslojs/encoding';
+import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from '@oslojs/encoding';
 import { sha256 } from '@oslojs/crypto/sha2';
 import { eq } from 'drizzle-orm';
 
@@ -20,9 +20,6 @@ import type { RequestEvent } from '@sveltejs/kit';
 import type { User } from '$lib/types/userTypes';
 import type { DrizzleSession } from '$lib/drizzle/schema';
 
-export interface MinimalUser {
-	id: string;
-}
 export type SessionValidationResult =
 	| { session: DrizzleSession; user: User }
 	| { session: null; user: null };
@@ -54,7 +51,6 @@ export const createSession = async (token: string, userId: string): Promise<Driz
 
 export const validateSessionToken = async (token: string): Promise<SessionValidationResult> => {
 	const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
-	// FIXME: For now we are comparing the token, but we will have to compare sessionId instead
 	const result = await db
 		.select({ drizzleUser: usersTable, session: sessionsTable })
 		.from(sessionsTable)
