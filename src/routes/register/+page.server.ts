@@ -1,6 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
-import { generateIdFromEntropySize } from 'lucia';
+import { generateUserId } from '$lib/server/session';
 
 import { db } from '$lib/helpers/drizzle';
 import { usersTable } from '$lib/drizzle/schema';
@@ -55,7 +55,7 @@ export const actions: Actions = {
 			}
 		}
 
-		const userId = generateIdFromEntropySize(10);
+		const userId = generateUserId();
 		const passwordHash = await hashPassword(password);
 
 		await db.insert(usersTable).values({

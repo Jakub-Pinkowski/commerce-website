@@ -8,7 +8,7 @@ import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 
 import type { RequestEvent } from '@sveltejs/kit';
 import type { User } from '$lib/types/userTypes';
-import type { DrizzleUser, DrizzleSession } from '$lib/drizzle/schema';
+import type { DrizzleSession } from '$lib/drizzle/schema';
 
 export interface MinimalUser {
 	id: string;
@@ -16,6 +16,13 @@ export interface MinimalUser {
 export type SessionValidationResult =
 	| { session: DrizzleSession; user: User }
 	| { session: null; user: null };
+
+export const generateUserId = (): string => {
+	const bytes = new Uint8Array(10);
+	crypto.getRandomValues(bytes);
+	const userId = encodeBase32LowerCaseNoPadding(bytes);
+	return userId;
+};
 
 export const generateSessionToken = (): string => {
 	const bytes = new Uint8Array(20);
