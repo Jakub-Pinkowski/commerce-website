@@ -42,7 +42,7 @@ export const validateSessionToken = async (token: string): Promise<SessionValida
 		.select({ drizzleUser: usersTable, session: sessionsTable })
 		.from(sessionsTable)
 		.innerJoin(usersTable, eq(sessionsTable.userId, usersTable.id))
-		.where(eq(sessionsTable.id, token));
+		.where(eq(sessionsTable.id, sessionId));
 
 	if (result.length < 1) {
 		return { session: null, user: null };
