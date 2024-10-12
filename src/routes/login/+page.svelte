@@ -8,6 +8,7 @@
 	import FormInput from '$lib/components/Common/FormInput.svelte';
 	import GoogleButton from '$lib/components/UI/login_buttons/GoogleButton.svelte';
 	import GithubButton from '$lib/components/UI/login_buttons/GithubButton.svelte';
+	import DemoButton from '$lib/components/UI/login_buttons/DemoButton.svelte';
 
 	let breadcrumbs = ['Home', 'Login'];
 
@@ -95,6 +96,7 @@
 	<div class="mb-8 flex flex-col items-center gap-4">
 		<GoogleButton />
 		<GithubButton />
+		<DemoButton />
 	</div>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<span>Sign in with Email</span>
