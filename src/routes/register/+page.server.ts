@@ -5,6 +5,7 @@ import { generateIdFromEntropySize } from 'lucia';
 import { db } from '$lib/helpers/drizzle';
 import { usersTable } from '$lib/drizzle/schema';
 import { validateEmailAndPassword, hashPassword, createUserSession } from '$lib/helpers/auth';
+import { createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
 
 import type { Actions } from './$types';
 
@@ -42,7 +43,9 @@ export const actions: Actions = {
 					.set({ password_hash: passwordHash })
 					.where(eq(usersTable.id, existingUser.id));
 
-				await createUserSession(existingUser.id, event);
+				const sessionToken = generateSessionToken();
+				const session = await createSession(sessionToken, existingUser.id);
+				setSessionTokenCookie(event, sessionToken, session.expiresAt);
 
 				redirect(302, '/profile');
 			} else {
@@ -62,7 +65,9 @@ export const actions: Actions = {
 			created_at: new Date()
 		});
 
-		await createUserSession(userId, event);
+		const sessionToken = generateSessionToken();
+		const session = await createSession(sessionToken, userId);
+		setSessionTokenCookie(event, sessionToken, session.expiresAt);
 
 		redirect(302, '/profile');
 	}
