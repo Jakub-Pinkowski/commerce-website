@@ -2,12 +2,63 @@ import { createPool } from '@vercel/postgres';
 import { POSTGRES_URL } from '$env/static/private';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 
-import type { DrizzleProduct, DrizzleOrder, DrizzleOrderItem } from '$lib/drizzle/schema';
+import type {
+	DrizzleUser,
+	DrizzleProduct,
+	DrizzleOrder,
+	DrizzleOrderItem
+} from '$lib/drizzle/schema';
+import type { User } from '$lib/types/userTypes';
 import type { Product } from '$lib/types/productTypes';
 import type { Order, OrderItem } from '$lib/types/orderTypes';
 
 const pool = createPool({ connectionString: POSTGRES_URL });
 export const db = drizzle(pool);
+
+export const mapUser = (row: DrizzleUser): User => {
+	return {
+		id: row.id,
+		email: row.email ?? undefined,
+		password: row.password_hash ?? undefined,
+		githubId: row.github_id ?? undefined,
+		githubUsername: row.github_username ?? undefined,
+		googleId: row.google_id ?? undefined,
+		googlePicture: row.google_picture ?? undefined,
+		createdAt: row.created_at, 
+		name: row.name ?? undefined,
+		phone: row.phone ?? undefined,
+		address: {
+			street: row.address_street ?? '',
+			city: row.address_city ?? '',
+			state: row.address_state ?? '',
+			postalCode: row.address_postalcode ?? '',
+			country: row.address_country ?? ''
+		},
+		points: row.points 
+	};
+};
+
+export const mapUserNoPassword = (row: DrizzleUser): User => {
+    return {
+        id: row.id,
+        email: row.email ?? undefined,
+        githubId: row.github_id ?? undefined,
+        githubUsername: row.github_username ?? undefined,
+        googleId: row.google_id ?? undefined,
+        googlePicture: row.google_picture ?? undefined,
+        createdAt: row.created_at,
+        name: row.name ?? undefined,
+        phone: row.phone ?? undefined,
+        address: {
+            street: row.address_street ?? '',
+            city: row.address_city ?? '',
+            state: row.address_state ?? '',
+            postalCode: row.address_postalcode ?? '',
+            country: row.address_country ?? ''
+        },
+        points: row.points
+    };
+}
 
 export const mapProducts = (result: DrizzleProduct[]): Product[] => {
 	if (!result || !Array.isArray(result)) {
