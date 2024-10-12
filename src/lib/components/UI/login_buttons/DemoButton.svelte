@@ -1,4 +1,4 @@
-<a type="button" href="/login/google" class=" btn btn-accent mt-6 w-full">
+<a type="button" href="/login/demo" class=" btn btn-accent mt-6 w-full">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		id="Layer_1"

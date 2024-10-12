@@ -96,7 +96,7 @@
 	<div class="mb-8 flex flex-col items-center gap-4">
 		<GoogleButton />
 		<GithubButton />
-		<DemoButton />
+		<!-- <DemoButton /> -->
 	</div>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<span>Sign in with Email</span>
