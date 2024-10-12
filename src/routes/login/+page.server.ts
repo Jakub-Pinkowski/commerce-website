@@ -59,9 +59,6 @@ export const actions: Actions = {
 
 		const sessionToken = generateSessionToken();
 		const session = await createSession(sessionToken, existingUser.id);
-		console.log('event', event);
-		console.log('session', session);
-
 		setSessionTokenCookie(event, sessionToken, session.expiresAt);
 
 		redirect(302, '/profile');
