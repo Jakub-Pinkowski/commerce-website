@@ -109,7 +109,7 @@ export const verifyPassword = async (
 	});
 };
 
-// TODO: Migrate away from Lucia
+
 export const createUserSession = async (userId: string, event: any): Promise<void> => {
 	const session = await lucia.createSession(userId, {});
 	const sessionCookie = lucia.createSessionCookie(session.id);

@@ -3,7 +3,8 @@ import { eq } from 'drizzle-orm';
 
 import { db } from '$lib/helpers/drizzle';
 import { usersTable } from '$lib/drizzle/schema';
-import { validateEmailAndPassword, verifyPassword, createUserSession } from '$lib/helpers/auth';
+import { validateEmailAndPassword, verifyPassword } from '$lib/helpers/auth';
+import { createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
 
 import type { PageServerLoad, Actions } from './$types';
 
@@ -13,7 +14,6 @@ export const load: PageServerLoad = async (event) => {
 
 export const actions: Actions = {
 	default: async (event) => {
-
 		const formData = await event.request.formData();
 		const email = formData.get('email');
 		const password = formData.get('password');
@@ -57,8 +57,13 @@ export const actions: Actions = {
 			});
 		}
 
-		await createUserSession(existingUser.id, event);
-        
+		const sessionToken = generateSessionToken();
+		const session = await createSession(sessionToken, existingUser.id);
+		console.log('event', event);
+		console.log('session', session);
+
+		setSessionTokenCookie(event, sessionToken, session.expiresAt);
+
 		redirect(302, '/profile');
 	}
 };
