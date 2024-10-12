@@ -5,6 +5,7 @@ import { eq } from 'drizzle-orm';
 import { db } from '$lib/helpers/drizzle';
 import { usersTable, sessionsTable } from '$lib/drizzle/schema';
 
+import type { RequestEvent } from '@sveltejs/kit';
 import type { DrizzleUser, DrizzleSession } from '$lib/drizzle/schema';
 
 export interface MinimalUser {
@@ -34,34 +35,17 @@ export const createSession = async (token: string, userId: string): Promise<Driz
 
 export const validateSessionToken = async (token: string): Promise<SessionValidationResult> => {
 	const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
-	const row = await db
-		.select({
-			sessionId: sessionsTable.id,
-			userId: sessionsTable.userId,
-			expiresAt: sessionsTable.expiresAt,
-			appUserId: usersTable.id
-		})
+	const result = await db
+		.select({ user: usersTable, session: sessionsTable })
 		.from(sessionsTable)
-		.innerJoin(usersTable, eq(usersTable.id, sessionsTable.userId))
-		.where(eq(sessionsTable.id, sessionId))
-		.limit(1)
-		.execute();
+		.innerJoin(usersTable, eq(sessionsTable.userId, usersTable.id))
+		.where(eq(sessionsTable.id, sessionId));
 
-	if (row === null) {
+	if (result.length < 1) {
 		return { session: null, user: null };
 	}
 
-	const { sessionId: id, userId, expiresAt, appUserId } = row[0];
-
-	const session: DrizzleSession = {
-		id,
-		userId,
-		expiresAt: new Date(Number(expiresAt) * 1000)
-	};
-
-	const user: MinimalUser = {
-		id: appUserId
-	};
+	const { user, session } = result[0];
 
 	if (Date.now() >= session.expiresAt.getTime()) {
 		await db.delete(sessionsTable).where(eq(sessionsTable.id, session.id)).execute();
@@ -73,8 +57,7 @@ export const validateSessionToken = async (token: string): Promise<SessionValida
 		await db
 			.update(sessionsTable)
 			.set({ expiresAt: session.expiresAt })
-			.where(eq(sessionsTable.id, session.id))
-			.execute();
+			.where(eq(sessionsTable.id, session.id));
 	}
 
 	return { session, user };
@@ -83,3 +66,23 @@ export const validateSessionToken = async (token: string): Promise<SessionValida
 export const invalidateSession = async (sessionId: string): Promise<void> => {
 	await db.delete(sessionsTable).where(eq(sessionsTable.id, sessionId)).execute();
 };
+
+export function setSessionTokenCookie(event: RequestEvent, token: string, expiresAt: Date): void {
+	event.cookies.set('session', token, {
+		httpOnly: true,
+		path: '/',
+		secure: import.meta.env.PROD,
+		sameSite: 'lax',
+		expires: expiresAt
+	});
+}
+
+export function deleteSessionTokenCookie(event: RequestEvent): void {
+	event.cookies.set('session', '', {
+		httpOnly: true,
+		path: '/',
+		secure: import.meta.env.PROD,
+		sameSite: 'lax',
+		maxAge: 0
+	});
+}
