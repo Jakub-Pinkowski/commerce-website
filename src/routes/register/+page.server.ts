@@ -1,11 +1,10 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
-import { generateUserId } from '$lib/server/session';
 
 import { db } from '$lib/helpers/drizzle';
 import { usersTable } from '$lib/drizzle/schema';
 import { validateEmailAndPassword, hashPassword } from '$lib/helpers/auth';
-import { createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
+import { generateUserId, createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
 
 import type { Actions } from './$types';
 

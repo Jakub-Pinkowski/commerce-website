@@ -1,11 +1,10 @@
 import { OAuth2RequestError } from 'arctic';
-import { generateIdFromEntropySize } from 'lucia';
 import { eq } from 'drizzle-orm';
 
 import { db } from '$lib/helpers/drizzle';
 import { google } from '$lib/server/auth';
 import { usersTable } from '$lib/drizzle/schema';
-import { createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
+import { generateUserId, createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
 
 import type { RequestEvent } from '@sveltejs/kit';
 
@@ -65,7 +64,7 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 			}
 		} else {
 			// New user signing in with Google
-			const userId = generateIdFromEntropySize(10);
+            const userId = generateUserId();
 
 			await db.insert(usersTable).values({
 				id: userId,
