@@ -2,7 +2,7 @@ import { OAuth2RequestError } from 'arctic';
 import { eq } from 'drizzle-orm';
 
 import { db } from '$lib/helpers/drizzle';
-import { google } from '$lib/server/auth';
+import { google } from '$lib/server/session';
 import { usersTable } from '$lib/drizzle/schema';
 import { generateUserId, createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
 

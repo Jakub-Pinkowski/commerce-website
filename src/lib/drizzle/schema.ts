@@ -76,7 +76,6 @@ export const cartTable = pgTable('cart', {
 export type DrizzleCart = InferSelectModel<typeof cartTable>;
 
 // TODO: Add better types later on
-// TODO: Purge the table when switching away from Lucia
 export const sessionsTable = pgTable('sessions', {
 	id: text('id').primaryKey(),
 	userId: text('user_id')

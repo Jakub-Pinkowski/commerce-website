@@ -1,7 +1,4 @@
-import { fail } from '@sveltejs/kit';
 import { hash, verify } from '@node-rs/argon2';
-
-import { lucia } from '$lib/server/auth';
 
 export const validatePassword = (password: string): { valid: boolean; message?: string } => {
 	if (password.length < 8 || password.length > 255) {

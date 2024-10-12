@@ -57,7 +57,7 @@
 
 Cookies are used in this project for various purposes, including:
 
-- **User Authentication**: Cookies store session information to keep users logged in. This is handled using the `lucia` library.
+- **User Authentication**: Cookies store session information to keep users logged in. All built with custom logic, no external libraries used. Inspired by Lucia
 - **User Profiles**: Cookies help maintain user session data, allowing users to view and update their profile information seamlessly.
 - **Orders**: Cookies are used to track user sessions and order details, ensuring that users can view their order history and track their orders.
 - **OAuth**: Cookies store state information during the OAuth login process with GitHub and Google.
