@@ -96,6 +96,7 @@
 	<div class="mb-8 flex flex-col items-center gap-4">
 		<GoogleButton />
 		<GithubButton />
+        <!-- TODO: Make it not possible for users to edit orders? -->
 		<!-- <DemoButton /> -->
 	</div>
 	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
