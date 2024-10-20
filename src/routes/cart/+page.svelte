@@ -32,15 +32,16 @@
 	{#if items.length === 0}
 		<p>Your cart is empty.</p>
 	{:else}
-		<div class="flex flex-col gap-8 md:flex-row">
+		<div class="flex flex-col gap-4 md:flex-row">
 			<div class="md:w-[calc(50%-8px)]">
-				<div class=" md:max-w-[30rem]">
+				<div>
 					{#each items as item (item.id)}
 						<CartProductCard {item} />
 					{/each}
 				</div>
 			</div>
-			<div class="md:w-[calc(50%-8px)]">
+			<div class="divider divider-horizontal hidden md:flex"></div>
+			<div class="flex flex-col gap-4 md:w-[calc(50%-8px)]">
 				<div class="mt-6 flex w-full justify-between">
 					<span class="text-lg">Total</span>
 					<div>
@@ -53,6 +54,9 @@
 							${total}
 						</span>
 					</div>
+				</div>
+				<div class="flex justify-end">
+					<a href="/cart/checkout" class="btn btn-primary">Proceed to checkout</a>
 				</div>
 			</div>
 		</div>
