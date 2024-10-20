@@ -1,7 +1,7 @@
 <div class="my-8">
 	<div class="flex items-center justify-between">
-		<div class="skeleton h-8 w-20 lg:w-32"></div>
-		<div class="skeleton h-8 w-24 lg:w-40"></div>
+		<div class="skeleton h-8 w-20 md:w-32"></div>
+		<div class="skeleton h-8 w-24 md:w-40"></div>
 	</div>
 	<div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-4">
 		<div class="flex w-full flex-shrink-0 gap-2 md:hidden md:w-full">

@@ -174,7 +174,7 @@
 	{#if displayedProducts}
 		<div class="flex">
 			<!-- Desktop Sidebar -->
-			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 lg:flex">
+			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 md:flex">
 				<div class="join join-vertical w-full">
 					<!-- TODO: Export range filter -->
 					<span class="badge indicator-item badge-accent">Filtering is a bit buggy!</span>
@@ -215,7 +215,7 @@
 
 			<!-- TODO: Design and build Mobile Sidebar -->
 			<!-- Mobile Sidebar -->
-			<div class="lg:hidden"></div>
+			<div class="md:hidden"></div>
 
 			<!-- Products -->
 			<div class="w-full">

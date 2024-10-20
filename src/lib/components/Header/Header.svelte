@@ -36,15 +36,15 @@
 </script>
 
 <header class="navbar border-b bg-base-100 px-4">
-	<div class="navbar-start lg:hidden">
+	<div class="navbar-start md:hidden">
 		<div class="btn btn-circle btn-ghost z-30 mx-1">
 			<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px" />
 		</div>
-		<SearchIcon {closeMenu} className="flex lg:hidden" />
+		<SearchIcon {closeMenu} className="flex md:hidden" />
 
 		<MobileMenu {closeMenu} {toggleCartAndMenu} {open} />
 	</div>
-	<div class="navbar-start hidden lg:block">
+	<div class="navbar-start hidden md:block">
 		<a href="/" class="btn btn-ghost">Home</a>
 		<div class="dropdown dropdown-hover">
 			<a href="/categories" tabindex="0" role="button" class="btn btn-ghost">Categories</a>
@@ -88,8 +88,8 @@
 		</a>
 	</div>
 	<div class="navbar-end">
-		<SearchIcon {closeMenu} className="hidden lg:flex" />
-		<UserIcon {closeMenu} className="hidden lg:flex" />
+		<SearchIcon {closeMenu} className="hidden md:flex" />
+		<UserIcon {closeMenu} className="hidden md:flex" />
 		<WishlistIcon {closeMenu} />
 		<CartIcon {toggleCartAndMenu} />
 	</div>

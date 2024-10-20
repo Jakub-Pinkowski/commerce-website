@@ -61,7 +61,7 @@
 				</button>
 				<div class="hero-overlay bg-light-accent bg-opacity-60"></div>
 				<div class="hero-content max-w-full text-center text-neutral-content">
-					<div class="max-w-[85%] text-dark lg:max-w-full">
+					<div class="max-w-[85%] text-dark md:max-w-full">
 						<h1 class="mb-2 text-xl">
 							This project is still a work in progress, website is under constant development.
 						</h1>
@@ -139,7 +139,7 @@
 	</div>
 	<!-- Experimental -->
 	<div class="my-8 flex justify-center">
-		<div class="stats stats-vertical text-center lg:stats-horizontal">
+		<div class="stats stats-vertical text-center md:stats-horizontal">
 			<div class="stat w-full">
 				<div class="stat-value mb-4">
 					<svg

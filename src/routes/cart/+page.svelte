@@ -28,4 +28,16 @@
 	<Breadcrumbs {breadcrumbs} />
 
 	<h1 class="text-3xl font-bold">Cart</h1>
+	{#if items.length === 0}
+		<p>Your cart is empty.</p>
+	{:else}
+		<div class="flex flex-col gap-8 md:flex-row">
+			<div class="md:w-[calc(50%-8px)] md:max-w-[30rem]">
+				{#each items as item (item.id)}
+					<CartProductCard {item} />
+				{/each}
+			</div>
+			<div class="md:w-[calc(50%-8px)]">Total</div>
+		</div>
+	{/if}
 </div>

@@ -53,7 +53,7 @@
 		tabindex="0"
 	></div>
 	<div
-		class="fixed right-0 top-0 z-40 h-full w-full bg-white transition-transform duration-200 ease-in-out lg:w-[30rem]"
+		class="fixed right-0 top-0 z-40 h-full w-full bg-white transition-transform duration-200 ease-in-out md:w-[30rem]"
 		transition:fly={{ x: '150px', duration: 500, easing: quadOut }}
 	>
 		<div class="flex h-full flex-col">
