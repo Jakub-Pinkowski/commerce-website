@@ -39,6 +39,7 @@
 	});
 
 	$: total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+	$: totalListPrice = items.reduce((acc, item) => acc + item.listPrice * item.quantity, 0);
 	$: {
 		toggleBodyScroll(isCartOpen);
 	}
@@ -71,9 +72,16 @@
 			<div class="mt-auto flex w-full flex-col items-center p-4">
 				<div class="flex w-full justify-between">
 					<span class="text-lg">Total</span>
-					<span class="text-lg text-gray-500">
-						${total}
-					</span>
+					<div>
+						{#if totalListPrice > total}
+							<span class="text-lg text-gray-500 line-through">
+								${totalListPrice}
+							</span>
+						{/if}
+						<span class="text-lg text-main-red">
+							${total}
+						</span>
+					</div>
 				</div>
 				<a href="/cart" class="btn btn-neutral mt-8 w-full max-w-xl" on:click={closeMiniCart}>
 					See the cart
