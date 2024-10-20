@@ -22,6 +22,7 @@
 	});
 
 	$: total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+	$: totalListPrice = items.reduce((acc, item) => acc + item.listPrice * item.quantity, 0);
 </script>
 
 <div>
@@ -32,12 +33,28 @@
 		<p>Your cart is empty.</p>
 	{:else}
 		<div class="flex flex-col gap-8 md:flex-row">
-			<div class="md:w-[calc(50%-8px)] md:max-w-[30rem]">
-				{#each items as item (item.id)}
-					<CartProductCard {item} />
-				{/each}
+			<div class="md:w-[calc(50%-8px)]">
+				<div class=" md:max-w-[30rem]">
+					{#each items as item (item.id)}
+						<CartProductCard {item} />
+					{/each}
+				</div>
 			</div>
-			<div class="md:w-[calc(50%-8px)]">Total</div>
+			<div class="md:w-[calc(50%-8px)]">
+				<div class="mt-6 flex w-full justify-between">
+					<span class="text-lg">Total</span>
+					<div>
+						{#if totalListPrice > total}
+							<span class="text-lg text-gray-500 line-through">
+								${totalListPrice}
+							</span>
+						{/if}
+						<span class="text-lg text-main-red">
+							${total}
+						</span>
+					</div>
+				</div>
+			</div>
 		</div>
 	{/if}
 </div>
