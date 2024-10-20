@@ -51,7 +51,7 @@
 				<li><a href="/categories/sale" class="block p-4 text-lg" on:click={closeMenu}>Sale</a></li>
 				<li><a href="/products" class="block p-4 text-lg" on:click={closeMenu}>Shop All</a></li>
 			</ul>
-			<div class="mb-4 ml-4 mt-auto flex">
+			<div class="mt-auto flex">
 				<UserIcon {closeMenu} />
 				<LanguageIcon {closeMenu} />
 				<WishlistIcon {closeMenu} />

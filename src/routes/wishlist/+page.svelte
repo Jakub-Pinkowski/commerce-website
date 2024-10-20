@@ -1,4 +1,5 @@
 <script lang="ts">
+    // TODO: Add similar logic as in src/lib/components/Header/MiniCart.svelte 
 	import { onMount } from 'svelte';
 
 	import type { PageData } from './$types';
