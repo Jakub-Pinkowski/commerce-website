@@ -1,4 +1,5 @@
 <script lang="ts">
+    // TODO: Convert to Svelte 5
 	import type { Product } from '$lib/types/productTypes';
 	import { debounce } from '$lib/helpers/utils';
 	import {
@@ -22,7 +23,7 @@
 	export let breadcrumbs: string[];
 
 	// Pagination
-	let itemsPerPage = 24;
+	let itemsPerPage = 16;
 	let displayedProducts: Product[] = [];
 
 	interface UpdateEventDetail {
@@ -119,6 +120,8 @@
 
 	$: [products, minPrice, maxPrice, sortOption, selectedColors, selectedBrands, selectedCategories],
 		debouncedUpdateDisplayedProducts();
+
+        console.log("displayedProducts.length", displayedProducts.length);
 </script>
 
 <div>
