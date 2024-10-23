@@ -108,8 +108,10 @@ export const deleteSessionTokenCookie = (event: RequestEvent): void => {
 		maxAge: 0
 	});
 };
-
-export const github = new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET);
+const githubRedirectURI = dev
+	? 'http://localhost:5173/login/github/callback'
+	: 'https://commerce-website-psi.vercel.app/login/github/callback';
+export const github = new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, githubRedirectURI);
 
 const googleRedirectURI = dev ? GOOGLE_REDIRECT_URI_DEV : GOOGLE_REDIRECT_URI_PROD;
 export const google = new Google(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, googleRedirectURI);
