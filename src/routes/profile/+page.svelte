@@ -14,8 +14,8 @@
 	const orderItems: OrderItem[] = data.orderItems ?? [];
 	const products: Product[] = data.products ?? [];
 
-	let recentOrder: boolean = true;
-	let dashboardView: boolean = true;
+	const recentOrder: boolean = true;
+	const dashboardView: boolean = true;
 
 	// Get the latest order
 	const latestOrder: Order = orders[0];

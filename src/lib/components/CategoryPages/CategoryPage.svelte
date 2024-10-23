@@ -120,8 +120,6 @@
 
 	$: [products, minPrice, maxPrice, sortOption, selectedColors, selectedBrands, selectedCategories],
 		debouncedUpdateDisplayedProducts();
-
-        console.log("displayedProducts.length", displayedProducts.length);
 </script>
 
 <div>

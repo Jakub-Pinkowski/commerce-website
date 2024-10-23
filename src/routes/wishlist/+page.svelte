@@ -10,6 +10,7 @@
 
 	export let data: PageData;
 	let wishlist: Product[] = [];
+    
 	const breadcrumbs = ['Home', 'Profile', 'Wishlist'];
 
 	onMount(() => {

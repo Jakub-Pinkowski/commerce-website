@@ -8,8 +8,8 @@
 	export let data: PageData;
     const products = data?.products as Product[];
 
+    const breadcrumbs = ['Home', 'Search'];
 	let searchQuery = '';
-	const breadcrumbs = ['Home', 'Search'];
 
 	$: filteredProducts = searchQuery
 		? products?.filter(

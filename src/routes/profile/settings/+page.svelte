@@ -6,6 +6,7 @@
 	import type { User } from '$lib/types/userTypes';
 
 	export let data;
+
 	const user: User = data.user;
 </script>
 

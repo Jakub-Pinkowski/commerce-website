@@ -12,9 +12,9 @@
 	export let data: PageData;
 	const products = data?.products as Product[];
 
-	let productsPerCarousel = 8;
-	let newProducts = products.filter((product) => product.label === 'new');
-	let saleProducts = products.filter((product) => product.price < product.listPrice);
+	const productsPerCarousel = 8;
+	const newProducts = products.filter((product) => product.label === 'new');
+	const saleProducts = products.filter((product) => product.price < product.listPrice);
 	let showBanner: boolean = true;
 
 	const hideBanner = () => {
@@ -22,16 +22,16 @@
 	};
 
 	// Product categories
-	let shoesProducts = products
+	const shoesProducts = products
 		.filter((product) => product.category === 'shoes')
 		.slice(0, productsPerCarousel);
-	let backpackProducts = products
+	const backpackProducts = products
 		.filter((product) => product.category === 'backpacks')
 		.slice(0, productsPerCarousel);
-	let capsProducts = products
+	const capsProducts = products
 		.filter((product) => product.category === 'caps')
 		.slice(0, productsPerCarousel);
-	let bikesProducts = products
+	const bikesProducts = products
 		.filter((product) => product.category === 'bikes')
 		.slice(0, productsPerCarousel);
 </script>
