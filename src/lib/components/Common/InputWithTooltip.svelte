@@ -44,11 +44,7 @@
 		--tooltip-color: var(--main-red);
 		--tooltip-text-color: var(--whiteish);
 	}
-
-	.tooltip:before,
-	.tooltip:after {
-	}
-
+    
 	.tooltip:has(:focus-visible):before,
 	.tooltip:has(:focus-visible):after,
 	.tooltip:hover:before,
