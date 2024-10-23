@@ -10,7 +10,7 @@
 
 	export let data: PageData;
 	let wishlist: Product[] = [];
-	let breadcrumbs = ['Home', 'Profile', 'Wishlist'];
+	const breadcrumbs = ['Home', 'Profile', 'Wishlist'];
 
 	onMount(() => {
 		data.wishlist.subscribe((items: Product[]) => {

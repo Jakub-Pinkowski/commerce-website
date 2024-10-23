@@ -4,7 +4,7 @@
     
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
-	let breadcrumbs = ['Home', 'Company', 'Contact'];
+	const breadcrumbs = ['Home', 'Company', 'Contact'];
 
 	let name: string;
 	let email: string;

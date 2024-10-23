@@ -9,7 +9,7 @@
     const products = data?.products as Product[];
 
 	let searchQuery = '';
-	let breadcrumbs = ['Home', 'Search'];
+	const breadcrumbs = ['Home', 'Search'];
 
 	$: filteredProducts = searchQuery
 		? products?.filter(

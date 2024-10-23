@@ -6,8 +6,8 @@
 	export let data: PageData;
 	const products = data?.products as Product[];
 
-    let title = 'New';
-    let breadcrumbs = ['Home', 'Categories', 'New'];
+    const title = 'New';
+    const breadcrumbs = ['Home', 'Categories', 'New'];
 </script>
 
 <CategoryPage {title} {products} {breadcrumbs} />

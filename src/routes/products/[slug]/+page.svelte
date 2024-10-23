@@ -13,7 +13,7 @@
 
 	export let data: PageData;
 	const product = data?.product as Product;
-	let breadcrumbs = ['Home', 'Products', product?.name];
+	const breadcrumbs = ['Home', 'Products', product?.name];
 </script>
 
 {#if product}

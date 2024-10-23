@@ -6,7 +6,7 @@
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import FormInput from '$lib/components/Common/FormInput.svelte';
 
-	let breadcrumbs = ['Home', 'Register'];
+	const breadcrumbs = ['Home', 'Register'];
 
 	let email: string;
 	let password: string;

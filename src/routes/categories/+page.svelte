@@ -11,7 +11,7 @@
 	export let data: PageData;
 	const products = data.products as Product[];
 
-	let breadcrumbs = ['Home', 'Categories'];
+	const breadcrumbs = ['Home', 'Categories'];
 	let productsPerCarousel = 8;
 	let mainCategories = ['New', 'Sale', 'Best Sellers'];
 	let mainCategoriesLabels = ['new', 'sale', 'best seller'];

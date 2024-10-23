@@ -10,7 +10,7 @@
 	import GithubButton from '$lib/components/UI/login_buttons/GithubButton.svelte';
 	import DemoButton from '$lib/components/UI/login_buttons/DemoButton.svelte';
 
-	let breadcrumbs = ['Home', 'Login'];
+	const breadcrumbs = ['Home', 'Login'];
 
 	let email: string;
 	let password: string;

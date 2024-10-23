@@ -7,7 +7,7 @@
 
 	import type { CartItem } from '$lib/stores/cart';
 
-	let breadcrumbs = ['Home', 'Cart'];
+	const breadcrumbs = ['Home', 'Cart'];
 	let items: CartItem[] = [];
 
 	onMount(() => {
