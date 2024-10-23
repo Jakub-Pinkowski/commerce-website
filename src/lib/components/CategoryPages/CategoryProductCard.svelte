@@ -10,11 +10,11 @@
 
 	export let product: Product;
 
-	let quantity: number = 1;
+	const quantity: number = 1;
 	let toastCart: boolean = false;
 	let toastCartMessage: string;
 	let toastWishlist: boolean = false;
-	let toastMessage: string;
+	let toastWishlistMessage: string;
 
 	const handleAddToCart = () => {
 		addToCart(product, quantity);
@@ -35,9 +35,9 @@
 	const handleWishlistToggle = () => {
 		toastWishlist = true;
 		if ($isWishlisted) {
-			toastMessage = `<span class="font-bold">${product.name}</span> has been removed from wishlist`;
+			toastWishlistMessage = `<span class="font-bold">${product.name}</span> has been removed from wishlist`;
 		} else {
-			toastMessage = `<span class="font-bold">${product.name}</span> has been added to wishlist`;
+			toastWishlistMessage = `<span class="font-bold">${product.name}</span> has been added to wishlist`;
 		}
 		setTimeout(() => {
 			toastWishlist = false;
@@ -136,7 +136,7 @@
 {#if toastWishlist}
 	<div class="toast toast-center toast-top z-20" transition:fade>
 		<div class="alert-wishlist alert">
-			<span> {@html toastMessage}</span>
+			<span> {@html toastWishlistMessage}</span>
 		</div>
 	</div>
 {/if}

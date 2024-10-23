@@ -23,7 +23,7 @@
 	export let breadcrumbs: string[];
 
 	// Pagination
-	let itemsPerPage = 16;
+	const itemsPerPage = 16;
 	let displayedProducts: Product[] = [];
 
 	interface UpdateEventDetail {
