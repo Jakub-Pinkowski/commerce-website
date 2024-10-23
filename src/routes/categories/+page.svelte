@@ -12,11 +12,11 @@
 	const products = data.products as Product[];
 
 	const breadcrumbs = ['Home', 'Categories'];
-	let productsPerCarousel = 8;
-	let mainCategories = ['New', 'Sale', 'Best Sellers'];
-	let mainCategoriesLabels = ['new', 'sale', 'best seller'];
+	const productsPerCarousel = 8;
+	const mainCategories = ['New', 'Sale', 'Best Sellers'];
+	const mainCategoriesLabels = ['new', 'sale', 'best seller'];
 	let activeTabMainCategory: string = 'New';
-	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
+	const productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	let activeTabProductCategory: string = 'Shoes';
 </script>
 

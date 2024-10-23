@@ -68,7 +68,7 @@ export function filterProducts(
 		(products: Product[]) => filterByAttribute(products, 'category', selectedCategories)
 	];
 
-	let filteredProducts = applyFilters(products, filters);
+	const filteredProducts = applyFilters(products, filters);
 	return sortProducts(filteredProducts, sortOption);
 }
 

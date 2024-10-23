@@ -13,8 +13,9 @@
 	import UserIcon from './icons/UserIcon.svelte';
 
 	let open: boolean = false;
-	let productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
-	let mainCategories = ['New', 'Sale', 'Best Sellers'];
+    let isCartOpen: boolean;
+	const productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
+	const mainCategories = ['New', 'Sale', 'Best Sellers'];
 
 	const closeMenu = () => {
 		open = false;
@@ -25,7 +26,6 @@
 		toggleMiniCart();
 	};
 
-	let isCartOpen: boolean;
 	const unsubscribe = isMiniCartOpen.subscribe((value) => {
 		isCartOpen = value;
 	});
