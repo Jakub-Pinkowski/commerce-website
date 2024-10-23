@@ -85,7 +85,11 @@ export const invalidateSession = async (sessionId: string): Promise<void> => {
 	await db.delete(sessionsTable).where(eq(sessionsTable.id, sessionId)).execute();
 };
 
-export function setSessionTokenCookie(event: RequestEvent, token: string, expiresAt: Date): void {
+export const setSessionTokenCookie = (
+	event: RequestEvent,
+	token: string,
+	expiresAt: Date
+): void => {
 	event.cookies.set('session', token, {
 		httpOnly: true,
 		path: '/',
@@ -93,9 +97,9 @@ export function setSessionTokenCookie(event: RequestEvent, token: string, expire
 		sameSite: 'lax',
 		expires: expiresAt
 	});
-}
+};
 
-export function deleteSessionTokenCookie(event: RequestEvent): void {
+export const deleteSessionTokenCookie = (event: RequestEvent): void => {
 	event.cookies.set('session', '', {
 		httpOnly: true,
 		path: '/',
@@ -103,7 +107,7 @@ export function deleteSessionTokenCookie(event: RequestEvent): void {
 		sameSite: 'lax',
 		maxAge: 0
 	});
-}
+};
 
 export const github = new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET);
 
