@@ -18,9 +18,6 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 	const state = event.url.searchParams.get('state');
 	const storedState = event.cookies.get('github_oauth_state') ?? null;
 
-    console.log("code: ", code);
-    console.log("state: ", state);
-    console.log("storedState: ", storedState);
 	if (!code || !state || !storedState || state !== storedState) {
 		return new Response(null, {
 			status: 400
@@ -28,11 +25,11 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 	}
 
 	try {
-        console.log("starting the try block");
 		const tokens = await github.validateAuthorizationCode(code);
+        const githubAccessToken = tokens.accessToken();
 		const githubUserResponse = await fetch('https://api.github.com/user', {
 			headers: {
-				Authorization: `Bearer ${tokens.accessToken}`
+				Authorization: `Bearer ${githubAccessToken}`
 			}
 		});
 		const githubUser: GitHubUser = await githubUserResponse.json();
