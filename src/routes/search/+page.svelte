@@ -1,27 +1,30 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import type { Product } from '$lib/types/productTypes';
 	import CategoryProductCard from '$lib/components/CategoryPages/CategoryProductCard.svelte';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
-	export let data: PageData;
-    const products = data?.products as Product[];
+	import type { PageData } from './$types';
+	import type { Product } from '$lib/types/productTypes';
 
-    const breadcrumbs = ['Home', 'Search'];
-	let searchQuery = '';
+	let { data }: { data: PageData } = $props();
+	const products = data?.products as Product[];
 
-	$: filteredProducts = searchQuery
-		? products?.filter(
-				(product) =>
-					product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					product.label?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					product.colors.some((color) => color.toLowerCase().includes(searchQuery.toLowerCase()))
-			)
-		: [];
+	const breadcrumbs = ['Home', 'Search'];
+
+	let searchQuery: string = $state('');
+
+	let filteredProducts = $derived.by(() => {
+		if (!searchQuery) return [];
+		return products?.filter(
+			(product) =>
+				product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				product.label?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				product.colors.some((color) => color.toLowerCase().includes(searchQuery.toLowerCase()))
+		);
+	});
 </script>
 
 <Breadcrumbs {breadcrumbs} />
