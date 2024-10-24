@@ -77,9 +77,9 @@
 		emailError = '';
 	};
 
-    const handleMessageInteraction = () => {
-        messageError = '';
-    };
+	const handleMessageInteraction = () => {
+		messageError = '';
+	};
 </script>
 
 <Breadcrumbs {breadcrumbs} />
@@ -114,14 +114,10 @@
 			name="message"
 			placeholder="Message*"
 			error={messageError}
-            onfocus={handleMessageInteraction}
-            oninput={handleMessageInteraction}
+			onfocus={handleMessageInteraction}
+			oninput={handleMessageInteraction}
 		/>
-		<button
-			class="btn btn-primary mt-8 w-full"
-			type="submit">
-            Submit
-        </button>
+		<button class="btn btn-primary mt-8 w-full" type="submit"> Submit </button>
 	</form>
 </div>
 
