@@ -1,34 +1,35 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { derived } from 'svelte/store';
+	import 'swiper/css/bundle';
 
 	import { addToCart } from '$lib/stores/cart';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
+
 	import type { Product } from '$lib/types/productTypes';
 
-	import 'swiper/css/bundle';
+	let { product }: { product: Product } = $props();
 
-	export let product: Product;
-	let quantity: number = 1;
-	let isOpenAccordion1: boolean = false;
-	let isOpenAccordion2: boolean = false;
-	let toastCart: boolean = false;
-	let toastCartMessage: string = '';
-	let toastWishlist: boolean = false;
-	let toastWishlistMessage: string = '';
+	let quantity = $state(1);
+	let isOpenAccordion1 = $state(false);
+	let isOpenAccordion2 = $state(false);
+	let toastCart = $state(false);
+	let toastCartMessage = $state('');
+	let toastWishlist = $state(false);
+	let toastWishlistMessage = $state('');
 
-	function incrementQuantity() {
+	const incrementQuantity = () => {
 		quantity += 1;
-	}
+	};
 
-	function decrementQuantity() {
+	const decrementQuantity = () => {
 		if (quantity > 1) {
 			quantity -= 1;
 		}
-	}
+	};
 
-	function handleAddToCart() {
+	const handleAddToCart = () => {
 		addToCart(product, quantity);
 		toastCart = true;
 		toastCartMessage = `<span class="font-bold">${product.name}</span> has been added to cart`;
@@ -38,7 +39,7 @@
 		setTimeout(() => {
 			openMiniCart();
 		}, 400);
-	}
+	};
 
 	const isWishlisted = derived(wishlist, ($wishlist) =>
 		$wishlist.some((item) => item.id === product.id)
@@ -73,15 +74,15 @@
 		{/if}
 	</div>
 	<div class="join mt-8">
-		<button class="btn join-item text-2xl" on:click={decrementQuantity}>-</button>
+		<button class="btn join-item text-2xl" onclick={decrementQuantity}>-</button>
 		<span class="btn join-item cursor-default text-xl">{quantity}</span>
-		<button class="btn join-item text-2xl" on:click={incrementQuantity}>+</button>
+		<button class="btn join-item text-2xl" onclick={incrementQuantity}>+</button>
 	</div>
 	<div class="mt-8 grid w-full grid-cols-[1fr,auto] gap-x-4">
-		<button class="btn btn-primary text-lg text-white" on:click={handleAddToCart}>
+		<button class="btn btn-primary text-lg text-white" onclick={handleAddToCart}>
 			Add to cart
 		</button>
-		<button class="btn" on:click={handleWishlistToggle}>
+		<button class="btn" onclick={handleWishlistToggle}>
 			{#if $isWishlisted}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

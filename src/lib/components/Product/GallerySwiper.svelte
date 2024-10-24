@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-
 	import Swiper from 'swiper/bundle';
 	import 'swiper/css/bundle';
 
