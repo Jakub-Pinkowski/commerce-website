@@ -14,6 +14,14 @@
 
 	let items: CartItem[] = $state([]);
 
+	const total = $derived.by(
+		() => items?.reduce((acc, item) => acc + item.price * item.quantity, 0) || 0
+	);
+    
+	const totalListPrice = $derived.by(
+		() => items?.reduce((acc, item) => acc + item.listPrice * item.quantity, 0) || 0
+	);
+
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
 			event.preventDefault();
@@ -37,13 +45,6 @@
 			unsubscribeCart();
 		};
 	});
-
-	const total = $derived.by(
-		() => items?.reduce((acc, item) => acc + item.price * item.quantity, 0) || 0
-	);
-	const totalListPrice = $derived.by(
-		() => items?.reduce((acc, item) => acc + item.listPrice * item.quantity, 0) || 0
-	);
 
 	$effect(() => {
 		toggleBodyScroll(isCartOpen);
