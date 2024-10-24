@@ -10,9 +10,7 @@
 
 	import type { CartItem } from '$lib/stores/cart';
 
-	export let isCartOpen: boolean = false;
-
-	let items: CartItem[] = [];
+	let { isCartOpen = false, items }: { isCartOpen: boolean; items: CartItem[] } = $props();
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
@@ -38,18 +36,23 @@
 		};
 	});
 
-	$: total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-	$: totalListPrice = items.reduce((acc, item) => acc + item.listPrice * item.quantity, 0);
-	$: {
+	const total = $derived.by(
+		() => items?.reduce((acc, item) => acc + item.price * item.quantity, 0) || 0
+	);
+	const totalListPrice = $derived.by(
+		() => items?.reduce((acc, item) => acc + item.listPrice * item.quantity, 0) || 0
+	);
+
+	$effect(() => {
 		toggleBodyScroll(isCartOpen);
-	}
+	});
 </script>
 
 {#if isCartOpen}
 	<div
 		class="fixed left-0 top-0 z-20 h-full w-full bg-black opacity-50"
-		on:click={closeMiniCart}
-		on:keydown={handleKeyDown}
+		onclick={closeMiniCart}
+		onkeydown={handleKeyDown}
 		role="button"
 		tabindex="0"
 	></div>
@@ -63,7 +66,7 @@
 				<CloseIcon {closeMiniCart} />
 			</div>
 			<div class="relative flex w-full flex-col overflow-auto p-4">
-				{#each items as item (item.id)}
+				{#each [...items].reverse() as item (item.id)}
 					<div transition:fade={{ delay: 100 * item.id, easing: quadOut }}>
 						<CartProductCard {item} />
 					</div>
@@ -83,13 +86,13 @@
 						</span>
 					</div>
 				</div>
-				<a href="/cart" class="btn btn-neutral mt-8 w-full max-w-xl" on:click={closeMiniCart}>
+				<a href="/cart" class="btn btn-neutral mt-8 w-full max-w-xl" onclick={closeMiniCart}>
 					See the cart
 				</a>
 				<a
 					href="/cart/checkout"
 					class="btn btn-primary mt-8 w-full max-w-xl"
-					on:click={closeMiniCart}
+					onclick={closeMiniCart}
 				>
 					Order
 				</a>
