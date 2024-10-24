@@ -1,9 +1,15 @@
 <!-- TODO: Make the languages work -->
 <!-- TODO: Convert to Svelte 5 before ever using -->
 <script lang="ts">
-	export let className: string = '';
-	export let closeMenu: () => void;
-	let language: string = 'EN';
+	let {
+		className,
+		closeMenu
+	}: {
+		className: string;
+		closeMenu: () => void;
+	} = $props();
+
+	let language: string = $state('EN');
 
 	const switchLanguage = (lang: string) => {
 		language = lang;
