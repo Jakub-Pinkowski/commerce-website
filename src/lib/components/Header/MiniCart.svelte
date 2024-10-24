@@ -10,7 +10,9 @@
 
 	import type { CartItem } from '$lib/stores/cart';
 
-	let { isCartOpen = false, items }: { isCartOpen: boolean; items: CartItem[] } = $props();
+	let { isCartOpen = false }: { isCartOpen: boolean } = $props();
+
+	let items: CartItem[] = $state([]);
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {

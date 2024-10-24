@@ -8,9 +8,15 @@
 	import WishlistIcon from './icons/WishlistIcon.svelte';
 	import CartIcon from './icons/CartIcon.svelte';
 
-	export let open: boolean = false;
-	export let toggleCartAndMenu: () => void;
-	export let closeMenu: () => void;
+	let {
+		open,
+		toggleCartAndMenu,
+		closeMenu
+	}: {
+		open: boolean;
+		toggleCartAndMenu: () => void;
+		closeMenu: () => void;
+	} = $props();
 
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
@@ -24,16 +30,16 @@
 		}
 	};
 
-	$: {
-		toggleBodyScroll(open);
-	}
+    $effect(() => {
+        toggleBodyScroll(open);
+    });
 </script>
 
 {#if open}
 	<div
 		class="fixed left-0 top-0 z-20 h-full w-full bg-black opacity-50"
-		on:click={closeMenu}
-		on:keydown={handleKeyDown}
+		onclick={closeMenu}
+		onkeydown={handleKeyDown}
 		role="button"
 		tabindex="0"
 	></div>
@@ -41,7 +47,7 @@
 		class="fixed left-0 top-0 z-20 h-[100vh] w-64 bg-white transition-transform duration-200 ease-in-out"
 		transition:fly={{ x: -100, duration: 500, easing: quadOut }}
 	>
-		<a href="/" aria-label="Home" class="absolute right-2.5 top-2.5" on:click={closeMenu}>
+		<a href="/" aria-label="Home" class="absolute right-2.5 top-2.5" onclick={closeMenu}>
 			<img
 				src={logo}
 				alt="logo"
@@ -51,15 +57,15 @@
 		</a>
 		<div class="menu flex h-full flex-col bg-base-200 pt-20">
 			<ul>
-				<li><a href="/categories" class="block p-4 text-lg" on:click={closeMenu}>Categories</a></li>
-				<li><a href="/categories/new" class="block p-4 text-lg" on:click={closeMenu}>New</a></li>
+				<li><a href="/categories" class="block p-4 text-lg" onclick={closeMenu}>Categories</a></li>
+				<li><a href="/categories/new" class="block p-4 text-lg" onclick={closeMenu}>New</a></li>
 				<li>
-					<a href="/categories/best_sellers" class="block p-4 text-lg" on:click={closeMenu}>
+					<a href="/categories/best_sellers" class="block p-4 text-lg" onclick={closeMenu}>
 						Best Sellers
 					</a>
 				</li>
-				<li><a href="/categories/sale" class="block p-4 text-lg" on:click={closeMenu}>Sale</a></li>
-				<li><a href="/products" class="block p-4 text-lg" on:click={closeMenu}>Shop All</a></li>
+				<li><a href="/categories/sale" class="block p-4 text-lg" onclick={closeMenu}>Sale</a></li>
+				<li><a href="/products" class="block p-4 text-lg" onclick={closeMenu}>Shop All</a></li>
 			</ul>
 			<div class="mt-auto flex">
 				<UserIcon {closeMenu} />

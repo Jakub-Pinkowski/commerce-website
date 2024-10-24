@@ -12,10 +12,11 @@
 	import CartIcon from './icons/CartIcon.svelte';
 	import UserIcon from './icons/UserIcon.svelte';
 
+    const productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
+	const mainCategories = ['New', 'Sale', 'Best Sellers'];
+
 	let open: boolean = $state(false);
 	let isCartOpen: boolean = $state(false);
-	const productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
-	const mainCategories = ['New', 'Sale', 'Best Sellers'];
 
 	const closeMenu = () => {
 		open = false;
