@@ -1,23 +1,23 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import type { Product } from '$lib/types/productTypes';
-
 	import { filterProductsByLabel, filterProductsByCategory } from '$lib/helpers/fetching';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import SkeletonRecommendationsCarousel from '$lib/components/Common/SkeletonRecommendationsCarousel.svelte';
 	import PageNotFound from '$lib/components/Common/PageNotFound.svelte';
 
-	export let data: PageData;
+	import type { PageData } from './$types';
+	import type { Product } from '$lib/types/productTypes';
+
+	let { data }: { data: PageData } = $props();
 	const products = data.products as Product[];
 
 	const breadcrumbs = ['Home', 'Categories'];
 	const productsPerCarousel = 8;
 	const mainCategories = ['New', 'Sale', 'Best Sellers'];
 	const mainCategoriesLabels = ['new', 'sale', 'best seller'];
-	let activeTabMainCategory: string = 'New';
+	let activeTabMainCategory: string = $state('New');
 	const productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
-	let activeTabProductCategory: string = 'Shoes';
+	let activeTabProductCategory: string = $state('Shoes');
 </script>
 
 <div>
@@ -30,7 +30,7 @@
 				{#each mainCategories as category (category)}
 					<button
 						class="tab flex-1 {activeTabMainCategory === category ? 'tab-active' : ''}"
-						on:click={() => (activeTabMainCategory = category)}
+						onclick={() => (activeTabMainCategory = category)}
 					>
 						{category}
 					</button>
@@ -59,7 +59,7 @@
 				{#each productCategories as category (category)}
 					<button
 						class="tab flex-1 {activeTabProductCategory === category ? 'tab-active' : ''}"
-						on:click={() => (activeTabProductCategory = category)}
+						onclick={() => (activeTabProductCategory = category)}
 					>
 						{category}
 					</button>
