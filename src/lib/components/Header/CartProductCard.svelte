@@ -2,7 +2,7 @@
 	import { removeFromCart, increaseQuantity, decreaseQuantity } from '$lib/stores/cart';
 	import type { CartItem } from '$lib/stores/cart';
 
-	export let item: CartItem;
+    let { item }: { item: CartItem } = $props();
 </script>
 
 <div class="relative flex border-b border-gray-300 py-6">
@@ -11,7 +11,7 @@
 			<button
 				aria-label="Remove from cart"
 				class="btn btn-circle btn-ghost"
-				on:click={() => removeFromCart(item)}
+				onclick={() => removeFromCart(item)}
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -44,12 +44,12 @@
 				<div class="join">
 					<button
 						class="btn join-item h-10 min-h-10 text-lg"
-						on:click={() => decreaseQuantity(item, 1)}>-</button
+						onclick={() => decreaseQuantity(item, 1)}>-</button
 					>
 					<span class="btn join-item h-10 min-h-10 cursor-default text-lg">{item.quantity}</span>
 					<button
 						class="btn join-item h-10 min-h-10 text-lg"
-						on:click={() => increaseQuantity(item, 1)}>+</button
+						onclick={() => increaseQuantity(item, 1)}>+</button
 					>
 				</div>
 			</div>

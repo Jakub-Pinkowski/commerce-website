@@ -12,8 +12,8 @@
 	import CartIcon from './icons/CartIcon.svelte';
 	import UserIcon from './icons/UserIcon.svelte';
 
-	let open: boolean = false;
-    let isCartOpen: boolean;
+	let open: boolean = $state(false);
+	let isCartOpen: boolean = $state(false);
 	const productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
 	const mainCategories = ['New', 'Sale', 'Best Sellers'];
 
@@ -76,9 +76,7 @@
 		<a href="/products" class="btn btn-ghost">Shop All</a>
 	</div>
 	<div class="navbar-center">
-		<a href="/"
-            aria-label="Home"
-        >
+		<a href="/" aria-label="Home">
 			<img
 				src={logo}
 				alt="logo"
