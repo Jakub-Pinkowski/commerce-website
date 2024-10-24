@@ -8,13 +8,13 @@
 
 	const breadcrumbs = ['Home', 'Register'];
 
-	let email: string;
-	let password: string;
-	let repeatPassword: string;
-	let emailError: string;
-	let passwordError: string;
-	let repeatPasswordError: string;
-	let serverError: string;
+	let email: string = $state('')
+	let password: string = $state('');
+	let repeatPassword: string = $state('');
+	let emailError: string = $state('');
+	let passwordError: string = $state('');
+	let repeatPasswordError: string = $state('');
+	let serverError: string = $state('');
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
@@ -109,7 +109,7 @@
 <Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-2xl text-center">
 	<h1 class="mb-8 text-5xl font-extrabold">Register</h1>
-	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
+	<form onsubmit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<FormInput
 			bind:value={email}
 			id="email"

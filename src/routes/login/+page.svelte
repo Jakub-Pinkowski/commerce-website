@@ -12,11 +12,11 @@
 
 	const breadcrumbs = ['Home', 'Login'];
 
-	let email: string;
-	let password: string;
-	let emailError: string;
-	let passwordError: string;
-	let serverError: string;
+	let email: string = $state('')
+	let password: string = $state('');
+	let emailError: string = $state('');
+	let passwordError: string = $state('');
+	let serverError: string = $state('');
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
@@ -99,7 +99,7 @@
         <!-- TODO: Make it not possible for users to edit orders? -->
 		<!-- <DemoButton /> -->
 	</div>
-	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
+	<form onsubmit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<span>Sign in with Email</span>
 		<FormInput
 			bind:value={email}
