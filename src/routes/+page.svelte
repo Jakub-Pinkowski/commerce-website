@@ -1,21 +1,23 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 
-	import type { PageData } from './$types';
-	import type { Product } from '$lib/types/productTypes';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import bikes from '$lib/assets/images/bikes.webp';
 	import shoes from '$lib/assets/images/footwear.webp';
 	import caps from '$lib/assets/images/caps.webp';
 	import newImage from '$lib/assets/images/newImage.webp';
 
-	export let data: PageData;
+	import type { PageData } from './$types';
+	import type { Product } from '$lib/types/productTypes';
+
+	let { data }: { data: PageData } = $props();
 	const products = data?.products as Product[];
 
 	const productsPerCarousel = 8;
 	const newProducts = products.filter((product) => product.label === 'new');
 	const saleProducts = products.filter((product) => product.price < product.listPrice);
-	let showBanner: boolean = true;
+
+	let showBanner: boolean = $state(true);
 
 	const hideBanner = () => {
 		showBanner = false;
@@ -45,7 +47,7 @@
 				<button
 					class="rounded-full0 btn btn-circle btn-ghost absolute right-2 top-2 z-10"
 					aria-label="Close banner"
-					on:click={hideBanner}
+					onclick={hideBanner}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
