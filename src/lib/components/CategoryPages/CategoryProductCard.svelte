@@ -6,15 +6,17 @@
 	import { capitalizeWords } from '$lib/helpers/utils';
 	import { wishlist, toggleWishlist } from '$lib/stores/wishlist';
 	import { openMiniCart } from '$lib/stores/miniCart';
+
 	import type { Product } from '$lib/types/productTypes';
 
-	export let product: Product;
+	let { product }: { product: Product } = $props();
 
 	const quantity: number = 1;
-	let toastCart: boolean = false;
-	let toastCartMessage: string;
-	let toastWishlist: boolean = false;
-	let toastWishlistMessage: string;
+
+	let toastCart = $state(false);
+	let toastCartMessage = $state('');
+	let toastWishlist = $state(false);
+	let toastWishlistMessage = $state('');
 
 	const handleAddToCart = () => {
 		addToCart(product, quantity);
@@ -90,8 +92,8 @@
 			{/if}
 		</div>
 		<div class="mt-4 hidden w-full grid-cols-[1fr,auto] gap-x-4 md:grid">
-			<button class="btn btn-primary text-white" on:click={handleAddToCart}> Add to cart </button>
-			<button class="btn" on:click={handleWishlistToggle}>
+			<button class="btn btn-primary text-white" onclick={handleAddToCart}> Add to cart </button>
+			<button class="btn" onclick={handleWishlistToggle}>
 				{#if $isWishlisted}
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

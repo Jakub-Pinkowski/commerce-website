@@ -29,6 +29,7 @@
 
 	const smallErrors: boolean = true;
 	const smallLabels: boolean = true;
+    
 	let serverError: string = $state('');
 	let isEditing: boolean = $state(false);
 	let toastSuccess: boolean = $state(false);
