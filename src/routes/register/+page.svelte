@@ -118,8 +118,8 @@
 			placeholder="Email*"
 			autocomplete="email"
 			error={emailError}
-			onFocus={handleEmailInteraction}
-			onInput={handleEmailInteraction}
+			onfocus={handleEmailInteraction}
+			oninput={handleEmailInteraction}
 		/>
 		<FormInput
 			bind:value={password}
@@ -129,8 +129,8 @@
 			placeholder="Password*"
 			autocomplete="new-password"
 			error={passwordError}
-			onFocus={handlePasswordInteraction}
-			onInput={handlePasswordInteraction}
+			onfocus={handlePasswordInteraction}
+			oninput={handlePasswordInteraction}
 		/>
 		<div role="alert" class="alert">
 			<ul class="list-disc pl-2 text-left text-sm">
@@ -148,8 +148,8 @@
 			placeholder="Repeat password*"
 			autocomplete="new-password"
 			error={repeatPasswordError}
-			onFocus={handleRepeatPasswordInteraction}
-			onInput={handleRepeatPasswordInteraction}
+			onfocus={handleRepeatPasswordInteraction}
+			oninput={handleRepeatPasswordInteraction}
 		/>
 
 		{#if serverError}

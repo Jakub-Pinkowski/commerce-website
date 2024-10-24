@@ -109,8 +109,8 @@
 			placeholder="Email*"
 			autocomplete="email"
 			error={emailError}
-			onFocus={handleEmailInteraction}
-			onInput={handleEmailInteraction}
+			onfocus={handleEmailInteraction}
+			oninput={handleEmailInteraction}
 		/>
 		<FormInput
 			bind:value={password}
@@ -120,8 +120,8 @@
 			placeholder="Password*"
 			autocomplete="new-password"
 			error={passwordError}
-			onFocus={handlePasswordInteraction}
-			onInput={handlePasswordInteraction}
+			onfocus={handlePasswordInteraction}
+			oninput={handlePasswordInteraction}
 		/>
 		<div class="flex w-full justify-between pl-1">
 			<a href="/login/forgot-password" class="text-sm text-blue-500">Forgot password?</a>

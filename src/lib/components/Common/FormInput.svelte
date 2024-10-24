@@ -9,9 +9,9 @@
 		type = 'text',
 		placeholder,
 		autocomplete = null,
-		error = '',
-		onFocus = () => {},
-		onInput = () => {},
+		error,
+		onfocus,
+		oninput,
 		smallErrors = false,
 		smallLabels = false
 	}: {
@@ -19,7 +19,7 @@
 		id: string;
 		name: string;
 		type: 'email' | 'password' | 'text' | 'number' | 'tel' | 'url' | 'search';
-		placeholder?: string;
+		placeholder: string;
 		autocomplete?:
 			| 'on'
 			| 'off'
@@ -37,9 +37,9 @@
 			| 'country'
 			| null
 			| undefined;
-		error?: string;
-		onFocus?: () => void;
-		onInput?: () => void;
+		error: string;
+		onfocus: () => void;
+		oninput: () => void;
 		smallErrors?: boolean;
 		smallLabels?: boolean;
 	} = $props();
@@ -105,8 +105,8 @@
 			type={type === 'password' && showPassword ? 'text' : type}
 			{placeholder}
 			{autocomplete}
-			onfocus={onFocus}
-			oninput={onInput}
+			{onfocus}
+			{oninput}
 		/>
 		{#if type === 'password'}
 			<button

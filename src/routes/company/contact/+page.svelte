@@ -76,6 +76,10 @@
 	const handleEmailInteraction = () => {
 		emailError = '';
 	};
+
+    const handleMessageInteraction = () => {
+        messageError = '';
+    };
 </script>
 
 <Breadcrumbs {breadcrumbs} />
@@ -90,8 +94,8 @@
 			placeholder="Name*"
 			autocomplete="name"
 			error={nameError}
-			onFocus={handleNameInteraction}
-			onInput={handleNameInteraction}
+			onfocus={handleNameInteraction}
+			oninput={handleNameInteraction}
 		/>
 		<FormInput
 			bind:value={email}
@@ -101,33 +105,23 @@
 			placeholder="Email*"
 			autocomplete="email"
 			error={emailError}
-			onFocus={handleEmailInteraction}
-			onInput={handleEmailInteraction}
+			onfocus={handleEmailInteraction}
+			oninput={handleEmailInteraction}
 		/>
-		<textarea
-			bind:value={message}
-			id="message"
-			name="message"
-			class="textarea textarea-bordered my-4 w-full gap-2 text-base"
-			placeholder="Message*"
-			cols="30"
-			rows="5"
-		>
-		</textarea>
-		{#if messageError}<span class="text-xs text-red-500">{messageError}</span>{/if}
 		<FormTextArea
 			bind:value={message}
 			id="message"
 			name="message"
 			placeholder="Message*"
 			error={messageError}
-			onInput={() => (messageError = '')}
+            onfocus={handleMessageInteraction}
+            oninput={handleMessageInteraction}
 		/>
 		<button
 			class="btn btn-primary mt-8 w-full"
-			type="submit"
-			disabled={formSubmitted && !isFormValid()}>Submit</button
-		>
+			type="submit">
+            Submit
+        </button>
 	</form>
 </div>
 

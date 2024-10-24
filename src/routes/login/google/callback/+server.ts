@@ -29,7 +29,6 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 	try {
 		const tokens = await google.validateAuthorizationCode(code, storedCodeVerifier);
         const googleAccessToken = tokens.accessToken()
-        console.log("googleAccessToken: ", googleAccessToken);
 		const googleUserResponse = await fetch('https://www.googleapis.com/oauth2/v1/userinfo', {
 			headers: {
 				Authorization: `Bearer ${googleAccessToken}`
