@@ -30,9 +30,9 @@
 		}
 	};
 
-    $effect(() => {
-        toggleBodyScroll(open);
-    });
+	$effect(() => {
+		toggleBodyScroll(open);
+	});
 </script>
 
 {#if open}
