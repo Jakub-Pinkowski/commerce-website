@@ -1,5 +1,5 @@
 <script lang="ts">
-    // TODO: Add similar logic as in src/lib/components/Header/MiniCart.svelte 
+	// TODO: Add similar logic as in src/lib/components/Header/MiniCart.svelte
 	import { onMount } from 'svelte';
 
 	import type { PageData } from './$types';
@@ -8,10 +8,11 @@
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 
-	export let data: PageData;
-	let wishlist: Product[] = [];
-    
+	let { data }: { data: PageData } = $props();
+
 	const breadcrumbs = ['Home', 'Profile', 'Wishlist'];
+
+	let wishlist: Product[] = $state([]);
 
 	onMount(() => {
 		data.wishlist.subscribe((items: Product[]) => {
@@ -20,7 +21,7 @@
 	});
 
 	// TODO: Finish Toast logic, still doesn't work
-    // TODO: On mobile, add ability to remove items from wishlist
+	// TODO: On mobile, add ability to remove items from wishlist
 </script>
 
 <div>

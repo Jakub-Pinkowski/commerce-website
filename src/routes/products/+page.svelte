@@ -3,10 +3,10 @@
 	import type { Product } from '$lib/types/productTypes';
 	import CategoryPage from '$lib/components/CategoryPages/CategoryPage.svelte';
 
-	export let data: PageData;
-	const products = data?.products as Product[];
+	let { data }: { data: PageData } = $props();
 
 	const title = 'All Products';
+	const products = data?.products as Product[];
 	const breadcrumbs = ['Home', 'Products'];
 </script>
 

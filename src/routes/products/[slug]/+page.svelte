@@ -11,7 +11,8 @@
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
 	import PageNotFound from '$lib/components/Common/PageNotFound.svelte';
 
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
+
 	const product = data?.product as Product;
 	const breadcrumbs = ['Home', 'Products', product?.name];
 </script>
