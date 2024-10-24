@@ -3,7 +3,7 @@
 	import { quadOut } from 'svelte/easing';
 
 	let {
-		value,
+		value = $bindable(),
 		id,
 		name,
 		type = 'text',

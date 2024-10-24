@@ -9,7 +9,7 @@
 	import type { User } from '$lib/types/userTypes';
 	import type { Address } from '$lib/types/userTypes';
 
-	export let user: User;
+	let { user }: { user: User } = $props();
 
 	let address: Address = {
 		street: '',
@@ -19,20 +19,20 @@
 		country: ''
 	};
 
-	let addressErrors: Address = {
+	let addressErrors: Address = $state({
 		street: '',
 		city: '',
 		state: '',
 		postalCode: '',
 		country: ''
-	};
+	});
 
-	let serverError: string;
-	let smallErrors: boolean = true;
-	let smallLabels: boolean = true;
-	let isEditing: boolean = false;
-	let toastSuccess: boolean = false;
-	let toastSuccessMessage: string = '';
+	const smallErrors: boolean = true;
+	const smallLabels: boolean = true;
+	let serverError: string = $state('');
+	let isEditing: boolean = $state(false);
+	let toastSuccess: boolean = $state(false);
+	let toastSuccessMessage: string = $state('');
 
 	const addressFields: {
 		key: AddressKey;
@@ -207,7 +207,7 @@
 </script>
 
 <div class="card flex w-full bg-base-100 shadow-xl">
-	<form on:submit={handleSubmit} class="card-body p-4 md:p-8">
+	<form onsubmit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Address</h2>
 		<div class="flex-none overflow-x-auto">
 			<table class="table">
@@ -267,12 +267,12 @@
 		</div>
 		{#if isEditing}
 			<div class="card-actions mt-auto justify-between pt-2">
-				<button type="button" class="btn w-full md:w-auto" on:click={toggleEdit}> Cancel </button>
+				<button type="button" class="btn w-full md:w-auto" onclick={toggleEdit}> Cancel </button>
 				<button type="submit" class="btn btn-secondary w-full md:w-auto"> Save your info </button>
 			</div>
 		{:else}
 			<div class="card-actions mt-auto justify-end pt-2">
-				<button type="button" class="btn btn-accent w-full md:w-auto" on:click={toggleEdit}>
+				<button type="button" class="btn btn-accent w-full md:w-auto" onclick={toggleEdit}>
 					Edit your info
 				</button>
 			</div>
