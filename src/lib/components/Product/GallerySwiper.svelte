@@ -6,10 +6,12 @@
 	import Swiper from 'swiper/bundle';
 	import 'swiper/css/bundle';
 
-	export let product;
+	import type { Product } from '$lib/types/productTypes';
 
-	let isModalOpen: boolean = false;
-	let selectedImage: string;
+	let { product }: { product: Product } = $props();
+
+	let isModalOpen: boolean = $state(false);
+	let selectedImage: string = $state('');
 
 	const openModal = (imageSrc: string) => {
 		selectedImage = imageSrc;
@@ -77,7 +79,7 @@
 				<button
 					type="button"
 					class="background-transparent cursor-zoom-in border-none p-0"
-					on:click={() => openModal(product.imageUrl)}
+					onclick={() => openModal(product.imageUrl)}
 					aria-label="Open image modal"
 				>
 					<img src={product.imageUrl} alt={product.name} class="object-cover" loading="lazy" />
@@ -88,7 +90,7 @@
 					<button
 						type="button"
 						class="background-transparent cursor-zoom-in border-none p-0"
-						on:click={() => openModal(alternateImage)}
+						onclick={() => openModal(alternateImage)}
 						aria-label="Open image modal"
 					>
 						<img src={alternateImage} alt={product.name} class="object-cover" loading="lazy" />
@@ -137,9 +139,9 @@
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<div
 		class="fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black bg-opacity-50"
-		on:click={closeModal}
+		onclick={closeModal}
 		tabindex="-1"
-		on:keydown={(event) => {
+		onkeydown={(event) => {
 			if (event.key === 'Escape') closeModal();
 		}}
 		role="dialog"

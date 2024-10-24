@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { removeFromCart, increaseQuantity, decreaseQuantity } from '$lib/stores/cart';
+
 	import type { CartItem } from '$lib/stores/cart';
 
-    let { item }: { item: CartItem } = $props();
+	let { item }: { item: CartItem } = $props();
 </script>
 
 <div class="relative flex border-b border-gray-300 py-6">
