@@ -3,7 +3,7 @@
 	import { fly } from 'svelte/transition';
 
 	let dropdown: HTMLDivElement;
-	let dropdownOpen: boolean = false;
+	let dropdownOpen: boolean = $state(false);
 
 	const handleTouchStart = (event: TouchEvent) => {
 		if (dropdown && !dropdown.contains(event.target as Node)) {
@@ -39,7 +39,7 @@
 	</ul>
 	<!-- Mobile -->
 	<div class="dropdown md:hidden" bind:this={dropdown}>
-		<button class="btn m-1 w-full justify-between" on:click={handleClick}>
+		<button class="btn m-1 w-full justify-between" onclick={handleClick}>
 			Account
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -60,10 +60,10 @@
 				class="menu absolute z-[1] w-full rounded-box bg-base-100 p-2 shadow"
 				transition:fly={{ y: 20, duration: 200 }}
 			>
-				<li><a href="/profile" on:click={handleClick}>Dashboard</a></li>
-				<li><a href="/profile/points" on:click={handleClick}>Points</a></li>
-				<li><a href="/profile/orders" on:click={handleClick}>Orders</a></li>
-				<li><a href="/profile/settings" on:click={handleClick}>Settings</a></li>
+				<li><a href="/profile" onclick={handleClick}>Dashboard</a></li>
+				<li><a href="/profile/points" onclick={handleClick}>Points</a></li>
+				<li><a href="/profile/orders" onclick={handleClick}>Orders</a></li>
+				<li><a href="/profile/settings" onclick={handleClick}>Settings</a></li>
 				<li>
 					<a data-sveltekit-preload-data="tap" href="/profile/logout">
 						<button>Logout</button>

@@ -139,8 +139,8 @@
 				placeholder="Old password*"
 				autocomplete="current-password"
 				error={oldPasswordError}
-				onFocus={handleOldPasswordInteraction}
-				onInput={handleOldPasswordInteraction}
+				onfocus={handleOldPasswordInteraction}
+				oninput={handleOldPasswordInteraction}
 				{smallErrors}
 			/>
 
@@ -152,8 +152,8 @@
 				placeholder="New password*"
 				autocomplete="new-password"
 				error={newPasswordError}
-				onFocus={handleNewPasswordInteraction}
-				onInput={handleNewPasswordInteraction}
+				onfocus={handleNewPasswordInteraction}
+				oninput={handleNewPasswordInteraction}
 				{smallErrors}
 			/>
 			<div role="alert" class="alert">
@@ -172,8 +172,8 @@
 				placeholder="Repeat new password*"
 				autocomplete="new-password"
 				error={repeatNewPasswordError}
-				onFocus={handleRepeatNewPasswordInteraction}
-				onInput={handleRepeatNewPasswordInteraction}
+				onfocus={handleRepeatNewPasswordInteraction}
+				oninput={handleRepeatNewPasswordInteraction}
 				{smallErrors}
 			/>
 			{#if serverError}
