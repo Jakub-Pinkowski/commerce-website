@@ -4,13 +4,17 @@
 
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
+	import type { PageData } from './$types';
 
-	export let data;
+	let { data }: { data: PageData } = $props();
+
 	const orders: Order[] = data.orders;
 	const orderItems: OrderItem[] = data.orderItems;
 	const products: Product[] = data.products;
 
-	// Function to filter order items and products for each order
+    let visibleOrdersCount = $state(4);
+
+	// Filter order items and products for each order
 	const getOrderDetails = (order: Order) => {
 		const filteredOrderItems = orderItems.filter((item) => item.orderId === order.id);
 		const productIds = filteredOrderItems.map((item) => item.productId);
@@ -22,8 +26,6 @@
 	const ordersWithDetails = orders.map(getOrderDetails);
 
 	// Load more orders
-	let visibleOrdersCount = 4;
-
 	const loadMoreOrders = () => {
 		visibleOrdersCount += visibleOrdersCount;
 	};
@@ -36,7 +38,7 @@
 			<CardOrders {order} {orderItems} {products} />
 		{/each}
 		{#if visibleOrdersCount < ordersWithDetails.length}
-			<button class=" btn btn-accent w-full md:mx-auto md:w-40" on:click={loadMoreOrders}>
+			<button class=" btn btn-accent w-full md:mx-auto md:w-40" onclick={loadMoreOrders}>
 				Load More
 			</button>
 		{/if}

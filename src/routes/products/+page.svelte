@@ -1,7 +1,8 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import type { Product } from '$lib/types/productTypes';
 	import CategoryPage from '$lib/components/CategoryPages/CategoryPage.svelte';
+
+    import type { PageData } from './$types';
+	import type { Product } from '$lib/types/productTypes';
 
 	let { data }: { data: PageData } = $props();
 
