@@ -6,22 +6,22 @@
 
 	import type { User } from '$lib/types/userTypes';
 
-	export let user: User;
+	let { user }: { user: User } = $props();
 
-	let oldPassword: string = '';
-	let newPassword: string = '';
-	let repeatNewPassword: string = '';
-	let oldPasswordError: string;
-	let newPasswordError: string;
-	let repeatNewPasswordError: string;
-	let serverError: string;
-	let smallErrors: boolean = true;
-	let toastSuccess: boolean = false;
-	let toastSuccessMessage: string = '';
+	const smallErrors: boolean = true;
+
+	let oldPassword: string = $state('');
+	let newPassword: string = $state('');
+	let repeatNewPassword: string = $state('');
+	let oldPasswordError: string = $state('');
+	let newPasswordError: string = $state('');
+	let repeatNewPasswordError: string = $state('');
+	let serverError: string = $state('');
+	let toastSuccess: boolean = $state(false);
+	let toastSuccessMessage: string = $state('');
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
-
 		resetErrors();
 		validateFields();
 
@@ -45,7 +45,6 @@
 		});
 
 		const result = await response.json();
-		console.log('result: ', result);
 
 		if (result.type === 'failure') {
 			// NOTE: This is extremely wonky, hopefully when Svelte 5 releases it's going to be fixes
@@ -120,7 +119,7 @@
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl">
-	<form on:submit={handleSubmit} class="card-body p-4 md:p-8">
+	<form onsubmit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Password</h2>
 		<div class="flex-none overflow-x-auto p-1">
 			<!-- Hidden username field for accessibility -->
