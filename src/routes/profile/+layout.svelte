@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 
+	let { children } = $props();
 	let dropdown: HTMLDivElement;
 	let dropdownOpen: boolean = $state(false);
 
@@ -73,6 +74,6 @@
 		{/if}
 	</div>
 	<div class="w-full">
-		<slot />
+		{@render children()}
 	</div>
 </div>

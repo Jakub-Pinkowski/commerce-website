@@ -3,6 +3,8 @@
 	import Footer from '../lib/components/Footer/Footer.svelte';
 	import '../app.css';
 
+	let { children } = $props();
+
 	// Disable Vercel Analytics and Speed Insights on Safari
 	const isSafari = () => {
 		return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -49,7 +51,7 @@
 	<Header />
 
 	<main class="p-6 md:p-8">
-		<slot />
+		{@render children()}
 	</main>
 
 	<Footer />
