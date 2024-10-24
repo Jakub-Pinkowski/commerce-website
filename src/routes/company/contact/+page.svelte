@@ -4,6 +4,7 @@
 
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import FormInput from '$lib/components/Common/FormInput.svelte';
+	import FormTextArea from '$lib/components/Common/FormTextArea.svelte';
 
 	const breadcrumbs = ['Home', 'Company', 'Contact'];
 
@@ -114,6 +115,14 @@
 		>
 		</textarea>
 		{#if messageError}<span class="text-xs text-red-500">{messageError}</span>{/if}
+		<FormTextArea
+			bind:value={message}
+			id="message"
+			name="message"
+			placeholder="Message*"
+			error={messageError}
+			onInput={() => (messageError = '')}
+		/>
 		<button
 			class="btn btn-primary mt-8 w-full"
 			type="submit"
