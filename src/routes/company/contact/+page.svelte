@@ -1,24 +1,21 @@
 <script lang="ts">
-	import axios from 'axios';
+	// TODO: Hook it up to a real API
 	import { fade } from 'svelte/transition';
-    
+
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
+	import FormInput from '$lib/components/Common/FormInput.svelte';
 
 	const breadcrumbs = ['Home', 'Company', 'Contact'];
 
-	let name: string;
-	let email: string;
-	let message: string;
-	let nameError: string;
-	let emailError: string;
-	let messageError: string;
-	let toastSuccess: boolean = false;
-	let toastMessage: string;
-	let formSubmitted: boolean = false;
-
-	const isFormValid = (): boolean => {
-		return Boolean(name && isValidEmail(email) && message);
-	};
+	let name: string = $state('');
+	let email: string = $state('');
+	let message: string = $state('');
+	let nameError: string = $state('');
+	let emailError: string = $state('');
+	let messageError: string = $state('');
+	let toastSuccess: boolean = $state(false);
+	let toastMessage: string = $state('');
+	let formSubmitted: boolean = $state(false);
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
@@ -46,7 +43,6 @@
 			return;
 		}
 
-		// TODO: Add real API endpoint
 		toastSuccess = true;
 		toastMessage = 'Message sent successfully';
 
@@ -57,37 +53,56 @@
 		resetForm();
 	};
 
-	const resetForm = () => {
-		name = '';
-		email = '';
-		message = '';
+	const isFormValid = (): boolean => {
+		return Boolean(name && isValidEmail(email) && message);
 	};
 
 	const isValidEmail = (value: string): boolean => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		return emailRegex.test(value);
 	};
+
+	const resetForm = () => {
+		name = '';
+		email = '';
+		message = '';
+	};
+
+	const handleNameInteraction = () => {
+		nameError = '';
+	};
+
+	const handleEmailInteraction = () => {
+		emailError = '';
+	};
 </script>
 
 <Breadcrumbs {breadcrumbs} />
 <div class="mx-auto max-w-xl text-center">
 	<h1 class="mb-8 text-5xl font-bold dark:text-white">Contact Us</h1>
-	<form on:submit={handleSubmit} class="mb-8 flex flex-col items-center">
-		<label class="input input-bordered my-4 flex w-full items-center gap-2">
-			<input bind:value={name} id="name" name="name" type="text" class="grow" placeholder="Name*" />
-		</label>
-		{#if nameError}<span class="text-xs text-red-500">{nameError}</span>{/if}
-		<label class="input input-bordered my-4 flex w-full items-center gap-2">
-			<input
-				bind:value={email}
-				id="email"
-				name="email"
-				type="email"
-				class="grow"
-				placeholder="Email*"
-			/>
-		</label>
-		{#if emailError}<span class="text-xs text-red-500">{emailError}</span>{/if}
+	<form onsubmit={handleSubmit} class="mb-8 flex flex-col items-center">
+		<FormInput
+			bind:value={name}
+			id="name"
+			name="name"
+			type="text"
+			placeholder="Name*"
+			autocomplete="name"
+			error={nameError}
+			onFocus={handleNameInteraction}
+			onInput={handleNameInteraction}
+		/>
+		<FormInput
+			bind:value={email}
+			id="email"
+			name="email"
+			type="email"
+			placeholder="Email*"
+			autocomplete="email"
+			error={emailError}
+			onFocus={handleEmailInteraction}
+			onInput={handleEmailInteraction}
+		/>
 		<textarea
 			bind:value={message}
 			id="message"
