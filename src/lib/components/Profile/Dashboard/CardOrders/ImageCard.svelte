@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Product } from '$lib/types/productTypes';
 
-	export let product: Product;
+	let { product }: { product: Product } = $props();
 </script>
 
 <a

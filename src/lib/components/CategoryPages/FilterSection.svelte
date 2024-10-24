@@ -1,3 +1,4 @@
+<!-- TODO: Upgrade to Svelte 5 before using -->
 <script lang="ts">
 	import { capitalizeFirstWord } from '$lib/helpers/utils';
     

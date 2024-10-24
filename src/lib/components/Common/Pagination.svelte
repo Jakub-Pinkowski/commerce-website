@@ -1,5 +1,5 @@
 <script lang="ts">
-    // TODO: Refactor to make it Svelte5 compatible
+    // TODO: Refactor to make it Svelte 5 compatible
 	import { onMount, createEventDispatcher } from 'svelte';
 	import type { Product } from '$lib/types/productTypes';
 

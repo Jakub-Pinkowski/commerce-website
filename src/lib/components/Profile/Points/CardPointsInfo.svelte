@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div class="card w-full bg-base-100 shadow-xl">
 	<div class="card-body p-4 md:p-8">
 		<h2 class="card-title">Points 101</h2>

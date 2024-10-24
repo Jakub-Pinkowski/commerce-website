@@ -2,36 +2,40 @@
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
-	import ImageCard from './Dashboard/CardOrders/ImageCard.svelte';
 	import { capitalizeFirstWordAndRemoveUnderscode } from '$lib/helpers/utils';
 	import { formatDate } from '$lib/helpers/utils';
+	import ImageCard from './Dashboard/CardOrders/ImageCard.svelte';
 
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';
 
-	export let order: Order;
-	export let orderItems: OrderItem[];
-	export let products: Product[];
-	export let recentOrder: boolean = false;
+	let {
+		order,
+		orderItems,
+		products,
+		recentOrder
+	}: {
+		order: Order;
+		orderItems: OrderItem[];
+		products: Product[];
+		recentOrder?: boolean;
+	} = $props();
+
+	let isExpanded = $state(false);
+	let showAll = $state(false);
 
 	// Handle order statuses
-	let orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
+	const orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
 
 	if (order.status === 'returned') {
 		orderStatuses.push('returned');
 	}
 
-	let currentStatusIndex = orderStatuses.indexOf(order.status);
-
-	// Manage expanded state
-	let isExpanded = false;
+	const currentStatusIndex = orderStatuses.indexOf(order.status);
 
 	const toggleExpand = () => {
 		isExpanded = !isExpanded;
 	};
-
-	// Manage show all images state
-	let showAll = false;
 
 	const toggleShowAll = () => {
 		showAll = !showAll;
@@ -126,7 +130,7 @@
 					<button
 						class="flex aspect-square max-w-[calc(50%-4px)] flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80 md:h-full md:max-h-32 md:max-w-32"
 						aria-label="View the order"
-						on:click={toggleShowAll}
+						onclick={toggleShowAll}
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -295,7 +299,7 @@
 		{/if}
 
 		<div class="card-actions mt-auto justify-between pt-2">
-			<button class="btn btn-primary flex w-full items-center md:w-auto" on:click={toggleExpand}>
+			<button class="btn btn-primary flex w-full items-center md:w-auto" onclick={toggleExpand}>
 				{isExpanded ? 'Hide details' : 'See more details'}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

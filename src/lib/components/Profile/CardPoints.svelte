@@ -12,9 +12,7 @@
 	import type { Order } from '$lib/types/orderTypes';
 	import type { Status } from '$lib/helpers/points';
 
-	export let user: User;
-	export let orders: Order[];
-	export let dashboardView: boolean = false;
+    let { user, orders, dashboardView }: { user: User; orders: Order[]; dashboardView?: boolean } = $props();
 
 	// Get the current status and the next threshold
 	const currentStatus: Status = getCurrentStatus(user.points) as Status;

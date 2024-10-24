@@ -4,7 +4,7 @@
 
 	import type { Order } from '$lib/types/orderTypes';
 
-	export let orders: Order[];
+	let { orders }: { orders: Order[] } = $props();
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl md:col-span-2">

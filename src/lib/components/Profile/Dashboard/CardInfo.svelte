@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { User } from '$lib/types/userTypes';
 
-	export let user: User;
+	let { user }: { user: User } = $props();
 </script>
 
 <div class="card w-full bg-base-100 shadow-xl">
