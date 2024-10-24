@@ -4,14 +4,14 @@
 	import 'swiper/css/bundle';
 
 	import { capitalizeWords } from '$lib/helpers/utils';
+
 	import type { Product } from '$lib/types/productTypes';
 
-	export let products: Product[];
-	export let title: string = 'You may also like';
+	let { title = 'You may also like', products }: { title?: string; products: Product[] } = $props();
 
 	const link = title.toLowerCase().replace(/\s+/g, '_');
 
-    // TODO: Prepare some kind of way to push random products to the recommendations
+	// TODO: Prepare some kind of way to push random products to the recommendations
 
 	const initializeSwiper = () => {
 		new Swiper('.swiper.recommendations-carousel', {

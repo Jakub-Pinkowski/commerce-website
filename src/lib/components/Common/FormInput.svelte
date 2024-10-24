@@ -2,35 +2,49 @@
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
-	export let value: string;
-	export let id: string;
-	export let name: string;
-	export let type: 'email' | 'password' | 'text' | 'number' | 'tel' | 'url' | 'search' = 'text';
-	export let placeholder;
-	export let autocomplete:
-		| 'on'
-		| 'off'
-		| 'email'
-        | 'name'
-		| 'username'
-		| 'new-password'
-		| 'current-password'
-		| 'tel'
-		| 'street-address'
-		| 'address-line1'
-		| 'address-line2'
-		| 'address-level1'
-		| 'postal-code'
-		| 'country'
-		| null
-		| undefined = null;
-	export let error = '';
-	export let onFocus = () => {};
-	export let onInput = () => {};
-	export let smallErrors: boolean = false;
-	export let smallLabels: boolean = false;
+	let {
+		value,
+		id,
+		name,
+		type = 'text',
+		placeholder,
+		autocomplete = null,
+		error = '',
+		onFocus = () => {},
+		onInput = () => {},
+		smallErrors = false,
+		smallLabels = false
+	}: {
+		value: string;
+		id: string;
+		name: string;
+		type: 'email' | 'password' | 'text' | 'number' | 'tel' | 'url' | 'search';
+		placeholder?: string;
+		autocomplete?:
+			| 'on'
+			| 'off'
+			| 'email'
+			| 'name'
+			| 'username'
+			| 'new-password'
+			| 'current-password'
+			| 'tel'
+			| 'street-address'
+			| 'address-line1'
+			| 'address-line2'
+			| 'address-level1'
+			| 'postal-code'
+			| 'country'
+			| null
+			| undefined;
+		error?: string;
+		onFocus?: () => void;
+		onInput?: () => void;
+		smallErrors?: boolean;
+		smallLabels?: boolean;
+	} = $props();
 
-	let showPassword = false;
+	let showPassword = $state(false);
 
 	const togglePasswordVisibility = () => {
 		showPassword = !showPassword;
@@ -79,14 +93,14 @@
 			type={type === 'password' && showPassword ? 'text' : type}
 			{placeholder}
 			{autocomplete}
-			on:focus={onFocus}
-			on:input={onInput}
+			onfocus={onFocus}
+			oninput={onInput}
 		/>
 		{#if type === 'password'}
 			<button
 				type="button"
 				class="mr-4 cursor-pointer opacity-70"
-				on:click={togglePasswordVisibility}
+				onclick={togglePasswordVisibility}
 				aria-label={showPassword ? 'Hide password' : 'Show password'}
 			>
 				{#if showPassword}
