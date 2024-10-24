@@ -1,4 +1,5 @@
-<script lang="ts">
+const productCategories = ['Shoes', 'Backpacks', 'Caps', 'Bikes'];
+const mainCategories = ['New', 'Sale', 'Best Sellers'];<script lang="ts">
 	import { onDestroy } from 'svelte';
 	import { Hamburger } from 'svelte-hamburgers';
 

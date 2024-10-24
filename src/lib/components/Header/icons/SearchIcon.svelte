@@ -1,13 +1,12 @@
 <script lang="ts">
-	export let className: string = '';
-	export let closeMenu: () => void;
+	let { className = '', closeMenu }: { className?: string; closeMenu: () => void } = $props();
 </script>
 
 <a
-    aria-label="Search"
+	aria-label="Search"
 	class={`btn btn-circle btn-ghost mx-1 flex items-center ${className}`}
 	href="/search"
-	on:click={closeMenu}
+	onclick={closeMenu}
 >
 	<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24">
 		<path

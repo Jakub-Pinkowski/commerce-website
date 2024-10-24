@@ -1,16 +1,17 @@
 <!-- TODO: Make the languages work -->
+<!-- TODO: Convert to Svelte 5 before ever using -->
 <script lang="ts">
 	export let className: string = '';
 	export let closeMenu: () => void;
 	let language: string = 'EN';
 
-    const switchLanguage = (lang: string) => {
-        language = lang;
-    };
+	const switchLanguage = (lang: string) => {
+		language = lang;
+	};
 
-    const handleKeydown = (event: KeyboardEvent) => {
-        if (event.key === 'Enter' || event.key === ' ') closeMenu();
-    };
+	const handleKeydown = (event: KeyboardEvent) => {
+		if (event.key === 'Enter' || event.key === ' ') closeMenu();
+	};
 </script>
 
 <div
@@ -18,8 +19,8 @@
 	class={`dropdown dropdown-end mx-1 ${className}`}
 	tabindex="0"
 	role="button"
-	on:click={closeMenu}
-    on:keydown={handleKeydown}
+	onclick={closeMenu}
+	onkeydown={handleKeydown}
 >
 	<div tabindex="0" role="button" class="btn btn-circle btn-ghost" aria-label="Language">
 		<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24"
@@ -34,7 +35,7 @@
 	>
 		<ul class="menu menu-sm gap-1">
 			<li>
-				<button on:click={() => switchLanguage('EN')}>
+				<button onclick={() => switchLanguage('EN')}>
 					<span
 						class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
 					>
@@ -44,7 +45,7 @@
 				</button>
 			</li>
 			<li>
-				<button on:click={() => switchLanguage('DE')}>
+				<button onclick={() => switchLanguage('DE')}>
 					<span
 						class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
 					>

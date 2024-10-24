@@ -1,12 +1,12 @@
 <script lang="ts">
-	export let className: string = '';
-	export let closeMiniCart: () => void;
+	let { className = '', closeMiniCart }: { className?: string; closeMiniCart: () => void } =
+		$props();
 </script>
 
 <button
 	aria-label="Close"
 	class={`btn btn-circle btn-ghost mx-1${className}`}
-	on:click={closeMiniCart}
+	onclick={closeMiniCart}
 >
 	<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24">
 		<path

@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { totalWishlistItems } from '$lib/stores/wishlist';
 
-	export let className: string = '';
-	export let closeMenu: () => void;
+	let { className = '', closeMenu }: { className?: string; closeMenu: () => void } = $props();
 </script>
 
 <a
 	class={`btn btn-circle btn-ghost mx-1 flex items-center ${className}`}
 	href="/wishlist"
-	on:click={closeMenu}
+	onclick={closeMenu}
 >
 	<div class="indicator">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -20,7 +19,7 @@
 		</svg>
 
 		<span
-			class="text-secondary badge indicator-item badge-sm right-[-5px] border-none bg-transparent p-0 text-base"
+			class="badge indicator-item badge-sm right-[-5px] border-none bg-transparent p-0 text-base text-secondary"
 		>
 			{#if $totalWishlistItems > 0}
 				{$totalWishlistItems}

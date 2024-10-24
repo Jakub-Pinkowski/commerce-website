@@ -1,13 +1,13 @@
 <script lang="ts">
-    import {totalQuantity} from '$lib/stores/cart';
+	import { totalQuantity } from '$lib/stores/cart';
 
-	export let className: string = '';
-	export let toggleCartAndMenu: () => void;
+	let { className = '', toggleCartAndMenu }: { className?: string; toggleCartAndMenu: () => void } =
+		$props();
 </script>
 
 <button
 	class={`btn btn-circle btn-ghost mx-1 flex items-center ${className}`}
-	on:click={toggleCartAndMenu}
+	onclick={toggleCartAndMenu}
 >
 	<div class="indicator">
 		<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24">
@@ -22,8 +22,8 @@
 			class="badge indicator-item badge-sm right-[-5px] border-none bg-transparent p-0 text-base text-red-600"
 		>
 			{#if $totalQuantity > 0}
-                {$totalQuantity}
-            {/if}
+				{$totalQuantity}
+			{/if}
 		</span>
 	</div>
 </button>
