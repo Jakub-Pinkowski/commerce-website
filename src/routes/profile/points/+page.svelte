@@ -4,10 +4,12 @@
 	import CardPoints from '$lib/components/Profile/CardPoints.svelte';
 	import CardPointsHistory from '$lib/components/Profile/Points/CardPointsHistory.svelte';
 
+    import type { PageData } from './$types';
 	import type { User } from '$lib/types/userTypes';
 	import type { Order } from '$lib/types/orderTypes';
 
-	export let data;
+    let { data }: { data: PageData } = $props();
+    
 	const user: User = data.user;
 	const orders: Order[] = data.orders;
 </script>

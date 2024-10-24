@@ -3,10 +3,11 @@
 	import CardAddress from '$lib/components/Profile/Settings/CardAddress.svelte';
 	import CardPassword from '$lib/components/Profile/Settings/CardPassword.svelte';
 
+	import type { PageData } from './$types';
 	import type { User } from '$lib/types/userTypes';
 
-	export let data;
-
+	let { data }: { data: PageData } = $props();
+    
 	const user: User = data.user;
 </script>
 
