@@ -138,8 +138,8 @@
 									placeholder={user.name || ''}
 									autocomplete="name"
 									error={nameError}
-									onFocus={handleNameInteraction}
-									onInput={handleNameInteraction}
+									onfocus={handleNameInteraction}
+									oninput={handleNameInteraction}
 									{smallErrors}
 									{smallLabels}
 								/>
@@ -162,8 +162,8 @@
 									placeholder={user.phone || ''}
 									autocomplete="tel"
 									error={phoneError}
-									onFocus={handlePhoneInteraction}
-									onInput={handlePhoneInteraction}
+									onfocus={handlePhoneInteraction}
+									oninput={handlePhoneInteraction}
 									{smallErrors}
 									{smallLabels}
 								/>
@@ -186,8 +186,8 @@
 									placeholder={user.email || ''}
 									autocomplete="email"
 									error={emailError}
-									onFocus={handleEmailInteraction}
-									onInput={handleEmailInteraction}
+									onfocus={handleEmailInteraction}
+									oninput={handleEmailInteraction}
 									{smallErrors}
 									{smallLabels}
 								/>

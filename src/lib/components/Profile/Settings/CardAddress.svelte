@@ -226,8 +226,8 @@
 										{placeholder}
 										{autocomplete}
 										error={addressErrors[key]}
-										onFocus={() => handleInteraction(key)}
-										onInput={() => handleInteraction(key)}
+										onfocus={() => handleInteraction(key)}
+										oninput={() => handleInteraction(key)}
 										{smallErrors}
 										{smallLabels}
 									/>

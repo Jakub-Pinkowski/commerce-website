@@ -1,4 +1,4 @@
-import { fail, redirect } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 
 import { db } from '$lib/helpers/drizzle';
@@ -14,7 +14,6 @@ export const load: PageServerLoad = async (event) => {
 		.where(eq(usersTable.email, 'demo@demo.com'))
 		.limit(1);
 	const demoUser = demoUserQuery[0];
-	console.log('demoUser', demoUser);
 
 	if (!demoUser) {
 		return redirect(302, '/');
