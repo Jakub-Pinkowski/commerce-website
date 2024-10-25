@@ -235,7 +235,14 @@
 								{/if}
 								<tr>
 									<th>Total cost</th>
-									<td class="font-bold">${order.totalCost}</td>
+									<td class="font-bold">
+										{#if order.totalCost < totalListCost}
+                                            <span class="text-main-red">${order.totalCost}</span>
+                                            <span class="text-gray-500 line-through">${totalListCost}</span>
+                                        {:else}
+											${order.totalCost}
+										{/if}
+									</td>
 								</tr>
 								<tr>
 									<th>Points earned</th>
