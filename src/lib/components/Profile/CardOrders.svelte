@@ -24,17 +24,22 @@
 	let isExpanded = $state(false);
 	let showAll = $state(false);
 
-    // TODO: Finish this
-    // Calculate total prices
-    let productsDiscounted = false
-    const totalProductsPrice = orderItems.reduce((sum, item) => sum + item.price, 0);
-    const totalProductsListPrice = orderItems.reduce((sum, item) => sum + item.listPrice, 0);
-    const totalCost = order.totalCost;
-    const totalListCost = totalProductsListPrice + order.shippingCost;
-    console.log("totalProductsPrice, totalProductsListPrice,totalListCost  ", totalProductsPrice, totalProductsListPrice,totalListCost);
-    if (totalProductsPrice < totalProductsListPrice) {
-        productsDiscounted = true;
-    }
+	// TODO: Finish this
+	// Calculate total prices
+	let productsDiscounted = false;
+	const totalProductsPrice = orderItems.reduce((sum, item) => sum + item.price, 0);
+	const totalProductsListPrice = orderItems.reduce((sum, item) => sum + item.listPrice, 0);
+	const totalCost = order.totalCost;
+	const totalListCost = totalProductsListPrice + order.shippingCost;
+	console.log(
+		'totalProductsPrice, totalProductsListPrice,totalListCost  ',
+		totalProductsPrice,
+		totalProductsListPrice,
+		totalListCost
+	);
+	if (totalProductsPrice < totalProductsListPrice) {
+		productsDiscounted = true;
+	}
 
 	// Handle order statuses
 	const orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
@@ -211,7 +216,16 @@
 								</tr>
 								<tr>
 									<th>Shipping cost</th>
-									<td>${order.shippingCost}</td>
+									{#if order.shippingCost == 0}
+										<td>
+											<span class="text-main-red">$0</span>
+											<span class="text-gray-500 line-through">$5</span>
+										</td>
+									{:else}
+										<td>
+											${order.shippingCost}
+										</td>
+									{/if}
 								</tr>
 								{#if order.discount}
 									<tr>
