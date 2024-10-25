@@ -8,8 +8,8 @@
 
 	let { user }: { user: User } = $props();
 
-    const smallErrors: boolean = true;
-    const smallLabels: boolean = true;
+	const smallErrors: boolean = true;
+	const smallLabels: boolean = true;
 
 	let name: string = $state('');
 	let phone: string = $state('');
@@ -17,7 +17,7 @@
 	let nameError: string = $state('');
 	let phoneError: string = $state('');
 	let emailError: string = $state('');
-	let serverError: string= $state('');
+	let serverError: string = $state('');
 	let isEditing: boolean = $state(false);
 	let toastSuccess: boolean = $state(false);
 	let toastSuccessMessage: string = $state('');
@@ -26,6 +26,11 @@
 		event.preventDefault();
 		resetErrors();
 		validateFields();
+
+		if (user.email === 'demo@demo.com') {
+			serverError = 'You cannot change the information of the demo account';
+			return;
+		}
 
 		if (nameError || emailError || phoneError) {
 			return;

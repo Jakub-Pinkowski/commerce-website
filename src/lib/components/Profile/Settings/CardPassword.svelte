@@ -1,4 +1,5 @@
 <script lang="ts">
+	// TODO: Handle cases where user wants to change password but is logged in with Google or Github
 	import { fade } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
@@ -24,6 +25,11 @@
 		event.preventDefault();
 		resetErrors();
 		validateFields();
+
+		if (user.email === 'demo@demo.com') {
+			serverError = 'You cannot change the information of the demo account';
+			return;
+		}
 
 		if (oldPasswordError || newPasswordError || repeatNewPasswordError) {
 			return;

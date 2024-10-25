@@ -29,7 +29,7 @@
 
 	const smallErrors: boolean = true;
 	const smallLabels: boolean = true;
-    
+
 	let serverError: string = $state('');
 	let isEditing: boolean = $state(false);
 	let toastSuccess: boolean = $state(false);
@@ -102,6 +102,11 @@
 		event.preventDefault();
 		resetErrors();
 		validateFields();
+
+		if (user.email === 'demo@demo.com') {
+			serverError = 'You cannot change the information of the demo account';
+			return;
+		}
 
 		if (
 			addressErrors.street ||
