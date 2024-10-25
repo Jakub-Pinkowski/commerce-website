@@ -1,5 +1,5 @@
 <script lang="ts">
-    // TODO: Convert to Svelte 5
+	// TODO: Convert to Svelte 5
 	import type { Product } from '$lib/types/productTypes';
 	import { debounce } from '$lib/helpers/utils';
 	import {
@@ -16,7 +16,7 @@
 	import FilterSection from '$lib/components/CategoryPages/FilterSection.svelte';
 	import Pagination from '$lib/components/Common/Pagination.svelte';
 	import RecommendationsCarousel from '$lib/components/Common/RecommendationsCarousel.svelte';
-    import SkeletonCategoryPage from './SkeletonCategoryPage.svelte';
+	import SkeletonCategoryPage from './SkeletonCategoryPage.svelte';
 
 	export let title: string;
 	export let products: Product[];
@@ -34,7 +34,7 @@
 	}
 
 	// Filtering and Sorting
-    // TODO: Refactor, fix and optimize the whole filtering logic
+	// TODO: Refactor, fix and optimize the whole filtering logic
 	const initialMinPrice: number = Math.min(...products.map((product) => product.price));
 	const initialMaxPrice: number = Math.max(...products.map((product) => product.price));
 	let minPrice: number = initialMinPrice;
@@ -246,7 +246,7 @@
 	{/if}
 </div>
 
-<style scoped>
+<style>
 	[type='checkbox']:focus {
 		outline: 2px solid transparent;
 		outline-offset: 2px;

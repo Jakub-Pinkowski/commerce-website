@@ -37,6 +37,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		// Add items to the localCart that are in CartItems but not in localCart
 		addProductToLocalCart(localCart, dbCartItems, products);
 
+        // Update or add items to the database that are in localCart
 		for (const item of localCart) {
 			const existingItem = dbCartItems.find((i) => i.productId === item.id);
 			if (existingItem) {
