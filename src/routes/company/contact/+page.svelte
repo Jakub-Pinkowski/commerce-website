@@ -16,15 +16,11 @@
 	let messageError: string = $state('');
 	let toastSuccess: boolean = $state(false);
 	let toastMessage: string = $state('');
-	let formSubmitted: boolean = $state(false);
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
-		formSubmitted = true;
 
-		nameError = '';
-		emailError = '';
-		messageError = '';
+        resetErros();
 
 		if (!name) {
 			nameError = 'Please enter your name';
@@ -54,10 +50,6 @@
 		resetForm();
 	};
 
-	const isFormValid = (): boolean => {
-		return Boolean(name && isValidEmail(email) && message);
-	};
-
 	const isValidEmail = (value: string): boolean => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		return emailRegex.test(value);
@@ -68,6 +60,12 @@
 		email = '';
 		message = '';
 	};
+
+    const resetErros = () => {
+        nameError = '';
+        emailError = '';
+        messageError = '';
+    };
 
 	const handleNameInteraction = () => {
 		nameError = '';
