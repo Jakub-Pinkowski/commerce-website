@@ -24,7 +24,7 @@
 	let isExpanded = $state(false);
 	let showAll = $state(false);
 
-	// TODO: Finish this
+	// TODO: Finish this, make the order items and order add up
 	// Calculate total prices
 	let productsDiscounted = false;
 	const totalProductsPrice = orderItems.reduce((sum, item) => sum + item.price, 0);
