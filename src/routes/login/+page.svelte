@@ -96,8 +96,8 @@
 	<div class="mb-8 flex flex-col items-center gap-4">
 		<GoogleButton />
 		<GithubButton />
-        <!-- TODO: Make it not possible for users to edit orders? -->
-		<!-- <DemoButton /> -->
+        <!-- TODO: Make it not possible for users to edit orders -->
+		<DemoButton />
 	</div>
 	<form onsubmit={handleSubmit} class="mb-8 flex flex-col items-center">
 		<span>Sign in with Email</span>
