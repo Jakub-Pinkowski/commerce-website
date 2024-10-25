@@ -8,7 +8,7 @@ import type { RequestEvent } from '@sveltejs/kit';
 export const GET = async (event: RequestEvent): Promise<Response> => {
 	const state = generateState();
 	const codeVerifier = generateCodeVerifier();
-	const url = await google.createAuthorizationURL(state, codeVerifier, ['profile', 'email']);
+	const url = google.createAuthorizationURL(state, codeVerifier, ['profile', 'email']);
 
 	event.cookies.set('google_oauth_state', state, {
 		secure: true,
