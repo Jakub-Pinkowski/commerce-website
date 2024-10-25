@@ -24,6 +24,18 @@
 	let isExpanded = $state(false);
 	let showAll = $state(false);
 
+    // TODO: Finish this
+    // Calculate total prices
+    let productsDiscounted = false
+    const totalProductsPrice = orderItems.reduce((sum, item) => sum + item.price, 0);
+    const totalProductsListPrice = orderItems.reduce((sum, item) => sum + item.listPrice, 0);
+    const totalCost = order.totalCost;
+    const totalListCost = totalProductsListPrice + order.shippingCost;
+    console.log("totalProductsPrice, totalProductsListPrice,totalListCost  ", totalProductsPrice, totalProductsListPrice,totalListCost);
+    if (totalProductsPrice < totalProductsListPrice) {
+        productsDiscounted = true;
+    }
+
 	// Handle order statuses
 	const orderStatuses = ['placed', 'processed', 'dispatched', 'delivered'];
 

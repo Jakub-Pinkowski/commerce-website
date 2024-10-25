@@ -93,11 +93,6 @@
 
 	type AddressKey = keyof Address;
 
-	const handleInteraction = (field: AddressKey) => {
-		addressErrors[field] = '';
-		serverError = '';
-	};
-
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
 		resetErrors();
@@ -209,6 +204,11 @@
 		) {
 			serverError = 'No changes were made';
 		}
+	};
+
+	const handleInteraction = (field: AddressKey) => {
+		addressErrors[field] = '';
+		serverError = '';
 	};
 </script>
 
