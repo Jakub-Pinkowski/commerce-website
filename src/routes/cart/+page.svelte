@@ -1,7 +1,7 @@
 <script lang="ts">
+    	// TODO: Should lead to checkout, include recommendation carousel
 	import { onMount } from 'svelte';
-    
-	// TODO: Should lead to checkout, include recommendation carousel
+
 	import { cart } from '$lib/stores/cart';
 	import Breadcrumbs from '$lib/components/Common/Breadcrumbs.svelte';
 	import CartProductCard from '$lib/components/Header/CartProductCard.svelte';
@@ -9,6 +9,7 @@
 	import type { CartItem } from '$lib/stores/cart';
 
 	const breadcrumbs = ['Home', 'Cart'];
+
 	let items: CartItem[] = $state([]);
 
 	const total = $derived.by(
@@ -61,6 +62,7 @@
 						</span>
 					</div>
 				</div>
+                <!--  -->
 				{#if totalListPrice > total}
 					<div role="alert" class="alert-add-to-cart alert">
 						<!-- TODO: Change this svg to some dollar icon -->
