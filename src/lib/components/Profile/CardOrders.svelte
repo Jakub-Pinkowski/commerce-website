@@ -31,12 +31,6 @@
 	const totalProductsListPrice = orderItems.reduce((sum, item) => sum + item.listPrice, 0);
 	const totalCost = order.totalCost;
 	const totalListCost = totalProductsListPrice + order.shippingCost;
-	console.log(
-		'totalProductsPrice, totalProductsListPrice,totalListCost  ',
-		totalProductsPrice,
-		totalProductsListPrice,
-		totalListCost
-	);
 	if (totalProductsPrice < totalProductsListPrice) {
 		productsDiscounted = true;
 	}
