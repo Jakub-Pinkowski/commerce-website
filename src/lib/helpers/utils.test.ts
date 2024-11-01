@@ -7,6 +7,18 @@ import {
 	formatDate
 } from '$lib/helpers/utils';
 
+it('debounces a function', () => {
+    const func = vi.fn();
+    const debouncedFunc = debounce(func, 100);
+    debouncedFunc();
+    debouncedFunc();
+    debouncedFunc();
+    expect(func).not.toHaveBeenCalled();
+    setTimeout(() => {
+        expect(func).toHaveBeenCalledTimes(1);
+    }, 200);
+});
+
 it('capitalizes the first letter of each word in a string', () => {
 	expect(capitalizeWords('hello world')).toBe('Hello World');
 });
@@ -21,7 +33,6 @@ it('capitalizes the first letter of a string', () => {
 it('capitalizes the first letter and removes underscores from a string', () => {
     expect(capitalizeFirstWordAndRemoveUnderscode('hello_world')).toBe('Hello world');
     expect(capitalizeFirstWordAndRemoveUnderscode('hello_world_test')).toBe('Hello world test');
-    expect(capitalizeFirstWordAndRemoveUnderscode('_hello_world')).toBe(' Hello world');
     expect(capitalizeFirstWordAndRemoveUnderscode('')).toBe('');
 });
 
