@@ -30,6 +30,9 @@ export const getCurrentStatus = (points: number) => {
 };
 
 export const getNextThreshold = (points: number) => {
+	if (points < 0) {
+		return { status: 'bronze', threshold: 60 };
+	}
 	for (const [status, { points: thresholdPoints }] of Object.entries(pointsThreshholds)) {
 		if (points < thresholdPoints) {
 			return { status, threshold: thresholdPoints };
@@ -62,9 +65,8 @@ export const getLastMonthOrders = (orders: Order[]): Order[] => {
 };
 
 export const getPointsStatus = (createdAt: Date): string => {
-	const orderDate = createdAt;
 	const currentDate = new Date();
-	const diffTime = Math.abs(currentDate.getTime() - orderDate.getTime());
-	const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+	const diffTime = currentDate.getTime() - createdAt.getTime();
+	const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 	return diffDays >= 30 ? 'Active' : 'Pending';
 };

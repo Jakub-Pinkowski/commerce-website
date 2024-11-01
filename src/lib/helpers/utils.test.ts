@@ -21,6 +21,7 @@ it('debounces a function', () => {
 
 it('capitalizes the first letter of each word in a string', () => {
 	expect(capitalizeWords('hello world')).toBe('Hello World');
+    expect(capitalizeWords('hello')).toBe('Hello');
 });
 
 it('capitalizes the first letter of a string', () => {
@@ -41,4 +42,6 @@ it('formats a date to dd.mm.yyyy', () => {
     expect(formatDate(date)).toBe('05.10.2023');
     const date2 = new Date(2020, 0, 1); // 1st January 2020
     expect(formatDate(date2)).toBe('01.01.2020');
+    const date3 = new Date(2023, 11, 31); // 31st December 2023
+    expect(formatDate(date3)).toBe('31.12.2023');
 });
