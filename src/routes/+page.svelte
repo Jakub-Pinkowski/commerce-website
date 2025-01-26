@@ -35,24 +35,15 @@
 
 <div>
 	<InfoBanner />
-	<div class="flex justify-center">
-		<section
-			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
-			style="background-image: url({shoes});"
-		>
-			<div class="hero-overlay bg-opacity-60"></div>
-			<div class="hero-content text-neutral-content text-center">
-				<div class="max-w-md">
-					<h1 class="mb-5 text-5xl">Summer Sale</h1>
-					<p class="mb-2 text-xl">Don't miss out on our summer sale!</p>
-					<p class="mb-5 text-xl">
-						Get up to <span class="text-2xl font-bold">50%</span> off on selected items.
-					</p>
-					<a href="/categories/sale" class="btn btn-accent">Shop sale</a>
-				</div>
-			</div>
-		</section>
-	</div>
+	<PromoBanner
+		image={shoes}
+		title="Summer Sale"
+		subTitle="Don't miss out on our summer sale!"
+		description="Get up to 50% off on selected items."
+		linkText="Shop sale"
+		linkHref="/categories/sale"
+		accentColor
+	/>
 	<div class="mb-8">
 		<RecommendationsCarousel products={saleProducts} title="Sale" />
 	</div>

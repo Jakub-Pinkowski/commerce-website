@@ -5,7 +5,8 @@
 		subTitle,
 		description,
 		linkText,
-		linkHref
+		linkHref,
+		accentColor = false
 	}: {
 		image: string;
 		title: string;
@@ -13,6 +14,7 @@
 		description?: string;
 		linkText: string;
 		linkHref: string;
+		accentColor?: boolean;
 	} = $props();
 </script>
 
@@ -29,7 +31,14 @@
 			<div class="max-w-md">
 				<h1 class="mb-5 text-5xl">{title}</h1>
 				<p class="mb-5 text-xl">{subTitle}</p>
-				<a href={linkHref} class="btn btn-primary">{linkText}</a>
+				{#if description}
+					<p class="mb-5 text-xl">{description}</p>
+				{/if}
+				{#if accentColor}
+					<a href={linkHref} class="btn btn-accent">{linkText}</a>
+				{:else}
+					<a href={linkHref} class="btn btn-primary">{linkText}</a>
+				{/if}
 			</div>
 		</div>
 	</div>
