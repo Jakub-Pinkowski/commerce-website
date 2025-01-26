@@ -149,7 +149,7 @@
 		{#if error && !smallErrors}
 			<div
 				role="alert"
-				class="alert alert-warning hidden w-auto shrink-0 gap-2 rounded-lg border-none p-3 text-sm text-whiteish md:flex"
+				class="alert alert-warning text-whiteish hidden w-auto shrink-0 gap-2 rounded-lg border-none p-3 text-sm md:flex"
 				transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
 			>
 				<svg
@@ -175,7 +175,7 @@
 	{#if error && !smallErrors}
 		<div
 			role="alert"
-			class="alert alert-warning mt-2 flex w-auto shrink-0 gap-2 rounded-lg border-none p-2 text-sm text-whiteish md:hidden"
+			class="alert alert-warning text-whiteish mt-2 flex w-auto shrink-0 gap-2 rounded-lg border-none p-2 text-sm md:hidden"
 			transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
 		>
 			<svg
@@ -198,7 +198,7 @@
 	{:else if error && smallErrors}
 		<div
 			role="alert"
-			class="alert alert-warning mt-2 flex w-auto shrink-0 gap-2 rounded-lg border-none p-2 text-sm text-whiteish"
+			class="alert alert-warning text-whiteish mt-2 flex w-auto shrink-0 gap-2 rounded-lg border-none p-2 text-sm"
 			transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
 		>
 			<svg

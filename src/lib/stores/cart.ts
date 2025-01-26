@@ -44,7 +44,7 @@ if (typeof window !== 'undefined') {
 	cart.subscribe((items) => {
 		try {
 			localStorage.setItem('cart', JSON.stringify(items));
-            const userStore = get(user);
+			const userStore = get(user);
 			if (userStore) {
 				updateCartInDatabase(items);
 			}

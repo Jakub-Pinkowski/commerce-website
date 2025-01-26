@@ -8,7 +8,7 @@
 
 	const breadcrumbs = ['Home', 'Register'];
 
-	let email: string = $state('')
+	let email: string = $state('');
 	let password: string = $state('');
 	let repeatPassword: string = $state('');
 	let emailError: string = $state('');
@@ -155,7 +155,7 @@
 		{#if serverError}
 			<div
 				role="alert"
-				class="alert alert-warning mt-4 text-whiteish"
+				class="alert alert-warning text-whiteish mt-4"
 				transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
 			>
 				<svg

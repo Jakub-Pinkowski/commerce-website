@@ -12,7 +12,7 @@
 
 	const breadcrumbs = ['Home', 'Login'];
 
-	let email: string = $state('')
+	let email: string = $state('');
 	let password: string = $state('');
 	let emailError: string = $state('');
 	let passwordError: string = $state('');
@@ -96,7 +96,7 @@
 	<div class="mb-8 flex flex-col items-center gap-4">
 		<GoogleButton />
 		<GithubButton />
-        <!-- TODO: Make it not possible for users to edit orders -->
+		<!-- TODO: Make it not possible for users to edit orders -->
 		<DemoButton />
 	</div>
 	<form onsubmit={handleSubmit} class="mb-8 flex flex-col items-center">
@@ -130,7 +130,7 @@
 		{#if serverError}
 			<div
 				role="alert"
-				class="alert alert-warning mt-4 text-whiteish"
+				class="alert alert-warning text-whiteish mt-4"
 				transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
 			>
 				<svg

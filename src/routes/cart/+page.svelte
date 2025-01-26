@@ -1,5 +1,5 @@
 <script lang="ts">
-    	// TODO: Should lead to checkout, include recommendation carousel
+	// TODO: Should lead to checkout, include recommendation carousel
 	import { onMount } from 'svelte';
 
 	import { cart } from '$lib/stores/cart';
@@ -57,12 +57,12 @@
 								${totalListPrice}
 							</span>
 						{/if}
-						<span class="text-lg text-main-red">
+						<span class="text-main-red text-lg">
 							${total}
 						</span>
 					</div>
 				</div>
-                <!--  -->
+				<!--  -->
 				{#if totalListPrice > total}
 					<div role="alert" class="alert-add-to-cart alert">
 						<!-- TODO: Change this svg to some dollar icon -->

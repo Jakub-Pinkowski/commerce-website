@@ -151,7 +151,10 @@
 
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 			<!-- TODO: Make it dynamic later, define all sorting options in a separate component -->
-			<ul tabindex="0" class="menu dropdown-content z-20 w-44 rounded-box bg-base-100 p-2 shadow-sm">
+			<ul
+				tabindex="0"
+				class="menu dropdown-content rounded-box bg-base-100 z-20 w-44 p-2 shadow-sm"
+			>
 				<li>
 					<button
 						on:click={() => {
@@ -175,11 +178,11 @@
 	{#if displayedProducts}
 		<div class="flex">
 			<!-- Desktop Sidebar -->
-			<div class="hidden w-64 min-w-64 max-w-64 flex-col pr-4 md:flex">
+			<div class="hidden w-64 max-w-64 min-w-64 flex-col pr-4 md:flex">
 				<div class="join join-vertical w-full">
 					<!-- TODO: Export range filter -->
 					<span class="badge indicator-item badge-accent">Filtering is a bit buggy!</span>
-					<div class="collapse join-item collapse-plus rounded-none! border-b border-base-300">
+					<div class="join-item collapse-plus border-base-300 collapse rounded-none! border-b">
 						<input type="checkbox" name="my-accordion-43" />
 						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
 						<div class="collapse-content pl-1">

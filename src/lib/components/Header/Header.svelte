@@ -36,7 +36,7 @@
 	});
 </script>
 
-<header class="navbar border-b bg-base-100 px-4">
+<header class="navbar bg-base-100 border-b px-4">
 	<div class="navbar-start md:hidden">
 		<div class="btn btn-circle btn-ghost z-30 mx-1">
 			<Hamburger bind:open --layer-width="30px" --layer-height="4px" --padding="0 15px" />
@@ -51,7 +51,7 @@
 			<a href="/categories" tabindex="0" role="button" class="btn btn-ghost">Categories</a>
 			<div
 				tabindex="-1"
-				class="menu dropdown-content z-1 flex w-96 flex-row rounded-box bg-base-100 p-2 shadow-sm"
+				class="menu dropdown-content rounded-box bg-base-100 z-1 flex w-96 flex-row p-2 shadow-sm"
 			>
 				<ul class="w-[calc(50%-8px)] p-2">
 					{#each productCategories as category}

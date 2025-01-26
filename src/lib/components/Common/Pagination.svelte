@@ -1,12 +1,12 @@
 <script lang="ts">
-    // TODO: Refactor to make it Svelte 5 compatible
+	// TODO: Refactor to make it Svelte 5 compatible
 	import { onMount, createEventDispatcher } from 'svelte';
 	import type { Product } from '$lib/types/productTypes';
 
 	export let itemsPerPage = 8;
 	export let products: Product[] = [];
 	export let displayedProducts: Product[] = [];
-    
+
 	let currentPage = 1;
 	let totalPages = 0;
 
@@ -27,7 +27,7 @@
 	function goToPage(page: number) {
 		currentPage = page;
 		updateDisplayedProducts();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 
 	function nextPage() {
@@ -43,7 +43,7 @@
 	}
 </script>
 
-<div class="my-8 flex justify-center w-full">
+<div class="my-8 flex w-full justify-center">
 	<div class="join">
 		{#if currentPage > 1}
 			<button on:click={prevPage} class="btn join-item">«</button>

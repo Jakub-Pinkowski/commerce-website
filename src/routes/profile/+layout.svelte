@@ -26,7 +26,7 @@
 
 <div class="flex flex-col gap-4 md:flex-row">
 	<!-- Desktop -->
-	<ul class="menu hidden h-fit w-56 rounded-box bg-base-200 md:block">
+	<ul class="menu rounded-box bg-base-200 hidden h-fit w-56 md:block">
 		<li class="menu-title">Account</li>
 		<li><a href="/profile">Dashboard</a></li>
 		<li><a href="/profile/points">Points</a></li>
@@ -58,7 +58,7 @@
 		<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 		{#if dropdownOpen}
 			<ul
-				class="menu absolute z-1 w-full rounded-box bg-base-100 p-2 shadow-sm"
+				class="menu rounded-box bg-base-100 absolute z-1 w-full p-2 shadow-sm"
 				transition:fly={{ y: 20, duration: 200 }}
 			>
 				<li><a href="/profile" onclick={handleClick}>Dashboard</a></li>

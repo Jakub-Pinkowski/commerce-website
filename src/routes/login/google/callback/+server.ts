@@ -4,7 +4,12 @@ import { eq } from 'drizzle-orm';
 import { db } from '$lib/helpers/drizzle';
 import { google } from '$lib/server/session';
 import { usersTable } from '$lib/drizzle/schema';
-import { generateUserId, createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
+import {
+	generateUserId,
+	createSession,
+	generateSessionToken,
+	setSessionTokenCookie
+} from '$lib/server/session';
 
 import type { RequestEvent } from '@sveltejs/kit';
 
@@ -28,7 +33,7 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 
 	try {
 		const tokens = await google.validateAuthorizationCode(code, storedCodeVerifier);
-        const googleAccessToken = tokens.accessToken()
+		const googleAccessToken = tokens.accessToken();
 		const googleUserResponse = await fetch('https://www.googleapis.com/oauth2/v1/userinfo', {
 			headers: {
 				Authorization: `Bearer ${googleAccessToken}`
@@ -65,7 +70,7 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 			}
 		} else {
 			// New user signing in with Google
-            const userId = generateUserId();
+			const userId = generateUserId();
 
 			await db.insert(usersTable).values({
 				id: userId,

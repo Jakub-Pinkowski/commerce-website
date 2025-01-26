@@ -42,10 +42,10 @@
 	{#if showBanner}
 		<div class="flex justify-center" transition:fade>
 			<section
-				class="hero relative mx-[-1.5rem] mb-2 w-screen border-y border-accent md:mx-[-2rem]"
+				class="hero border-accent relative mx-[-1.5rem] mb-2 w-screen border-y md:mx-[-2rem]"
 			>
 				<button
-					class="rounded-full0 btn btn-circle btn-ghost absolute right-2 top-2 z-10"
+					class="rounded-full0 btn btn-circle btn-ghost absolute top-2 right-2 z-10"
 					aria-label="Close banner"
 					onclick={hideBanner}
 				>
@@ -62,12 +62,12 @@
 					</svg>
 				</button>
 				<div class="hero-overlay bg-light-accent bg-opacity-60"></div>
-				<div class="hero-content max-w-full text-center text-neutral-content">
-					<div class="max-w-[85%] text-dark md:max-w-full">
+				<div class="hero-content text-neutral-content max-w-full text-center">
+					<div class="text-dark max-w-[85%] md:max-w-full">
 						<h1 class="mb-2 text-xl">
 							This project is still a work in progress, website is under constant development.
 						</h1>
-						<h2 class="text-bold mb-4 text-xl text-secondary">New features added regularly!</h2>
+						<h2 class="text-bold text-secondary mb-4 text-xl">New features added regularly!</h2>
 						<p class="mb-1 text-xs">
 							Disclaimer: This website is a demonstration project and not an actual e-commerce
 							store. You cannot make purchases here. All names or brands mentioned are purely
@@ -106,7 +106,7 @@
 			style="background-image: url({shoes});"
 		>
 			<div class="hero-overlay bg-opacity-60"></div>
-			<div class="hero-content text-center text-neutral-content">
+			<div class="hero-content text-neutral-content text-center">
 				<div class="max-w-md">
 					<h1 class="mb-5 text-5xl">Summer Sale</h1>
 					<p class="mb-2 text-xl">Don't miss out on our summer sale!</p>
@@ -127,7 +127,7 @@
 			style="background-image: url({newImage});"
 		>
 			<div class="hero-overlay bg-opacity-60"></div>
-			<div class="hero-content text-center text-neutral-content">
+			<div class="hero-content text-neutral-content text-center">
 				<div class="max-w-md">
 					<h1 class="mb-5 text-5xl">New Collection</h1>
 					<p class="mb-5 text-xl">Checkout our brand new arrivals!</p>
@@ -141,7 +141,7 @@
 	</div>
 	<!-- Experimental -->
 	<div class="my-8 flex justify-center">
-		<div class="stats stats-vertical text-center md:stats-horizontal">
+		<div class="stats stats-vertical md:stats-horizontal text-center">
 			<div class="stat w-full">
 				<div class="stat-value mb-4">
 					<svg
@@ -158,7 +158,7 @@
 						/>
 					</svg>
 				</div>
-				<div class="stat-title whitespace-normal font-semibold">
+				<div class="stat-title font-semibold whitespace-normal">
 					Free shipping for orders over €99
 				</div>
 			</div>
@@ -178,7 +178,7 @@
 						/>
 					</svg>
 				</div>
-				<div class="stat-title whitespace-normal font-semibold">
+				<div class="stat-title font-semibold whitespace-normal">
 					Free returns and exchanges within 30 days
 				</div>
 			</div>
@@ -191,7 +191,7 @@
 			style="background-image: url({caps});"
 		>
 			<div class="hero-overlay bg-opacity-60"></div>
-			<div class="hero-content text-center text-neutral-content">
+			<div class="hero-content text-neutral-content text-center">
 				<div class="max-w-md">
 					<h1 class="mb-5 text-5xl">Caps</h1>
 					<p class="mb-5 text-xl">Checkout our collection of caps!</p>
@@ -209,7 +209,7 @@
 			style="background-image: url({bikes});"
 		>
 			<div class="hero-overlay bg-opacity-60"></div>
-			<div class="hero-content text-center text-neutral-content">
+			<div class="hero-content text-neutral-content text-center">
 				<div class="max-w-md">
 					<h1 class="mb-5 text-5xl">Bikes</h1>
 					<p class="mb-5 text-xl">Checkout our collection of bikes!</p>

@@ -10,14 +10,14 @@
 	<h1 class="mb-4 text-3xl font-bold text-gray-900">Frequently Asked Questions</h1>
 	<p class="mb-4">Find answers to common questions.</p>
 	<div class="join join-vertical w-full text-justify">
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" name="accordion-1" />
 			<div class="collapse-title text-xl font-medium">What payment methods are accepted?</div>
 			<div class="collapse-content">
 				<p>We accept Visa, MasterCard, American Express, and PayPal.</p>
 			</div>
 		</div>
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" name="accordion-2" />
 			<div class="collapse-title text-xl font-medium">How can I track my order?</div>
 			<div class="collapse-content">
@@ -27,7 +27,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" name="accordion-3" />
 			<div class="collapse-title text-xl font-medium">What is the return policy?</div>
 			<div class="collapse-content">
@@ -37,7 +37,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" name="accordion-4" />
 			<div class="collapse-title text-xl font-medium">Do you ship internationally?</div>
 			<div class="collapse-content">
@@ -47,7 +47,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" name="accordion-5" />
 			<div class="collapse-title text-xl font-medium">How can I change or cancel my order?</div>
 			<div class="collapse-content">
@@ -58,7 +58,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" name="accordion-6" />
 			<div class="collapse-title text-xl font-medium">
 				What should I do if I receive a damaged item?
@@ -71,7 +71,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" name="accordion-7" />
 			<div class="collapse-title text-xl font-medium">
 				Can I return a product if I don't like it?
@@ -86,7 +86,7 @@
 		</div>
 	</div>
 	<div>
-		<h3 class="mb-4 mt-8 text-2xl font-semibold">Didn't find what you were looking for?</h3>
+		<h3 class="mt-8 mb-4 text-2xl font-semibold">Didn't find what you were looking for?</h3>
 		<p>
 			If you didn't find the answers to your questions in our FAQ, please don't hesitate to reach
 			out to us directly via our <a href="/company/contact" class="link">Contact Us</a> page.

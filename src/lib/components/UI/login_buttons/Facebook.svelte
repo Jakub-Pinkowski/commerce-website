@@ -1,13 +1,13 @@
 <!-- TODO: Make this look nice -->
 <script lang="ts">
-    import facebook_icon from '$lib/assets/icons/facebook_icon.png';
+	import facebook_icon from '$lib/assets/icons/facebook_icon.png';
 </script>
 
 <button class="gsi-material-button">
 	<div class="gsi-material-button-state"></div>
 	<div class="gsi-material-button-content-wrapper">
 		<div class="gsi-material-button-icon">
-            <img src={facebook_icon} alt="Facebook icon" />
+			<img src={facebook_icon} alt="Facebook icon" />
 		</div>
 		<span class="gsi-material-button-contents">Sign in with Facebook</span>
 		<span style="display: none;">Sign in with Facebook</span>
@@ -18,11 +18,11 @@
 	.gsi-material-button {
 		-webkit-appearance: none;
 		-moz-appearance: none;
-		appearance: none; 
+		appearance: none;
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
-		user-select: none; 
+		user-select: none;
 		background-color: #131314;
 		background-image: none;
 		border: 1px solid #747775;

@@ -4,7 +4,12 @@ import { eq } from 'drizzle-orm';
 import { db } from '$lib/helpers/drizzle';
 import { github } from '$lib/server/session';
 import { usersTable } from '$lib/drizzle/schema';
-import { generateUserId, createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
+import {
+	generateUserId,
+	createSession,
+	generateSessionToken,
+	setSessionTokenCookie
+} from '$lib/server/session';
 
 import type { RequestEvent } from '@sveltejs/kit';
 
@@ -26,7 +31,7 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 
 	try {
 		const tokens = await github.validateAuthorizationCode(code);
-        const githubAccessToken = tokens.accessToken();
+		const githubAccessToken = tokens.accessToken();
 		const githubUserResponse = await fetch('https://api.github.com/user', {
 			headers: {
 				Authorization: `Bearer ${githubAccessToken}`
@@ -45,7 +50,7 @@ export const GET = async (event: RequestEvent): Promise<Response> => {
 			const session = await createSession(sessionToken, existingUser.id);
 			setSessionTokenCookie(event, sessionToken, session.expiresAt);
 		} else {
-            const userId = generateUserId();
+			const userId = generateUserId();
 
 			await db.insert(usersTable).values({
 				id: userId,

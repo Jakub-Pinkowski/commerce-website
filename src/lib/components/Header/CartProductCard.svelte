@@ -8,7 +8,7 @@
 
 <div class="relative flex border-b border-gray-300 py-6">
 	<div class="max-w-[35%]">
-		<div class="absolute -right-3 top-4">
+		<div class="absolute top-4 -right-3">
 			<button
 				aria-label="Remove from cart"
 				class="btn btn-circle btn-ghost"
@@ -40,7 +40,7 @@
 			</a>
 			<span class=" mt-2 line-clamp-1 block text-sm">{item.brand}</span>
 		</div>
-		<div class="mt-auto flex w-full justify-between pl-2 pt-2">
+		<div class="mt-auto flex w-full justify-between pt-2 pl-2">
 			<div class="flex items-center">
 				<div class="join">
 					<button
@@ -59,7 +59,7 @@
 					<span class="mr-2 p-0 text-lg text-gray-500 line-through selection:inline-block">
 						${item.listPrice * item.quantity}
 					</span>
-					<span class="inline-block p-0 text-lg text-main-red">${item.price * item.quantity}</span>
+					<span class="text-main-red inline-block p-0 text-lg">${item.price * item.quantity}</span>
 				{:else}
 					<span class=" inline-block p-0 text-lg text-gray-500">${item.price * item.quantity}</span>
 				{/if}

@@ -7,12 +7,12 @@
 	let { orders }: { orders: Order[] } = $props();
 </script>
 
-<div class="card w-full bg-base-100 shadow-xl md:col-span-2">
+<div class="card bg-base-100 w-full shadow-xl md:col-span-2">
 	<div class="card-body p-4 md:p-8">
 		<h2 class="card-title">Your points history</h2>
 		<p>Points are added to your account 30 days after the order has been completed.</p>
 		<!-- Desktop -->
-		<table class="table hidden md:table">
+		<table class="hidden table md:table">
 			<tbody>
 				<tr>
 					<th>Date</th>
@@ -25,7 +25,7 @@
 						<td>{formatDate(order.createdAt)}</td>
 						<td>{order.id}</td>
 						<td>{getPointsStatus(order.createdAt)}</td>
-						<td class="font-bold text-primary">{order.points}</td>
+						<td class="text-primary font-bold">{order.points}</td>
 					</tr>
 				{/each}
 			</tbody>
@@ -44,7 +44,7 @@
 						<td>{formatDate(order.createdAt)}</td>
 						<td>{order.id}</td>
 						<td>{getPointsStatus(order.createdAt)}</td>
-						<td class="font-bold text-primary">{order.points}</td>
+						<td class="text-primary font-bold">{order.points}</td>
 					</tr>
 				{/each}
 			</tbody>

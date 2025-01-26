@@ -54,9 +54,9 @@
 			<div class="group inset-0">
 				<div class="relative h-full w-full">
 					{#if product.price < product.listPrice}
-						<div class="badge badge-lg absolute left-2 top-2 z-10 text-main-red">Sale</div>
+						<div class="badge badge-lg text-main-red absolute top-2 left-2 z-10">Sale</div>
 					{:else if product.label && product.label.trim() !== ''}
-						<div class="badge badge-lg absolute left-2 top-2 z-10 text-primary">
+						<div class="badge badge-lg text-primary absolute top-2 left-2 z-10">
 							{capitalizeWords(product.label)}
 						</div>
 					{/if}
@@ -86,7 +86,7 @@
 				<span class="mr-1 inline-block text-lg text-gray-500 line-through">
 					${product.listPrice}
 				</span>
-				<span class="inline-block text-lg text-main-red">${product.price}</span>
+				<span class="text-main-red inline-block text-lg">${product.price}</span>
 			{:else}
 				<span class="inline-block text-lg text-gray-500">${product.price}</span>
 			{/if}

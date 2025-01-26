@@ -37,13 +37,13 @@
 	</div>
 	<div
 		tabindex="-1"
-		class="dropdown-content top-px mt-16 max-h-[calc(100vh-10rem)] w-56 overflow-y-auto rounded-box border border-white/5 bg-base-200 text-base-content shadow-2xl outline outline-1 outline-black/5"
+		class="dropdown-content rounded-box bg-base-200 text-base-content top-px mt-16 max-h-[calc(100vh-10rem)] w-56 overflow-y-auto border border-white/5 shadow-2xl outline outline-1 outline-black/5"
 	>
 		<ul class="menu menu-sm gap-1">
 			<li>
 				<button onclick={() => switchLanguage('EN')}>
 					<span
-						class="badge badge-outline badge-sm pl-1.5! pr-1! pt-px font-mono text-[.6rem]! font-bold tracking-widest opacity-50"
+						class="badge badge-outline badge-sm pt-px pr-1! pl-1.5! font-mono text-[.6rem]! font-bold tracking-widest opacity-50"
 					>
 						EN
 					</span>
@@ -53,7 +53,7 @@
 			<li>
 				<button onclick={() => switchLanguage('DE')}>
 					<span
-						class="badge badge-outline badge-sm pl-1.5! pr-1! pt-px font-mono text-[.6rem]! font-bold tracking-widest opacity-50"
+						class="badge badge-outline badge-sm pt-px pr-1! pl-1.5! font-mono text-[.6rem]! font-bold tracking-widest opacity-50"
 					>
 						DE
 					</span>

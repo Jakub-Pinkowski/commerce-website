@@ -53,7 +53,7 @@
 	};
 </script>
 
-<div class="card w-full bg-base-100 shadow-xl md:col-span-2">
+<div class="card bg-base-100 w-full shadow-xl md:col-span-2">
 	<div class="card-body p-4 md:p-8">
 		<div class="flex justify-between">
 			{#if recentOrder}
@@ -75,7 +75,7 @@
 		<div class="flex w-full flex-col justify-between md:flex-row">
 			<div class="flex-none overflow-x-auto">
 				<!-- Desktop -->
-				<table class="table hidden md:table">
+				<table class="hidden table md:table">
 					<tbody>
 						<tr>
 							{#if recentOrder}
@@ -131,9 +131,7 @@
 				</table>
 			</div>
 
-			<div
-				class="flex grow flex-wrap items-center gap-2 md:max-w-xl md:items-start md:justify-end"
-			>
+			<div class="flex grow flex-wrap items-center gap-2 md:max-w-xl md:items-start md:justify-end">
 				{#each showAll ? products : products.slice(0, 3) as product}
 					<ImageCard {product} />
 				{/each}
@@ -231,16 +229,16 @@
 									<th>Total cost</th>
 									<td class="font-bold">
 										{#if order.totalCost < totalListCost}
-                                            <span class="text-main-red">${order.totalCost}</span>
-                                            <span class="text-gray-500 line-through">${totalListCost}</span>
-                                        {:else}
+											<span class="text-main-red">${order.totalCost}</span>
+											<span class="text-gray-500 line-through">${totalListCost}</span>
+										{:else}
 											${order.totalCost}
 										{/if}
 									</td>
 								</tr>
 								<tr>
 									<th>Points earned</th>
-									<td class="font-bold text-primary">{order.points}</td>
+									<td class="text-primary font-bold">{order.points}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -248,7 +246,7 @@
 					<div class=" divider divider-horizontal hidden md:flex"></div>
 					<div class="w-full md:w-2/3">
 						<!-- Desktop -->
-						<table class="table hidden md:table">
+						<table class="hidden table md:table">
 							<tbody>
 								<tr>
 									<th>Delivery address</th>

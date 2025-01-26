@@ -4,10 +4,10 @@ import {
 	deleteSessionTokenCookie
 } from '$lib/server/session';
 
-import type { Handle } from "@sveltejs/kit";
+import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const token = event.cookies.get("session") ?? null;
+	const token = event.cookies.get('session') ?? null;
 	if (token === null) {
 		event.locals.user = null;
 		event.locals.session = null;

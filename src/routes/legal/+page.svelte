@@ -26,7 +26,7 @@
 		</ul>
 	</div>
 	<div>
-		<h3 class="mb-4 mt-8 text-2xl font-semibold">Need More Information?</h3>
+		<h3 class="mt-8 mb-4 text-2xl font-semibold">Need More Information?</h3>
 		<p>
 			If you need more detailed information or have specific legal questions, please don't hesitate
 			to get in touch with us directly via our <a href="/company/contact" class="link">Contact Us</a

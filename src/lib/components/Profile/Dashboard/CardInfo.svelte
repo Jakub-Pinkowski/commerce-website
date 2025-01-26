@@ -4,7 +4,7 @@
 	let { user }: { user: User } = $props();
 </script>
 
-<div class="card w-full bg-base-100 shadow-xl">
+<div class="card bg-base-100 w-full shadow-xl">
 	<div class="card-body p-4 md:p-8">
 		<h2 class="card-title">Your information</h2>
 		<div class="flex-none overflow-x-auto">

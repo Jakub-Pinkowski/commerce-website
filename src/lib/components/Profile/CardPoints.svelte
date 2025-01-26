@@ -12,7 +12,8 @@
 	import type { Order } from '$lib/types/orderTypes';
 	import type { Status } from '$lib/helpers/points';
 
-    let { user, orders, dashboardView }: { user: User; orders: Order[]; dashboardView?: boolean } = $props();
+	let { user, orders, dashboardView }: { user: User; orders: Order[]; dashboardView?: boolean } =
+		$props();
 
 	// Get the current status and the next threshold
 	const currentStatus: Status = getCurrentStatus(user.points) as Status;
@@ -26,7 +27,7 @@
 	const pointsLastMonth = lastMonthOrders.reduce((total, order) => total + order.points, 0);
 </script>
 
-<div class={`card w-full bg-base-100 shadow-xl ${!dashboardView ? 'md:col-span-2' : ''}`}>
+<div class={`card bg-base-100 w-full shadow-xl ${!dashboardView ? 'md:col-span-2' : ''}`}>
 	<div class="card-body p-4 md:p-8">
 		<h2 class="card-title">Your Commerce points</h2>
 		<div class={`flex flex-col gap-4 md:flex-row ${dashboardView ? 'flex-col!' : ''}`}>
@@ -42,7 +43,7 @@
 					<div class="stat-desc">+{pointsLastMonth} in the last month</div>
 				</div>
 
-				<div class="stat border-l-0! border-t-[1px]! md:border-l-[1px]! md:border-t-0!">
+				<div class="stat border-t-[1px]! border-l-0! md:border-t-0! md:border-l-[1px]!">
 					<div class={`stat-figure ${statusClass}`}></div>
 					<div class="stat-title">Status</div>
 					<div class={`stat-value ${statusClass}`}>{capitalizeFirstWord(currentStatus)}</div>

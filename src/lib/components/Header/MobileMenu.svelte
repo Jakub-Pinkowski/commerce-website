@@ -37,17 +37,17 @@
 
 {#if open}
 	<div
-		class="fixed left-0 top-0 z-20 h-full w-full bg-black opacity-50"
+		class="fixed top-0 left-0 z-20 h-full w-full bg-black opacity-50"
 		onclick={closeMenu}
 		onkeydown={handleKeyDown}
 		role="button"
 		tabindex="0"
 	></div>
 	<div
-		class="fixed left-0 top-0 z-20 h-[100vh] w-64 bg-white transition-transform duration-200 ease-in-out"
+		class="fixed top-0 left-0 z-20 h-[100vh] w-64 bg-white transition-transform duration-200 ease-in-out"
 		transition:fly={{ x: -100, duration: 500, easing: quadOut }}
 	>
-		<a href="/" aria-label="Home" class="absolute right-2.5 top-2.5" onclick={closeMenu}>
+		<a href="/" aria-label="Home" class="absolute top-2.5 right-2.5" onclick={closeMenu}>
 			<img
 				src={logo}
 				alt="logo"
@@ -55,7 +55,7 @@
 				style="max-height: 46px;"
 			/>
 		</a>
-		<div class="menu flex h-full flex-col bg-base-200 pt-20">
+		<div class="menu bg-base-200 flex h-full flex-col pt-20">
 			<ul>
 				<li><a href="/categories" class="block p-4 text-lg" onclick={closeMenu}>Categories</a></li>
 				<li><a href="/categories/new" class="block p-4 text-lg" onclick={closeMenu}>New</a></li>

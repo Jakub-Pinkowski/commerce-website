@@ -16,6 +16,6 @@ export type Product = {
 	url: string;
 	imageUrl: string;
 	alternateImages: string[];
-    createdAt: Date;
-    updatedAt: Date;
+	createdAt: Date;
+	updatedAt: Date;
 };

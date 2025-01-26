@@ -24,7 +24,7 @@ export const mapUser = (row: DrizzleUser): User => {
 		githubUsername: row.github_username ?? undefined,
 		googleId: row.google_id ?? undefined,
 		googlePicture: row.google_picture ?? undefined,
-		createdAt: row.created_at, 
+		createdAt: row.created_at,
 		name: row.name ?? undefined,
 		phone: row.phone ?? undefined,
 		address: {
@@ -34,31 +34,31 @@ export const mapUser = (row: DrizzleUser): User => {
 			postalCode: row.address_postalcode ?? '',
 			country: row.address_country ?? ''
 		},
-		points: row.points 
+		points: row.points
 	};
 };
 
 export const mapUserNoPassword = (row: DrizzleUser): User => {
-    return {
-        id: row.id,
-        email: row.email ?? undefined,
-        githubId: row.github_id ?? undefined,
-        githubUsername: row.github_username ?? undefined,
-        googleId: row.google_id ?? undefined,
-        googlePicture: row.google_picture ?? undefined,
-        createdAt: row.created_at,
-        name: row.name ?? undefined,
-        phone: row.phone ?? undefined,
-        address: {
-            street: row.address_street ?? '',
-            city: row.address_city ?? '',
-            state: row.address_state ?? '',
-            postalCode: row.address_postalcode ?? '',
-            country: row.address_country ?? ''
-        },
-        points: row.points
-    };
-}
+	return {
+		id: row.id,
+		email: row.email ?? undefined,
+		githubId: row.github_id ?? undefined,
+		githubUsername: row.github_username ?? undefined,
+		googleId: row.google_id ?? undefined,
+		googlePicture: row.google_picture ?? undefined,
+		createdAt: row.created_at,
+		name: row.name ?? undefined,
+		phone: row.phone ?? undefined,
+		address: {
+			street: row.address_street ?? '',
+			city: row.address_city ?? '',
+			state: row.address_state ?? '',
+			postalCode: row.address_postalcode ?? '',
+			country: row.address_country ?? ''
+		},
+		points: row.points
+	};
+};
 
 export const mapProducts = (result: DrizzleProduct[]): Product[] => {
 	if (!result || !Array.isArray(result)) {

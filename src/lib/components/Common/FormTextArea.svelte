@@ -9,7 +9,7 @@
 		placeholder,
 		error,
 		onfocus,
-		oninput,
+		oninput
 	}: {
 		value: string;
 		id: string;
@@ -31,13 +31,13 @@
 		{name}
 		{placeholder}
 		{onfocus}
-        {oninput}
+		{oninput}
 	>
 	</textarea>
 	{#if error}
 		<div
 			role="alert"
-			class="alert alert-warning flex w-auto shrink-0 gap-2 rounded-lg border-none p-2 text-sm text-whiteish"
+			class="alert alert-warning text-whiteish flex w-auto shrink-0 gap-2 rounded-lg border-none p-2 text-sm"
 			transition:fade={{ delay: 0, duration: 300, easing: quadOut }}
 		>
 			<svg

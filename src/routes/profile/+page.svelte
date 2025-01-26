@@ -4,7 +4,7 @@
 	import CardOrders from '$lib/components/Profile/CardOrders.svelte';
 	import CartOrdersEmpty from '$lib/components/Profile/CartOrdersEmpty.svelte';
 
-    import type { PageData } from './$types';
+	import type { PageData } from './$types';
 	import type { User } from '$lib/types/userTypes';
 	import type { Product } from '$lib/types/productTypes';
 	import type { Order, OrderItem } from '$lib/types/orderTypes';

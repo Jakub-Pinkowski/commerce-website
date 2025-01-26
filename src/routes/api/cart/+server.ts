@@ -38,7 +38,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			}
 		}
 
-        // Update or add items to the database that are in localCart
+		// Update or add items to the database that are in localCart
 		for (const item of localCart) {
 			const existingItem = dbCartItems.find((i) => i.productId === item.id);
 			if (existingItem) {

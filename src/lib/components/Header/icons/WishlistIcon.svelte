@@ -19,7 +19,7 @@
 		</svg>
 
 		<span
-			class="badge indicator-item badge-sm right-[-5px] border-none bg-transparent p-0 text-base text-secondary"
+			class="badge indicator-item badge-sm text-secondary right-[-5px] border-none bg-transparent p-0 text-base"
 		>
 			{#if $totalWishlistItems > 0}
 				{$totalWishlistItems}

@@ -4,7 +4,12 @@ import { eq } from 'drizzle-orm';
 import { db } from '$lib/helpers/drizzle';
 import { usersTable } from '$lib/drizzle/schema';
 import { validateEmailAndPassword, hashPassword } from '$lib/helpers/auth';
-import { generateUserId, createSession, generateSessionToken, setSessionTokenCookie } from '$lib/server/session';
+import {
+	generateUserId,
+	createSession,
+	generateSessionToken,
+	setSessionTokenCookie
+} from '$lib/server/session';
 
 import type { Actions } from './$types';
 

@@ -125,7 +125,7 @@
 	};
 </script>
 
-<div class="card flex w-full bg-base-100 shadow-xl">
+<div class="card bg-base-100 flex w-full shadow-xl">
 	<form onsubmit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Your information</h2>
 		<div class="flex-none overflow-x-auto">
@@ -134,7 +134,7 @@
 					<tr>
 						<th>Name</th>
 						{#if isEditing}
-							<td class="pb-0 pr-0 pt-0">
+							<td class="pt-0 pr-0 pb-0">
 								<FormInput
 									bind:value={name}
 									id="name"
@@ -158,7 +158,7 @@
 					<tr>
 						<th>Phone</th>
 						{#if isEditing}
-							<td class="pb-0 pr-0 pt-0">
+							<td class="pt-0 pr-0 pb-0">
 								<FormInput
 									bind:value={phone}
 									id="phone"
@@ -182,7 +182,7 @@
 					<tr>
 						<th>Email</th>
 						{#if isEditing}
-							<td class="pb-0 pr-0 pt-0">
+							<td class="pt-0 pr-0 pb-0">
 								<FormInput
 									bind:value={email}
 									id="email"
@@ -208,7 +208,7 @@
 			{#if serverError}
 				<div
 					role="alert"
-					class="alert alert-warning mt-4 text-whiteish"
+					class="alert alert-warning text-whiteish mt-4"
 					transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
 				>
 					<svg

@@ -100,7 +100,7 @@
 		<div class="swiper-pagination"></div>
 
 		<div
-			class="button-prev absolute left-8 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
+			class="button-prev absolute top-1/2 left-8 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
 		>
 			<button class="btn btn-circle bg-white shadow-xl" aria-label="Previous image">
 				<svg
@@ -116,7 +116,7 @@
 			</button>
 		</div>
 		<div
-			class="button-next absolute right-8 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
+			class="button-next absolute top-1/2 right-8 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
 		>
 			<button class="btn btn-circle bg-white shadow-xl" aria-label="Next image">
 				<svg
@@ -137,7 +137,7 @@
 {#if isModalOpen}
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<div
-		class="fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black bg-opacity-50"
+		class="bg-opacity-50 fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black"
 		onclick={closeModal}
 		tabindex="-1"
 		onkeydown={(event) => {

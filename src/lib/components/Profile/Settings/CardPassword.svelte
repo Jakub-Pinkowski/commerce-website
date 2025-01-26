@@ -124,7 +124,7 @@
 	};
 </script>
 
-<div class="card w-full bg-base-100 shadow-xl">
+<div class="card bg-base-100 w-full shadow-xl">
 	<form onsubmit={handleSubmit} class="card-body p-4 md:p-8">
 		<h2 class="card-title">Password</h2>
 		<div class="flex-none overflow-x-auto p-1">
@@ -185,7 +185,7 @@
 			{#if serverError}
 				<div
 					role="alert"
-					class="alert alert-warning mt-4 text-whiteish"
+					class="alert alert-warning text-whiteish mt-4"
 					transition:fade={{ delay: 0, duration: 200, easing: quadOut }}
 				>
 					<svg

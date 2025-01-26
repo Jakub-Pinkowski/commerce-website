@@ -20,7 +20,7 @@
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
 
-        resetErros();
+		resetErros();
 
 		if (!name) {
 			nameError = 'Please enter your name';
@@ -61,11 +61,11 @@
 		message = '';
 	};
 
-    const resetErros = () => {
-        nameError = '';
-        emailError = '';
-        messageError = '';
-    };
+	const resetErros = () => {
+		nameError = '';
+		emailError = '';
+		messageError = '';
+	};
 
 	const handleNameInteraction = () => {
 		nameError = '';

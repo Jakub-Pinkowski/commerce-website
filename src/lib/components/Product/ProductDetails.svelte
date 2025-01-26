@@ -68,7 +68,7 @@
 			<span class="mr-2 inline-block text-2xl text-gray-500 line-through">
 				${product.listPrice}
 			</span>
-			<span class="inline-block text-2xl text-main-red">${product.price}</span>
+			<span class="text-main-red inline-block text-2xl">${product.price}</span>
 		{:else}
 			<span class="inline-block text-2xl text-gray-500">${product.price}</span>
 		{/if}
@@ -137,7 +137,7 @@
 	</p>
 
 	<div class="join join-vertical mt-12 w-full text-justify">
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" bind:checked={isOpenAccordion1} name="accordion-1" />
 			<div class="collapse-title text-xl font-medium" class:text-secondary={isOpenAccordion1}>
 				Materials and care
@@ -158,7 +158,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="collapse join-item collapse-arrow border border-base-300">
+		<div class="join-item collapse-arrow border-base-300 collapse border">
 			<input type="checkbox" bind:checked={isOpenAccordion2} name="accordion-1" />
 			<div class="collapse-title text-xl font-medium" class:text-secondary={isOpenAccordion2}>
 				Shipping and returns

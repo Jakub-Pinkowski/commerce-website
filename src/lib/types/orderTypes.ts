@@ -18,11 +18,11 @@ export type Order = {
 	paymentMethod: string;
 	paymentStatus: string;
 	shippingMethod: string;
-    shippingCost: number;
+	shippingCost: number;
 	trackingNumber?: string;
-    discount: number;
+	discount: number;
 	points: number;
-    totalCost: number;
+	totalCost: number;
 	customerNotes?: string;
 };
 

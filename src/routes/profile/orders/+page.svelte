@@ -12,7 +12,7 @@
 	const orderItems: OrderItem[] = data.orderItems;
 	const products: Product[] = data.products;
 
-    let visibleOrdersCount = $state(4);
+	let visibleOrdersCount = $state(4);
 
 	// Filter order items and products for each order
 	const getOrderDetails = (order: Order) => {

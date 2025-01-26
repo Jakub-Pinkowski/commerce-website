@@ -1,5 +1,5 @@
 <footer
-	class="footer bottom-0 mt-auto w-full grid-cols-2 bg-dark p-10 pb-2 text-white md:grid-cols-none"
+	class="footer bg-dark bottom-0 mt-auto w-full grid-cols-2 p-10 pb-2 text-white md:grid-cols-none"
 >
 	<nav>
 		<a href="/categories" class="link-hover link"><h6 class="footer-title">Shopping</h6></a>
@@ -95,7 +95,7 @@
 </footer>
 <footer class="footer bg-dark px-10 py-4 text-white">
 	<div
-		class="flex w-full flex-col items-center gap-3 border-t border-base-200 pt-4 md:flex-row md:justify-start md:gap-4"
+		class="border-base-200 flex w-full flex-col items-center gap-3 border-t pt-4 md:flex-row md:justify-start md:gap-4"
 	>
 		<a href="/legal/terms_and_conditions" class="link">Terms and Conditions</a>
 		<span class="hidden md:inline">|</span>

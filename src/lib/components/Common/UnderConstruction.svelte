@@ -7,7 +7,7 @@
 	style="background-image: url({construction});"
 >
 	<div class="hero-overlay bg-opacity-60"></div>
-	<div class="hero-content text-center text-neutral-content">
+	<div class="hero-content text-neutral-content text-center">
 		<div class="max-w-2xl">
 			<h1 class="mb-8 text-5xl">Subpage under construnction</h1>
 			<p class="mb-8 text-4xl">Coming Soon!</p>

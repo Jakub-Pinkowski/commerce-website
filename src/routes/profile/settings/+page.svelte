@@ -7,7 +7,7 @@
 	import type { User } from '$lib/types/userTypes';
 
 	let { data }: { data: PageData } = $props();
-    
+
 	const user: User = data.user;
 </script>
 

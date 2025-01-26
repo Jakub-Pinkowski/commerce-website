@@ -17,7 +17,7 @@
 	const total = $derived.by(
 		() => items?.reduce((acc, item) => acc + item.price * item.quantity, 0) || 0
 	);
-    
+
 	const totalListPrice = $derived.by(
 		() => items?.reduce((acc, item) => acc + item.listPrice * item.quantity, 0) || 0
 	);
@@ -53,18 +53,18 @@
 
 {#if isCartOpen}
 	<div
-		class="fixed left-0 top-0 z-20 h-full w-full bg-black opacity-50"
+		class="fixed top-0 left-0 z-20 h-full w-full bg-black opacity-50"
 		onclick={closeMiniCart}
 		onkeydown={handleKeyDown}
 		role="button"
 		tabindex="0"
 	></div>
 	<div
-		class="fixed right-0 top-0 z-40 h-full w-full bg-white transition-transform duration-200 ease-in-out md:w-[30rem]"
+		class="fixed top-0 right-0 z-40 h-full w-full bg-white transition-transform duration-200 ease-in-out md:w-[30rem]"
 		transition:fly={{ x: '150px', duration: 500, easing: quadOut }}
 	>
 		<div class="flex h-full flex-col">
-			<div class="flex w-full items-center justify-between pl-4 pt-4">
+			<div class="flex w-full items-center justify-between pt-4 pl-4">
 				<span class=" text-3xl font-bold">Cart</span>
 				<CloseIcon {closeMiniCart} />
 			</div>
@@ -84,7 +84,7 @@
 								${totalListPrice}
 							</span>
 						{/if}
-						<span class="text-lg text-main-red">
+						<span class="text-main-red text-lg">
 							${total}
 						</span>
 					</div>
