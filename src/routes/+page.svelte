@@ -15,7 +15,7 @@
 	let { data }: { data: PageData } = $props();
 	const products = data?.products as Product[];
 
-	//
+	// Carousel setup
 	const productsPerCarousel = 8;
 
 	// Product categories
