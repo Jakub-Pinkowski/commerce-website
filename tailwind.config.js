@@ -19,6 +19,7 @@ export default {
 				'tier-gold': '#ffd700', // Tier - Gold
 				'tier-platinum': '#415a77', // Tier - Platinum
 				'tier-diamond': '#48cae4' // Tier - Diamond
+
 			}
 		}
 	},
