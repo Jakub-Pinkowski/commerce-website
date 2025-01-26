@@ -33,7 +33,7 @@
 
 <h1 class="p-2 text-3xl font-bold">Orders</h1>
 {#if ordersWithDetails.length > 0}
-	<div class="grid flex-grow grid-cols-1 gap-4">
+	<div class="grid grow grid-cols-1 gap-4">
 		{#each ordersWithDetails.slice(0, visibleOrdersCount) as { order, orderItems, products }}
 			<CardOrders {order} {orderItems} {products} />
 		{/each}

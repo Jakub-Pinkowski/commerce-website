@@ -5,7 +5,7 @@
 	<div class="mt-8">
 		<div class="skeleton h-6 w-24"></div>
 	</div>
-	<div class="mt-8 grid w-full grid-cols-[1fr,auto]">
+	<div class="mt-8 grid w-full grid-cols-[1fr_auto]">
 		<div class="skeleton h-10 w-full"></div>
 	</div>
 	<div class="skeleton mt-4 h-6 w-full"></div>

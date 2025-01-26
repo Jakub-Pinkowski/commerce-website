@@ -78,7 +78,7 @@
 		<span class="btn join-item cursor-default text-xl">{quantity}</span>
 		<button class="btn join-item text-2xl" onclick={incrementQuantity}>+</button>
 	</div>
-	<div class="mt-8 grid w-full grid-cols-[1fr,auto] gap-x-4">
+	<div class="mt-8 grid w-full grid-cols-[1fr_auto] gap-x-4">
 		<button class="btn btn-primary text-lg text-white" onclick={handleAddToCart}>
 			Add to cart
 		</button>

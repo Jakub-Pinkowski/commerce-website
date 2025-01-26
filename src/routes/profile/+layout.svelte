@@ -58,7 +58,7 @@
 		<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 		{#if dropdownOpen}
 			<ul
-				class="menu absolute z-[1] w-full rounded-box bg-base-100 p-2 shadow"
+				class="menu absolute z-1 w-full rounded-box bg-base-100 p-2 shadow-sm"
 				transition:fly={{ y: 20, duration: 200 }}
 			>
 				<li><a href="/profile" onclick={handleClick}>Dashboard</a></li>

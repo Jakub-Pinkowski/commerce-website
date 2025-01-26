@@ -43,7 +43,7 @@
 			<li>
 				<button onclick={() => switchLanguage('EN')}>
 					<span
-						class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
+						class="badge badge-outline badge-sm pl-1.5! pr-1! pt-px font-mono text-[.6rem]! font-bold tracking-widest opacity-50"
 					>
 						EN
 					</span>
@@ -53,7 +53,7 @@
 			<li>
 				<button onclick={() => switchLanguage('DE')}>
 					<span
-						class="badge badge-outline badge-sm !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50"
+						class="badge badge-outline badge-sm pl-1.5! pr-1! pt-px font-mono text-[.6rem]! font-bold tracking-widest opacity-50"
 					>
 						DE
 					</span>

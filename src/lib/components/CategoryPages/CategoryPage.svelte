@@ -136,7 +136,7 @@
 			>
 				Sort
 				<svg
-					class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+					class="-mr-1 ml-1 h-5 w-5 shrink-0 text-gray-400 group-hover:text-gray-500"
 					viewBox="0 0 20 20"
 					fill="currentColor"
 					aria-hidden="true"
@@ -151,7 +151,7 @@
 
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 			<!-- TODO: Make it dynamic later, define all sorting options in a separate component -->
-			<ul tabindex="0" class="menu dropdown-content z-20 w-44 rounded-box bg-base-100 p-2 shadow">
+			<ul tabindex="0" class="menu dropdown-content z-20 w-44 rounded-box bg-base-100 p-2 shadow-sm">
 				<li>
 					<button
 						on:click={() => {
@@ -179,7 +179,7 @@
 				<div class="join join-vertical w-full">
 					<!-- TODO: Export range filter -->
 					<span class="badge indicator-item badge-accent">Filtering is a bit buggy!</span>
-					<div class="collapse join-item collapse-plus !rounded-none border-b border-base-300">
+					<div class="collapse join-item collapse-plus rounded-none! border-b border-base-300">
 						<input type="checkbox" name="my-accordion-43" />
 						<div class="collapse-title pl-1 text-lg font-medium">Price</div>
 						<div class="collapse-content pl-1">

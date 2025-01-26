@@ -132,14 +132,14 @@
 			</div>
 
 			<div
-				class="flex flex-grow flex-wrap items-center gap-2 md:max-w-xl md:items-start md:justify-end"
+				class="flex grow flex-wrap items-center gap-2 md:max-w-xl md:items-start md:justify-end"
 			>
 				{#each showAll ? products : products.slice(0, 3) as product}
 					<ImageCard {product} />
 				{/each}
 				{#if orderItems.length > 3 && !showAll}
 					<button
-						class="flex aspect-square max-w-[calc(50%-4px)] flex-grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80 md:h-full md:max-h-32 md:max-w-32"
+						class="flex aspect-square max-w-[calc(50%-4px)] grow items-center justify-center overflow-hidden rounded-lg border border-gray-300 opacity-80 md:h-full md:max-h-32 md:max-w-32"
 						aria-label="View the order"
 						onclick={toggleShowAll}
 					>

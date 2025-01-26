@@ -91,7 +91,7 @@
 				<span class="inline-block text-lg text-gray-500">${product.price}</span>
 			{/if}
 		</div>
-		<div class="mt-4 hidden w-full grid-cols-[1fr,auto] gap-x-4 md:grid">
+		<div class="mt-4 hidden w-full grid-cols-[1fr_auto] gap-x-4 md:grid">
 			<button class="btn btn-primary text-white" onclick={handleAddToCart}> Add to cart </button>
 			<button class="btn" onclick={handleWishlistToggle}>
 				{#if $isWishlisted}

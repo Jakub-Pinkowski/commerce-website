@@ -4,7 +4,7 @@
 		<div class="skeleton h-8 w-24 md:w-40"></div>
 	</div>
 	<div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-4">
-		<div class="flex w-full flex-shrink-0 gap-2 md:hidden md:w-full">
+		<div class="flex w-full shrink-0 gap-2 md:hidden md:w-full">
 			<div class="flex w-10/12 flex-col">
 				<div class="skeleton h-64 w-full"></div>
 				<div class="pt-2">

@@ -51,7 +51,7 @@
 			<a href="/categories" tabindex="0" role="button" class="btn btn-ghost">Categories</a>
 			<div
 				tabindex="-1"
-				class="menu dropdown-content z-[1] flex w-96 flex-row rounded-box bg-base-100 p-2 shadow"
+				class="menu dropdown-content z-1 flex w-96 flex-row rounded-box bg-base-100 p-2 shadow-sm"
 			>
 				<ul class="w-[calc(50%-8px)] p-2">
 					{#each productCategories as category}
