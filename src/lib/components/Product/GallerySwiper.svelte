@@ -137,7 +137,8 @@
 {#if isModalOpen}
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<div
-		class="bg-opacity-50 fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black"
+		class="fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center"
+		style="background-color: oklch(32.1785% 0.02476 255.701624 / 0.6);"
 		onclick={closeModal}
 		tabindex="-1"
 		onkeydown={(event) => {
