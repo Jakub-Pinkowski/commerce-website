@@ -102,7 +102,7 @@
 		<div
 			class="button-prev absolute top-1/2 left-8 z-10 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer"
 		>
-			<button class="btn btn-circle bg-white shadow-xl" aria-label="Previous image">
+			<button class="btn btn-circle bg-white shadow-xl w-12 h-12" aria-label="Previous image">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					id="Outline"
@@ -118,7 +118,7 @@
 		<div
 			class="button-next absolute top-1/2 right-8 z-10 -translate-y-1/2 translate-x-1/2 transform cursor-pointer"
 		>
-			<button class="btn btn-circle bg-white shadow-xl" aria-label="Next image">
+			<button class="btn btn-circle bg-white shadow-xl w-12 h-12" aria-label="Next image">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					id="Outline"
