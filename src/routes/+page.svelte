@@ -5,26 +5,22 @@
 	import caps from '$lib/assets/images/caps.webp';
 	import newImage from '$lib/assets/images/newImage.webp';
 
-	import type { PageData } from './$types';
-	import type { Product } from '$lib/types/productTypes';
 	import InfoBanner from '$lib/components/Homepage/InfoBanner.svelte';
 	import PromoSection from '$lib/components/Homepage/PromoSection.svelte';
 	import PromoBanner from '$lib/components/Homepage/PromoBanner.svelte';
 
+	import type { PageData } from './$types';
+	import type { Product } from '$lib/types/productTypes';
+
 	let { data }: { data: PageData } = $props();
 	const products = data?.products as Product[];
 
+	//
 	const productsPerCarousel = 8;
-	const newProducts = products.filter((product) => product.label === 'new');
-	const saleProducts = products.filter((product) => product.price < product.listPrice);
 
 	// Product categories
-	const shoesProducts = products
-		.filter((product) => product.category === 'shoes')
-		.slice(0, productsPerCarousel);
-	const backpackProducts = products
-		.filter((product) => product.category === 'backpacks')
-		.slice(0, productsPerCarousel);
+	const newProducts = products.filter((product) => product.label === 'new');
+	const saleProducts = products.filter((product) => product.price < product.listPrice);
 	const capsProducts = products
 		.filter((product) => product.category === 'caps')
 		.slice(0, productsPerCarousel);
