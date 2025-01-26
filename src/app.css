@@ -10,14 +10,17 @@
 	--color-primary: #3f594b;
 	--color-secondary: #2a9d8f;
 	--color-accent: #e9c46a;
+	--color-accent-content: #000000;
 	--color-light-accent: #f7eaca;
 	--color-secondary-accent: #f4a261;
 	--color-dark-secondary-accent: #e76f51;
 	--color-main-red: #e63946;
+
 	--color-tier-bronze: #cd7f32;
 	--color-tier-silver: #adb5bd;
 	--color-tier-gold: #ffd700;
 	--color-tier-platinum: #415a77;
+	--color-tier-diamond: #48cae4;
 }
 
 @theme {
@@ -27,10 +30,12 @@
 	--color-secondary: #2a9d8f;
 	--color-dark-primary: #2a3c32;
 	--color-accent: #e9c46a;
+	--color-accent-content: #000000;
 	--color-light-accent: #f7eaca;
 	--color-secondary-accent: #f4a261;
 	--color-dark-secondary-accent: #e76f51;
 	--color-main-red: #e63946;
+
 	--color-tier-bronze: #cd7f32;
 	--color-tier-silver: #adb5bd;
 	--color-tier-gold: #ffd700;
