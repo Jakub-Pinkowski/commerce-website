@@ -4,6 +4,22 @@
 	logs: false;
 }
 
+@plugin "daisyui/theme" {
+	name: 'light';
+	default: true;
+	--color-primary: #3f594b;
+	--color-secondary: #2a9d8f;
+	--color-accent: #e9c46a;
+	--color-light-accent: #f7eaca;
+	--color-secondary-accent: #f4a261;
+	--color-dark-secondary-accent: #e76f51;
+	--color-main-red: #e63946;
+	--color-tier-bronze: #cd7f32;
+	--color-tier-silver: #adb5bd;
+	--color-tier-gold: #ffd700;
+	--color-tier-platinum: #415a77;
+}
+
 @theme {
 	--color-dark: #262626;
 	--color-whiteish: #f0f0f0;
@@ -22,18 +38,6 @@
 	--color-tier-diamond: #48cae4;
 }
 
-:root {
-	--dark: rgb(38, 38, 38);
-	--whiteish: #f0f0f0; /* White */
-	--primary: #3f594b; /* Dark Green */
-	--secondary: #2a9d8f; /* Light Green */
-	--dark-primary: #2a3c32; /* Darker Green */
-	--accent: #e9c46a; /* Yellow */
-	--light-accent: #f7eaca; /* Light Yellow */
-	--secondary-accent: #f4a261; /* Orange */
-	--dark-secondary-accent: #e76f51; /* Dark Orange */
-	--main-red: #e63946; /* Red */
-}
 body {
 	min-height: 100vh;
 	margin: 0;
@@ -50,21 +54,21 @@ a {
 }
 
 .alert-add-to-cart {
-	--alert-bg: var(--primary);
-	color: var(--whiteish);
-	border-color: var(--primary);
+	--alert-bg: var(--color-primary);
+	color: var(--color-whiteish);
+	border-color: var(--color-primary);
 }
 
 .alert-wishlist {
-	--alert-bg: var(--light-accent);
-	color: var(--dark);
-	border-color: var(--light-accent);
+	--alert-bg: var(--color-light-accent);
+	color: var(--color-dark);
+	border-color: var(--color-light-accent);
 }
 
 .alert-error {
-	--alert-bg: var(--main-red);
-	color: var(--whiteish);
-	border-color: var(--main-red);
+	--alert-bg: var(--color-main-red);
+	color: var(--color-whiteish);
+	border-color: var(--color-main-red);
 }
 
 /* Swiper */
@@ -88,11 +92,11 @@ a {
 /* Alerts */
 
 .alert-warning {
-	--alert-bg: var(--main-red);
+	--alert-bg: var(--color-main-red);
 }
 
 .input-warning {
-	border-color: var(--main-red);
+	border-color: var(--color-main-red);
 }
 
 /* Table */

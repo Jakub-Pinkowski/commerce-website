@@ -45,7 +45,7 @@
 				class="hero border-accent relative mx-[-1.5rem] mb-2 w-screen border-y md:mx-[-2rem]"
 			>
 				<button
-					class="rounded-full0 btn btn-circle btn-ghost absolute top-2 right-2 z-10"
+					class="rounded-full btn btn-circle btn-ghost absolute top-2 right-2 z-10"
 					aria-label="Close banner"
 					onclick={hideBanner}
 				>
@@ -74,7 +74,7 @@
 							fictional and all products' images have been AI generated.
 						</p>
 						<p class="mb-1 text-xs">
-							Anonymous data is collected for analytics and performace purposes only. <strong
+							Anonymous data is collected for analytics and performance purposes only. <strong
 								>No cookies are used for these purposes.</strong
 							>
 							By using this website, you agree to this data collection. For more information, see the
