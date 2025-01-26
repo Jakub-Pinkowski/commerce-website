@@ -19,22 +19,7 @@ export default {
 				'tier-gold': '#ffd700', // Tier - Gold
 				'tier-platinum': '#415a77', // Tier - Platinum
 				'tier-diamond': '#48cae4' // Tier - Diamond
-
 			}
 		}
-	},
-	plugins: [require('daisyui')],
-	daisyui: {
-		logs: false,
-		themes: [
-			{
-				light: {
-					...require('daisyui/src/theming/themes')['light'],
-					primary: '#3f594b', // Dark Green
-					secondary: '#2a9d8f', // Light Green
-					accent: '#e9c46a' // Yellow
-				}
-			}
-		]
 	}
 };
