@@ -9,6 +9,7 @@
 	import type { Product } from '$lib/types/productTypes';
 	import InfoBanner from '$lib/components/Homepage/InfoBanner.svelte';
 	import PromoSection from '$lib/components/Homepage/PromoSection.svelte';
+	import PromoBanner from '$lib/components/Homepage/PromoBanner.svelte';
 
 	let { data }: { data: PageData } = $props();
 	const products = data?.products as Product[];
@@ -55,58 +56,34 @@
 	<div class="mb-8">
 		<RecommendationsCarousel products={saleProducts} title="Sale" />
 	</div>
-	<div class="flex justify-center">
-		<section
-			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
-			style="background-image: url({newImage});"
-		>
-			<div class="hero-overlay bg-opacity-60"></div>
-			<div class="hero-content text-neutral-content text-center">
-				<div class="max-w-md">
-					<h1 class="mb-5 text-5xl">New Collection</h1>
-					<p class="mb-5 text-xl">Checkout our brand new arrivals!</p>
-					<a href="/categories/new" class="btn btn-primary">Shop new</a>
-				</div>
-			</div>
-		</section>
-	</div>
+	<PromoBanner
+		image={newImage}
+		title="New Collection"
+		subTitle="Checkout our brand new arrivals!"
+		linkText="Shop new"
+		linkHref="/categories/new"
+	/>
 	<div class="mb-8">
 		<RecommendationsCarousel products={newProducts} title="New" />
 	</div>
 	<PromoSection />
-	<div class="flex justify-center">
-		<section
-			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
-			style="background-image: url({caps});"
-		>
-			<div class="hero-overlay bg-opacity-60"></div>
-			<div class="hero-content text-neutral-content text-center">
-				<div class="max-w-md">
-					<h1 class="mb-5 text-5xl">Caps</h1>
-					<p class="mb-5 text-xl">Checkout our collection of caps!</p>
-					<a href="/categories/new" class="btn btn-primary">Shop caps</a>
-				</div>
-			</div>
-		</section>
-	</div>
+	<PromoBanner
+		image={caps}
+		title="Caps"
+		subTitle="Checkout our collection of caps!"
+		linkText="Shop caps"
+		linkHref="/categories/caps"
+	/>
 	<div class="mb-8">
 		<RecommendationsCarousel products={capsProducts} title="Caps" />
 	</div>
-	<div class="flex justify-center">
-		<section
-			class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
-			style="background-image: url({bikes});"
-		>
-			<div class="hero-overlay bg-opacity-60"></div>
-			<div class="hero-content text-neutral-content text-center">
-				<div class="max-w-md">
-					<h1 class="mb-5 text-5xl">Bikes</h1>
-					<p class="mb-5 text-xl">Checkout our collection of bikes!</p>
-					<a href="/categories/new" class="btn btn-primary">Shop bikes</a>
-				</div>
-			</div>
-		</section>
-	</div>
+	<PromoBanner
+		image={bikes}
+		title="Bikes"
+		subTitle="Checkout our collection of bikes!"
+		linkText="Shop bikes"
+		linkHref="/categories/bikes"
+	/>
 	<div class="mb-8">
 		<RecommendationsCarousel products={bikesProducts} title="Bikes" />
 	</div>
