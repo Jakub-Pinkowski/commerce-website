@@ -13,7 +13,7 @@
 		description?: string;
 		linkText: string;
 		linkHref: string;
-	} = $props()
+	} = $props();
 </script>
 
 <section class="flex justify-center">
@@ -21,7 +21,10 @@
 		class="hero mx-[-1.5rem] w-screen md:mx-[-2rem] md:h-96"
 		style="background-image: url({image})"
 	>
-		<div class="hero-overlay bg-opacity-60"></div>
+		<div
+			class="hero-overlay"
+			style="background-color: oklch(32.1785% 0.02476 255.701624 / 0.6);"
+		></div>
 		<div class="hero-content text-neutral-content text-center">
 			<div class="max-w-md">
 				<h1 class="mb-5 text-5xl">{title}</h1>
