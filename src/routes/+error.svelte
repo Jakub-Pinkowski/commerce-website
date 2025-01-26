@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import desert from '$lib/assets/images/desert.webp';
 </script>
 
@@ -10,8 +10,8 @@
 	<div class="hero-overlay bg-opacity-60"></div>
 	<div class="hero-content text-neutral-content text-center">
 		<div class="max-w-2xl">
-			<h1 class="mb-8 text-5xl">Error {$page.status}: {$page.error?.message}</h1>
-			{#if $page.status === 404}
+			<h1 class="mb-8 text-5xl">Error {page.status}: {page.error?.message}</h1>
+			{#if page.status === 404}
 				<p class="mb-8 text-4xl">Looks like this page doesn't exist</p>
 			{:else}
 				<p class="mb-8 text-4xl">An error occurred</p>
