@@ -11,6 +11,7 @@
 
 	let { product }: { product: Product } = $props();
 
+	// TODO: Add a showToast function
 	let quantity = $state(1);
 	let isOpenAccordion1 = $state(false);
 	let isOpenAccordion2 = $state(false);
